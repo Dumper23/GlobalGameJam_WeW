@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class InteractionExample : IEInteractable
 {
+    public string msg;
     public override void Interaction()
     {
-        Debug.Log("Interacted!");
+        Debug.Log(msg);
     }
 }

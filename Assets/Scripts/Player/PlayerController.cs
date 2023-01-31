@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public float groundCheckDistance = 1f;
+    public float interactionRange = 0.5f;
     public Camera mainCamera;
     public LayerMask groundLayer;
+    public GameObject interactionSymbol;
 
     private float moveDirection = 0;
     private Rigidbody2D r2d;
-    private bool insideInteraction = false;
+
 
     BoxCollider2D mainCollider;
 
@@ -34,7 +37,7 @@ public class PlayerController : MonoBehaviour
         #region Movement
         //Move
         moveDirection = Mathf.Lerp(moveDirection, Input.GetAxis("Horizontal"), 0.03f);
-        if(moveDirection < 0.1f)
+        if (moveDirection < 0.1f)
         {
             r2d.velocity = new Vector2(0, r2d.velocity.y);
         }
@@ -43,11 +46,11 @@ public class PlayerController : MonoBehaviour
         {
             if (moveDirection > 0)
             {
-                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = false;
             }
-            else if(moveDirection < 0)
+            else if (moveDirection < 0)
             {
-                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                GetComponent<SpriteRenderer>().flipX = true;
             }
         }
 
@@ -60,17 +63,28 @@ public class PlayerController : MonoBehaviour
         r2d.velocity = new Vector2(moveDirection * movementSpeed, r2d.velocity.y);
         #endregion
 
-        if (Input.GetKeyDown(KeyCode.E))
+
+        Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, interactionRange);
+        List<IEInteractable> interactables = new List<IEInteractable>();
+        foreach (var collision in collisions)
         {
-            Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, 2);
-            foreach (var collision in collisions)
+            if (collision.GetComponent<IEInteractable>())
             {
-                IEInteractable interaction = collision.GetComponent<IEInteractable>();
-                if (interaction)
-                {
-                    interaction.Interaction();
-                }
+                interactables.Add(collision.GetComponent<IEInteractable>());
             }
+        }
+
+        foreach (var interaction in interactables)
+        {
+            interactionSymbol.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                interaction.Interaction();
+            }            
+        }
+        if(interactables.Count <= 0)
+        {
+            interactionSymbol.SetActive(false);
         }
     }
 
@@ -78,5 +92,10 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(mainCollider.bounds.center, Vector2.down, mainCollider.bounds.extents.y + groundCheckDistance, groundLayer);
         return hit.collider != null;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 }
