@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
     public Camera mainCamera;
     public LayerMask groundLayer;
     public GameObject interactionSymbol;
+    public Material outlineMaterial;
 
     private float moveDirection = 0;
     private Rigidbody2D r2d;
-
+    public List<IEInteractable> oldInteractables = new List<IEInteractable>();
+    public List<Material> oldMaterials = new List<Material>();
 
     BoxCollider2D mainCollider;
 
@@ -66,26 +68,53 @@ public class PlayerController : MonoBehaviour
 
         Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, interactionRange);
         List<IEInteractable> interactables = new List<IEInteractable>();
+
         foreach (var collision in collisions)
         {
             if (collision.GetComponent<IEInteractable>())
             {
                 interactables.Add(collision.GetComponent<IEInteractable>());
+                if (!oldInteractables.Contains(collision.GetComponent<IEInteractable>())) {
+                    oldInteractables.Add(collision.GetComponent<IEInteractable>());
+                }
+                if (!oldMaterials.Contains(collision.GetComponent<SpriteRenderer>().material) && !collision.GetComponent<SpriteRenderer>().material.name.Equals("outline (Instance)")) {
+                    oldMaterials.Add(collision.GetComponent<SpriteRenderer>().material);
+                }
             }
         }
 
         foreach (var interaction in interactables)
         {
             interactionSymbol.SetActive(true);
+            interaction.gameObject.GetComponent<SpriteRenderer>().material = outlineMaterial;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 interaction.Interaction();
-            }            
+            }
         }
+
+        for (int i = 0; i < oldInteractables.Count; i++)
+        {
+            if (!interactables.Contains(oldInteractables[i]))
+            {
+                oldInteractables[i].gameObject.GetComponent<SpriteRenderer>().material = oldMaterials[i];
+                if (oldInteractables[i] != null)
+                {
+                    oldInteractables.Remove(oldInteractables[i]);
+                }
+                if (oldMaterials[i] != null)
+                {
+                    oldMaterials.Remove(oldMaterials[i]);
+                }
+            }
+        }
+
         if(interactables.Count <= 0)
         {
             interactionSymbol.SetActive(false);
         }
+
+        
     }
 
     bool isGrounded()
