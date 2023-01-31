@@ -5,42 +5,38 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Move player in 2D space
-    public float maxSpeed = 3.4f;
+    public float movementSpeed = 4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
+    public float groundCheckDistance = 1f;
     public Camera mainCamera;
-
-    bool facingRight = true;
+    public LayerMask groundLayer;
     float moveDirection = 0;
-    bool isGrounded = false;
-    Vector3 cameraPos;
     Rigidbody2D r2d;
-    CapsuleCollider2D mainCollider;
-    Transform t;
+
+    BoxCollider2D mainCollider;
 
     // Use this for initialization
     void Start()
     {
-        t = transform;
         r2d = GetComponent<Rigidbody2D>();
-        mainCollider = GetComponent<CapsuleCollider2D>();
+        mainCollider = GetComponent<BoxCollider2D>();
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
-        facingRight = t.localScale.x > 0;
-
-        if (mainCamera)
-        {
-            cameraPos = mainCamera.transform.position;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
         // Movement controls
-        moveDirection = Input.GetAxis("Horizontal");
+        moveDirection = Mathf.Lerp(moveDirection, Input.GetAxis("Horizontal"), 0.03f);
+        Debug.Log(moveDirection);
 
+        if(moveDirection < 0.1f)
+        {
+            r2d.velocity = new Vector2(0, r2d.velocity.y);
+        }
 
         if (moveDirection != 0)
         {
@@ -55,44 +51,24 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode. Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            r2d.velocity = new Vector2(r2d.velocity.x * movementSpeed, jumpHeight);
         }
 
-        // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
-        }
+        r2d.velocity = new Vector2(moveDirection * movementSpeed, r2d.velocity.y);
+
     }
 
     void FixedUpdate()
     {
-        Bounds colliderBounds = mainCollider.bounds;
-        float colliderRadius = mainCollider.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
-        Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
-        // Check if player is grounded
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos, colliderRadius);
-        //Check if any of the overlapping colliders are not player collider, if so, set isGrounded to true
-        isGrounded = false;
-        if (colliders.Length > 0)
-        {
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                if (colliders[i] != mainCollider)
-                {
-                    isGrounded = true;
-                    break;
-                }
-            }
-        }
+        Debug.DrawRay(mainCollider.bounds.center, Vector2.down * (mainCollider.bounds.extents.y + groundCheckDistance));
+    }
 
-        // Apply movement velocity
-        r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
-
-        // Simple debug
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    bool isGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(mainCollider.bounds.center, Vector2.down, mainCollider.bounds.extents.y + groundCheckDistance, groundLayer);
+        
+        return hit.collider != null;
     }
 }
