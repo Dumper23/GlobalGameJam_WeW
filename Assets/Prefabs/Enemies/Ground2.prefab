@@ -46,14 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: slime
-  health: 10
-  damage: 2
+  maxHealth: 4
   speed: 8
-  attackRate: 2
   type: walk
-  level: 0
   waypoints: []
   waypointIndex: 0
+  currentHealth: 0
 --- !u!212 &6243143561903858947
 SpriteRenderer:
   m_ObjectHideFlags: 0

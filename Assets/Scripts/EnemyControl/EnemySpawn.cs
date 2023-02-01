@@ -57,6 +57,7 @@ public class EnemySpawn : MonoBehaviour
         GameObject enemy = getPooledObject(poolIndex);
         enemy.transform.position = transform.position;
         enemy.GetComponent<Enemy>().waypointIndex = 0;
+        enemy.GetComponent<Enemy>().currentHealth = enemy.GetComponent<Enemy>().maxHealth;
         enemy.SetActive(true);
     }
 

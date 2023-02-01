@@ -5,15 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public string id;
-    public int health;
-    public int damage;
+    public int maxHealth;
     public float speed;
-    public float attackRate;
     public string type; //flying, etc
-    public int level; //to know what turrets it can attack 
     public Transform[] waypoints;
 
     public int waypointIndex = 0;
+    public int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +30,7 @@ public class Enemy : MonoBehaviour
         //get waypoints from GameManager
         waypoints = GameManager.Instance.getWaypoints(type);
         transform.position = waypoints[0].position;
+        currentHealth = maxHealth;
     }
 
     void move()
@@ -51,5 +50,19 @@ public class Enemy : MonoBehaviour
 
             gameObject.SetActive(false); //Disappears when reaches the top of the tree
         }
+    }
+
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            die();
+        }
+    }
+
+    public void die()
+    {
+        gameObject.SetActive(false);
     }
 }

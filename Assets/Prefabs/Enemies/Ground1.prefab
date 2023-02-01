@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: chicken
-  health: 10
-  damage: 2
+  maxHealth: 6
   speed: 4
-  attackRate: 2
   type: walk
   waypoints: []
+  waypointIndex: 0
+  currentHealth: 0
 --- !u!212 &6243143561903858947
 SpriteRenderer:
   m_ObjectHideFlags: 0
