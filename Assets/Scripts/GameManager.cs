@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int currentDay = 1;
     public int currentFloor = 0;
+    public int unlockedFloors = 0;
 
     public static GameManager Instance { get; private set; }
 
@@ -29,6 +30,16 @@ public class GameManager : MonoBehaviour
     {
         return currentFloor;
 
+    }
+
+    public int getUnlockedFloors()
+    {
+        return unlockedFloors;
+    }
+
+    public void setUnlockedFloors(int unlockedFloors)
+    {
+        this.unlockedFloors = unlockedFloors;
     }
 
     public void setCurrentFloor(int floor)

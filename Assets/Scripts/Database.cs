@@ -215,8 +215,6 @@ public class Database : MonoBehaviour
     public static int[] PLAYER_INVENTORY = { 10, 20, 30 };
     public static int[] PLAYER_CAPACITY = { 10, 20, 30 };
     public static int[] PLAYER_LIFT = { 10 };
-    #endregion
-
-
+    #endregion 
 
 }

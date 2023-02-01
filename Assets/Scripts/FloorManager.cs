@@ -8,8 +8,6 @@ public class FloorManager : MonoBehaviour
     public List<GameObject> liftDoors = new List<GameObject>();
 
     private PlayerController player;
-    private int unlockedFloors;
-    private int currentPlayerFloor;
 
     public static FloorManager Instance { get; private set; }
     private void Awake()
@@ -26,29 +24,26 @@ public class FloorManager : MonoBehaviour
 
     private void Start()
     {
-        //Set the parameters "pisos" and "current"
-        //unlockedFloors = GameManager.Instance.;
-        currentPlayerFloor = 0;
         player = FindObjectOfType<PlayerController>();
     }
 
     public void floorUp()
     {
-        if(currentPlayerFloor < unlockedFloors - 1)
+        if(GameManager.Instance.getCurrentFloor() < GameManager.Instance.getUnlockedFloors() - 1)
         {
             //TP player to the upper level after an animation
-            currentPlayerFloor++;
-            player.transform.position = liftDoors[currentPlayerFloor].transform.position;
+            GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() + 1);
+            player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
         }
     }
 
     public void floorDown()
     {
-        if (currentPlayerFloor > 0)
+        if (GameManager.Instance.getCurrentFloor() > 0)
         {
             //TP player to the lower level after an animation
-            currentPlayerFloor--;
-            player.transform.position = liftDoors[currentPlayerFloor].transform.position;
+            GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() - 1);
+            player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
         }
     }
 }
