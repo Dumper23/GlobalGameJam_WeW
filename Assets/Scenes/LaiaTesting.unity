@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99137343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.87, y: -9.68, z: 0}
+  m_LocalPosition: {x: -20.87, y: -7.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128274875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.8, y: 0, z: 0}
+  m_LocalPosition: {x: -25.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -484,7 +484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203651765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.69, y: -10.1, z: 0}
+  m_LocalPosition: {x: -26.75, y: -8.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -673,7 +673,12 @@ MonoBehaviour:
   - {fileID: 1306381335}
   - {fileID: 120370272}
   - {fileID: 2104829126}
-  playerHP: 4
+  playerHP: 1000000
+  currentDay: 1
+  enemySpawns:
+  - {fileID: 1332339896}
+  - {fileID: 1810119664}
+  isDay: 0
 --- !u!4 &512789716
 Transform:
   m_ObjectHideFlags: 0
@@ -782,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607884374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.8, y: 1, z: 0}
+  m_LocalPosition: {x: -21.08, y: 1.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82117,7 +82122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960017869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 9, z: -29.39}
+  m_LocalPosition: {x: -2.5, y: 9, z: -29.45}
   m_LocalScale: {x: 2.7943397, y: 2.7943397, z: 2.7943397}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82568,7 +82573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332339893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.55, y: -6.51, z: -0.58869386}
+  m_LocalPosition: {x: -27.55, y: -5.13, z: -0.58869386}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82588,14 +82593,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - objectToPool: {fileID: 6243143561903858949, guid: 48078d602e327c049a684c0f86482f83, type: 3}
-    amountToPool: 5
-    spawnRate: 2
+  - enemyId: ant
+    objectToPool: {fileID: 6243143561903858949, guid: 48078d602e327c049a684c0f86482f83, type: 3}
+    amountToPool: 10
     pooledObjects: []
-  - objectToPool: {fileID: 6243143561903858949, guid: b6909b4e62ec433468f72e361df112dd, type: 3}
-    amountToPool: 3
-    spawnRate: 4
+  - enemyId: flea
+    objectToPool: {fileID: 6243143561903858949, guid: b6909b4e62ec433468f72e361df112dd, type: 3}
+    amountToPool: 10
     pooledObjects: []
+  - enemyId: beetle
+    objectToPool: {fileID: 6243143561903858949, guid: cdcc6f8e3d4744347b46ad260413fa73, type: 3}
+    amountToPool: 10
+    pooledObjects: []
+  id: walk
+  area: 0
 --- !u!1 &1425390975
 GameObject:
   m_ObjectHideFlags: 0
@@ -87553,10 +87564,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - objectToPool: {fileID: 6243143561903858949, guid: 4d58763ba3eee1647a05d13c13660429, type: 3}
-    amountToPool: 6
-    spawnRate: 5
+  - enemyId: fly
+    objectToPool: {fileID: 6243143561903858949, guid: 4d58763ba3eee1647a05d13c13660429, type: 3}
+    amountToPool: 10
     pooledObjects: []
+  - enemyId: wasp
+    objectToPool: {fileID: 6243143561903858949, guid: 262239ffebf93d349a3f68b7f5e79d1f, type: 3}
+    amountToPool: 10
+    pooledObjects: []
+  id: fly
+  area: 0
 --- !u!212 &1810119665
 SpriteRenderer:
   m_ObjectHideFlags: 0

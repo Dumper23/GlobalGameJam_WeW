@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 6243143561903858947}
   m_Layer: 0
-  m_Name: Ground2
+  m_Name: beetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9335664eb73334c913075aba2a6235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: slime
+  id: beetle
   maxHealth: 4
   speed: 8
   type: walk
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: -865005059, guid: bf80a9e27b0ce0d428955fc1be1fa19b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21605381, g: 0.8018868, b: 0.010590916, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
