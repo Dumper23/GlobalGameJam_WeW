@@ -15,13 +15,25 @@ public class PlayerController : MonoBehaviour
     public GameObject interactionSymbolE;
     public GameObject interactionSymbolWS;
     public Material outlineMaterial;
-
-    private float moveDirection = 0;
-    private Rigidbody2D r2d;
     public List<IEInteractable> oldInteractables = new List<IEInteractable>();
     public List<Material> oldMaterials = new List<Material>();
+    public string currentState;
+    public AudioClip[] audios;
 
-    BoxCollider2D mainCollider;
+    private Animator animator;
+    private float moveDirection = 0;
+    private Rigidbody2D r2d;
+    private BoxCollider2D mainCollider;
+    private AudioSource audio;
+    
+
+    private static string PLAYER_WALK = "walk";
+    private static string PLAYER_IDLE = "idle";
+
+    private static string AUDIO_WALK = null;
+    private static string AUDIO_JUMP = null;
+    private static string AUDIO_INTERACT = null;
+    private static string AUDIO_FLOOR_CHANGE = null;
 
     // Use this for initialization
     void Start()
@@ -31,6 +43,8 @@ public class PlayerController : MonoBehaviour
         r2d.freezeRotation = true;
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
+        animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,13 +53,19 @@ public class PlayerController : MonoBehaviour
         #region Movement
         //Move
         moveDirection = Mathf.Lerp(moveDirection, Input.GetAxis("Horizontal"), 0.03f);
-        if (moveDirection < 0.1f)
+        if (Mathf.Abs(moveDirection) < 0.1f)
         {
+            changeAnimationState(PLAYER_IDLE);
             r2d.velocity = new Vector2(0, r2d.velocity.y);
+        }
+        else
+        {
+            changeAnimationState(PLAYER_WALK);
         }
 
         if (moveDirection != 0)
         {
+            
             if (moveDirection > 0)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
@@ -138,6 +158,14 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(mainCollider.bounds.center, Vector2.down, mainCollider.bounds.extents.y + groundCheckDistance, groundLayer);
         return hit.collider != null;
+    }
+
+    //Animator state machine
+    private void changeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+        animator.Play(newState);
+        currentState = newState;
     }
 
     private void OnDrawGizmosSelected()
