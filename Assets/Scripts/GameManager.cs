@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Transform[] waypoints;
+    public Transform[] enemyGroundWaypoints;
+    public Transform[] enemyAirWaypoints;
+    public int playerHP;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +33,30 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Transform[] getWaypoints(string type)
+    {
+        Transform[] waypoints = null;
+        switch (type)
+        {
+            case "walk":
+                waypoints = enemyGroundWaypoints;
+                break;
+            case "fly":
+                waypoints = enemyAirWaypoints;
+                break;
+        }
+        return waypoints;
+    }
+
+    public void removePlayerHP()
+    {
+        playerHP--;
+        if(playerHP <= 0)
+        {
+            //gameOver
+            Debug.Log("game over :(");
+        }
     }
 }

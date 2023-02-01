@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 6243143561903858947}
   m_Layer: 0
-  m_Name: BasicEnemy
+  m_Name: Ground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   damage: 2
   speed: 4
   attackRate: 2
-  type: 
+  type: walk
   waypoints: []
 --- !u!212 &6243143561903858947
 SpriteRenderer:
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -291837506, guid: b0c9b08cfd92e6c41b5ca600fc0b8308, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -10,9 +10,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float attackRate;
     public string type; //flying, etc
+    public int level; //to know what turrets it can attack 
     public Transform[] waypoints;
 
-    private int waypointIndex = 0;
+    public int waypointIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,8 @@ public class Enemy : MonoBehaviour
     void initialize()
     {
         //get waypoints from GameManager
-        waypoints = GameManager.Instance.waypoints;
-        transform.position = waypoints[waypointIndex].position;
+        waypoints = GameManager.Instance.getWaypoints(type);
+        transform.position = waypoints[0].position;
     }
 
     void move()
@@ -41,8 +42,14 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
 
-        if (transform.position == waypoints[waypointIndex].transform.position) waypointIndex += 1;
+        if(Vector3.Distance(transform.position, waypoints[waypointIndex].transform.position) < 0.5) waypointIndex += 1;
 
-        if (waypointIndex == waypoints.Length) waypointIndex = 0;
+        if (waypointIndex == waypoints.Length)
+        {
+            //Remove one life from the player
+            GameManager.Instance.removePlayerHP();
+
+            gameObject.SetActive(false); //Disappears when reaches the top of the tree
+        }
     }
 }
