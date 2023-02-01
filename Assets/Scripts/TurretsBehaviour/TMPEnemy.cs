@@ -15,4 +15,9 @@ public class TMPEnemy : MonoBehaviour
     {
         transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 2);
     }
+
+    public void Damage(int damage)
+    {
+        Debug.Log("-" + damage + " Damage");
+    }
 }

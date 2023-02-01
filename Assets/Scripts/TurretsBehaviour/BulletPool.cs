@@ -13,13 +13,27 @@ public class BulletPool : MonoBehaviour
 
     private List<GameObject> seeds;
     #endregion
-
+    /*
     #region Resin
     [SerializeField]
     private GameObject resinBullet;
     private bool notEnoughResinsInPool = true;
 
     private List<GameObject> resins;
+    #endregion*/
+    #region Seedsniper
+    [SerializeField]
+    private GameObject seedniperBullet;
+    private bool notEnoughSeedsniperInPool = true;
+
+    private List<GameObject> seedsniper;
+    #endregion
+    #region Seedsniper
+    [SerializeField]
+    private GameObject pineconeBullet;
+    private bool notEnoughPineconesInPool = true;
+
+    private List<GameObject> pinecones;
     #endregion
 
     private void Awake()
@@ -31,6 +45,8 @@ public class BulletPool : MonoBehaviour
     void Start()
     {
         seeds = new List<GameObject>();
+        seedsniper = new List<GameObject>();
+        pinecones = new List<GameObject>();
     }
 
     public GameObject GetSeed()
@@ -56,7 +72,7 @@ public class BulletPool : MonoBehaviour
 
         return null;
     }
-
+    /*
     public GameObject GetResin()
     {
         if (resins.Count > 0)
@@ -75,6 +91,52 @@ public class BulletPool : MonoBehaviour
             GameObject bul = Instantiate(resinBullet);
             bul.SetActive(false);
             resins.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }*/
+    public GameObject GetSeedniper()
+    {
+        if (seedsniper.Count > 0)
+        {
+            for (int i = 0; i < seedsniper.Count; i++)
+            {
+                if (!seedsniper[i].activeInHierarchy)
+                {
+                    return seedsniper[i];
+                }
+            }
+        }
+
+        if (notEnoughSeedsniperInPool)
+        {
+            GameObject bul = Instantiate(seedniperBullet);
+            bul.SetActive(false);
+            seedsniper.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+    public GameObject GetPinecone()
+    {
+        if (pinecones.Count > 0)
+        {
+            for (int i = 0; i < pinecones.Count; i++)
+            {
+                if (!pinecones[i].activeInHierarchy)
+                {
+                    return pinecones[i];
+                }
+            }
+        }
+
+        if (notEnoughPineconesInPool)
+        {
+            GameObject bul = Instantiate(pineconeBullet);
+            bul.SetActive(false);
+            pinecones.Add(bul);
             return bul;
         }
 
