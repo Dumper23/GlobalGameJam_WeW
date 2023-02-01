@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigun : TurretsFather
+public class SeedTurret : TurretsFather
 {
 
     void Start()
     {
-        ammunituion = 5;
+        //ammunituion = 5;
+        //damage = 10;
     }
 
     void Update()
@@ -24,6 +25,7 @@ public class Minigun : TurretsFather
 
         bul.SetActive(true);
         bul.GetComponent<SeedBullet>().SetTarget(base.currentTarget.transform);
+        bul.GetComponent<SeedBullet>().SetDamage(base.damage);
         ammunituion--;
     }
 }
