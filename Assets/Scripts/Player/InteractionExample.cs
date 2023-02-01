@@ -5,8 +5,11 @@ using UnityEngine;
 public class InteractionExample : IEInteractable
 {
     public string msg;
-    public override void Interaction()
+    public override void Interaction(string action)
     {
-        Debug.Log(msg);
+        if (action.Equals(""))
+        {
+            Debug.Log(msg);
+        }
     }
 }
