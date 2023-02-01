@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class FloorManager : MonoBehaviour
 {
+    [Header("Set the floors in ascendent order (0 = 1st floor, 1  = 2nd floor, 2 = 3rd floor, ...)")]
+    public List<GameObject> liftDoors = new List<GameObject>();
+
+    private PlayerController player;
+    private int unlockedFloors;
+    private int currentPlayerFloor;
+
     public static FloorManager Instance { get; private set; }
     private void Awake()
     {
@@ -15,16 +22,13 @@ public class FloorManager : MonoBehaviour
         Instance = this;
     }
 
-    //Agafem els pisos que hi ha desbloquejats a la BBDD
-    private int unlockedFloors = 4; //Mock
-    private int currentPlayerFloor = 1; //Mock, hauria d'estar en el game manager
-    [Header("Set the floors in ascendent order (0 = 1st floor, 1  = 2nd floor, 2 = 3rd floor, ...)")]
-    public List<GameObject> liftDoors = new List<GameObject>();
-    private PlayerController player;
+    
 
     private void Start()
     {
         //Set the parameters "pisos" and "current"
+        //unlockedFloors = GameManager.Instance.;
+        currentPlayerFloor = 0;
         player = FindObjectOfType<PlayerController>();
     }
 

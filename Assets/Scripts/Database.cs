@@ -107,8 +107,8 @@ public class Database : MonoBehaviour
     public static float[] MACHINE_SEED_SPEED = { 10, 20, 30 };
 
     public static int MACHINE_SEED_LEVEL = 0;
-    public static int MACHINE_SEED_CAPACITY = 0;
-    public static int MACHINE_SEED_CHEST = 0;
+    public static int[] MACHINE_SEED_CAPACITY = { 10, 20, 30 };
+    public static int[] MACHINE_SEED_CHEST = { 10, 20, 30 };
     #endregion
 
     #region RESIN_SPIT
@@ -118,8 +118,8 @@ public class Database : MonoBehaviour
     public static int[] RESIN_SPIT_STICKNESS = { 10, 20 };
 
     public static int RESIN_SPIT_LEVEL = 0;
-    public static int RESIN_SPIT_CAPACITY = 0;
-    public static int RESIN_SPIT_CHEST = 0;
+    public static int[] RESIN_SPIT_CAPACITY = { 10, 20, 30 };
+    public static int[] RESIN_SPIT_CHEST = { 10, 20, 30 };
     #endregion
 
     #region S_SEEDNIPER
@@ -128,8 +128,8 @@ public class Database : MonoBehaviour
     public static int[] S_SEEDNIPER_RICOCHET = { 10 };
 
     public static int S_SEEDNIPER_LEVEL = 0;
-    public static int S_SEEDNIPER_CAPACITY = 0;
-    public static int S_SEEDNIPER_CHEST = 0;
+    public static int[] S_SEEDNIPER_CAPACITY = { 10, 20, 30 };
+    public static int[] S_SEEDNIPER_CHEST = { 10, 20, 30 };
     #endregion
 
     #region PINECONE_LAUNCHER
@@ -141,8 +141,8 @@ public class Database : MonoBehaviour
     public static int[] PINECONE_LAUNCHER_CLUSTER = { 10 };
 
     public static int PINECONE_LAUNCHER_LEVEL = 0;
-    public static int PINECONE_LAUNCHER_CAPACITY = 0;
-    public static int PINECONE_LAUNCHER_CHEST = 0;
+    public static int[] PINECONE_LAUNCHER_CAPACITY = { 10, 20, 30 };
+    public static int[] PINECONE_LAUNCHER_CHEST = { 10, 20, 30 };
     #endregion
 
     #region PHOTOSYNTHETIC_LASER
@@ -151,8 +151,8 @@ public class Database : MonoBehaviour
     public static int[] PHOTOSYNTHETIC_LASER_OBJETIVOS = { 10, 20 };
 
     public static int PHOTOSYNTHETIC_LASER_LEVEL = 0;
-    public static int PHOTOSYNTHETIC_LASER_CAPACITY = 0;
-    public static int PHOTOSYNTHETIC_LASER_CHEST = 0;
+    public static int[] PHOTOSYNTHETIC_LASER_CAPACITY = { 10, 20, 30 };
+    public static int[] PHOTOSYNTHETIC_LASER_CHEST = { 10, 20, 30 };
     #endregion
 
     #region NUT_ROLL
@@ -162,8 +162,8 @@ public class Database : MonoBehaviour
     public static int[] NUT_ROLL_HITS = { 10 };
 
     public static int NUT_ROLL_LEVEL = 0;
-    public static int NUT_ROLL_CAPACITY = 0;
-    public static int NUT_ROLL_CHEST = 0;
+    public static int[] NUT_ROLL_CAPACITY = { 10, 20, 30 };
+    public static int[] NUT_ROLL_CHEST = { 10, 20, 30 };
     #endregion
 
     #region CARNIVOROUS
@@ -173,8 +173,8 @@ public class Database : MonoBehaviour
     public static int[] CARNIVOROUS_HEADS = { 10 };
 
     public static int CARNIVOROUS_LEVEL = 0;
-    public static int CARNIVOROUS_CAPACITY = 0;
-    public static int CARNIVOROUS_CHEST = 0;
+    public static int[] CARNIVOROUS_CAPACITY = { 10, 20, 30 };
+    public static int[] CARNIVOROUS_CHEST = { 10, 20, 30 };
     #endregion
 
     #region PORCUTHROW
@@ -183,8 +183,8 @@ public class Database : MonoBehaviour
     public static int[] PORCUTHROW_PIERCING = { 10 };
 
     public static int PORCUTHROW_LEVEL = 0;
-    public static int PORCUTHROW_CAPACITY = 0;
-    public static int PORCUTHROW_CHEST = 0;
+    public static int[] PORCUTHROW_CAPACITY = { 10, 20, 30 };
+    public static int[] PORCUTHROW_CHEST = { 10, 20, 30 };
     #endregion
 
     #region ELECTRIC_POTATO
@@ -194,8 +194,8 @@ public class Database : MonoBehaviour
     public static int[] ELECTRIC_POTATO_STUN = { 10, 20 };
 
     public static int ELECTRIC_POTATO_LEVEL = 0;
-    public static int ELECTRIC_POTATO_CAPACITY = 0;
-    public static int ELECTRIC_POTATO_CHEST = 0;
+    public static int[] ELECTRIC_POTATO_CAPACITY = { 10, 20, 30 };
+    public static int[] ELECTRIC_POTATO_CHEST = { 10, 20, 30 };
     #endregion
 
     #region FLAMEPEPPET
@@ -204,8 +204,8 @@ public class Database : MonoBehaviour
     public static int[] FLAMEPEPPET_DAMAGE = { 10, 20, 30 };
 
     public static int FLAMEPEPPET_LEVEL = 0;
-    public static int FLAMEPEPPET_CAPACITY = 0;
-    public static int FLAMEPEPPET_CHEST = 0;
+    public static int[] FLAMEPEPPET_CAPACITY = { 10, 20, 30 };
+    public static int[] FLAMEPEPPET_CHEST = { 10, 20, 30 };
     #endregion
 
     #endregion
