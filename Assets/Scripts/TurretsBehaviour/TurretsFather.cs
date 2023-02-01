@@ -4,15 +4,15 @@ using UnityEngine;
 
 public abstract class TurretsFather : MonoBehaviour
 {
-    //private bool inRange;
-    //private bool hasAmmo;
-    //protected bool hasAmmo;
-    //protected bool inRange;
-    [SerializeField]
-    protected float rangeAttack, fireRate;
-    private float lastShot;
 
-    protected int ammunituion;
+    #region traits
+    [SerializeField]//TMP XQ EXTERN
+    protected float rangeAttack, fireRate;
+    [SerializeField]//TMP XQ EXTERN
+    protected int ammunituion, damage, maxAmmo;
+    #endregion
+
+    protected float lastShot = 0;
 
     protected GameObject currentTarget;
 
@@ -24,6 +24,9 @@ public abstract class TurretsFather : MonoBehaviour
 
     [SerializeField]
     private GameObject mobilePart;
+
+    [SerializeField]//TMP
+    private Transform endWayPoint;
 
     // Start is called before the first frame update
     protected void Start()
@@ -45,7 +48,6 @@ public abstract class TurretsFather : MonoBehaviour
                 FaceObjective();
                 if (CanShoot())
                 {
-
                     Shoot();
                 }
                 else
@@ -61,8 +63,10 @@ public abstract class TurretsFather : MonoBehaviour
         else
         {
             //desactivada
+            mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
+            //LerpValues.Lerp();
+            //Quaternion.Slerp(mobilePart.transform.rotation, Quaternion.identity, Time.deltaTime / 10);
         }
-        DetectObjective();
     }
 
     public void SetEnemyList(List<GameObject> newEnemyList)
@@ -70,9 +74,33 @@ public abstract class TurretsFather : MonoBehaviour
         enemyList = new List<GameObject>(newEnemyList);
     }
 
+    public void SetEndWaypoint(Transform end)
+    {
+        endWayPoint = end;
+    }
+
+    public virtual void SetTraits(float newRangeAttack, float newFireRate, int newmaxAmmo, int newDamage, float durationResin = 0)
+    {
+        rangeAttack = newRangeAttack;
+        fireRate = newFireRate;
+        maxAmmo = newmaxAmmo;
+        damage = newDamage;
+    }
+
     protected bool HasAmmo()
     {
         return (ammunituion > 0) ;
+    }
+
+    public void GiveAmmo(int ammo)
+    {
+        ammunituion += ammo;
+    }
+
+    public void PlaceTurret()
+    {
+        ammunituion = 0;
+        //check lvls
     }
 
     private bool CanShoot()
@@ -98,12 +126,14 @@ public abstract class TurretsFather : MonoBehaviour
 
         foreach (GameObject o in enemyList)
         {
-            if (IsInRange(o)) {
-                //TMP DESDE LA TORRETA
-                if (closestDistance > Vector2.Distance(transform.position, o.transform.position))
-                {
-                    closestDistance = Vector2.Distance(transform.position, o.transform.position);
-                    closestPos = posIterator;
+            if (o != null && o.activeInHierarchy) {
+                if (IsInRange(o)) {
+
+                    if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                    {
+                        closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                        closestPos = posIterator;
+                    }
                 }
             }
             posIterator++;
