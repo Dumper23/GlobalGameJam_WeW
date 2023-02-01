@@ -103,109 +103,79 @@ public class Database : MonoBehaviour
     #region TURRET ATTRIBUTES
 
     #region MACHINE_SEED
-    public static int[] MACHINE_SEED_DAMAGE = { 10, 20, 30 };
-    public static float[] MACHINE_SEED_SPEED = { 10, 20, 30 };
+    public static int[] MACHINE_SEED_DAMAGE = { 35, 40, 50 };
+    public static float[] MACHINE_SEED_SPEED = { 0.7f, 0.5f, 0.3f };
 
     public static int MACHINE_SEED_LEVEL = 0;
-    public static int[] MACHINE_SEED_CAPACITY = { 10, 20, 30 };
-    public static int[] MACHINE_SEED_CHEST = { 10, 20, 30 };
+    public static int[] MACHINE_SEED_CAPACITY = { 75, 100, 200 };
+    public static int[] MACHINE_SEED_CHEST = { 50, 75, 100 };
     #endregion
 
     #region RESIN_SPIT
-    public static int[] RESIN_SPIT_DAMAGE = { 10 };
-    public static float[] RESIN_SPIT_SPEED = { 10 };
-    public static float[] RESIN_SPIT_DURATION = { 10, 20 };
-    public static int[] RESIN_SPIT_STICKNESS = { 10, 20 };
+    public static int[] RESIN_SPIT_DAMAGE = { 5 };
+    public static float[] RESIN_SPIT_SPEED = { 6 };
+    public static float[] RESIN_SPIT_DURATION = { 3, 4 };
+    public static int[] RESIN_SPIT_STICKNESS = { 0.6f };
+    public static float[] RESIN_SPIT_LONG = { 1.6f };
 
     public static int RESIN_SPIT_LEVEL = 0;
-    public static int[] RESIN_SPIT_CAPACITY = { 10, 20, 30 };
-    public static int[] RESIN_SPIT_CHEST = { 10, 20, 30 };
+    public static int[] RESIN_SPIT_CAPACITY = { 50, 75, 100 };
+    public static int[] RESIN_SPIT_CHEST = { 30, 50, 75 };
     #endregion
 
     #region S_SEEDNIPER
-    public static int[] S_SEEDNIPER_DAMAGE = { 10, 20 };
-    public static float[] S_SEEDNIPER_SPEED = { 10, 20, 30 };
-    public static int[] S_SEEDNIPER_RICOCHET = { 10 };
+    public static int[] S_SEEDNIPER_DAMAGE = { 90, 110 };
+    public static float[] S_SEEDNIPER_SPEED = { 1.3f, 1, 0.8f };
+    public static int[] S_SEEDNIPER_RICOCHET = { 1 };
 
     public static int S_SEEDNIPER_LEVEL = 0;
-    public static int[] S_SEEDNIPER_CAPACITY = { 10, 20, 30 };
-    public static int[] S_SEEDNIPER_CHEST = { 10, 20, 30 };
+    public static int[] S_SEEDNIPER_CAPACITY = { 35, 45, 90 };
+    public static int[] S_SEEDNIPER_CHEST = { 20, 35, 45 };
     #endregion
 
     #region PINECONE_LAUNCHER
     public static int[] PINECONE_LAUNCHER_AREA = { 10 };
-    public static int[] PINECONE_LAUNCHER_DAMAGE = { 10 };
-    public static float[] PINECONE_LAUNCHER_SPEED = { 10 };
+    public static int[] PINECONE_LAUNCHER_DAMAGE = { 60, 90 };
+    public static float[] PINECONE_LAUNCHER_SPEED = { 2 };
     public static float[] PINECONE_LAUNCHER_RANGE = { 10 };
-    public static int[] PINECONE_LAUNCHER_DAMAGE_STUN = { 10 };
-    public static int[] PINECONE_LAUNCHER_CLUSTER = { 10 };
+    public static int[] PINECONE_LAUNCHER_DAMAGE_STUN = { 1 };
+    public static int[] PINECONE_LAUNCHER_CLUSTER = { 1 };
 
     public static int PINECONE_LAUNCHER_LEVEL = 0;
-    public static int[] PINECONE_LAUNCHER_CAPACITY = { 10, 20, 30 };
-    public static int[] PINECONE_LAUNCHER_CHEST = { 10, 20, 30 };
-    #endregion
-
-    #region PHOTOSYNTHETIC_LASER
-    public static int[] PHOTOSYNTHETIC_LASER_DAMAGE = { 10, 20 };
-    public static float[] PHOTOSYNTHETIC_LASER_RANGO = { 10, 20 };
-    public static int[] PHOTOSYNTHETIC_LASER_OBJETIVOS = { 10, 20 };
-
-    public static int PHOTOSYNTHETIC_LASER_LEVEL = 0;
-    public static int[] PHOTOSYNTHETIC_LASER_CAPACITY = { 10, 20, 30 };
-    public static int[] PHOTOSYNTHETIC_LASER_CHEST = { 10, 20, 30 };
+    public static int[] PINECONE_LAUNCHER_CAPACITY = { 50, 75, 100 };
+    public static int[] PINECONE_LAUNCHER_CHEST = { 30, 50, 75 };
     #endregion
 
     #region NUT_ROLL
-    public static int[] NUT_ROLL_DAMAGE = { 10, 20 };
-    public static float[] NUT_ROLL_SPEED = { 10, 20 };
-    public static int[] NUT_ROLL_EXTRA = { 10 };
-    public static int[] NUT_ROLL_HITS = { 10 };
+    public static int[] NUT_ROLL_DAMAGE = { 20, 30 };
+    public static float[] NUT_ROLL_SPEED = { 10, 8 };
+    public static int[] NUT_ROLL_EXTRA = { 1 };
+    public static int[] NUT_ROLL_HITS = { 20 };
 
     public static int NUT_ROLL_LEVEL = 0;
-    public static int[] NUT_ROLL_CAPACITY = { 10, 20, 30 };
-    public static int[] NUT_ROLL_CHEST = { 10, 20, 30 };
-    #endregion
-
-    #region CARNIVOROUS
-    public static int[] CARNIVOROUS_SALIVA = { 10 };
-    public static int[] CARNIVOROUS_DAMAGE = { 10 };
-    public static float[] CARNIVOROUS_SPEED = { 10, 20, 30 };
-    public static int[] CARNIVOROUS_HEADS = { 10 };
-
-    public static int CARNIVOROUS_LEVEL = 0;
-    public static int[] CARNIVOROUS_CAPACITY = { 10, 20, 30 };
-    public static int[] CARNIVOROUS_CHEST = { 10, 20, 30 };
+    public static int[] NUT_ROLL_CAPACITY = { 30, 50, 70 };
+    public static int[] NUT_ROLL_CHEST = { 20, 30, 50 };
     #endregion
 
     #region PORCUTHROW
-    public static int[] PORCUTHROW_PROJECTILES = { 10, 20, 30 };
-    public static float[] PORCUTHROW_SPEED = { 10, 20 };
-    public static int[] PORCUTHROW_PIERCING = { 10 };
+    public static int[] PORCUTHROW_PROJECTILES = { 5, 8, 12 };
+    public static float[] PORCUTHROW_SPEED = { 2.75f };
+    public static int[] PORCUTHROW_PIERCING = { 1 };
 
     public static int PORCUTHROW_LEVEL = 0;
-    public static int[] PORCUTHROW_CAPACITY = { 10, 20, 30 };
-    public static int[] PORCUTHROW_CHEST = { 10, 20, 30 };
+    public static int[] PORCUTHROW_CAPACITY = { 75, 100, 200 };
+    public static int[] PORCUTHROW_CHEST = { 50, 75, 100 };
     #endregion
 
     #region ELECTRIC_POTATO
-    public static int[] ELECTRIC_POTATO_RAY = { 10, 20 };
-    public static int[] ELECTRIC_POTATO_DAMAGE = { 10 };
-    public static float[] ELECTRIC_POTATO_SPEED = { 10 };
-    public static int[] ELECTRIC_POTATO_STUN = { 10, 20 };
+    public static int[] ELECTRIC_POTATO_RAY = { 10, 15 };
+    public static int[] ELECTRIC_POTATO_DAMAGE = { 20 };
+    public static float[] ELECTRIC_POTATO_SPEED = { 5 };
+    public static int[] ELECTRIC_POTATO_STUN = { 2, 2.5f };
 
     public static int ELECTRIC_POTATO_LEVEL = 0;
-    public static int[] ELECTRIC_POTATO_CAPACITY = { 10, 20, 30 };
-    public static int[] ELECTRIC_POTATO_CHEST = { 10, 20, 30 };
-    #endregion
-
-    #region FLAMEPEPPET
-    public static int[] FLAMEPEPPET_CONE = { 10, 20 };
-    public static int[] FLAMEPEPPET_RANGO = { 10 };
-    public static int[] FLAMEPEPPET_DAMAGE = { 10, 20, 30 };
-
-    public static int FLAMEPEPPET_LEVEL = 0;
-    public static int[] FLAMEPEPPET_CAPACITY = { 10, 20, 30 };
-    public static int[] FLAMEPEPPET_CHEST = { 10, 20, 30 };
+    public static int[] ELECTRIC_POTATO_CAPACITY = { 50, 75, 100 };
+    public static int[] ELECTRIC_POTATO_CHEST = { 30, 50, 75 };
     #endregion
 
     #endregion
