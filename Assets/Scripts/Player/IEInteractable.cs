@@ -6,6 +6,7 @@ public abstract class IEInteractable: MonoBehaviour
 {
     protected bool alredyInteracted = false;
     protected float cooldown = 0f;
-    public abstract void Interaction();
+    public string iconName;
+    public abstract void Interaction(string action = "");
   
 }

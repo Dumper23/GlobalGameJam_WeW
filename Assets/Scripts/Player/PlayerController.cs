@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 1.5f;
     public float groundCheckDistance = 1f;
     public float interactionRange = 0.5f;
-    public Camera mainCamera;
     public LayerMask groundLayer;
-    public GameObject interactionSymbol;
+    public GameObject interactionSymbolE;
+    public GameObject interactionSymbolWS;
     public Material outlineMaterial;
 
     private float moveDirection = 0;
@@ -85,11 +85,29 @@ public class PlayerController : MonoBehaviour
 
         foreach (var interaction in interactables)
         {
-            interactionSymbol.SetActive(true);
+            if (interaction.iconName == "E")
+            {
+                interactionSymbolE.SetActive(true);
+                interactionSymbolWS.SetActive(false);
+            }
+            else if (interaction.iconName == "WS")
+            {
+                interactionSymbolE.SetActive(false);
+                interactionSymbolWS.SetActive(true);
+            }
+
             interaction.gameObject.GetComponent<SpriteRenderer>().material = outlineMaterial;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 interaction.Interaction();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                interaction.Interaction("up");
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                interaction.Interaction("down");
             }
         }
 
@@ -111,10 +129,9 @@ public class PlayerController : MonoBehaviour
 
         if(interactables.Count <= 0)
         {
-            interactionSymbol.SetActive(false);
+            interactionSymbolE.SetActive(false);
+            interactionSymbolWS.SetActive(false);
         }
-
-        
     }
 
     bool isGrounded()
