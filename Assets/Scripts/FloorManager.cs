@@ -16,7 +16,7 @@ public class FloorManager : MonoBehaviour
     }
 
     //Agafem els pisos que hi ha desbloquejats a la BBDD
-    private int unlockedFloors = 3; //Mock
+    private int unlockedFloors = 4; //Mock
     private int currentPlayerFloor = 1; //Mock, hauria d'estar en el game manager
     [Header("Set the floors in ascendent order (0 = 1st floor, 1  = 2nd floor, 2 = 3rd floor, ...)")]
     public List<GameObject> liftDoors = new List<GameObject>();
