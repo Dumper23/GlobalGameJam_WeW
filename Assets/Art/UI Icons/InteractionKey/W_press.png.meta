@@ -38,7 +38,11 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
+<<<<<<<< HEAD:Assets/Art/UI Icons/InteractionKey/W_press.png.meta
     wrapW: 1
+========
+    wrapW: 0
+>>>>>>>> 1d4f8b17cc749412b831fe49fd02465b56510034:Assets/El rincon de Marta/ardilla_walking/ardilla_walking1.png.meta
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
