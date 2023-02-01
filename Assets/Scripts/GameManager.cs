@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int currentDay = 1;
-    public int currentFloor = 0;
-    public int unlockedFloors = 0;
+    private int currentDay = 1;
+    private int currentFloor = 0;
+    private int unlockedFloors = 4;
+
+    private bool gamePaused = false;
 
     public static GameManager Instance { get; private set; }
 
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
         this.currentDay = day;
     }
     #endregion
+
+    public bool isGamePaused()
+    {
+        return gamePaused;
+    }
 
     public List<EnemyWave> getCurrentDayWaves()
     {
