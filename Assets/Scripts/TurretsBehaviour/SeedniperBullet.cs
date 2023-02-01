@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedBullet : MonoBehaviour
+public class SeedniperBullet : MonoBehaviour
 {
-
     [SerializeField]
     private float moveSpeed;
 
@@ -15,7 +14,7 @@ public class SeedBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedBullet : MonoBehaviour
+public class PineconeBullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed, radius;
 
     private Transform target;
 
     private int damage;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,6 +27,14 @@ public class SeedBullet : MonoBehaviour
 
     private void Destroy()
     {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (Collider2D c in enemies)
+        {
+            if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                c.GetComponent<TMPEnemy>().Damage(damage);
+            }
+        }
         gameObject.SetActive(false);
     }
 
@@ -44,8 +53,10 @@ public class SeedBullet : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Destroy();
-            collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
-            //collision.gameObject.GetComponent<EnemyScript>().Damage();
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
