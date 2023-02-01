@@ -25,4 +25,9 @@ public class TMPEnemy : MonoBehaviour
     {
         Debug.Log("-" + damage + " Damage");
     }
+
+    public void Damage(int damage)
+    {
+        Debug.Log("-" + damage + " Damage");
+    }
 }
