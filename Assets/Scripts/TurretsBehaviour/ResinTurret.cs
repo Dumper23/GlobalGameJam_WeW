@@ -44,6 +44,7 @@ public class ResinTurret : TurretsFather
         resinBullet.transform.position = GetBulletSpawnPoint().position;
         resinBullet.SetActive(true);
         resinBullet.GetComponent<ResinBullet>().SetDuration(duration);
+        resinBullet.GetComponent<ResinBullet>().SetDamage(damage);
         startTime = Time.time;
         lastShot = Time.time + duration;
         iShooting = true;
