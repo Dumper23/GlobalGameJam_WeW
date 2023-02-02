@@ -10,15 +10,19 @@ public class Tooltip : MonoBehaviour
     [SerializeField]
     private Camera uiCamera;
 
-    private TMP_Text tooltipText;
+    [SerializeField]
+    private TMP_Text tooltipName;
+    [SerializeField]
+    private TMP_Text tooltipDesc;
+    [SerializeField]
+    private TMP_Text tooltipCost;
+    [SerializeField]
     private RectTransform backgroundRectTransform;
 
     private void Awake()
     {
         Instance = this;
-
-        backgroundRectTransform = transform.Find("background").GetComponent<RectTransform>();
-        tooltipText = transform.Find("text").GetComponent<TMP_Text>();
+        HideTooltip();
     }
 
     private void Update()
@@ -28,14 +32,17 @@ public class Tooltip : MonoBehaviour
         transform.localPosition = localPoint;
     }
 
-    private void ShowTooltip(string tooltipString)
+    private void ShowTooltip(SkillTree.Node node)
     {
         gameObject.SetActive(true);
 
-        tooltipText.text = tooltipString;
-        float textPaddingSize = 4f;
+        tooltipName.text = node.name;
+        tooltipDesc.text = node.desc;
+        tooltipCost.text = node.cost.ToString() + " Abono ";
+
+        /*float textPaddingSize = 4f;
         Vector2 backgroundSize = new Vector2(tooltipText.preferredWidth + textPaddingSize * 2f, tooltipText.preferredHeight + textPaddingSize * 2f);
-        backgroundRectTransform.sizeDelta = backgroundSize;
+        backgroundRectTransform.sizeDelta = backgroundSize;*/
     }
 
     private void HideTooltip()
@@ -43,9 +50,9 @@ public class Tooltip : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public static void ShowTooltip_Static(string tooltipString)
+    public static void ShowTooltip_Static(SkillTree.Node node)
     {
-        Instance.ShowTooltip(tooltipString);
+        Instance.ShowTooltip(node);
     }
 
     public static void HideTooltip_Static()

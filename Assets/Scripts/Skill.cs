@@ -10,8 +10,8 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int id;
 
     // Graphic
-    public TMP_Text TitleText;
-    public TMP_Text DescriptionText;
+    public Image image;
+    public LineRenderer lineRenderer;
 
     // Clase
     private SkillTree.Node node;
@@ -24,30 +24,50 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void UpdateUI()
     {
-        if (node == null) Init();
-        TitleText.text = node.name;
-        DescriptionText.text = $"{node.desc}\nCost: {node.cost}";
+        if (SkillTree.Instance.GetNode(node.previousNodeId).buyed) gameObject.SetActive(true); else gameObject.SetActive(false);
 
-        GetComponent<Image>().color = !SkillTree.Instance.GetNode(node.previousNodeId).buyed ? Color.yellow :
-            SkillTree.Instance.Money >= node.cost ? Color.green : Color.white;
+        if (node == null) Init();
+
+        image.color = node.buyed ? Color.yellow : !SkillTree.Instance.GetNode(node.previousNodeId).buyed ? Color.gray :
+            SkillTree.Instance.Money >= node.cost ? Color.green : Color.red;
     }
 
     public void Buy()
     {
-        if (SkillTree.Instance.Money < node.cost || node.buyed) return;
+        if (SkillTree.Instance.Money < node.cost || node.buyed || !SkillTree.Instance.GetNode(node.previousNodeId).buyed) return;
         SkillTree.Instance.Money -= node.cost;
         node.buyed = true;
         SkillTree.Instance.UpdateAllSkillsUI();
+
+        // Roots UI
+        CreateLine();
+        if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
+
         //Accio
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Tooltip.ShowTooltip_Static(node.desc);
+        Tooltip.ShowTooltip_Static(node);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Tooltip.HideTooltip_Static();
+    }
+
+    public void CreateLine()
+    {
+        lineRenderer.SetPosition(1, this.gameObject.transform.position);
+        if(node.previousNodeId!=0) lineRenderer.SetPosition(0, SkillTree.Instance.GetNode(node.previousNodeId).skill.gameObject.transform.position);
+        lineRenderer.startWidth = 10;
+        lineRenderer.endWidth = 5;
+    }
+
+    public void UpdateLine()
+    {
+        if(lineRenderer.startWidth < 60) lineRenderer.startWidth += 5;
+        if (lineRenderer.endWidth < 40) lineRenderer.endWidth += 5;
+        if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
     }
 }
