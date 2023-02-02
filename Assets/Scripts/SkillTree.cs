@@ -46,23 +46,23 @@ public class SkillTree : MonoBehaviour
 
         // Turret 1
         SkillNodes.Add(1, new Node(1, "MACHINE SEED", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 10, 0));
-        SkillNodes.Add(2, new Node(2, "Damage I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 1));
-        SkillNodes.Add(3, new Node(3, "Damage II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 2));
-        SkillNodes.Add(4, new Node(4, "Damage III", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 40, 3));
-        SkillNodes.Add(5, new Node(5, "Speed I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 1));
-        SkillNodes.Add(6, new Node(6, "Speed II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 5));
-        SkillNodes.Add(7, new Node(7, "Speed III", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 40, 6));
-        SkillNodes.Add(8, new Node(8, "Capacity I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 1));
-        SkillNodes.Add(9, new Node(9, "Capacity II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 8));
-        SkillNodes.Add(10, new Node(10, "Capacity III", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 40, 9));
-        SkillNodes.Add(11, new Node(11, "Chest I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 1));
-        SkillNodes.Add(12, new Node(12, "Chest II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 11));
-        SkillNodes.Add(13, new Node(13, "Chest III", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 40, 12));
+        SkillNodes.Add(2, new Node(2, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[0], 1));
+        SkillNodes.Add(3, new Node(3, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[0], 2));
+        SkillNodes.Add(4, new Node(4, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[0], 3));
+        SkillNodes.Add(5, new Node(5, Database.Instance.MACHINE_SEED_SPEED_NAME, Database.Instance.MACHINE_SEED_SPEED_DESCRIPTION, Database.Instance.MACHINE_SEED_SPEED_COST[0], 1));
+        SkillNodes.Add(6, new Node(6, Database.Instance.MACHINE_SEED_SPEED_NAME, Database.Instance.MACHINE_SEED_SPEED_DESCRIPTION, Database.Instance.MACHINE_SEED_SPEED_COST[0], 5));
+        SkillNodes.Add(7, new Node(7, Database.Instance.MACHINE_SEED_SPEED_NAME, Database.Instance.MACHINE_SEED_SPEED_DESCRIPTION, Database.Instance.MACHINE_SEED_SPEED_COST[0], 6));
+        SkillNodes.Add(8, new Node(8, Database.Instance.MACHINE_SEED_CAPACITY_NAME, Database.Instance.MACHINE_SEED_CAPACITY_DESCRIPTION, Database.Instance.MACHINE_SEED_CAPACITY_COST[0], 1));
+        SkillNodes.Add(9, new Node(9, Database.Instance.MACHINE_SEED_CAPACITY_NAME, Database.Instance.MACHINE_SEED_CAPACITY_DESCRIPTION, Database.Instance.MACHINE_SEED_CAPACITY_COST[0], 8));
+        SkillNodes.Add(10, new Node(10, Database.Instance.MACHINE_SEED_CAPACITY_NAME, Database.Instance.MACHINE_SEED_CAPACITY_DESCRIPTION, Database.Instance.MACHINE_SEED_CAPACITY_COST[0], 9));
+        SkillNodes.Add(11, new Node(11, Database.Instance.MACHINE_SEED_CHEST_NAME, Database.Instance.MACHINE_SEED_CHEST_DESCRIPTION, Database.Instance.MACHINE_SEED_CHEST_COST[0], 1));
+        SkillNodes.Add(12, new Node(12, Database.Instance.MACHINE_SEED_CHEST_NAME, Database.Instance.MACHINE_SEED_CHEST_DESCRIPTION, Database.Instance.MACHINE_SEED_CHEST_COST[0], 11));
+        SkillNodes.Add(13, new Node(13, Database.Instance.MACHINE_SEED_CHEST_NAME, Database.Instance.MACHINE_SEED_CHEST_DESCRIPTION, Database.Instance.MACHINE_SEED_CHEST_COST[0], 12));
 
         // Turret 2
         SkillNodes.Add(14, new Node(14, "MACHINE SEED", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 10, 0));
-        SkillNodes.Add(15, new Node(15, "Damage I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 14));
-        SkillNodes.Add(16, new Node(16, "Damage II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 15));
+        SkillNodes.Add(15, new Node(15, Database.Instance.RESIN_SPIT_DAMAGE_NAME, Database.Instance.RESIN_SPIT_DAMAGE_DESCRIPTION, Database.Instance.RESIN_SPIT_DAMAGE_COST[0], 14));
+        SkillNodes.Add(16, new Node(16, Database.Instance.RESIN_SPIT_DAMAGE_NAME, Database.Instance.RESIN_SPIT_DAMAGE_DESCRIPTION, Database.Instance.RESIN_SPIT_DAMAGE_COST[0], 15));
         SkillNodes.Add(17, new Node(17, "Damage III", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 40, 16));
         SkillNodes.Add(18, new Node(18, "Speed I", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 20, 14));
         SkillNodes.Add(19, new Node(19, "Speed II", "Lorem ipsum bla bla bla bla bla bla bla bla bla", 30, 18));
