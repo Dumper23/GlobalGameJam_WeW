@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResinTurret : TurretsFather
 {
     [SerializeField]
-    private float duration;
+    private float resinDuration, slowness;
     private float startTime;
 
     [SerializeField]
@@ -23,7 +23,7 @@ public class ResinTurret : TurretsFather
     void Update()
     {
         base.Update();
-        if (iShooting && Time.time > startTime + duration)
+        if (iShooting && Time.time > startTime + resinDuration)
         {
             iShooting = false;
         }
@@ -43,16 +43,22 @@ public class ResinTurret : TurretsFather
 
         resinBullet.transform.position = GetBulletSpawnPoint().position;
         resinBullet.SetActive(true);
-        resinBullet.GetComponent<ResinBullet>().SetDuration(duration);
+        resinBullet.GetComponent<ResinBullet>().SetDuration(resinDuration);
         resinBullet.GetComponent<ResinBullet>().SetDamage(damage);
+        resinBullet.GetComponent<ResinBullet>().SetSlowness(slowness);
         startTime = Time.time;
-        lastShot = Time.time + duration;
+        lastShot = Time.time + resinDuration;
         iShooting = true;
+    }
+
+    protected override void FaceObjective()
+    {
+        //None
     }
 
     public override void SetTraits(float newRangeAttack, float newFireRate, int newmaxAmmo, int newDamage, float durationResin = 0)
     {
         base.SetTraits(newRangeAttack, newFireRate, newmaxAmmo, newDamage);
-        duration = durationResin;
+        resinDuration = durationResin;
     }
 }
