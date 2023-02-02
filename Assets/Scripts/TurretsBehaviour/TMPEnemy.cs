@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TMPEnemy : MonoBehaviour
 {
+
+    [SerializeField]
+    private bool wanaMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +16,9 @@ public class TMPEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 2);
+        if (wanaMove) {
+            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 2);
+        }
     }
 
     public void Damage(int damage)

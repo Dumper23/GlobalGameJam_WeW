@@ -6,7 +6,7 @@ public class ResinBullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float slowness, duration;
+    private float slowness, resinDuration;
 
     private float startDuration;
 
@@ -21,7 +21,7 @@ public class ResinBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= startDuration + duration)
+        if(Time.time >= startDuration + resinDuration)
         {
             Destroy();
         }
@@ -39,7 +39,12 @@ public class ResinBullet : MonoBehaviour
 
     public void SetDuration(float newDuration)
     {
-        duration = newDuration;
+        resinDuration = newDuration;
+    }
+
+    public void SetSlowness(float newSlowness)
+    {
+        slowness = newSlowness;
     }
 
     private void OnEnable()

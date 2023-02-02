@@ -13,7 +13,7 @@ public class PorcuthrowBullet : MonoBehaviour
 
     private Vector2 newDirection;
 
-    private bool firstHit = false;
+    //private bool firstHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +23,13 @@ public class PorcuthrowBullet : MonoBehaviour
     private void OnEnable()
     {
         Invoke("Destroy", bulletDuration);
-        firstHit = false;
+        //firstHit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!firstHit)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
@@ -38,7 +39,8 @@ public class PorcuthrowBullet : MonoBehaviour
             Debug.Log(newDirection);
             transform.Translate(newDirection* moveSpeed * Time.deltaTime);
         }
-
+        */
+        transform.Translate(newDirection * moveSpeed * Time.deltaTime);
     }
 
     private void Destroy()
@@ -56,22 +58,28 @@ public class PorcuthrowBullet : MonoBehaviour
         damage = bulletDamage;
     }
 
+    public void UpdateNewDirection(Vector2 dir)
+    {
+        newDirection = dir;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if (target.position == collision.transform.position)
-            {
-                newDirection = (collision.transform.position - transform.position).normalized;
-                if (newDirection == Vector2.zero)
-                {
-                    newDirection = new Vector2(-1, 0);
-                }
-                firstHit = true;
-            }
-
             collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
             //collision.gameObject.GetComponent<EnemyScript>().Damage();
+
+            if (false)//check if lvl piercing
+            {
+                Destroy();
+            }
+
+
         }
+    }
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }
