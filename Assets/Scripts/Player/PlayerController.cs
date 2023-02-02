@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,10 +41,16 @@ public class PlayerController : MonoBehaviour
     public Dictionary<string, int> resourcesInventory = new Dictionary<string, int>();
     [HideInInspector]
     public Dictionary<string, int> turretsInventory = new Dictionary<string, int>();
+    public GameObject inventoryUISlot1_select;
+    public GameObject inventoryUISlot2_select;
+    public GameObject inventoryUISlot3_select;
+    public GameObject inventoryUISlot4_select;
+    private int currentSlot = 0;
 
     // Use this for initialization
     void Start()
     {
+        changeSlotSelected(1);
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<BoxCollider2D>();
         r2d.freezeRotation = true;
@@ -166,6 +173,23 @@ public class PlayerController : MonoBehaviour
             }
             #endregion
 
+            if (Input.GetButtonDown("Slot1"))
+            {
+                changeSlotSelected(1);
+            }
+            else if (Input.GetButtonDown("Slot2"))
+            {
+                changeSlotSelected(2);
+            }
+            else if (Input.GetButtonDown("Slot3"))
+            {
+                changeSlotSelected(3);
+            }
+            else if (Input.GetButtonDown("Slot4"))
+            {
+                changeSlotSelected(4);
+            }
+
             if (Input.GetButtonDown("Map"))
             {
                 GameManager.Instance.toggleMapView();
@@ -219,6 +243,37 @@ public class PlayerController : MonoBehaviour
             currentInteractionObject.GetComponent<TurretPlacement>().hasTurret = true;
         }
         closeMenu();
+    }
+
+    public void changeSlotSelected(int slot)
+    {
+        switch (slot) {
+            case 1:
+                inventoryUISlot1_select.SetActive(true);
+                inventoryUISlot2_select.SetActive(false);
+                inventoryUISlot3_select.SetActive(false);
+                inventoryUISlot4_select.SetActive(false);
+                break;
+            case 2:
+                inventoryUISlot1_select.SetActive(false);
+                inventoryUISlot2_select.SetActive(true);
+                inventoryUISlot3_select.SetActive(false);
+                inventoryUISlot4_select.SetActive(false);
+                break;
+            case 3:
+                inventoryUISlot1_select.SetActive(false);
+                inventoryUISlot2_select.SetActive(false);
+                inventoryUISlot3_select.SetActive(true);
+                inventoryUISlot4_select.SetActive(false);
+                break;
+            case 4:
+                inventoryUISlot1_select.SetActive(false);
+                inventoryUISlot2_select.SetActive(false);
+                inventoryUISlot3_select.SetActive(false);
+                inventoryUISlot4_select.SetActive(true);
+                break;
+        }
+        currentSlot = slot;
     }
 
     public void closeMenu()

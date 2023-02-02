@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
         mainCam.GetComponent<CameraFollow>().toggleGeneralView();
     }
 
-
     public bool isGamePaused()
     {
         return gamePaused;
@@ -132,17 +131,23 @@ public class GameManager : MonoBehaviour
         if (player.resourcesInventory.TryGetValue(ammoType, out int ammoAmount))
         {
             //Update player.resourcesInventory (ammo in the slot should be up to the maximum of the inventory)
-            //player.resourcesInventory[ammoType] = Database.PLAYER_CAPACITY[];
+            player.resourcesInventory[ammoType] = Database.PLAYER_CAPACITY[Database.PLAYER_CAPACITY_LVL];
         }
         else
         {
-            if (player.resourcesInventory.Count < Database.PLAYER_INVENTORY[0]) //Ha de ser del nivell de la millora de la database.player_inventory_level
+            if (player.resourcesInventory.Count < Database.PLAYER_INVENTORY[Database.PLAYER_INVENTORY_LVL]) //Ha de ser del nivell de la millora de la database.player_inventory_level
             {
-                player.resourcesInventory.Add(ammoType, Database.PLAYER_CAPACITY[0]); //Ha de ser del nivell de la millora de database.player_capacity
+                player.resourcesInventory.Add(ammoType, Database.PLAYER_CAPACITY[Database.PLAYER_CAPACITY_LVL]); //Ha de ser del nivell de la millora de database.player_capacity
             }
         }
         return true;
     }
+
+    public void placeAmmo()
+    {
+        //Somehow we need to add the ammotype to the turret if the player has it
+    }
+
     public Transform[] getWaypoints(string type)
     {
         Transform[] waypoints = null;
