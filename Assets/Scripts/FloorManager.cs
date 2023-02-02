@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FloorManager : MonoBehaviour
 {
-    [Header("Set the floors in ascendent order (0 = 1st floor, 1  = 2nd floor, 2 = 3rd floor, ...)")]
+    [HideInInspector]
     public List<GameObject> liftDoors = new List<GameObject>();
 
     private PlayerController player;
@@ -19,12 +20,28 @@ public class FloorManager : MonoBehaviour
         }
         Instance = this;
     }
-
+    
     
 
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        FloorDoor[] doors = FindObjectsOfType<FloorDoor>();
+
+        List<GameObject> unsortedList = new List<GameObject>();
+        List<GameObject> sortedList = new List<GameObject>();
+
+        foreach (var door in doors)
+        {
+            unsortedList.Add(door.gameObject);
+        }
+
+        sortedList = unsortedList.OrderBy(o => o.transform.position.y).ToList();
+
+        foreach (var door in sortedList)
+        {
+            liftDoors.Add(door);
+        }
     }
 
     public void floorUp()

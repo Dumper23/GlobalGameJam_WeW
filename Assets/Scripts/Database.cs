@@ -383,6 +383,11 @@ public class Database : MonoBehaviour
     #endregion
 
     #region PLAYER
+    public static int PLAYER_SPEED_LVL = 0;
+    public static int PLAYER_INVENTORY_LVL = 0;
+    public static int PLAYER_CAPACITY_LVL = 0;
+    public static int PLAYER_LIFT_LVL = 0;
+
     public static int[] PLAYER_SPEED = { 10, 20, 30 };
     public static int[] PLAYER_INVENTORY = { 10, 20, 30 };
     public static int[] PLAYER_CAPACITY = { 10, 20, 30 };

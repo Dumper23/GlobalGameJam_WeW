@@ -8,5 +8,7 @@ public abstract class IEInteractable: MonoBehaviour
     protected float cooldown = 0f;
     public string iconName;
     public abstract void Interaction(string action = "");
+
+    public abstract void EndInteraction();
   
 }
