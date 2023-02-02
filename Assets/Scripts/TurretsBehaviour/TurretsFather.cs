@@ -108,7 +108,7 @@ public abstract class TurretsFather : MonoBehaviour
         return (Time.time >= lastShot + fireRate);
     }
 
-    protected void FaceObjective()
+    protected virtual void FaceObjective()
     {
         Vector2 direction = (Vector2)currentTarget.transform.position - (Vector2)mobilePart.transform.position;
 
