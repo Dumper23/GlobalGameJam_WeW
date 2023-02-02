@@ -14,14 +14,17 @@ public class TurretPlacement : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        if (hasTurret) 
+        if (action == "")
         {
-            GameManager.Instance.showRemoveMenuUI();
+            if (hasTurret)
+            {
+                GameManager.Instance.showRemoveMenuUI();
+            }
+            else
+            {
+                GameManager.Instance.showPlacementMenuUI();
+            }
+            GameManager.Instance.setMenuState(true);
         }
-        else
-        {
-            GameManager.Instance.showPlacementMenuUI();
-        }
-        GameManager.Instance.setMenuState(true);
     }
 }
