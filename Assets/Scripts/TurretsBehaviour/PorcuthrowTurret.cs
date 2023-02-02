@@ -76,13 +76,22 @@ public class PorcuthrowTurret : TurretsFather
             switch (stat.Key)
             {
                 case "capacity":
-                    maxAmmo = (int)stat.Value;
+                    if ((int)stat.Value != 0)
+                    {
+                        maxAmmo = (int)stat.Value;
+                    }
                     break;
                 case "projectiles":
-                    bulletsAmmount = (int)stat.Value - 1;
+                    if ((int)stat.Value != 0)
+                    {
+                        bulletsAmmount = (int)stat.Value - 1;
+                    }
                     break;
                 case "speed":
-                    fireRate = stat.Value;
+                    if (stat.Value != 0)
+                    {
+                        fireRate = stat.Value;
+                    }
                     break;
                 case "piercing":
                     if (stat.Value == 0)

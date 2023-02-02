@@ -39,8 +39,8 @@ public class NutRollTurret : TurretsFather
         bul.transform.position = GetBulletSpawnPoint().position;
 
         bul.SetActive(true);
-        //bul.GetComponent<ResinBullet>().SetTarget(base.currentTarget.transform);
-        //bul.GetComponent<ResinBullet>().SetDamage(base.damage);
+        bul.GetComponent<NutBullet>().SetHits(hits);
+        bul.GetComponent<NutBullet>().SetDamage(base.damage);
         ammunituion--;
     }
 
@@ -57,13 +57,22 @@ public class NutRollTurret : TurretsFather
             switch (stat.Key)
             {
                 case "capacity":
-                    maxAmmo = (int)stat.Value;
+                    if ((int)stat.Value != 0)
+                    {
+                        maxAmmo = (int)stat.Value;
+                    }
                     break;
                 case "damage":
-                    damage = (int)stat.Value;
+                    if ((int)stat.Value != 0)
+                    {
+                        damage = (int)stat.Value;
+                    }
                     break;
                 case "speed":
-                    fireRate = stat.Value;
+                    if (stat.Value != 0)
+                    {
+                        fireRate = stat.Value;
+                    }
                     break;
                 case "extra":
                     if (stat.Value == 0)
@@ -76,7 +85,10 @@ public class NutRollTurret : TurretsFather
                     }
                     break;
                 case "hits":
-                    hits = (int)stat.Value;
+                    if ((int)stat.Value != 0)
+                    {
+                        hits = (int)stat.Value;
+                    }
                     break;
             }
         }

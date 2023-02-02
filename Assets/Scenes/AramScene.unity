@@ -1232,7 +1232,7 @@ MonoBehaviour:
   seedniperBullet: {fileID: 3867037683332010556, guid: edd2470b65066f14aae171835dd48a68, type: 3}
   pineconeBullet: {fileID: 5075257674312370765, guid: aec04a83896441a42bd7542390af1a9c, type: 3}
   porcuthrowBullet: {fileID: 875746787681766247, guid: 2e2d89c01c2a4d74fb2834da49200ae4, type: 3}
-  nutBullet: {fileID: 0}
+  nutBullet: {fileID: 4809878640045143977, guid: 8121a31198b3b8e4fb4da42584c5a1ef, type: 3}
 --- !u!4 &698164074
 Transform:
   m_ObjectHideFlags: 0
