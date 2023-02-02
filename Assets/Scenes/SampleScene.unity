@@ -530,6 +530,11 @@ MonoBehaviour:
   mainCam: {fileID: 1518160217}
   unlockedFloors: 10
   fertilizer: 0
+  enemyGroundWaypoints: []
+  enemyAirWaypoints: []
+  playerHP: 0
+  enemySpawns: []
+  isDay: 0
 --- !u!4 &534275253
 Transform:
   m_ObjectHideFlags: 0
