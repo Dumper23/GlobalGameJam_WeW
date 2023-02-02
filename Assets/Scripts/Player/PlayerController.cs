@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D r2d;
     private BoxCollider2D mainCollider;
     private AudioSource audio;
-    
+
     private static string PLAYER_WALK = "walk";
     private static string PLAYER_IDLE = "idle";
 
@@ -45,6 +45,13 @@ public class PlayerController : MonoBehaviour
     public GameObject inventoryUISlot2_select;
     public GameObject inventoryUISlot3_select;
     public GameObject inventoryUISlot4_select;
+    public TextMeshProUGUI turretAmountText0;
+    public TextMeshProUGUI turretAmountText1;
+    public TextMeshProUGUI turretAmountText2;
+    public TextMeshProUGUI turretAmountText3;
+    public TextMeshProUGUI turretAmountText4;
+    public TextMeshProUGUI turretAmountText5;
+    public TextMeshProUGUI turretAmountText6;
     private int currentSlot = 0;
 
     // Use this for initialization
@@ -224,24 +231,14 @@ public class PlayerController : MonoBehaviour
 
     public void storeTurret()
     {
-        //Save the turret in the inventory
-        Debug.Log(currentInteractionObject.name);
-        if (currentInteractionObject.GetComponent<TurretPlacement>())
-        {
-            currentInteractionObject.GetComponent<TurretPlacement>().hasTurret = false;
-        }
-        
+        updateTurretInventoryNumberUI();
         closeMenu();
     }
 
     public void placeTurret(string turretId)
     {
-        //Spend fertilizer and place turret
-        Debug.Log(turretId);
-        if (currentInteractionObject.GetComponent<TurretPlacement>())
-        {
-            currentInteractionObject.GetComponent<TurretPlacement>().hasTurret = true;
-        }
+        GameManager.Instance.placeTurret(currentInteractionObject.transform.position, turretId);
+        updateTurretInventoryNumberUI();
         closeMenu();
     }
 
@@ -274,6 +271,72 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         currentSlot = slot;
+    }
+
+    public void updateTurretInventoryNumberUI()
+    { 
+        if(turretsInventory.TryGetValue("MACHINE_SEED", out int amount))
+        {
+            turretAmountText0.SetText("x" + amount);
+        }
+        else
+        {
+            turretAmountText0.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount1))
+        {
+            turretAmountText1.SetText("x" + amount1);
+        }
+        else
+        {
+            turretAmountText1.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount2))
+        {
+            turretAmountText2.SetText("x" + amount2);
+        }
+        else
+        {
+            turretAmountText2.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount3))
+        {
+            turretAmountText3.SetText("x" + amount3);
+        }
+        else
+        {
+            turretAmountText3.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("NUT_ROLL", out int amount4))
+        {
+            turretAmountText4.SetText("x" + amount4);
+        }
+        else
+        {
+            turretAmountText4.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("PORCUTHROW", out int amount5))
+        {
+            turretAmountText5.SetText("x" + amount5);
+        }
+        else
+        {
+            turretAmountText5.SetText("x" + 0);
+        }
+
+        if (turretsInventory.TryGetValue("ELECTRIC_POTATO", out int amount6))
+        {
+            turretAmountText6.SetText("x" + amount6);
+        }
+        else
+        {
+            turretAmountText6.SetText("x" + 0);
+        }
     }
 
     public void closeMenu()

@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.SerializableAttribute]
+public class TurretEditor
+{
+    public string turretId;
+    public GameObject turretPrefab;
+}
+
 [DefaultExecutionOrder(0)]
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +21,16 @@ public class GameManager : MonoBehaviour
     public Transform[] enemyAirWaypoints;
     public int playerHP; 
     public List<EnemySpawn> enemySpawns;
+    [SerializeField]
+    public List<TurretEditor> turrets;
+    //private Dictionary<string, PlacedTurret> placedTurrets = new Dictionary<string, PlacedTurret>();
+    private List<GameObject> placedTurretsGameObjects = new List<GameObject>();
     public bool isDay = false;
 
     private int currentDay = 0;
     private int currentFloor = 0;
     private bool playerInMenu = false;
+    private int turretAutoincremental = 0;
 
     private bool gamePaused = false;
 
@@ -116,14 +128,14 @@ public class GameManager : MonoBehaviour
     public void hideRemoveMenuUI()
     {
         player.removeMenu.SetActive(false);
-        GameManager.Instance.setMenuState(false);
+        setMenuState(false);
         player.interactionSymbolE.SetActive(false);
     }
 
     public void hidePlacementMenuUI()
     {
         player.placementMenu.SetActive(false);
-        GameManager.Instance.setMenuState(false);
+        setMenuState(false);
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -469,6 +481,113 @@ public class GameManager : MonoBehaviour
 
             //Start day after 60s
             Invoke("changeDayState", 60);
+        }
+    }
+
+    public void placeTurret(Vector3 position, string turretId)
+    {
+
+        Debug.Log("Place turret: " + turretId + " at " + position.y + " - ");
+
+        /*foreach (TurretEditor turret in turrets)
+        {
+            if (turret.turretId.Equals(turretId))
+            {
+                GameObject go = Instantiate(turret.turretPrefab, position, Quaternion.identity);
+                int turretPlacementId = turretAutoincremental;
+                
+                turretPlaceholder.AddComponent<PlacedTurret>();
+                turretPlaceholder.GetComponent<PlacedTurret>().currentPlacedTurret = go;
+                go.SetActive(true);
+                go.AddComponent<PlacedTurret>();
+                go.GetComponent<PlacedTurret>().setTurretId(turret.turretId);
+                go.GetComponent<PlacedTurret>().setTurretPrefab(turret.turretPrefab);
+                go.GetComponent<PlacedTurret>().setTurretPlacementId(turretPlacementId);
+                turretPlaceholder.GetComponent<PlacedTurret>().setTurretId(turret.turretId);
+                turretPlaceholder.GetComponent<PlacedTurret>().setTurretPrefab(turret.turretPrefab);
+                turretPlaceholder.GetComponent<PlacedTurret>().setTurretPlacementId(turretPlacementId);
+                //placedTurrets.Add(turretPlacementId.ToString(), turretPlaceholder.GetComponent<PlacedTurret>());
+                placedTurretsGameObjects.Add(go);
+                turretAutoincremental++;
+            }
+        }*/
+    }
+
+    public void pickupTurret(PlacedTurret placedTurret)
+    {
+
+        Debug.Log("pickup");
+
+        /*int i = 0;
+        foreach (var t in placedTurretsGameObjects)
+        {
+            if (t.GetComponent<PlacedTurret>() && t.GetComponent<PlacedTurret>().getTurretPlacementId() == placedTurret.getTurretPlacementId())
+            {
+                Destroy(t);
+                Destroy(placedTurret);
+                placedTurretsGameObjects.RemoveAt(i);
+                return;
+            }
+            
+        }*/
+
+        //foreach (KeyValuePair<string, PlacedTurret> turret in placedTurrets)
+        //{
+        //    if(turret.Value.getTurretPlacementId() == placedTurret.getTurretPlacementId())
+        //    {
+        //        placedTurrets.Remove(placedTurret.getTurretPlacementId().ToString());
+
+        //        Destroy(placedTurretsGameObjects[i]);
+        //        placedTurretsGameObjects.RemoveAt(i);
+
+        //        //TODO: Return to player inventory
+        //        return;
+        //    }
+        //    i++;
+        //}
+    }
+
+    public int getTurretPrice(string turretId)
+    {
+        switch (turretId)
+        {
+            case "MACHINE_SEED":
+                //Database.Instance.MACHINE_SEED_PRICE
+                return 1;
+            case "RESIN_SPIT":
+
+                return 2;
+            case "S_SEEDNIPER":
+
+                return 3;
+            case "PINECONE_LAUNCHER":
+
+                return 4;
+            case "NUT_ROLL":
+
+                return 5;
+            case "PORCUTHROW":
+
+                return 6;
+            case "ELECTRIC_POTATO":
+
+                return 7;
+            default:
+
+                return 0;
+        }
+    }
+
+    public bool spendFertilizer(int fertilizerAmount)
+    {
+        if(fertilizer - fertilizerAmount >= 0)
+        {
+            fertilizer -= fertilizerAmount;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretPlacement : IEInteractable
+public class TurretPlacholder : IEInteractable
 {
     public bool hasTurret = false;
+
+    public GameObject turretPlaceHolder;
+    private void Start()
+    {
+        turretPlaceHolder.SetActive(true);
+    }
 
     public override void EndInteraction()
     {
