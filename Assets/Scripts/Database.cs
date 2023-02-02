@@ -404,15 +404,32 @@ public class Database : MonoBehaviour
     #endregion
 
     #region PLAYER
-    public int PLAYER_SPEED_LVL = 0;
-    public int PLAYER_INVENTORY_LVL = 0;
-    public int PLAYER_CAPACITY_LVL = 0;
-    public int PLAYER_LIFT_LVL = 0;
 
-    public int[] PLAYER_SPEED = { 10, 20, 30 };
-    public int[] PLAYER_INVENTORY = { 10, 20, 30 };
-    public int[] PLAYER_CAPACITY = { 10, 20, 30 };
-    public int[] PLAYER_LIFT = { 10 };
+    public int PLAYER_SPEED_LVL = 0;
+    public string PLAYER_SPEED_DESCRIPTION = "Increases the Player Movement Speed";
+    public string PLAYER_SPEED_NAME = "Gotta Go Fast!";
+    public int[] PLAYER_SPEED_COST = { 10, 20, 30 };
+    public float[] PLAYER_SPEED = { 3, 3.5f, 4 };
+
+    
+    public int PLAYER_INVENTORY_LVL = 0;
+    public string PLAYER_INVENTORY_DESCRIPTION = "Increases the inventory slots of the player";
+    public string PLAYER_INVENTORY_NAME = "Holding Bag!";
+    public int[] PLAYER_INVENTORY_COST = { 10, 20, 30 };
+    public int[] PLAYER_INVENTORY = { 2, 3, 4 };
+
+    public int PLAYER_CAPACITY_LVL = 0;
+    public string PLAYER_CAPACITY_DESCRIPTION = "Increases the inventory capacity per slot";
+    public string PLAYER_CAPACITY_NAME = "Steve!";
+    public int[] PLAYER_CAPACITY_COST = { 10, 20, 30 };
+    public int[] PLAYER_CAPACITY = { 75, 100, 200 };
+
+    public int PLAYER_LIFT_LVL = 0;
+    public string PLAYER_LIFT_DESCRIPTION = "Now you can change between floors as you want";
+    public string PLAYER_LIFT_NAME = "Elevator!";
+    public int[] PLAYER_LIFT_COST = { 10 };
+    public int[] PLAYER_LIFT = { 1 }
+
     #endregion 
 
     #region UNLOCK FLOOR DAYS
