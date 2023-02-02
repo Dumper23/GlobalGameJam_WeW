@@ -28,7 +28,7 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]//TMP
     private Transform endWayPoint;
 
-    protected string turretId;
+    protected string turretId = "";
 
     // Start is called before the first frame update
     protected void Start()

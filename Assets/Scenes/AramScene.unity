@@ -363,7 +363,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &132681217
 GameObject:
@@ -638,7 +638,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &217277452
 MonoBehaviour:
@@ -1024,7 +1024,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &485009996
 CapsuleCollider2D:
@@ -1109,6 +1109,305 @@ Transform:
   m_Father: {fileID: 816008598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &515919432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515919434}
+  - component: {fileID: 515919433}
+  m_Layer: 0
+  m_Name: DATABASE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &515919433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515919432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8f56e5db3424145bb079f626fefb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MACHINE_SEED_DAMAGE_LVL: 0
+  MACHINE_SEED_DAMAGE_DESCRIPTION: Increases Turret Damage
+  MACHINE_SEED_DAMAGE_NAME: More Seeds!
+  MACHINE_SEED_DAMAGE_COST: 0a000000140000001e000000
+  MACHINE_SEED_DAMAGE: 230000002800000032000000
+  MACHINE_SEED_SPEED_LVL: 0
+  MACHINE_SEED_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  MACHINE_SEED_SPEED_NAME: Faster!
+  MACHINE_SEED_SPEED_COST: 0a000000140000001e000000
+  MACHINE_SEED_SPEED:
+  - 0.7
+  - 0.5
+  - 0.3
+  MACHINE_SEED_CAPACITY_LVL: 0
+  MACHINE_SEED_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  MACHINE_SEED_CAPACITY_NAME: More Magazine!
+  MACHINE_SEED_CAPACITY_COST: 0a000000140000001e000000
+  MACHINE_SEED_CAPACITY: 4b00000064000000c8000000
+  MACHINE_SEED_CHEST_LVL: 0
+  MACHINE_SEED_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where you
+    can store ammunition
+  MACHINE_SEED_CHEST_NAME_UNO: Create Chest!
+  MACHINE_SEED_CHEST_DESCRIPTION: Increases chest capacity
+  MACHINE_SEED_CHEST_NAME: More Chest!
+  MACHINE_SEED_CHEST_COST: 0a000000140000001e000000
+  MACHINE_SEED_CHEST: 320000004b00000064000000
+  RESIN_SPIT_DAMAGE_LVL: 0
+  RESIN_SPIT_DAMAGE_DESCRIPTION: Now the resin does a little damage per second
+  RESIN_SPIT_DAMAGE_NAME: Corrosive Resin
+  RESIN_SPIT_DAMAGE_COST: 0a000000
+  RESIN_SPIT_DAMAGE: 05000000
+  RESIN_SPIT_SPEED_LVL: 0
+  RESIN_SPIT_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  RESIN_SPIT_SPEED_NAME: Faster!
+  RESIN_SPIT_SPEED_COST: 0a000000
+  RESIN_SPIT_SPEED:
+  - 6
+  RESIN_SPIT_DURATION_LVL: 0
+  RESIN_SPIT_DURATION_DESCRIPTION: Increases the duration of the resin in the tree
+  RESIN_SPIT_DURATION_NAME: More Resin!
+  MACHINE_SEED_DURATION_COST: 0a00000014000000
+  RESIN_SPIT_DURATION:
+  - 3
+  - 4
+  RESIN_SPIT_STICKNESS_LVL: 0
+  RESIN_SPIT_STICKNESS_DESCRIPTION: Increases resin slow
+  RESIN_SPIT_STICKNESS_NAME: Sticky Resin
+  RESIN_SPIT_STICKNESS_COST: 0a000000
+  RESIN_SPIT_STICKNESS:
+  - 0.6
+  RESIN_SPIT_LONG_LVL: 0
+  RESIN_SPIT_LONG_DESCRIPTION: Increases the length of the Puddle
+  RESIN_SPIT_LONG_NAME: Size does matter
+  RESIN_SPIT_LONG_COST: 0a000000
+  RESIN_SPIT_LONG:
+  - 1.6
+  RESIN_SPIT_CAPACITY_LVL: 0
+  RESIN_SPIT_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  RESIN_SPIT_CAPACITY_NAME: More Magazine!
+  RESIN_SPIT_CAPACITY_COST: 0a000000140000001e000000
+  RESIN_SPIT_CAPACITY: 320000004b00000064000000
+  RESIN_SPIT_CHEST_LVL: 0
+  RESIN_SPIT_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where you
+    can store ammunition
+  RESIN_SPIT_CHEST_NAME_UNO: Create Chest!
+  RESIN_SPIT_CHEST_DESCRIPTION: Increases chest capacity
+  RESIN_SPIT_CHEST_NAME: More Chest!
+  RESIN_SPIT_CHEST_COST: 0a000000140000001e000000
+  RESIN_SPIT_CHEST: 1e000000320000004b000000
+  S_SEEDNIPER_DAMAGE_LVL: 0
+  S_SEEDNIPER_DAMAGE_DESCRIPTION: Increases Turret Damage
+  S_SEEDNIPER_DAMAGE_NAME: More Damage!
+  S_SEEDNIPER_DAMAGE_COST: 0a00000014000000
+  S_SEEDNIPER_DAMAGE: 5a0000006e000000
+  S_SEEDNIPER_SPEED_LVL: 0
+  S_SEEDNIPER_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  S_SEEDNIPER_SPEED_NAME: Faster!
+  S_SEEDNIPER_SPEED_COST: 0a000000140000001e000000
+  S_SEEDNIPER_SPEED:
+  - 1.3
+  - 1
+  - 0.8
+  S_SEEDNIPER_RICOCHET_LVL: 0
+  S_SEEDNIPER_RICOCHET_DESCRIPTION: Bullets now ricochet off enemies
+  S_SEEDNIPER_RICOCHET_NAME: Ricochet
+  S_SEEDNIPER_RICOCHET_COST: 0a000000
+  S_SEEDNIPER_RICOCHET: 01000000
+  S_SEEDNIPER_CAPACITY_LVL: 0
+  S_SEEDNIPER_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  S_SEEDNIPER_CAPACITY_NAME: More Magazine!
+  S_SEEDNIPER_CAPACITY_COST: 0a000000140000001e000000
+  S_SEEDNIPER_CAPACITY: 230000002d0000005a000000
+  S_SEEDNIPER_CHEST_LVL: 0
+  S_SEEDNIPER_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where you
+    can store ammunition
+  S_SEEDNIPER_CHEST_NAME_UNO: Create Chest!
+  S_SEEDNIPER_CHEST_DESCRIPTION: Increases chest capacity
+  S_SEEDNIPER_CHEST_NAME: More Chest!
+  S_SEEDNIPER_CHEST: 14000000230000002d000000
+  PINECONE_LAUNCHER_AREA_LVL: 0
+  PINECONE_LAUNCHER_AREA_DESCRIPTION: Increases the area of the explosion
+  PINECONE_LAUNCHER_AREA_NAME: More Boom!
+  PINECONE_LAUNCHER_AREA_COST: 0a000000
+  PINECONE_LAUNCHER_AREA: 0a000000
+  PINECONE_LAUNCHER_DAMAGE_LVL: 0
+  PINECONE_LAUNCHER_DAMAGE_DESCRIPTION: Increases Turret Damage
+  PINECONE_LAUNCHER_DAMAGE_NAME: More Pinecones!
+  PINECONE_LAUNCHER_DAMAGE_COST: 0a00000014000000
+  PINECONE_LAUNCHER_DAMAGE: 3c0000005a000000
+  PINECONE_LAUNCHER_SPEED_LVL: 0
+  PINECONE_LAUNCHER_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  PINECONE_LAUNCHER_SPEED_NAME: Faster!
+  PINECONE_LAUNCHER_SPEED_COST: 0a000000
+  PINECONE_LAUNCHER_SPEED:
+  - 2
+  PINECONE_LAUNCHER_RANGE_LVL: 0
+  PINECONE_LAUNCHER_RANGE_DESCRIPTION: Increases Turret Range
+  PINECONE_LAUNCHER_RANGE_NAME: More Range!
+  PINECONE_LAUNCHER_RANGE_COST: 0a000000
+  PINECONE_LAUNCHER_RANGE:
+  - 10
+  PINECONE_LAUNCHER_DAMAGE_STUN_LVL: 0
+  PINECONE_LAUNCHER_DAMAGE_STUN_DESCRIPTION: Now the Turret does more Damage and
+    it stuns the enemies
+  PINECONE_LAUNCHER_DAMAGE_STUN_NAME: More Boom Boom!
+  PINECONE_LAUNCHER_DAMAGE_STUN_COST: 0a000000
+  PINECONE_LAUNCHER_DAMAGE_STUN: 01000000
+  PINECONE_LAUNCHER_CLUSTER_LVL: 0
+  PINECONE_LAUNCHER_CLUSTER_DESCRIPTION: Now the explosion releases small parts of
+    the pinecone that explode later.
+  PINECONE_LAUNCHER_CLUSTER_NAME: Cluster!
+  PINECONE_LAUNCHER_CLUSTER_COST: 0a000000
+  PINECONE_LAUNCHER_CLUSTER: 01000000
+  PINECONE_LAUNCHER_CAPACITY_LVL: 0
+  PINECONE_LAUNCHER_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  PINECONE_LAUNCHER_CAPACITY_NAME: More Magazine!
+  PINECONE_LAUNCHER_CAPACITY_COST: 0a000000140000001e000000
+  PINECONE_LAUNCHER_CAPACITY: 320000004b00000064000000
+  PINECONE_LAUNCHER_CHEST_LVL: 0
+  PINECONE_LAUNCHER_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where
+    you can store ammunition
+  PINECONE_LAUNCHER_CHEST_NAME_UNO: Create Chest!
+  PINECONE_LAUNCHER_CHEST_DESCRIPTION: Increases chest capacity
+  PINECONE_LAUNCHER_CHEST_NAME: More Chest!
+  PINECONE_LAUNCHER_CHEST: 1e000000320000004b000000
+  NUT_ROLL_DAMAGE_LVL: 0
+  NUT_ROLL_DAMAGE_DESCRIPTION: Increases Turret Damage
+  NUT_ROLL_DAMAGE_NAME: More Nut Damage!
+  NUT_ROLL_DAMAGE_COST: 0a00000014000000
+  NUT_ROLL_DAMAGE: 140000001e000000
+  NUT_ROLL_SPEED_LVL: 0
+  NUT_ROLL_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  NUT_ROLL_SPEED_NAME: Faster!
+  NUT_ROLL_SPEED_COST: 0a00000014000000
+  NUT_ROLL_SPEED:
+  - 10
+  - 8
+  NUT_ROLL_EXTRA_LVL: 0
+  NUT_ROLL_EXTRA_DESCRIPTION: For each shot, fires an extra projectile
+  NUT_ROLL_EXTRA_NAME: Extra Nut!
+  NUT_ROLL_EXTRA_COST: 0a000000
+  NUT_ROLL_EXTRA: 01000000
+  NUT_ROLL_HITS_LVL: 0
+  NUT_ROLL_HITS_DESCRIPTION: 'Increases the number of hits delivered by the projectile '
+  NUT_ROLL_HITS_NAME: Endurezide Nut!
+  NUT_ROLL_HITS_COST: 0a000000
+  NUT_ROLL_HITS: 1e000000
+  NUT_ROLL_CAPACITY_LVL: 0
+  NUT_ROLL_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  NUT_ROLL_CAPACITY_NAME: More Magazine!
+  NUT_ROLL_CAPACITY_COST: 0a000000140000001e000000
+  NUT_ROLL_CAPACITY: 1e0000003200000046000000
+  NUT_ROLL_CHEST_LVL: 0
+  NUT_ROLL_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where you can
+    store ammunition
+  NUT_ROLL_CHEST_NAME_UNO: Create Chest!
+  NUT_ROLL_CHEST_DESCRIPTION: Increases chest capacity
+  NUT_ROLL_CHEST_NAME: More Chest!
+  NUT_ROLL_CHEST_COST: 0a000000140000001e000000
+  NUT_ROLL_CHEST: 140000001e00000032000000
+  PORCUTHROW_PROJECTILES_LVL: 0
+  PORCUTHROW_PROJECTILES_DESCRIPTION: Increases Turret fired projectiles
+  PORCUTHROW_PROJECTILES_NAME: More Projectiles!
+  PORCUTHROW_PROJECTILES_COST: 0a000000140000001e000000
+  PORCUTHROW_PROJECTILES: 05000000080000000c000000
+  PORCUTHROW_SPEED_LVL: 0
+  PORCUTHROW_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  PORCUTHROW_SPEED_NAME: Faster!
+  PORCUTHROW_SPEED_COST: 0a000000
+  PORCUTHROW_SPEED:
+  - 2.75
+  PORCUTHROW_PIERCING_LVL: 0
+  PORCUTHROW_PIERCING_DESCRIPTION: Now the shots are piercing
+  PORCUTHROW_PIERCING_NAME: Hardened spikes!
+  PORCUTHROW_PIERCING_COST: 0a000000
+  PORCUTHROW_PIERCING: 01000000
+  PORCUTHROW_CAPACITY_LVL: 0
+  PORCUTHROW_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  PORCUTHROW_CAPACITY_NAME: More Magazine!
+  PORCUTHROW_CAPACITY_COST: 0a000000140000001e000000
+  PORCUTHROW_CAPACITY: 4b00000064000000c8000000
+  PORCUTHROW_CHEST_LVL: 0
+  PORCUTHROW_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where you
+    can store ammunition
+  PORCUTHROW_CHEST_NAME_UNO: Create Chest!
+  PORCUTHROW_CHEST_DESCRIPTION: Increases chest capacity
+  PORCUTHROW_CHEST_NAME: More Chest!
+  PORCUTHROW_CHEST_COST: 0a000000140000001e000000
+  PORCUTHROW_CHEST: 320000004b00000064000000
+  ELECTRIC_POTATO_RAY_LVL: 0
+  ELECTRIC_POTATO_RAY_DESCRIPTION: Increases the number of enemies hit by the lightning
+    bolt
+  ELECTRIC_POTATO_RAY_NAME: Lightning Upgrade!
+  ELECTRIC_POTATO_RAY_COST: 0a00000014000000
+  ELECTRIC_POTATO_RAY: 0a0000000f000000
+  ELECTRIC_POTATO_DAMAGE_LVL: 0
+  ELECTRIC_POTATO_DAMAGE_DESCRIPTION: Now the Turret does damage
+  ELECTRIC_POTATO_DAMAGE_NAME: More Seeds!
+  ELECTRIC_POTATO_DAMAGE_COST: 0a000000
+  ELECTRIC_POTATO_DAMAGE: 14000000
+  ELECTRIC_POTATO_SPEED_LVL: 0
+  ELECTRIC_POTATO_SPEED_DESCRIPTION: Increases Turret Attack Speed
+  ELECTRIC_POTATO_SPEED_NAME: Faster!
+  ELECTRIC_POTATO_SPEED_COST: 0a000000
+  ELECTRIC_POTATO_SPEED:
+  - 5
+  ELECTRIC_POTATO_STUN_LVL: 0
+  ELECTRIC_POTATO_STUN_DESCRIPTION: Increases the time that enemies are stunned
+  ELECTRIC_POTATO_STUN_NAME: It was not a Lie
+  ELECTRIC_POTATO_STUN_COST: 0a00000014000000
+  ELECTRIC_POTATO_STUN:
+  - 2
+  - 2.5
+  ELECTRIC_POTATO_CAPACITY_LVL: 0
+  ELECTRIC_POTATO_CAPACITY_DESCRIPTION: Increases turret magazine capacity
+  ELECTRIC_POTATO_CAPACITY_NAME: More Magazine!
+  ELECTRIC_POTATO_CAPACITY_COST: 0a000000140000001e000000
+  ELECTRIC_POTATO_CAPACITY: 320000004b00000064000000
+  ELECTRIC_POTATO_CHEST_LVL: 0
+  ELECTRIC_POTATO_CHEST_DESCRIPTION_UNO: Creates a chest next to the turret where
+    you can store ammunition
+  ELECTRIC_POTATO_CHEST_NAME_UNO: Create Chest!
+  ELECTRIC_POTATO_CHEST_DESCRIPTION: Increases chest capacity
+  ELECTRIC_POTATO_CHEST_NAME: More Chest!
+  ELECTRIC_POTATO_CHEST_COST: 0a000000140000001e000000
+  ELECTRIC_POTATO_CHEST: 1e000000320000004b000000
+  PLAYER_SPEED_LVL: 0
+  PLAYER_INVENTORY_LVL: 0
+  PLAYER_CAPACITY_LVL: 0
+  PLAYER_LIFT_LVL: 0
+  PLAYER_SPEED: 0a000000140000001e000000
+  PLAYER_INVENTORY: 0a000000140000001e000000
+  PLAYER_CAPACITY: 0a000000140000001e000000
+  PLAYER_LIFT: 0a000000
+  unlockFloorDays: 0200000005000000080000000b0000000e00000011000000130000001400000015000000
+--- !u!4 &515919434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515919432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.364341, y: -18.87529, z: -1.0892928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &576887306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1440,7 @@ Transform:
   - {fileID: 64333851}
   - {fileID: 280947691}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &576887309
 MonoBehaviour:
@@ -1246,7 +1545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &703452200
 GameObject:
@@ -1370,7 +1669,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &703452205
 MonoBehaviour:
@@ -1443,7 +1742,7 @@ Transform:
   - {fileID: 209992241}
   - {fileID: 1656154481}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755180598
 GameObject:
@@ -1456,6 +1755,7 @@ GameObject:
   - component: {fileID: 755180601}
   - component: {fileID: 755180600}
   - component: {fileID: 755180599}
+  - component: {fileID: 755180602}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1527,8 +1827,41 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755180602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755180598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &762801787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1894,7 @@ Transform:
   - {fileID: 1661207913}
   - {fileID: 1728907841}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &762801789
 MonoBehaviour:
@@ -1644,7 +1977,7 @@ Transform:
   - {fileID: 505683918}
   - {fileID: 202637971}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &825853380 stripped
 GameObject:
@@ -1919,7 +2252,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1043492469
 MonoBehaviour:
@@ -1966,7 +2299,7 @@ Transform:
   - {fileID: 612166089}
   - {fileID: 1420727198}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1049253213
 MonoBehaviour:
@@ -2274,7 +2607,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384616192
 GameObject:
@@ -2518,7 +2851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1595812668}
-  - component: {fileID: 1595812667}
+  - component: {fileID: 1595812669}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2526,23 +2859,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1595812667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595812666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d8c10aed7f4014ab4a68fdd0df2479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyGroundWaypoints: []
-  enemyAirWaypoints: []
-  playerHP: 0
-  enemySpawns: []
-  isDay: 0
 --- !u!4 &1595812668
 Transform:
   m_ObjectHideFlags: 0
@@ -2556,8 +2872,28 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595812669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595812666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d8c10aed7f4014ab4a68fdd0df2479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 755180600}
+  unlockedFloors: 10
+  fertilizer: 0
+  enemyGroundWaypoints: []
+  enemyAirWaypoints: []
+  playerHP: 0
+  enemySpawns: []
+  isDay: 0
 --- !u!1 &1617872989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,6 +3793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PineconeTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 735374187024833708, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5663627861328094411, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
       propertyPath: endWayPoint
       value: 
@@ -3471,7 +3811,7 @@ PrefabInstance:
       objectReference: {fileID: 703452200}
     - target: {fileID: 7720310905679145613, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7720310905679145613, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3538,9 +3878,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1968199746751858737, guid: 33275f2f15cf469429a3951b27d0c467, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1968199746751858739, guid: 33275f2f15cf469429a3951b27d0c467, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1968199746751858739, guid: 33275f2f15cf469429a3951b27d0c467, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3595,9 +3939,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: NutRollTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 5953673050596963096, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5953673050596963098, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5953673050596963098, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3670,7 +4018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5244555696124448473, guid: c59147c4626ae954ba7e637392ac683a, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5244555696124448473, guid: c59147c4626ae954ba7e637392ac683a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3741,9 +4089,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeedTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5668251177517224759, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5668251177517224759, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3796,7 +4148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3973925625254682359, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3973925625254682359, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3842,6 +4194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PorcothrowTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 6899878034113650534, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8998293220336867991, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
       propertyPath: endWayPoint
       value: 
@@ -3865,7 +4221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8041958496313089702, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8041958496313089702, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3910,6 +4266,10 @@ PrefabInstance:
     - target: {fileID: 8041958496313089704, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
       propertyPath: m_Name
       value: ResinTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041958496313089704, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8041958496313089705, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
       propertyPath: endWayPoint

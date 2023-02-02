@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(0)]
 public class GameManager : MonoBehaviour
 {
     public Camera mainCam;
@@ -131,13 +132,13 @@ public class GameManager : MonoBehaviour
         if (player.resourcesInventory.TryGetValue(ammoType, out int ammoAmount))
         {
             //Update player.resourcesInventory (ammo in the slot should be up to the maximum of the inventory)
-            player.resourcesInventory[ammoType] = Database.PLAYER_CAPACITY[Database.PLAYER_CAPACITY_LVL];
+            player.resourcesInventory[ammoType] = Database.Instance.PLAYER_CAPACITY[Database.Instance.PLAYER_CAPACITY_LVL];
         }
         else
         {
-            if (player.resourcesInventory.Count < Database.PLAYER_INVENTORY[Database.PLAYER_INVENTORY_LVL]) //Ha de ser del nivell de la millora de la database.player_inventory_level
+            if (player.resourcesInventory.Count < Database.Instance.PLAYER_INVENTORY[Database.Instance.PLAYER_INVENTORY_LVL]) //Ha de ser del nivell de la millora de la database.player_inventory_level
             {
-                player.resourcesInventory.Add(ammoType, Database.PLAYER_CAPACITY[Database.PLAYER_CAPACITY_LVL]); //Ha de ser del nivell de la millora de database.player_capacity
+                player.resourcesInventory.Add(ammoType, Database.Instance.PLAYER_CAPACITY[Database.Instance.PLAYER_CAPACITY_LVL]); //Ha de ser del nivell de la millora de database.player_capacity
             }
         }
         return true;

@@ -20,11 +20,6 @@ public class SeedTurret : TurretsFather
         base.Update();
     }
 
-    private void OnEnable()
-    {
-        PlaceTurret();
-    }
-
     protected override void Shoot()
     {
         base.Shoot();

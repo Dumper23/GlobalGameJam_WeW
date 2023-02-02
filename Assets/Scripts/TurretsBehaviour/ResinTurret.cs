@@ -32,10 +32,6 @@ public class ResinTurret : TurretsFather
             iShooting = false;
         }
     }
-    private void OnEnable()
-    {
-        PlaceTurret();
-    }
 
     protected override void Shoot()
     {
@@ -65,6 +61,7 @@ public class ResinTurret : TurretsFather
     }
     protected override void InintiateStatsAtCurrentUpgrades()
     {
+        Debug.Log(turretId);
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
         foreach (KeyValuePair<string, float> stat in d)

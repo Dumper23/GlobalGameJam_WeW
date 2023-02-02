@@ -21,10 +21,6 @@ public class SeedniperTurret : TurretsFather
     {
         base.Update();
     }
-    private void OnEnable()
-    {
-        PlaceTurret();
-    }
 
     protected override void Shoot()
     {

@@ -26,10 +26,6 @@ public class NutRollTurret : TurretsFather
     {
         base.Update();
     }
-    private void OnEnable()
-    {
-        //PlaceTurret();
-    }
 
     protected override void Shoot()
     {

@@ -20,16 +20,11 @@ public class PorcuthrowTurret : TurretsFather
     {
         //ammunituion = 5;
         //damage = 10;
-
     }
 
     void Update()
     {
         base.Update();
-    }
-    private void OnEnable()
-    {
-        PlaceTurret();
     }
 
     protected override void Shoot()
