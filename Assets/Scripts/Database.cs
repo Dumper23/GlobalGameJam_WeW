@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Database : MonoBehaviour
 {
+    public static Database Instance;
+    private void Awake() => Instance = this;
 
     #region WAVES FOR EACH DAY
     public static List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
@@ -385,6 +387,9 @@ public class Database : MonoBehaviour
     public static int[] PLAYER_INVENTORY = { 10, 20, 30 };
     public static int[] PLAYER_CAPACITY = { 10, 20, 30 };
     public static int[] PLAYER_LIFT = { 10 };
-    #endregion 
+    #endregion
 
+    #region UNLOCK FLOOR DAYS
+    public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
+    #endregion
 }

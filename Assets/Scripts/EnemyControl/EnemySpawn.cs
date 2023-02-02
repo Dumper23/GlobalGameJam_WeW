@@ -96,6 +96,15 @@ public class EnemySpawn : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    if (checkAllWavesCompleted() && checkAllEnemiesDeactivated())
+                    {
+                        //go to night
+                        GameManager.Instance.changeDayState();
+                        return;
+                    }
+                }
             }
         }
     }
@@ -165,6 +174,27 @@ public class EnemySpawn : MonoBehaviour
     private Vector3 getRandomPoint(Vector3 center)
     {
         return center + new Vector3((Random.value - 0.5f) * AREA_RANGE, (Random.value - 0.5f) * AREA_RANGE, 0);
+    }
+    
+    private bool checkAllWavesCompleted()
+    {
+        foreach (EnemyWaveState wave in enemyWaveStates)
+        {
+            if (!wave.completed) return false;
+        }
+        return true;
+    }
+
+    private bool checkAllEnemiesDeactivated()
+    {
+        foreach (Pool pool in pools)
+        {
+            foreach (GameObject enemy in pool.pooledObjects)
+            {
+                if (enemy.activeInHierarchy) return false;
+            }
+        }
+        return true;
     }
 
     void OnDrawGizmosSelected()

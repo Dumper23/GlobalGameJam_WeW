@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<EnemySpawn> enemySpawns;
     public bool isDay = false;
 
-    private int currentDay = 1;
+    private int currentDay = 0;
     private int currentFloor = 0;
     private int unlockedFloors = 4;
 
@@ -101,73 +101,73 @@ public class GameManager : MonoBehaviour
         switch (currentDay)
         {
             case 1:
-                return Database.DAY1_WAVES;
+                return Database.Instance.DAY1_WAVES;
                 
             case 2:
-                return Database.DAY2_WAVES;
+                return Database.Instance.DAY2_WAVES;
 
             case 3:
-                return Database.DAY3_WAVES;
+                return Database.Instance.DAY3_WAVES;
 
             case 4:
-                return Database.DAY4_WAVES;
+                return Database.Instance.DAY4_WAVES;
 
             case 5:
-                return Database.DAY5_WAVES;
+                return Database.Instance.DAY5_WAVES;
 
             case 6:
-                return Database.DAY6_WAVES;
+                return Database.Instance.DAY6_WAVES;
 
             case 7:
-                return Database.DAY7_WAVES;
+                return Database.Instance.DAY7_WAVES;
 
             case 8:
-                return Database.DAY8_WAVES;
+                return Database.Instance.DAY8_WAVES;
 
             case 9:
-                return Database.DAY9_WAVES;
+                return Database.Instance.DAY9_WAVES;
 
             case 10:
-                return Database.DAY10_WAVES;
+                return Database.Instance.DAY10_WAVES;
 
             case 11:
-                return Database.DAY11_WAVES;
+                return Database.Instance.DAY11_WAVES;
 
             case 12:
-                return Database.DAY12_WAVES;
+                return Database.Instance.DAY12_WAVES;
 
             case 13:
-                return Database.DAY13_WAVES;
+                return Database.Instance.DAY13_WAVES;
 
             case 14:
-                return Database.DAY14_WAVES;
+                return Database.Instance.DAY14_WAVES;
 
             case 15:
-                return Database.DAY15_WAVES;
+                return Database.Instance.DAY15_WAVES;
 
             case 16:
-                return Database.DAY16_WAVES;
+                return Database.Instance.DAY16_WAVES;
 
             case 17:
-                return Database.DAY17_WAVES;
+                return Database.Instance.DAY17_WAVES;
 
             case 18:
-                return Database.DAY18_WAVES;
+                return Database.Instance.DAY18_WAVES;
 
             case 19:
-                return Database.DAY19_WAVES;
+                return Database.Instance.DAY19_WAVES;
 
             case 20:
-                return Database.DAY20_WAVES;
+                return Database.Instance.DAY20_WAVES;
 
             case 21:
-                return Database.DAY21_WAVES;
+                return Database.Instance.DAY21_WAVES;
 
             case 22:
-                return Database.DAY22_WAVES;
+                return Database.Instance.DAY22_WAVES;
 
             case 23:
-                return Database.DAY23_WAVES;
+                return Database.Instance.DAY23_WAVES;
 
             default:
                 return new List<EnemyWave>();
@@ -211,15 +211,15 @@ public class GameManager : MonoBehaviour
         switch (turretId)
         {
             case "MACHINE_SEED":
-                chestLevel = Database.MACHINE_SEED_CHEST_LVL;
-                capacityLevel = Database.MACHINE_SEED_CAPACITY_LVL;
-                damageLevel = Database.MACHINE_SEED_DAMAGE_LVL;
-                speedLevel = Database.MACHINE_SEED_SPEED_LVL;
+                chestLevel = Database.Instance.MACHINE_SEED_CHEST_LVL;
+                capacityLevel = Database.Instance.MACHINE_SEED_CAPACITY_LVL;
+                damageLevel = Database.Instance.MACHINE_SEED_DAMAGE_LVL;
+                speedLevel = Database.Instance.MACHINE_SEED_SPEED_LVL;
 
-                turretInfo.Add("capacity", Database.MACHINE_SEED_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.MACHINE_SEED_CHEST[chestLevel]);
-                turretInfo.Add("damage", (int)Database.MACHINE_SEED_DAMAGE[damageLevel]);
-                turretInfo.Add("speed", Database.MACHINE_SEED_SPEED[speedLevel]);
+                turretInfo.Add("capacity", Database.Instance.MACHINE_SEED_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.MACHINE_SEED_CHEST[chestLevel]);
+                turretInfo.Add("damage", (int)Database.Instance.MACHINE_SEED_DAMAGE[damageLevel]);
+                turretInfo.Add("speed", Database.Instance.MACHINE_SEED_SPEED[speedLevel]);
                 turretInfo.Add("damageLevel", damageLevel);
                 turretInfo.Add("speedLevel", speedLevel);
                 turretInfo.Add("chestLevel", chestLevel);
@@ -227,18 +227,18 @@ public class GameManager : MonoBehaviour
 
                 return turretInfo;
             case "RESIN_SPIT":
-                chestLevel = Database.RESIN_SPIT_CHEST_LVL;
-                capacityLevel = Database.RESIN_SPIT_CAPACITY_LVL;
-                damageLevel = Database.RESIN_SPIT_DAMAGE_LVL;
-                speedLevel = Database.RESIN_SPIT_SPEED_LVL;
-                sticknessLevel = Database.RESIN_SPIT_STICKNESS_LVL;
+                chestLevel = Database.Instance.RESIN_SPIT_CHEST_LVL;
+                capacityLevel = Database.Instance.RESIN_SPIT_CAPACITY_LVL;
+                damageLevel = Database.Instance.RESIN_SPIT_DAMAGE_LVL;
+                speedLevel = Database.Instance.RESIN_SPIT_SPEED_LVL;
+                sticknessLevel = Database.Instance.RESIN_SPIT_STICKNESS_LVL;
 
 
-                turretInfo.Add("capacity", Database.RESIN_SPIT_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.RESIN_SPIT_CHEST[chestLevel]);
-                turretInfo.Add("damage", Database.RESIN_SPIT_DAMAGE[damageLevel]);
-                turretInfo.Add("speed", Database.RESIN_SPIT_SPEED[speedLevel]);
-                turretInfo.Add("stick", Database.RESIN_SPIT_STICKNESS[sticknessLevel]);
+                turretInfo.Add("capacity", Database.Instance.RESIN_SPIT_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.RESIN_SPIT_CHEST[chestLevel]);
+                turretInfo.Add("damage", Database.Instance.RESIN_SPIT_DAMAGE[damageLevel]);
+                turretInfo.Add("speed", Database.Instance.RESIN_SPIT_SPEED[speedLevel]);
+                turretInfo.Add("stick", Database.Instance.RESIN_SPIT_STICKNESS[sticknessLevel]);
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
                 turretInfo.Add("damageLevel", damageLevel);
@@ -246,17 +246,17 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("sticknessLevel", sticknessLevel);
                 return turretInfo;
             case "S_SEEDNIPER":
-                chestLevel = Database.S_SEEDNIPER_CHEST_LVL;
-                capacityLevel = Database.S_SEEDNIPER_CAPACITY_LVL;
-                damageLevel = Database.S_SEEDNIPER_DAMAGE_LVL;
-                ricochetLevel = Database.S_SEEDNIPER_RICOCHET_LVL;
-                speedLevel = Database.S_SEEDNIPER_SPEED_LVL;
+                chestLevel = Database.Instance.S_SEEDNIPER_CHEST_LVL;
+                capacityLevel = Database.Instance.S_SEEDNIPER_CAPACITY_LVL;
+                damageLevel = Database.Instance.S_SEEDNIPER_DAMAGE_LVL;
+                ricochetLevel = Database.Instance.S_SEEDNIPER_RICOCHET_LVL;
+                speedLevel = Database.Instance.S_SEEDNIPER_SPEED_LVL;
 
-                turretInfo.Add("capacity", Database.S_SEEDNIPER_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.S_SEEDNIPER_CHEST[chestLevel]);
-                turretInfo.Add("damage", Database.S_SEEDNIPER_DAMAGE[damageLevel]);
-                turretInfo.Add("ricochet", Database.S_SEEDNIPER_RICOCHET[ricochetLevel]);
-                turretInfo.Add("speed", Database.S_SEEDNIPER_SPEED[speedLevel]);
+                turretInfo.Add("capacity", Database.Instance.S_SEEDNIPER_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.S_SEEDNIPER_CHEST[chestLevel]);
+                turretInfo.Add("damage", Database.Instance.S_SEEDNIPER_DAMAGE[damageLevel]);
+                turretInfo.Add("ricochet", Database.Instance.S_SEEDNIPER_RICOCHET[ricochetLevel]);
+                turretInfo.Add("speed", Database.Instance.S_SEEDNIPER_SPEED[speedLevel]);
 
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
@@ -265,23 +265,23 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
             case "PINECONE_LAUNCHER":
-                chestLevel = Database.PINECONE_LAUNCHER_CHEST_LVL;
-                capacityLevel = Database.PINECONE_LAUNCHER_CAPACITY_LVL;
-                areaLevel = Database.PINECONE_LAUNCHER_AREA_LVL;
-                clusterLevel = Database.PINECONE_LAUNCHER_CLUSTER_LVL;
-                damageStunLevel = Database.PINECONE_LAUNCHER_DAMAGE_STUN_LVL;
-                damageLevel = Database.PINECONE_LAUNCHER_DAMAGE_LVL;
-                rangeLevel = Database.PINECONE_LAUNCHER_RANGE_LVL;
-                speedLevel = Database.PINECONE_LAUNCHER_SPEED_LVL;
+                chestLevel = Database.Instance.PINECONE_LAUNCHER_CHEST_LVL;
+                capacityLevel = Database.Instance.PINECONE_LAUNCHER_CAPACITY_LVL;
+                areaLevel = Database.Instance.PINECONE_LAUNCHER_AREA_LVL;
+                clusterLevel = Database.Instance.PINECONE_LAUNCHER_CLUSTER_LVL;
+                damageStunLevel = Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_LVL;
+                damageLevel = Database.Instance.PINECONE_LAUNCHER_DAMAGE_LVL;
+                rangeLevel = Database.Instance.PINECONE_LAUNCHER_RANGE_LVL;
+                speedLevel = Database.Instance.PINECONE_LAUNCHER_SPEED_LVL;
 
-                turretInfo.Add("capacity", Database.PINECONE_LAUNCHER_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.PINECONE_LAUNCHER_CHEST[chestLevel]);
-                turretInfo.Add("area", Database.PINECONE_LAUNCHER_AREA[areaLevel]);
-                turretInfo.Add("cluster", Database.PINECONE_LAUNCHER_CLUSTER[clusterLevel]);
-                turretInfo.Add("damage", Database.PINECONE_LAUNCHER_DAMAGE[damageLevel]);
-                turretInfo.Add("stun", Database.PINECONE_LAUNCHER_DAMAGE_STUN[damageStunLevel]);
-                turretInfo.Add("range", Database.PINECONE_LAUNCHER_RANGE[rangeLevel]); 
-                turretInfo.Add("speed", Database.PINECONE_LAUNCHER_SPEED[speedLevel]);
+                turretInfo.Add("capacity", Database.Instance.PINECONE_LAUNCHER_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.PINECONE_LAUNCHER_CHEST[chestLevel]);
+                turretInfo.Add("area", Database.Instance.PINECONE_LAUNCHER_AREA[areaLevel]);
+                turretInfo.Add("cluster", Database.Instance.PINECONE_LAUNCHER_CLUSTER[clusterLevel]);
+                turretInfo.Add("damage", Database.Instance.PINECONE_LAUNCHER_DAMAGE[damageLevel]);
+                turretInfo.Add("stun", Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN[damageStunLevel]);
+                turretInfo.Add("range", Database.Instance.PINECONE_LAUNCHER_RANGE[rangeLevel]); 
+                turretInfo.Add("speed", Database.Instance.PINECONE_LAUNCHER_SPEED[speedLevel]);
 
                 turretInfo.Add("capacityLevel", capacityLevel);
                 turretInfo.Add("chestLevel", chestLevel);
@@ -293,19 +293,19 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
             case "NUT_ROLL":
-                chestLevel = Database.NUT_ROLL_CHEST_LVL;
-                capacityLevel = Database.NUT_ROLL_CAPACITY_LVL;
-                damageLevel = Database.NUT_ROLL_DAMAGE_LVL;
-                extraLevel = Database.NUT_ROLL_EXTRA_LVL;
-                hitsLevel = Database.NUT_ROLL_HITS_LVL;
-                speedLevel = Database.NUT_ROLL_SPEED_LVL;
+                chestLevel = Database.Instance.NUT_ROLL_CHEST_LVL;
+                capacityLevel = Database.Instance.NUT_ROLL_CAPACITY_LVL;
+                damageLevel = Database.Instance.NUT_ROLL_DAMAGE_LVL;
+                extraLevel = Database.Instance.NUT_ROLL_EXTRA_LVL;
+                hitsLevel = Database.Instance.NUT_ROLL_HITS_LVL;
+                speedLevel = Database.Instance.NUT_ROLL_SPEED_LVL;
 
-                turretInfo.Add("capacity", Database.NUT_ROLL_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.NUT_ROLL_CHEST[chestLevel]);
-                turretInfo.Add("damage", Database.NUT_ROLL_DAMAGE[damageLevel]);
-                turretInfo.Add("extra", Database.NUT_ROLL_EXTRA[extraLevel]);
-                turretInfo.Add("hits", Database.NUT_ROLL_HITS[hitsLevel]);
-                turretInfo.Add("speed", Database.NUT_ROLL_SPEED[speedLevel]);
+                turretInfo.Add("capacity", Database.Instance.NUT_ROLL_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.NUT_ROLL_CHEST[chestLevel]);
+                turretInfo.Add("damage", Database.Instance.NUT_ROLL_DAMAGE[damageLevel]);
+                turretInfo.Add("extra", Database.Instance.NUT_ROLL_EXTRA[extraLevel]);
+                turretInfo.Add("hits", Database.Instance.NUT_ROLL_HITS[hitsLevel]);
+                turretInfo.Add("speed", Database.Instance.NUT_ROLL_SPEED[speedLevel]);
 
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
@@ -315,17 +315,17 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
             case "PORCUTHROW":
-                chestLevel = Database.PORCUTHROW_CHEST_LVL;
-                capacityLevel = Database.PORCUTHROW_CAPACITY_LVL;
-                piercingLevel = Database.PORCUTHROW_PIERCING_LVL;
-                projectilesLevel = Database.PORCUTHROW_PROJECTILES_LVL;
-                speedLevel = Database.PORCUTHROW_SPEED_LVL;
+                chestLevel = Database.Instance.PORCUTHROW_CHEST_LVL;
+                capacityLevel = Database.Instance.PORCUTHROW_CAPACITY_LVL;
+                piercingLevel = Database.Instance.PORCUTHROW_PIERCING_LVL;
+                projectilesLevel = Database.Instance.PORCUTHROW_PROJECTILES_LVL;
+                speedLevel = Database.Instance.PORCUTHROW_SPEED_LVL;
 
-                turretInfo.Add("capacity", Database.PORCUTHROW_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.PORCUTHROW_CHEST[chestLevel]);
-                turretInfo.Add("piercing", Database.PORCUTHROW_PIERCING[piercingLevel]);
-                turretInfo.Add("projectiles", Database.PORCUTHROW_PROJECTILES[projectilesLevel]);
-                turretInfo.Add("speed", Database.PORCUTHROW_SPEED[speedLevel]);
+                turretInfo.Add("capacity", Database.Instance.PORCUTHROW_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.PORCUTHROW_CHEST[chestLevel]);
+                turretInfo.Add("piercing", Database.Instance.PORCUTHROW_PIERCING[piercingLevel]);
+                turretInfo.Add("projectiles", Database.Instance.PORCUTHROW_PROJECTILES[projectilesLevel]);
+                turretInfo.Add("speed", Database.Instance.PORCUTHROW_SPEED[speedLevel]);
 
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
@@ -334,19 +334,19 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
             case "ELECTRIC_POTATO":
-                chestLevel = Database.ELECTRIC_POTATO_CHEST_LVL;
-                capacityLevel = Database.ELECTRIC_POTATO_CAPACITY_LVL;
-                damageLevel = Database.ELECTRIC_POTATO_DAMAGE_LVL;
-                rayLevel = Database.ELECTRIC_POTATO_RAY_LVL;
-                speedLevel = Database.ELECTRIC_POTATO_SPEED_LVL;
-                stunLevel = Database.ELECTRIC_POTATO_STUN_LVL;
+                chestLevel = Database.Instance.ELECTRIC_POTATO_CHEST_LVL;
+                capacityLevel = Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL;
+                damageLevel = Database.Instance.ELECTRIC_POTATO_DAMAGE_LVL;
+                rayLevel = Database.Instance.ELECTRIC_POTATO_RAY_LVL;
+                speedLevel = Database.Instance.ELECTRIC_POTATO_SPEED_LVL;
+                stunLevel = Database.Instance.ELECTRIC_POTATO_STUN_LVL;
 
-                turretInfo.Add("capacity", Database.ELECTRIC_POTATO_CAPACITY[capacityLevel]);
-                turretInfo.Add("chest", Database.ELECTRIC_POTATO_CHEST[chestLevel]);
-                turretInfo.Add("damage", Database.ELECTRIC_POTATO_DAMAGE[damageLevel]);
-                turretInfo.Add("ray", Database.ELECTRIC_POTATO_RAY[rayLevel]);
-                turretInfo.Add("speed", Database.ELECTRIC_POTATO_SPEED[speedLevel]);
-                turretInfo.Add("stun", Database.ELECTRIC_POTATO_STUN[stunLevel]);
+                turretInfo.Add("capacity", Database.Instance.ELECTRIC_POTATO_CAPACITY[capacityLevel]);
+                turretInfo.Add("chest", Database.Instance.ELECTRIC_POTATO_CHEST[chestLevel]);
+                turretInfo.Add("damage", Database.Instance.ELECTRIC_POTATO_DAMAGE[damageLevel]);
+                turretInfo.Add("ray", Database.Instance.ELECTRIC_POTATO_RAY[rayLevel]);
+                turretInfo.Add("speed", Database.Instance.ELECTRIC_POTATO_SPEED[speedLevel]);
+                turretInfo.Add("stun", Database.Instance.ELECTRIC_POTATO_STUN[stunLevel]);
 
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
@@ -376,6 +376,8 @@ public class GameManager : MonoBehaviour
         isDay = !isDay;
         if (isDay)
         {
+            currentDay++;
+
             //activate spawns
             foreach (EnemySpawn spawn in enemySpawns)
             {
@@ -389,6 +391,21 @@ public class GameManager : MonoBehaviour
             {
                 spawn.deactivateSpawn();
             }
+
+            //change background
+
+            //change music
+
+            //create new floor if its day X
+            
+
+            //Start day after 60s
+            Invoke("changeDayState", 60);
         }
+    }
+
+    private void createNewFloor()
+    {
+
     }
 }
