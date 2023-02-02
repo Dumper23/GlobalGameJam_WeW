@@ -107,6 +107,9 @@ public class Database : MonoBehaviour
     #region TURRET ATTRIBUTES
 
     #region MACHINE_SEED
+
+    public string MACHINE_SEED_ DESCRIPTION = "Shoot a single enemy until it is eliminated";
+
     public int MACHINE_SEED_DAMAGE_LVL = 0;
     public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     public string MACHINE_SEED_DAMAGE_NAME = "More Seeds!";
@@ -138,6 +141,7 @@ public class Database : MonoBehaviour
 
     #region RESIN_SPIT
 
+    public string RESIN_SPIT_DESCRIPTION = "Shoots a resin puddle that slows down the enemy as it passes through it";
 
     public int RESIN_SPIT_DAMAGE_LVL = 0;
     public string RESIN_SPIT_DAMAGE_DESCRIPTION = "Now the resin does a little damage per second";
@@ -185,6 +189,9 @@ public class Database : MonoBehaviour
     #endregion
 
     #region S_SEEDNIPER
+
+    public string S_SEEDNIPER_DESCRIPTION = "Fires a projectile that does a lot of damage, but has slow firerate.";
+
     public int S_SEEDNIPER_DAMAGE_LVL = 0;
     public string S_SEEDNIPER_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     public string S_SEEDNIPER_DAMAGE_NAME = "More Damage!";
@@ -218,6 +225,9 @@ public class Database : MonoBehaviour
     #endregion
 
     #region PINECONE_LAUNCHER
+
+    public string PINECONE_LAUNCHER_DESCRIPTION = "Fires a projectile that does area damage, but has slow firerate.";
+
     public int PINECONE_LAUNCHER_AREA_LVL = 0;
     public string PINECONE_LAUNCHER_AREA_DESCRIPTION = "Increases the area of the explosion";
     public string PINECONE_LAUNCHER_AREA_NAME = "More Boom!";
@@ -269,6 +279,9 @@ public class Database : MonoBehaviour
     #endregion
 
     #region NUT_ROLL
+
+    public string NUT_ROLL_DESCRIPTION = "Fires a projectile that rolls around the outside of the tree and damages up to 20 enemies where it passes through.";
+
     public int NUT_ROLL_DAMAGE_LVL = 0;
     public string NUT_ROLL_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     public string NUT_ROLL_DAMAGE_NAME = "More Nut Damage!";
@@ -309,6 +322,9 @@ public class Database : MonoBehaviour
     #endregion
 
     #region PORCUTHROW
+
+    public string PORCUTHROW_DESCRIPTION = "Fires three projectiles that do a lot of damage at close range";
+
     public int PORCUTHROW_PROJECTILES_LVL = 0;
     public string PORCUTHROW_PROJECTILES_DESCRIPTION = "Increases Turret fired projectiles";
     public string PORCUTHROW_PROJECTILES_NAME = "More Projectiles!";
@@ -343,6 +359,9 @@ public class Database : MonoBehaviour
     #endregion
 
     #region ELECTRIC_POTATO
+
+    public string ELECTRIC_POTATO_DESCRIPTION = "Fires electricity that bounces off some enemies, stunning them";
+
     public int ELECTRIC_POTATO_RAY_LVL = 0;
     public string ELECTRIC_POTATO_RAY_DESCRIPTION = "Increases the number of enemies hit by the lightning bolt";
     public string ELECTRIC_POTATO_RAY_NAME = "Lightning Upgrade!";
