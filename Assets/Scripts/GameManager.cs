@@ -46,11 +46,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-    }
-
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
+        changeDayState();
     }
 
     #region getters & setters
@@ -99,10 +95,8 @@ public class GameManager : MonoBehaviour
     public void toggleMapView()
     {
         mainCam.GetComponent<CameraFollow>().toggleGeneralView();
-    void Start()
-    {
-        changeDayState();
     }
+
 
     public bool isGamePaused()
     {
@@ -138,6 +132,7 @@ public class GameManager : MonoBehaviour
         if (player.resourcesInventory.TryGetValue(ammoType, out int ammoAmount))
         {
             //Update player.resourcesInventory (ammo in the slot should be up to the maximum of the inventory)
+            //player.resourcesInventory[ammoType] = Database.PLAYER_CAPACITY[];
         }
         else
         {
@@ -147,6 +142,7 @@ public class GameManager : MonoBehaviour
             }
         }
         return true;
+    }
     public Transform[] getWaypoints(string type)
     {
         Transform[] waypoints = null;
