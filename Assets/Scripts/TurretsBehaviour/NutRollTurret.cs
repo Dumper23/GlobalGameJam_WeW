@@ -2,47 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PineconeTurret : TurretsFather
+public class NutRollTurret : TurretsFather
 {
+    [SerializeField]
+    private int hits = 10;
 
-    private bool cluster = false;
-    private float radius = 5;
+    [SerializeField]
+    private bool extra = false;
+
     private void Awake()
     {
-        turretId = "PINECONE_LAUNCHER";
+        turretId = "NUT_ROLL";
     }
 
+    // Start is called before the first frame update
     void Start()
     {
-        //ammunituion = 5;
-        //damage = 10;
-
 
     }
 
+    // Update is called once per frame
     void Update()
     {
         base.Update();
     }
     private void OnEnable()
     {
-        PlaceTurret();
+        //PlaceTurret();
     }
 
     protected override void Shoot()
     {
         base.Shoot();
 
-        GameObject bul = BulletPool.bulletPoolInstance.GetPinecone();
+        GameObject bul = BulletPool.bulletPoolInstance.GetNut();
         bul.transform.position = GetBulletSpawnPoint().position;
 
         bul.SetActive(true);
-        bul.GetComponent<PineconeBullet>().SetTarget(base.currentTarget.transform);
-        bul.GetComponent<PineconeBullet>().SetDamage(base.damage);
-        bul.GetComponent<PineconeBullet>().SetRadius(radius);
+        //bul.GetComponent<ResinBullet>().SetTarget(base.currentTarget.transform);
+        //bul.GetComponent<ResinBullet>().SetDamage(base.damage);
         ammunituion--;
     }
 
+    protected override void FaceObjective()
+    {
+        //None
+    }
     protected override void InintiateStatsAtCurrentUpgrades()
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
@@ -57,27 +62,32 @@ public class PineconeTurret : TurretsFather
                 case "damage":
                     damage = (int)stat.Value;
                     break;
-                case "area":
-                    radius = stat.Value;
+                case "speed":
+                    fireRate = stat.Value;
                     break;
-                case "cluster":
+                case "extra":
                     if (stat.Value == 0)
                     {
-                        cluster = false;
+                        extra = false;
                     }
                     if (stat.Value == 1)
                     {
-                        cluster = true;
+                        extra = true;
                     }
+                    break;
+                case "hits":
+                    hits = (int)stat.Value;
                     break;
             }
         }
     }
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1)
+
+    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newExtra = false, float newHits = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
-        radius = newRadius;
-        cluster = newCluster;
+        fireRate = newFireRate;
+        extra = newExtra;
+        hits = (int)newHits;
     }
 }

@@ -72,6 +72,11 @@ public class PineconeBullet : MonoBehaviour
         damage = bulletDamage;
     }
 
+    public void SetRadius(float newRadius)
+    {
+        radius = newRadius;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))

@@ -10,15 +10,26 @@ public class PorcuthrowTurret : TurretsFather
     [SerializeField]
     private int bulletsAmmount = 11;
 
+    private bool piercing = false;
+    private void Awake()
+    {
+        turretId = "PORCUTHROW";
+    }
+
     void Start()
     {
         //ammunituion = 5;
         //damage = 10;
+
     }
 
     void Update()
     {
         base.Update();
+    }
+    private void OnEnable()
+    {
+        PlaceTurret();
     }
 
     protected override void Shoot()
@@ -55,6 +66,43 @@ public class PorcuthrowTurret : TurretsFather
             angle += angleStep;
         }
         ammunituion--;
+    }
+    protected override void InintiateStatsAtCurrentUpgrades()
+    {
+        Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
+
+        foreach (KeyValuePair<string, float> stat in d)
+        {
+            switch (stat.Key)
+            {
+                case "capacity":
+                    maxAmmo = (int)stat.Value;
+                    break;
+                case "projectiles":
+                    bulletsAmmount = (int)stat.Value - 1;
+                    break;
+                case "speed":
+                    fireRate = stat.Value;
+                    break;
+                case "piercing":
+                    if (stat.Value == 0)
+                    {
+                        piercing = false;
+                    }
+                    if (stat.Value == 1)
+                    {
+                        piercing = true;
+                    }
+                    break;
+            }
+        }
+    }
+    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1)
+    {
+        maxAmmo = newmaxAmmo;
+        bulletsAmmount = newProjectiles;
+        fireRate = newFireRate;
+        piercing = newPiercing;
     }
 
     private void OnDrawGizmos()

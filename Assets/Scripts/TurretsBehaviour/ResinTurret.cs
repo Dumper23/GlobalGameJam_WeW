@@ -12,11 +12,15 @@ public class ResinTurret : TurretsFather
     private GameObject resinBullet;
 
     private bool iShooting = false;
+    private void Awake()
+    {
+        turretId = "RESIN_SPIT";
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,6 +31,10 @@ public class ResinTurret : TurretsFather
         {
             iShooting = false;
         }
+    }
+    private void OnEnable()
+    {
+        PlaceTurret();
     }
 
     protected override void Shoot()
@@ -55,10 +63,35 @@ public class ResinTurret : TurretsFather
     {
         //None
     }
-
-    public override void SetTraits(float newRangeAttack, float newFireRate, int newmaxAmmo, int newDamage, float durationResin = 0)
+    protected override void InintiateStatsAtCurrentUpgrades()
     {
-        base.SetTraits(newRangeAttack, newFireRate, newmaxAmmo, newDamage);
+        Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
+
+        foreach (KeyValuePair<string, float> stat in d)
+        {
+            switch (stat.Key)
+            {
+                case "capacity":
+                    maxAmmo = (int)stat.Value;
+                    break;
+                case "damage":
+                    damage = (int)stat.Value;
+                    break;
+                case "speed":
+                    fireRate = stat.Value;
+                    break;
+                case "stick":
+                    slowness = stat.Value;
+                    break;
+            }
+        }
+    }
+
+    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1)
+    {
+        maxAmmo = newmaxAmmo;
+        damage = newDamage;
+        fireRate = newFireRate;
         resinDuration = durationResin;
     }
 }

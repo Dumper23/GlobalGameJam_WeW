@@ -28,6 +28,8 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]//TMP
     private Transform endWayPoint;
 
+    protected string turretId;
+
     // Start is called before the first frame update
     protected void Start()
     {
@@ -79,13 +81,14 @@ public abstract class TurretsFather : MonoBehaviour
         endWayPoint = end;
     }
 
-    public virtual void SetTraits(float newRangeAttack, float newFireRate, int newmaxAmmo, int newDamage, float durationResin = 0)
+    public string GetTurretId()
     {
-        rangeAttack = newRangeAttack;
-        fireRate = newFireRate;
-        maxAmmo = newmaxAmmo;
-        damage = newDamage;
+        return turretId;
     }
+
+    public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1);//RangeAttack?
+
+    protected abstract void InintiateStatsAtCurrentUpgrades();
 
     protected bool HasAmmo()
     {
@@ -99,8 +102,10 @@ public abstract class TurretsFather : MonoBehaviour
 
     public void PlaceTurret()
     {
+        //maybe set active?
         ammunituion = 0;
         //check lvls
+        InintiateStatsAtCurrentUpgrades();
     }
 
     private bool CanShoot()
@@ -169,6 +174,7 @@ public abstract class TurretsFather : MonoBehaviour
     {
         return (Vector3.Distance(target.transform.position, gameObject.transform.position) < rangeAttack);
     }
+
 
     private void OnDrawGizmos()
     {

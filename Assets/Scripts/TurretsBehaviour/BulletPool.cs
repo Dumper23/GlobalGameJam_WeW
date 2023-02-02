@@ -45,6 +45,14 @@ public class BulletPool : MonoBehaviour
     private List<GameObject> porcuthrows;
     #endregion
 
+    #region NutRoll
+    [SerializeField]
+    private GameObject nutBullet;
+    private bool notEnoughNutsInPool = true;
+
+    private List<GameObject> nuts;
+    #endregion
+
     private void Awake()
     {
         bulletPoolInstance = this;
@@ -57,6 +65,7 @@ public class BulletPool : MonoBehaviour
         seedsniper = new List<GameObject>();
         pinecones = new List<GameObject>();
         porcuthrows = new List<GameObject>();
+        nuts = new List<GameObject>();
     }
 
     public GameObject GetSeed()
@@ -171,6 +180,29 @@ public class BulletPool : MonoBehaviour
             GameObject bul = Instantiate(porcuthrowBullet);
             bul.SetActive(false);
             porcuthrows.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+    public GameObject GetNut()
+    {
+        if (nuts.Count > 0)
+        {
+            for (int i = 0; i < nuts.Count; i++)
+            {
+                if (!nuts[i].activeInHierarchy)
+                {
+                    return nuts[i];
+                }
+            }
+        }
+
+        if (notEnoughNutsInPool)
+        {
+            GameObject bul = Instantiate(nutBullet);
+            bul.SetActive(false);
+            nuts.Add(bul);
             return bul;
         }
 
