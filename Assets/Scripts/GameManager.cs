@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera mainCam;
+    public int unlockedFloors = 10;
+    public int fertilizer = 0;
+
+    private PlayerController player;
     public Transform[] enemyGroundWaypoints;
     public Transform[] enemyAirWaypoints;
     public int playerHP; 
@@ -12,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private int currentDay = 1;
     private int currentFloor = 0;
-    private int unlockedFloors = 4;
+    private bool playerInMenu = false;
 
     private bool gamePaused = false;
 
@@ -38,7 +43,22 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     #region getters & setters
+    public bool getPlayerInMenu()
+    {
+        return playerInMenu;
+    }
+
+    public void setMenuState(bool state)
+    {
+        playerInMenu = state;
+    }
+
     public int getCurrentDay()
     {
         return currentDay;
@@ -71,6 +91,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public void toggleMapView()
+    {
+        mainCam.GetComponent<CameraFollow>().toggleGeneralView();
     void Start()
     {
         changeDayState();
@@ -81,6 +104,44 @@ public class GameManager : MonoBehaviour
         return gamePaused;
     }
 
+    public void showPlacementMenuUI()
+    {
+        player.placementMenu.SetActive(true);
+    }
+    
+    public void showRemoveMenuUI()
+    {
+        player.removeMenu.SetActive(true);
+    }
+
+    public void hideRemoveMenuUI()
+    {
+        player.removeMenu.SetActive(false);
+        GameManager.Instance.setMenuState(false);
+        player.interactionSymbolE.SetActive(false);
+    }
+
+    public void hidePlacementMenuUI()
+    {
+        player.placementMenu.SetActive(false);
+        GameManager.Instance.setMenuState(false);
+    }
+
+    public bool pickUpAmmo(string ammoType)
+    {
+        //If player has no space return false
+        if (player.resourcesInventory.TryGetValue(ammoType, out int ammoAmount))
+        {
+            //Update player.resourcesInventory (ammo in the slot should be up to the maximum of the inventory)
+        }
+        else
+        {
+            if (player.resourcesInventory.Count < Database.PLAYER_INVENTORY[0]) //Ha de ser del nivell de la millora de la database.player_inventory_level
+            {
+                player.resourcesInventory.Add(ammoType, Database.PLAYER_CAPACITY[0]); //Ha de ser del nivell de la millora de database.player_capacity
+            }
+        }
+        return true;
     public Transform[] getWaypoints(string type)
     {
         Transform[] waypoints = null;
