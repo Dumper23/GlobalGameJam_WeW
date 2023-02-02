@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
     }
 
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     #region getters & setters
     public bool getPlayerInMenu()
     {
