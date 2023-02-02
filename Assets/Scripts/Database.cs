@@ -115,7 +115,7 @@ public class Database : MonoBehaviour
     public static int[] RESIN_SPIT_DAMAGE = { 5 };
     public static float[] RESIN_SPIT_SPEED = { 6 };
     public static float[] RESIN_SPIT_DURATION = { 3, 4 };
-    public static int[] RESIN_SPIT_STICKNESS = { 0.6f };
+    public static float[] RESIN_SPIT_STICKNESS = { 0.6f };
     public static float[] RESIN_SPIT_LONG = { 1.6f };
 
     public static int RESIN_SPIT_LEVEL = 0;
@@ -171,7 +171,7 @@ public class Database : MonoBehaviour
     public static int[] ELECTRIC_POTATO_RAY = { 10, 15 };
     public static int[] ELECTRIC_POTATO_DAMAGE = { 20 };
     public static float[] ELECTRIC_POTATO_SPEED = { 5 };
-    public static int[] ELECTRIC_POTATO_STUN = { 2, 2.5f };
+    public static float[] ELECTRIC_POTATO_STUN = { 2, 2.5f };
 
     public static int ELECTRIC_POTATO_LEVEL = 0;
     public static int[] ELECTRIC_POTATO_CAPACITY = { 50, 75, 100 };

@@ -213,16 +213,6 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speed", Database.PINECONE_LAUNCHER_SPEED[turretLevel]); 
                 return turretInfo;
                 break;
-            case "PHOTOSYNTHETIC_LASER":
-                turretLevel = Database.PHOTOSYNTHETIC_LASER_LEVEL;
-                turretInfo.Add("capacity", Database.PHOTOSYNTHETIC_LASER_CAPACITY[turretLevel]);
-                turretInfo.Add("chest", Database.PHOTOSYNTHETIC_LASER_CHEST[turretLevel]);
-                turretInfo.Add("damage", Database.PHOTOSYNTHETIC_LASER_DAMAGE[turretLevel]);
-                turretInfo.Add("level", Database.PHOTOSYNTHETIC_LASER_LEVEL);
-                turretInfo.Add("objectives", Database.PHOTOSYNTHETIC_LASER_OBJETIVOS[turretLevel]);
-                turretInfo.Add("range", Database.PHOTOSYNTHETIC_LASER_RANGO[turretLevel]);
-                return turretInfo;
-                break;
             case "NUT_ROLL":
                 turretLevel = Database.NUT_ROLL_LEVEL;
                 turretInfo.Add("capacity", Database.NUT_ROLL_CAPACITY[turretLevel]);
@@ -232,17 +222,6 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("hits", Database.NUT_ROLL_HITS[turretLevel]);
                 turretInfo.Add("level", Database.NUT_ROLL_LEVEL);
                 turretInfo.Add("speed", Database.NUT_ROLL_SPEED[turretLevel]);
-                return turretInfo;
-                break;
-            case "CARNIVOROUS":
-                turretLevel = Database.CARNIVOROUS_LEVEL;
-                turretInfo.Add("capacity", Database.CARNIVOROUS_CAPACITY[turretLevel]);
-                turretInfo.Add("chest", Database.CARNIVOROUS_CHEST[turretLevel]);
-                turretInfo.Add("damage", Database.CARNIVOROUS_DAMAGE[turretLevel]);
-                turretInfo.Add("heads", Database.CARNIVOROUS_HEADS[turretLevel]);
-                turretInfo.Add("level", Database.CARNIVOROUS_LEVEL);
-                turretInfo.Add("saliva", Database.CARNIVOROUS_SALIVA[turretLevel]);
-                turretInfo.Add("speed", Database.CARNIVOROUS_SPEED[turretLevel]);
                 return turretInfo;
                 break;
             case "PORCUTHROW":
@@ -264,16 +243,6 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("ray", Database.ELECTRIC_POTATO_RAY[turretLevel]);
                 turretInfo.Add("speed", Database.ELECTRIC_POTATO_SPEED[turretLevel]);
                 turretInfo.Add("stun", Database.ELECTRIC_POTATO_STUN[turretLevel]);
-                return turretInfo;
-                break;
-            case "FLAMEPEPPET":
-                turretLevel = Database.FLAMEPEPPET_LEVEL;
-                turretInfo.Add("capacity", Database.FLAMEPEPPET_CAPACITY[turretLevel]);
-                turretInfo.Add("chest", Database.FLAMEPEPPET_CHEST[turretLevel]);
-                turretInfo.Add("cone", Database.FLAMEPEPPET_CONE[turretLevel]);
-                turretInfo.Add("damage", Database.FLAMEPEPPET_DAMAGE[turretLevel]);
-                turretInfo.Add("level", Database.FLAMEPEPPET_LEVEL);
-                turretInfo.Add("range", Database.FLAMEPEPPET_RANGO[turretLevel]);
                 return turretInfo;
                 break;
             default:
