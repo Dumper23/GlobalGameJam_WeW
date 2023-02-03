@@ -130,6 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 155053730}
     m_Modifications:
+    - target: {fileID: 5816180656055630695, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8338807
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816180656055630695, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816180656055630695, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450019896212949647, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8338807
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450019896212949647, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450019896212949647, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5990566
+      objectReference: {fileID: 0}
     - target: {fileID: 6450019896475291739, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
       propertyPath: m_Name
       value: TOP
@@ -703,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6450019896475291812, guid: b6cac6c15fa519e4290b927b35bc0311, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.473
+      value: -5.466
       objectReference: {fileID: 0}
     - target: {fileID: 6450019896475291812, guid: b6cac6c15fa519e4290b927b35bc0311, type: 3}
       propertyPath: m_LocalPosition.z
@@ -856,6 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8f56e5db3424145bb079f626fefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MACHINE_SEED_DESCRIPTION: Shoot a single enemy until it is eliminated
   MACHINE_SEED_DAMAGE_LVL: 0
   MACHINE_SEED_DAMAGE_DESCRIPTION: Increases Turret Damage
   MACHINE_SEED_DAMAGE_NAME: More Seeds!
@@ -882,6 +907,8 @@ MonoBehaviour:
   MACHINE_SEED_CHEST_NAME: More Chest!
   MACHINE_SEED_CHEST_COST: 0a000000140000001e000000
   MACHINE_SEED_CHEST: 320000004b00000064000000
+  RESIN_SPIT_DESCRIPTION: Shoots a resin puddle that slows down the enemy as it passes
+    through it
   RESIN_SPIT_DAMAGE_LVL: 0
   RESIN_SPIT_DAMAGE_DESCRIPTION: Now the resin does a little damage per second
   RESIN_SPIT_DAMAGE_NAME: Corrosive Resin
@@ -925,6 +952,8 @@ MonoBehaviour:
   RESIN_SPIT_CHEST_NAME: More Chest!
   RESIN_SPIT_CHEST_COST: 0a000000140000001e000000
   RESIN_SPIT_CHEST: 1e000000320000004b000000
+  S_SEEDNIPER_DESCRIPTION: Fires a projectile that does a lot of damage, but has
+    slow firerate.
   S_SEEDNIPER_DAMAGE_LVL: 0
   S_SEEDNIPER_DAMAGE_DESCRIPTION: Increases Turret Damage
   S_SEEDNIPER_DAMAGE_NAME: More Damage!
@@ -955,6 +984,8 @@ MonoBehaviour:
   S_SEEDNIPER_CHEST_DESCRIPTION: Increases chest capacity
   S_SEEDNIPER_CHEST_NAME: More Chest!
   S_SEEDNIPER_CHEST: 14000000230000002d000000
+  PINECONE_LAUNCHER_DESCRIPTION: Fires a projectile that does area damage, but has
+    slow firerate.
   PINECONE_LAUNCHER_AREA_LVL: 0
   PINECONE_LAUNCHER_AREA_DESCRIPTION: Increases the area of the explosion
   PINECONE_LAUNCHER_AREA_NAME: More Boom!
@@ -1001,6 +1032,8 @@ MonoBehaviour:
   PINECONE_LAUNCHER_CHEST_DESCRIPTION: Increases chest capacity
   PINECONE_LAUNCHER_CHEST_NAME: More Chest!
   PINECONE_LAUNCHER_CHEST: 1e000000320000004b000000
+  NUT_ROLL_DESCRIPTION: Fires a projectile that rolls around the outside of the tree
+    and damages up to 20 enemies where it passes through.
   NUT_ROLL_DAMAGE_LVL: 0
   NUT_ROLL_DAMAGE_DESCRIPTION: Increases Turret Damage
   NUT_ROLL_DAMAGE_NAME: More Nut Damage!
@@ -1036,6 +1069,8 @@ MonoBehaviour:
   NUT_ROLL_CHEST_NAME: More Chest!
   NUT_ROLL_CHEST_COST: 0a000000140000001e000000
   NUT_ROLL_CHEST: 140000001e00000032000000
+  PORCUTHROW_DESCRIPTION: Fires three projectiles that do a lot of damage at close
+    range
   PORCUTHROW_PROJECTILES_LVL: 0
   PORCUTHROW_PROJECTILES_DESCRIPTION: Increases Turret fired projectiles
   PORCUTHROW_PROJECTILES_NAME: More Projectiles!
@@ -1065,6 +1100,8 @@ MonoBehaviour:
   PORCUTHROW_CHEST_NAME: More Chest!
   PORCUTHROW_CHEST_COST: 0a000000140000001e000000
   PORCUTHROW_CHEST: 320000004b00000064000000
+  ELECTRIC_POTATO_DESCRIPTION: Fires electricity that bounces off some enemies, stunning
+    them
   ELECTRIC_POTATO_RAY_LVL: 0
   ELECTRIC_POTATO_RAY_DESCRIPTION: Increases the number of enemies hit by the lightning
     bolt
@@ -1103,12 +1140,27 @@ MonoBehaviour:
   ELECTRIC_POTATO_CHEST_COST: 0a000000140000001e000000
   ELECTRIC_POTATO_CHEST: 1e000000320000004b000000
   PLAYER_SPEED_LVL: 0
+  PLAYER_SPEED_DESCRIPTION: Increases the Player Movement Speed
+  PLAYER_SPEED_NAME: Gotta Go Fast!
+  PLAYER_SPEED_COST: 0a000000140000001e000000
+  PLAYER_SPEED:
+  - 10
+  - 20
+  - 30
   PLAYER_INVENTORY_LVL: 0
-  PLAYER_CAPACITY_LVL: 0
-  PLAYER_LIFT_LVL: 0
-  PLAYER_SPEED: 0a000000140000001e000000
+  PLAYER_INVENTORY_DESCRIPTION: Increases the inventory slots of the player
+  PLAYER_INVENTORY_NAME: Holding Bag!
+  PLAYER_INVENTORY_COST: 0a000000140000001e000000
   PLAYER_INVENTORY: 0a000000140000001e000000
+  PLAYER_CAPACITY_LVL: 0
+  PLAYER_CAPACITY_DESCRIPTION: Increases the inventory capacity per slot
+  PLAYER_CAPACITY_NAME: Steve!
+  PLAYER_CAPACITY_COST: 0a000000140000001e000000
   PLAYER_CAPACITY: 0a000000140000001e000000
+  PLAYER_LIFT_LVL: 0
+  PLAYER_LIFT_DESCRIPTION: Now you can change between floors as you want
+  PLAYER_LIFT_NAME: Elevator!
+  PLAYER_LIFT_COST: 0a000000
   PLAYER_LIFT: 0a000000
   unlockFloorDays: 0200000005000000080000000b0000000e00000011000000130000001400000015000000
 --- !u!4 &384577335
@@ -1395,6 +1447,16 @@ MonoBehaviour:
   turrets:
   - turretId: MACHINE_SEED
     turretPrefab: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
+  - turretId: S_SEEDNIPER
+    turretPrefab: {fileID: 1968199746751858737, guid: 33275f2f15cf469429a3951b27d0c467, type: 3}
+  - turretId: RESIN_SPIT
+    turretPrefab: {fileID: 8041958496313089704, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
+  - turretId: PINECONE_LAUNCHER
+    turretPrefab: {fileID: 735374187024833708, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
+  - turretId: NUT_ROLL
+    turretPrefab: {fileID: 5953673050596963096, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
+  - turretId: PORCUTHROW
+    turretPrefab: {fileID: 6899878034113650534, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
   isDay: 0
 --- !u!4 &534275253
 Transform:
@@ -3064,6 +3126,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1518160217}
+    - target: {fileID: 75449180903415940, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014259020428919816, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: PORCUTHROW
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511487751721138164, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917410901119710370, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: PINECONE_LAUNCHER
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110297438596779053, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: inventoryUISlot1
       value: 
@@ -3096,6 +3178,38 @@ PrefabInstance:
       propertyPath: inventoryUISlot4_select
       value: 
       objectReference: {fileID: 834388086}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot1_ResourceImage
+      value: 
+      objectReference: {fileID: 211893244}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot2_ResourceImage
+      value: 
+      objectReference: {fileID: 28072115}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot3_ResourceImage
+      value: 
+      objectReference: {fileID: 2112415614}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot4_ResourceImage
+      value: 
+      objectReference: {fileID: 1425655736}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot1_ResourceImage1
+      value: 
+      objectReference: {fileID: 211893244}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot2_ResourceImage1
+      value: 
+      objectReference: {fileID: 28072115}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot3_ResourceImage1
+      value: 
+      objectReference: {fileID: 2112415614}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryUISlot4_ResourceImage1
+      value: 
+      objectReference: {fileID: 1425655736}
     - target: {fileID: 3050883417187786356, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3106,11 +3220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050883417187786358, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.39
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 3050883417187786358, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.39
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3050883417187786358, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3143,6 +3257,22 @@ PrefabInstance:
     - target: {fileID: 3050883417187786358, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571498408586986353, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295418484594370366, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766879299230888156, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503421874855679756, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: m_Name
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}

@@ -4,6 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class ammoSlot
+{
+    public int currentAmount = 0;
+    public string currentAmmoType = "";
+    public bool hasAmmo = false;
+}
+
 public class PlayerController : MonoBehaviour
 {
     // Move player in 2D space
@@ -37,14 +44,29 @@ public class PlayerController : MonoBehaviour
     private static string AUDIO_JUMP = null;
     private static string AUDIO_INTERACT = null;
     private static string AUDIO_FLOOR_CHANGE = null;
-    [HideInInspector]
-    public Dictionary<string, int> resourcesInventory = new Dictionary<string, int>();
+    //[HideInInspector]
+    //public Dictionary<string, int> resourcesInventory = new Dictionary<string, int>();
     [HideInInspector]
     public Dictionary<string, int> turretsInventory = new Dictionary<string, int>();
+    [HideInInspector]
+    public ammoSlot ammoSlot1 = new ammoSlot();
+    [HideInInspector]
+    public ammoSlot ammoSlot2 = new ammoSlot();
+    [HideInInspector]
+    public ammoSlot ammoSlot3 = new ammoSlot();
+    [HideInInspector]
+    public ammoSlot ammoSlot4 = new ammoSlot();
+
     public GameObject inventoryUISlot1_select;
     public GameObject inventoryUISlot2_select;
     public GameObject inventoryUISlot3_select;
     public GameObject inventoryUISlot4_select;
+
+    public GameObject inventoryUISlot1_ResourceImage;
+    public GameObject inventoryUISlot2_ResourceImage;
+    public GameObject inventoryUISlot3_ResourceImage;
+    public GameObject inventoryUISlot4_ResourceImage;
+
     public TextMeshProUGUI turretAmountText0;
     public TextMeshProUGUI turretAmountText1;
     public TextMeshProUGUI turretAmountText2;
@@ -52,6 +74,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI turretAmountText4;
     public TextMeshProUGUI turretAmountText5;
     public TextMeshProUGUI turretAmountText6;
+
     private int currentSlot = 0;
 
     // Use this for initialization
@@ -231,13 +254,14 @@ public class PlayerController : MonoBehaviour
 
     public void storeTurret()
     {
+        GameManager.Instance.pickupTurret(currentInteractionObject.GetComponent<TurretPlacholder>());
         updateTurretInventoryNumberUI();
         closeMenu();
     }
 
     public void placeTurret(string turretId)
     {
-        GameManager.Instance.placeTurret(currentInteractionObject.transform.position, turretId);
+        GameManager.Instance.placeTurret(currentInteractionObject.transform.position, turretId, currentInteractionObject.GetComponent<TurretPlacholder>());
         updateTurretInventoryNumberUI();
         closeMenu();
     }
@@ -273,6 +297,11 @@ public class PlayerController : MonoBehaviour
         currentSlot = slot;
     }
 
+    public void updateInventorySlots()
+    {
+        //TODO: Update images of resources and avaliable slots
+    }
+
     public void updateTurretInventoryNumberUI()
     { 
         if(turretsInventory.TryGetValue("MACHINE_SEED", out int amount))
@@ -284,7 +313,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText0.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount1))
+        if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount1))
         {
             turretAmountText1.SetText("x" + amount1);
         }
@@ -293,7 +322,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText1.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount2))
+        if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount2))
         {
             turretAmountText2.SetText("x" + amount2);
         }
@@ -302,7 +331,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText2.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount3))
+        if (turretsInventory.TryGetValue("PORCUTHROW", out int amount3))
         {
             turretAmountText3.SetText("x" + amount3);
         }
@@ -311,7 +340,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText3.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("NUT_ROLL", out int amount4))
+        if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount4))
         {
             turretAmountText4.SetText("x" + amount4);
         }
@@ -320,7 +349,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText4.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("PORCUTHROW", out int amount5))
+        if (turretsInventory.TryGetValue("NUT_ROLL", out int amount5))
         {
             turretAmountText5.SetText("x" + amount5);
         }

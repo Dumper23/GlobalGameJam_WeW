@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 091ee8714668cb045bdd983cf433b178, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 174392d58b52bab47b2e08777f8c7f55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -290,9 +290,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 5953673049077942583}
   mobilePart: {fileID: 5953673050683100131}
   endWayPoint: {fileID: 0}
-  resinDuration: 5
-  slowness: 6
-  resinBullet: {fileID: 0}
+  hits: 10
+  extra: 0
 --- !u!1 &5953673050683100131
 GameObject:
   m_ObjectHideFlags: 0

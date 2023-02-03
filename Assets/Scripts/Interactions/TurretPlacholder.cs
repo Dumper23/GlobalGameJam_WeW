@@ -5,8 +5,10 @@ using UnityEngine;
 public class TurretPlacholder : IEInteractable
 {
     public bool hasTurret = false;
-
+    public int turretPlacementId;
+    public string turretId;
     public GameObject turretPlaceHolder;
+
     private void Start()
     {
         turretPlaceHolder.SetActive(true);

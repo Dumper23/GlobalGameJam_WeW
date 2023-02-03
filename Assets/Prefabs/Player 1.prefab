@@ -1788,7 +1788,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RESIN_SPIT
+          m_StringArgument: S_SEEDNIPER
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3050883417187786356
@@ -2545,7 +2545,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: NUT_ROLL
+          m_StringArgument: PORCUTHROW
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4123870725643847761
@@ -3085,7 +3085,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: S_SEEDNIPER
+          m_StringArgument: RESIN_SPIT
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6295418484594370366
@@ -3929,6 +3929,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PORCUTHROW
+          m_StringArgument: NUT_ROLL
           m_BoolArgument: 0
         m_CallState: 2
