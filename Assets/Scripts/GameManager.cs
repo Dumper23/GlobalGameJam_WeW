@@ -110,6 +110,16 @@ public class GameManager : MonoBehaviour
         mainCam.GetComponent<CameraFollow>().toggleGeneralView();
     }
 
+    public void toogleRootView()
+    {
+        mainCam.GetComponent<CameraFollow>().toggleRootView();
+    }
+
+    public void setRootView(bool isRootView)
+    {
+        mainCam.GetComponent<CameraFollow>().setRootView(isRootView);
+    }
+
     public bool isGamePaused()
     {
         return gamePaused;
