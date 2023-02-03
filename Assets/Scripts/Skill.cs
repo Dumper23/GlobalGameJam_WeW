@@ -30,7 +30,7 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (node == null) Init();
 
         if (icons.Length == 3) image.sprite = node.buyed ? icons[0] : !SkillTree.Instance.GetNode(node.previousNodeId).buyed ? icons[0] :
-            SkillTree.Instance.Money >= node.cost ? icons[1] : icons[2];
+            SkillTree.Instance.Money >= node.cost ? icons[2] : icons[1];
     }
 
     public void Buy()
