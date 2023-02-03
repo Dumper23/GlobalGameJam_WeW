@@ -27,13 +27,13 @@ public class Enemy : MonoBehaviour
         move();
     }
 
-    void initialize()
+    public void initialize()
     {
-        int index = 0;
+        waypointIndex = 0;
+        waypoints.Clear();
         //get waypoints from GameManager
         foreach (Transform waypoint in GameManager.Instance.getWaypoints(type))
         {
-            index++;
             Vector3 offsetWaypoint = getRandomPoint(waypoint.position);
             waypoints.Add(offsetWaypoint);
         }

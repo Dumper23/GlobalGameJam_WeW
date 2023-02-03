@@ -12,11 +12,11 @@ public class Database : MonoBehaviour
     #region WAVES FOR EACH DAY
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),

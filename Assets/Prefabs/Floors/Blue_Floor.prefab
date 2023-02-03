@@ -58,6 +58,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08134031, y: 2.002355}
   m_EdgeRadius: 0
+--- !u!1 &2289563437777820554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8122999750901380463}
+  m_Layer: 0
+  m_Name: waypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8122999750901380463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289563437777820554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.44, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8576499936701127872}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6279674361805609153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4441333779242506524}
+  m_Layer: 0
+  m_Name: FloorSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4441333779242506524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279674361805609153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4823, y: 0.996, z: 0.012452841}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8576499936701127872}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8576499936549642075
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +272,8 @@ Transform:
   - {fileID: 525559530692990235}
   - {fileID: 8576499938531883388}
   - {fileID: 8353242244485630673}
+  - {fileID: 8122999750901380463}
+  - {fileID: 4441333779242506524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -603,13 +667,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8576499936701127872}
     m_Modifications:
+    - target: {fileID: 325131604925901020, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db172b7d339b0e243a49b728eebcd57f, type: 3}
     - target: {fileID: 4229809521802887620, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_Name
       value: Balcony
       objectReference: {fileID: 0}
+    - target: {fileID: 4613435791529733311, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5762021434558792966, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_Name
       value: TurretPlaceHolder_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345456644589419337, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.385
       objectReference: {fileID: 0}
     - target: {fileID: 8971735666088627679, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_RootOrder

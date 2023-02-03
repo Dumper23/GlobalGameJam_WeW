@@ -20,15 +20,19 @@ public class AmmoImage
 public class GameManager : MonoBehaviour
 {
     public Camera mainCam;
+    public int unlockedFloors = 3;
     public int unlockedFloors = 10;
     public int fertilizer = 0;
 
     private PlayerController player;
-    public Transform[] enemyGroundWaypoints;
-    public Transform[] enemyAirWaypoints;
+    public List<Transform> enemyGroundWaypoints;
+    public List<Transform> enemyAirWaypoints;
     public int playerHP; 
     public List<EnemySpawn> enemySpawns;
     public List<AmmoImage> ammoImages;
+    public List<GameObject> floors;
+    public GameObject topFloor;
+    public GameObject hud;
     [SerializeField]
     public List<TurretEditor> turrets;
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
@@ -37,7 +41,9 @@ public class GameManager : MonoBehaviour
     private int currentDay = 0;
     private int currentFloor = 0;
     private bool playerInMenu = false;
+    private bool dayNightAnimationPlaying = false;
     private int turretAutoincremental = 0;
+    private int floorColorIndex = 0;
 
     private bool gamePaused = false;
 
@@ -80,6 +86,16 @@ public class GameManager : MonoBehaviour
     public void setMenuState(bool state)
     {
         playerInMenu = state;
+    }
+
+    public bool getDayNightAnimationPlaying()
+    {
+        return dayNightAnimationPlaying;
+    }
+
+    public void setDayNightAnimationPlaying(bool state)
+    {
+        dayNightAnimationPlaying = state;
     }
 
     public int getCurrentDay()
@@ -355,9 +371,9 @@ public class GameManager : MonoBehaviour
         //Somehow we need to add the ammotype to the turret if the player has it
     }
 
-    public Transform[] getWaypoints(string type)
+    public List<Transform> getWaypoints(string type)
     {
-        Transform[] waypoints = null;
+        List<Transform> waypoints = null;
         switch (type)
         {
             case "walk":
@@ -647,9 +663,18 @@ public class GameManager : MonoBehaviour
 
     public void changeDayState()
     {
+        //pause player movement
+        setDayNightAnimationPlaying(true);
         isDay = !isDay;
         if (isDay)
         {
+            //show animation
+            mainCam.GetComponent<CameraFollow>().blurCamera();
+            this.hud.transform.Find("Background").gameObject.SetActive(true);
+            this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
+            Invoke("playDayNightAnimation", 0.75f);
+            Invoke("removeDayNightAnimation", 5);
+
             currentDay++;
 
             //activate spawns
@@ -660,6 +685,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            //show animation
+            mainCam.GetComponent<CameraFollow>().blurCamera();
+            this.hud.transform.Find("Background").gameObject.SetActive(true);
+            this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
+            Invoke("playDayNightAnimation", 0.75f);
+            Invoke("removeDayNightAnimation", 5);
+
             //deactivate spawns
             foreach (EnemySpawn spawn in enemySpawns)
             {
@@ -672,12 +704,47 @@ public class GameManager : MonoBehaviour
 
             //create new floor if its day X
             
+            for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
+            {
+                if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
+            }
+
             //Start day after 60s
             Invoke("changeDayState", 60);
         }
     }
 
     public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)
+    public void playDayNightAnimation()
+    {
+        if (this.isDay)
+        {
+            this.hud.transform.Find("dayNightImage").gameObject.SetActive(true);
+            this.hud.transform.Find("dayNightImage").GetComponent<Animator>().Play("goToDay");
+        }
+        else
+        {
+            this.hud.transform.Find("dayNightImage").gameObject.SetActive(true);
+            this.hud.transform.Find("dayNightImage").GetComponent<Animator>().Play("goToNight");
+        }
+    }
+
+    public void removeDayNightAnimation()
+    {
+        mainCam.GetComponent<CameraFollow>().focusCamera();
+        this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeOut");
+        Invoke("hideBackgroundUI", 1);
+    }
+
+    public void hideBackgroundUI()
+    {
+        this.hud.transform.Find("Background").gameObject.SetActive(false);
+        this.hud.transform.Find("dayNightImage").gameObject.SetActive(false);
+        //upause player movement
+        setDayNightAnimationPlaying(false);
+    }
+
+    public void placeTurret(Vector3 position, string turretId)
     {
         if (!placeHolder.hasTurret)
         {
@@ -813,6 +880,25 @@ public class GameManager : MonoBehaviour
 
     private void createNewFloor()
     {
+        floorColorIndex++;
+        unlockedFloors++;
+        GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
+        aux.transform.parent = GameObject.Find("Floors").transform;
+        topFloor.transform.position += new Vector3(0, 2, 0);
+        FloorManager floorManager = FindObjectOfType<FloorManager>();
 
+        //add floor waypoint
+        Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
+        enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
+        enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
+        enemyGroundWaypoints.Add(topWaypoint);
+        if (floorManager)
+        {
+            floorManager.updateDoors();
+        }
+        if (floorColorIndex == 3)
+        {
+            floorColorIndex = -1;
+        }
     }
 }
