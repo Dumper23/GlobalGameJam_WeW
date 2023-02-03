@@ -103,7 +103,7 @@ public class PorcuthrowTurret : TurretsFather
             }
         }
     }
-    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1)
+    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         bulletsAmmount = newProjectiles;

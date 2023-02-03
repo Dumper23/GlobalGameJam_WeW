@@ -61,6 +61,14 @@ public class BulletPool : MonoBehaviour
     private List<GameObject> nuts;
     #endregion
 
+    #region Electric
+    [SerializeField]
+    private GameObject electricBullet;
+    private bool notEnoughElectricsInPool = true;
+
+    private List<GameObject> electrics;
+    #endregion
+
     private void Awake()
     {
         bulletPoolInstance = this;
@@ -75,6 +83,7 @@ public class BulletPool : MonoBehaviour
         porcuthrows = new List<GameObject>();
         nuts = new List<GameObject>();
         clusters = new List<GameObject>();
+        electrics = new List<GameObject>();
     }
 
     public GameObject GetSeed()
@@ -237,6 +246,29 @@ public class BulletPool : MonoBehaviour
             GameObject bul = Instantiate(nutBullet);
             bul.SetActive(false);
             nuts.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+    public GameObject GetElectric()
+    {
+        if (electrics.Count > 0)
+        {
+            for (int i = 0; i < electrics.Count; i++)
+            {
+                if (!electrics[i].activeInHierarchy)
+                {
+                    return electrics[i];
+                }
+            }
+        }
+
+        if (notEnoughElectricsInPool)
+        {
+            GameObject bul = Instantiate(electricBullet);
+            bul.SetActive(false);
+            electrics.Add(bul);
             return bul;
         }
 

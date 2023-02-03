@@ -92,15 +92,29 @@ public class ResinTurret : TurretsFather
                         slowness = stat.Value;
                     }
                     break;
+                case "duration":
+                    if (stat.Value != 0)
+                    {
+                        resinDuration = stat.Value;
+                    }
+                    break;
+                /*case "length":
+                    if (stat.Value != 0)
+                    {
+                        length = stat.Value;
+                    }
+                    break;*/
             }
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1)
+    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float newSize = -1, float newStickness = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         fireRate = newFireRate;
         resinDuration = durationResin;
+        //length = size;
+        slowness = newStickness;
     }
 }

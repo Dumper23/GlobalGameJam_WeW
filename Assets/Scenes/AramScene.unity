@@ -1711,6 +1711,7 @@ MonoBehaviour:
   porcuthrowBullet: {fileID: 875746787681766247, guid: 2e2d89c01c2a4d74fb2834da49200ae4, type: 3}
   clusterBullet: {fileID: 1548708338502016971, guid: 7ff351944592e1e498d1e1d176f6c404, type: 3}
   nutBullet: {fileID: 4809878640045143977, guid: 8121a31198b3b8e4fb4da42584c5a1ef, type: 3}
+  electricBullet: {fileID: 7228795496253863629, guid: 957950fc072b7ad4a93eb862128e984f, type: 3}
 --- !u!4 &698164074
 Transform:
   m_ObjectHideFlags: 0
@@ -4291,7 +4292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 735374187024833708, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5663627861328094411, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
       propertyPath: cluster
@@ -4841,3 +4842,76 @@ PrefabInstance:
       objectReference: {fileID: 703452200}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
+--- !u!1001 &8468676018188526090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.124
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986102, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412192368525986104, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: m_Name
+      value: ElectricTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145350692635599430, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: endWayPoint
+      value: 
+      objectReference: {fileID: 1213873071}
+    - target: {fileID: 7145350692635599430, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1043492464}
+    - target: {fileID: 7145350692635599430, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2001790312}
+    - target: {fileID: 7145350692635599430, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
+      propertyPath: enemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 710764205}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}

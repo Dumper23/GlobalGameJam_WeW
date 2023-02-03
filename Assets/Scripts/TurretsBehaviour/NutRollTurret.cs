@@ -143,7 +143,7 @@ public class NutRollTurret : TurretsFather
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newExtra = false, float newHits = -1)
+    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newExtra = false, float newHits = -1, float none = -1, float none1 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
