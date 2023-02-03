@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        changeDayState();
+    
     }
 
     #region getters & setters
@@ -591,6 +591,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void startGame()
+    {
+        changeDayState();
+    }
     private void createNewFloor()
     {
 
