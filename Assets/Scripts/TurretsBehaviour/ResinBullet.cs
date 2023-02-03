@@ -8,7 +8,7 @@ public class ResinBullet : MonoBehaviour
     [SerializeField]
     private float slowness, resinDuration;
 
-    private float startDuration;
+    private float startDuration, length;
 
     private int damage;
 
@@ -47,9 +47,15 @@ public class ResinBullet : MonoBehaviour
         slowness = newSlowness;
     }
 
+    public void SetLength(float newLength)
+    {
+        length = newLength;
+    }
+
     private void OnEnable()
     {
         startDuration = Time.time;
+        transform.localScale = new Vector3(transform.localScale.x, length, transform.localScale.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

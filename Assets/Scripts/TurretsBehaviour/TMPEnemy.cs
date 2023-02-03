@@ -7,6 +7,8 @@ public class TMPEnemy : MonoBehaviour
 
     [SerializeField]
     private bool wanaMove = true;
+
+    public bool fly;
     // Start is called before the first frame update
     void Start()
     {

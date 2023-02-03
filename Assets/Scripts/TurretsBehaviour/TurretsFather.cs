@@ -93,18 +93,48 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected bool HasAmmo()
     {
-        return (ammunituion > 0) ;
+        if (ammunituion <= 0)
+        {
+            if (chest <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                chest--;
+                ammunituion = maxAmmo;
+            }
+        }
+        return true;
     }
 
-    public int GiveAmmo(int newChests)
+    public bool GiveAmmo()
     {
+        if (chest >= maxChest)
+        {
+            return false;
+        }
+        else
+        {
+            chest++;
+            return true;
+        }
+        /*
         if (chest + newChests > maxChest)
         {
+            chest = maxChest;
             return (chest + newChests) - maxChest;
         }
+        else
+        {
+            if(chest + newChests <= maxChest)
+            {
+                chest += newChests;
+                return 0;
+            }
+        }*/
         //ammunituion += ammo;
         //set deactive panell
-        return 0;
     }
 
     public void PlaceTurret()

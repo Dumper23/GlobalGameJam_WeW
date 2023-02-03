@@ -86,4 +86,37 @@ public class PineconeTurret : TurretsFather
         radius = newRadius;
         cluster = newCluster;
     }
+    protected override void DetectObjective()
+    {
+        int closestPos = -1;
+        float closestDistance = Mathf.Infinity;
+        int posIterator = 0;
+
+        foreach (GameObject o in enemyList)
+        {
+            if (o != null && o.activeInHierarchy)
+            {
+                if (IsInRange(o))
+                {
+
+                    if (closestDistance > Vector2.Distance(transform.position, o.transform.position))
+                    {
+                        closestDistance = Vector2.Distance(transform.position, o.transform.position);
+                        closestPos = posIterator;
+                    }
+                }
+            }
+            posIterator++;
+        }
+        if (closestPos != -1)
+        {
+            //Attack
+            currentTarget = enemyList[closestPos];
+        }
+        else
+        {
+            //No attack
+            currentTarget = null;
+        }
+    }
 }

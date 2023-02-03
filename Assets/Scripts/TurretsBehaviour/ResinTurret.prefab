@@ -315,7 +315,10 @@ MonoBehaviour:
   ammunituion: 4
   damage: 2
   maxAmmo: 10
+  chest: 4
+  maxChest: 4
   enemyList:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   bulletSpawn: {fileID: 8041958494950532990}
@@ -323,4 +326,5 @@ MonoBehaviour:
   endWayPoint: {fileID: 0}
   resinDuration: 4
   slowness: 1
-  resinBullet: {fileID: 0}
+  length: 10
+  resinBullet: {fileID: 5244555696124448474, guid: c59147c4626ae954ba7e637392ac683a, type: 3}
