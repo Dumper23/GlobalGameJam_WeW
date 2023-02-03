@@ -12,7 +12,7 @@ public class PlacedTurret : MonoBehaviour
 
     public string turretId;
     public GameObject currentPlacedTurret;
-    public int turretPlacementId;
+    public int turretPlacementId = -1;
 
     public void setTurretId(string turretId)
     {

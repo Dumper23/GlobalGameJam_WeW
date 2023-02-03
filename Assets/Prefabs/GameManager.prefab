@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8470770520909610289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8470770520909610295}
+  - component: {fileID: 8470770520909610294}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8470770520909610295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470770520909610289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5991268, y: 0.8685934, z: -0.37933934}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8470770520909610294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470770520909610289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d8c10aed7f4014ab4a68fdd0df2479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  unlockedFloors: 12
+  fertilizer: 20
+  enemyGroundWaypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyAirWaypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerHP: 1000
+  enemySpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  ammoImages:
+  - image: {fileID: 21300000, guid: ce876b0094f4ba744b0835b6bcdac0cb, type: 3}
+    ammoType: nut
+  - image: {fileID: 21300000, guid: d545a8ae37ce1d04bbb7302bbd199fa9, type: 3}
+    ammoType: spike
+  - image: {fileID: 21300000, guid: 752e0dad8d2a5564aa7a87f15f6fc573, type: 3}
+    ammoType: pinecone
+  - image: {fileID: 21300000, guid: 089373abe90989542b94173b63b3ade6, type: 3}
+    ammoType: resin
+  - image: {fileID: 21300000, guid: ead967b57dc0ff14682eef15f70ec213, type: 3}
+    ammoType: sunflower
+  - image: {fileID: 21300000, guid: cb79c9c28c70cf34d805517a64c32c8b, type: 3}
+    ammoType: seed
+  - image: {fileID: 21300000, guid: 8dd87978759c9d44293d017be4a9bf2a, type: 3}
+    ammoType: potat
+  - image: {fileID: 21300000, guid: 8dd87978759c9d44293d017be4a9bf2a, type: 3}
+    ammoType: potat
+  turrets:
+  - turretId: MACHINE_SEED
+    turretPrefab: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
+  - turretId: S_SEEDNIPER
+    turretPrefab: {fileID: 1968199746751858737, guid: 33275f2f15cf469429a3951b27d0c467, type: 3}
+  - turretId: RESIN_SPIT
+    turretPrefab: {fileID: 8041958496313089704, guid: a7500d627e32a1d4494a112d8ec3f028, type: 3}
+  - turretId: PINECONE_LAUNCHER
+    turretPrefab: {fileID: 735374187024833708, guid: f74be8d3e8279f743942d8fa4d92e351, type: 3}
+  - turretId: NUT_ROLL
+    turretPrefab: {fileID: 5953673050596963096, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
+  - turretId: PORCUTHROW
+    turretPrefab: {fileID: 6899878034113650534, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
+  isDay: 0

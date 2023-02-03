@@ -9,6 +9,13 @@ public class TurretEditor
     public GameObject turretPrefab;
 }
 
+[System.SerializableAttribute]
+public class AmmoImage
+{
+    public Sprite image;
+    public string ammoType;
+}
+
 [DefaultExecutionOrder(0)]
 public class GameManager : MonoBehaviour
 {
@@ -21,10 +28,10 @@ public class GameManager : MonoBehaviour
     public Transform[] enemyAirWaypoints;
     public int playerHP; 
     public List<EnemySpawn> enemySpawns;
+    public List<AmmoImage> ammoImages;
     [SerializeField]
     public List<TurretEditor> turrets;
-    //private Dictionary<string, PlacedTurret> placedTurrets = new Dictionary<string, PlacedTurret>();
-    private List<GameObject> placedTurretsGameObjects = new List<GameObject>();
+    private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
 
     private int currentDay = 0;
@@ -60,6 +67,8 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         changeDayState();
+        player.updateTurretInventoryNumberUI();
+        player.updateInventorySlots();
     }
 
     #region getters & setters
@@ -140,20 +149,205 @@ public class GameManager : MonoBehaviour
 
     public bool pickUpAmmo(string ammoType)
     {
-        //If player has no space return false
-        if (player.resourcesInventory.TryGetValue(ammoType, out int ammoAmount))
+        switch (Database.Instance.PLAYER_INVENTORY_LVL)
         {
-            //Update player.resourcesInventory (ammo in the slot should be up to the maximum of the inventory)
-            player.resourcesInventory[ammoType] = Database.Instance.PLAYER_CAPACITY[Database.Instance.PLAYER_CAPACITY_LVL];
+            case 0:
+                //Only first slot avaliable
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    //Cant add more ammo
+                    player.updateInventorySlots();
+                    return false;
+                }
+                else
+                {
+                    player.ammoSlot1.hasAmmo = true;
+                    player.ammoSlot1.currentAmmoType = ammoType;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                    player.updateInventorySlots();
+                    return true;
+                }
+
+            case 1:
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    if (player.ammoSlot2.hasAmmo)
+                    {
+                        //Cant add more ammo
+                        player.updateInventorySlots();
+                        return false;
+                    }
+                    else
+                    {
+                        player.ammoSlot2.hasAmmo = true;
+                        player.ammoSlot2.currentAmmoType = ammoType;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                }
+                else
+                {
+                    player.ammoSlot1.hasAmmo = true;
+                    player.ammoSlot1.currentAmmoType = ammoType;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                    player.updateInventorySlots();
+                    return true;
+                }
+
+            case 2:
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    if (player.ammoSlot2.hasAmmo)
+                    {
+                        if (player.ammoSlot3.hasAmmo)
+                        {
+                            //Cant add more ammo
+                            player.updateInventorySlots();
+                            return false;
+                        }
+                        else
+                        {
+                            player.ammoSlot3.hasAmmo = true;
+                            player.ammoSlot3.currentAmmoType = ammoType;
+                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
+                            player.updateInventorySlots();
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        player.ammoSlot2.hasAmmo = true;
+                        player.ammoSlot2.currentAmmoType = ammoType;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                }
+                else
+                {
+                    player.ammoSlot1.hasAmmo = true;
+                    player.ammoSlot1.currentAmmoType = ammoType;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                    player.updateInventorySlots();
+                    return true;
+                }
+
+            case 3:
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    if (player.ammoSlot2.hasAmmo)
+                    {
+                        if (player.ammoSlot3.hasAmmo)
+                        {
+                            if (player.ammoSlot4.hasAmmo)
+                            {
+                                //Cant add more ammo
+                                player.updateInventorySlots();
+                                return false;
+                            }
+                            else
+                            {
+                                player.ammoSlot4.hasAmmo = true;
+                                player.ammoSlot4.currentAmmoType = ammoType;
+                                player.ammoSlot4.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                                player.ammoSlot4.ammoImage = getAmmoImage(ammoType);
+                                player.updateInventorySlots();
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            player.ammoSlot3.hasAmmo = true;
+                            player.ammoSlot3.currentAmmoType = ammoType;
+                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
+                            player.updateInventorySlots();
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        player.ammoSlot2.hasAmmo = true;
+                        player.ammoSlot2.currentAmmoType = ammoType;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                }
+                else
+                {
+                    player.ammoSlot1.hasAmmo = true;
+                    player.ammoSlot1.currentAmmoType = ammoType;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                    player.updateInventorySlots();
+                    return true;
+                }
+            default:
+                return false;
         }
-        else
+    }
+
+    public void deleteAmmo()
+    {
+        switch (player.currentSlot)
         {
-            if (player.resourcesInventory.Count < Database.Instance.PLAYER_INVENTORY[Database.Instance.PLAYER_INVENTORY_LVL]) //Ha de ser del nivell de la millora de la database.player_inventory_level
+            case 1:
+                player.ammoSlot1.hasAmmo = false;
+                player.ammoSlot1.currentAmmoType = "";
+                player.ammoSlot1.currentAmount = 0;
+                player.ammoSlot1.ammoImage = null;
+                break;
+            case 2:
+                player.ammoSlot2.hasAmmo = false;
+                player.ammoSlot2.currentAmmoType = "";
+                player.ammoSlot2.currentAmount = 0;
+                player.ammoSlot2.ammoImage = null;
+                break;
+            case 3:
+                player.ammoSlot3.hasAmmo = false;
+                player.ammoSlot3.currentAmmoType = "";
+                player.ammoSlot3.currentAmount = 0;
+                player.ammoSlot3.ammoImage = null;
+                break;
+            case 4:
+                player.ammoSlot4.hasAmmo = false;
+                player.ammoSlot4.currentAmmoType = "";
+                player.ammoSlot4.currentAmount = 0;
+                player.ammoSlot4.ammoImage = null;
+                break;
+            default:
+                break;
+        }
+        player.updateInventorySlots();
+    }
+
+    public void playLiftSound()
+    {
+        player.audio.clip = player.audios[player.AUDIO_FLOOR_CHANGE];
+        player.audio.Play();
+    }
+
+    public Sprite getAmmoImage(string ammoType)
+    {
+        AmmoImage ai = null;
+        foreach (var ammoImage in ammoImages)
+        {
+            if (ammoImage.ammoType.Equals(ammoType))
             {
-                player.resourcesInventory.Add(ammoType, Database.Instance.PLAYER_CAPACITY[Database.Instance.PLAYER_CAPACITY_LVL]); //Ha de ser del nivell de la millora de database.player_capacity
+                ai = ammoImage;
+                break;
             }
         }
-        return true;
+        return ai.image;
     }
 
     public void placeAmmo()
@@ -478,73 +672,99 @@ public class GameManager : MonoBehaviour
 
             //create new floor if its day X
             
-
             //Start day after 60s
             Invoke("changeDayState", 60);
         }
     }
 
-    public void placeTurret(Vector3 position, string turretId)
+    public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)
     {
-
-        Debug.Log("Place turret: " + turretId + " at " + position.y + " - ");
-
-        /*foreach (TurretEditor turret in turrets)
+        if (!placeHolder.hasTurret)
         {
-            if (turret.turretId.Equals(turretId))
+            if (player.turretsInventory.TryGetValue(turretId, out int amount))
             {
-                GameObject go = Instantiate(turret.turretPrefab, position, Quaternion.identity);
-                int turretPlacementId = turretAutoincremental;
-                
-                turretPlaceholder.AddComponent<PlacedTurret>();
-                turretPlaceholder.GetComponent<PlacedTurret>().currentPlacedTurret = go;
-                go.SetActive(true);
-                go.AddComponent<PlacedTurret>();
-                go.GetComponent<PlacedTurret>().setTurretId(turret.turretId);
-                go.GetComponent<PlacedTurret>().setTurretPrefab(turret.turretPrefab);
-                go.GetComponent<PlacedTurret>().setTurretPlacementId(turretPlacementId);
-                turretPlaceholder.GetComponent<PlacedTurret>().setTurretId(turret.turretId);
-                turretPlaceholder.GetComponent<PlacedTurret>().setTurretPrefab(turret.turretPrefab);
-                turretPlaceholder.GetComponent<PlacedTurret>().setTurretPlacementId(turretPlacementId);
-                //placedTurrets.Add(turretPlacementId.ToString(), turretPlaceholder.GetComponent<PlacedTurret>());
-                placedTurretsGameObjects.Add(go);
+                if (amount > 0)
+                {
+                    foreach (TurretEditor t in turrets)
+                    {
+                        if (t.turretId.Equals(turretId))
+                        {
+                            GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
+                            go.SetActive(true);
+                            placeHolder.turretPlacementId = turretAutoincremental;
+                            placeHolder.hasTurret = true;
+                            placeHolder.turretId = turretId;
+                            placedTurrets.Add(turretAutoincremental.ToString(), go);
+                            player.turretsInventory[turretId] -= 1;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (spendFertilizer(getTurretPrice(turretId)))
+                    {
+                        foreach (TurretEditor t in turrets)
+                        {
+                            if (t.turretId.Equals(turretId))
+                            {
+                                GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
+                                go.SetActive(true);
+                                placeHolder.turretPlacementId = turretAutoincremental;
+                                placeHolder.hasTurret = true;
+                                placeHolder.turretId = turretId;
+                                placedTurrets.Add(turretAutoincremental.ToString(), go);
+                                break;
+                            }
+                        }
+                        turretAutoincremental++;
+                    }
+                }
                 turretAutoincremental++;
             }
-        }*/
+            else
+            {
+                if (spendFertilizer(getTurretPrice(turretId)))
+                {
+                    foreach (TurretEditor t in turrets)
+                    {
+                        if (t.turretId.Equals(turretId))
+                        {
+                            GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
+                            go.SetActive(true);
+                            placeHolder.turretPlacementId = turretAutoincremental;
+                            placeHolder.hasTurret = true;
+                            placeHolder.turretId = turretId;
+                            placedTurrets.Add(turretAutoincremental.ToString(), go);
+                            player.turretsInventory.Add(turretId, 0);
+                            break;
+                        }
+                    }
+                    turretAutoincremental++;
+                }
+            }
+        }
+        player.updateTurretInventoryNumberUI();
     }
 
-    public void pickupTurret(PlacedTurret placedTurret)
+    public void pickupTurret(TurretPlacholder placeHolder)
     {
-
-        Debug.Log("pickup");
-
-        /*int i = 0;
-        foreach (var t in placedTurretsGameObjects)
+        if(placedTurrets.TryGetValue(placeHolder.turretPlacementId.ToString(), out GameObject turretGameObject))
         {
-            if (t.GetComponent<PlacedTurret>() && t.GetComponent<PlacedTurret>().getTurretPlacementId() == placedTurret.getTurretPlacementId())
+            Destroy(turretGameObject);
+            placeHolder.hasTurret = false;
+            placeHolder.turretPlacementId = -1;
+            if (player.turretsInventory.TryGetValue(placeHolder.turretId, out int amount))
             {
-                Destroy(t);
-                Destroy(placedTurret);
-                placedTurretsGameObjects.RemoveAt(i);
-                return;
+                player.turretsInventory.Remove(placeHolder.turretId);
+                player.turretsInventory.Add(placeHolder.turretId, amount+1);
             }
-            
-        }*/
-
-        //foreach (KeyValuePair<string, PlacedTurret> turret in placedTurrets)
-        //{
-        //    if(turret.Value.getTurretPlacementId() == placedTurret.getTurretPlacementId())
-        //    {
-        //        placedTurrets.Remove(placedTurret.getTurretPlacementId().ToString());
-
-        //        Destroy(placedTurretsGameObjects[i]);
-        //        placedTurretsGameObjects.RemoveAt(i);
-
-        //        //TODO: Return to player inventory
-        //        return;
-        //    }
-        //    i++;
-        //}
+            else
+            {
+                player.turretsInventory.Add(placeHolder.turretId, 1);
+            }
+        }
+        player.updateTurretInventoryNumberUI();
     }
 
     public int getTurretPrice(string turretId)
@@ -554,10 +774,10 @@ public class GameManager : MonoBehaviour
             case "MACHINE_SEED":
                 //Database.Instance.MACHINE_SEED_PRICE
                 return 1;
-            case "RESIN_SPIT":
+            case "S_SEEDNIPER":
 
                 return 2;
-            case "S_SEEDNIPER":
+            case "RESIN_SPIT":
 
                 return 3;
             case "PINECONE_LAUNCHER":

@@ -4,6 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[System.SerializableAttribute]
+public class ammoSlot
+{
+    public int currentAmount = 0;
+    public string currentAmmoType = "";
+    public bool hasAmmo = false;
+    public Sprite ammoImage;
+}
+
 public class PlayerController : MonoBehaviour
 {
     // Move player in 2D space
@@ -14,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float interactionRange = 0.5f;
     public LayerMask groundLayer;
     public GameObject interactionSymbolE;
+    public GameObject interactionSymbolR;
     public GameObject interactionSymbolWS;
     public Material outlineMaterial;
     public List<IEInteractable> oldInteractables = new List<IEInteractable>();
@@ -28,23 +39,41 @@ public class PlayerController : MonoBehaviour
     private float moveDirection = 0;
     private Rigidbody2D r2d;
     private BoxCollider2D mainCollider;
-    private AudioSource audio;
+    public AudioSource audio;
 
     private static string PLAYER_WALK = "walk";
     private static string PLAYER_IDLE = "idle";
 
-    private static string AUDIO_WALK = null;
-    private static string AUDIO_JUMP = null;
-    private static string AUDIO_INTERACT = null;
-    private static string AUDIO_FLOOR_CHANGE = null;
-    [HideInInspector]
-    public Dictionary<string, int> resourcesInventory = new Dictionary<string, int>();
+    public int AUDIO_WALK = 0;
+    public int AUDIO_JUMP = 1;
+    public int AUDIO_INTERACT = 2;
+    public int AUDIO_FLOOR_CHANGE = 3;
+
     [HideInInspector]
     public Dictionary<string, int> turretsInventory = new Dictionary<string, int>();
+    public ammoSlot ammoSlot1 = new ammoSlot();
+
+    public ammoSlot ammoSlot2 = new ammoSlot();
+
+    public ammoSlot ammoSlot3 = new ammoSlot();
+  
+    public ammoSlot ammoSlot4 = new ammoSlot();
+
     public GameObject inventoryUISlot1_select;
     public GameObject inventoryUISlot2_select;
     public GameObject inventoryUISlot3_select;
     public GameObject inventoryUISlot4_select;
+
+    public Image inventoryUISlot1_ResourceImage;
+    public Image inventoryUISlot2_ResourceImage;
+    public Image inventoryUISlot3_ResourceImage;
+    public Image inventoryUISlot4_ResourceImage;
+
+    public TextMeshProUGUI slotAmmoAmount1;
+    public TextMeshProUGUI slotAmmoAmount2;
+    public TextMeshProUGUI slotAmmoAmount3;
+    public TextMeshProUGUI slotAmmoAmount4;
+
     public TextMeshProUGUI turretAmountText0;
     public TextMeshProUGUI turretAmountText1;
     public TextMeshProUGUI turretAmountText2;
@@ -52,11 +81,25 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI turretAmountText4;
     public TextMeshProUGUI turretAmountText5;
     public TextMeshProUGUI turretAmountText6;
-    private int currentSlot = 0;
+    [HideInInspector]
+    public int currentSlot = 0;
+
+    public float stepTime;
+    public float timeToStep;
 
     // Use this for initialization
     void Start()
     {
+        ammoSlot1.hasAmmo = false;
+        ammoSlot2.hasAmmo = false;
+        ammoSlot3.hasAmmo = false;
+        ammoSlot4.hasAmmo = false;
+
+        slotAmmoAmount1.SetText("");
+        slotAmmoAmount2.SetText("");
+        slotAmmoAmount3.SetText("");
+        slotAmmoAmount4.SetText("");
+
         changeSlotSelected(1);
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<BoxCollider2D>();
@@ -83,6 +126,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                if (Time.time >= stepTime)
+                {
+                    audio.clip = audios[AUDIO_WALK];
+                    audio.Play();
+                    stepTime = Time.time + timeToStep - Mathf.Abs(moveDirection) * 0.1f;
+                }
                 changeAnimationState(PLAYER_WALK);
             }
 
@@ -103,6 +152,8 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded())
             {
                 r2d.velocity = new Vector2(r2d.velocity.x * movementSpeed, jumpHeight);
+                audio.clip = audios[AUDIO_JUMP];
+                audio.Play();
             }
 
             r2d.velocity = new Vector2(moveDirection * movementSpeed, r2d.velocity.y);
@@ -134,17 +185,27 @@ public class PlayerController : MonoBehaviour
                 {
                     interactionSymbolE.SetActive(true);
                     interactionSymbolWS.SetActive(false);
+                    interactionSymbolR.SetActive(false);
                 }
                 else if (interaction.iconName == "WS")
                 {
                     interactionSymbolE.SetActive(false);
                     interactionSymbolWS.SetActive(true);
+                    interactionSymbolR.SetActive(false);
+                }
+                else if (interaction.iconName == "R")
+                {
+                    interactionSymbolE.SetActive(false);
+                    interactionSymbolWS.SetActive(false);
+                    interactionSymbolR.SetActive(true);
                 }
 
                 //interaction.gameObject.GetComponent<SpriteRenderer>().material = outlineMaterial;
                 if (Input.GetButtonDown("Interaction"))
                 {
-                    interaction.Interaction();
+                    audio.clip = audios[AUDIO_INTERACT];
+                    audio.Play();
+                    interaction.Interaction("E");
                 }
                 if (Input.GetKeyDown(KeyCode.W))
                 {
@@ -153,6 +214,12 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.S))
                 {
                     interaction.Interaction("down");
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    audio.clip = audios[AUDIO_INTERACT];
+                    audio.Play();
+                    interaction.Interaction("R");
                 }
             }
 
@@ -177,22 +244,23 @@ public class PlayerController : MonoBehaviour
             {
                 interactionSymbolE.SetActive(false);
                 interactionSymbolWS.SetActive(false);
+                interactionSymbolR.SetActive(false);
             }
             #endregion
 
-            if (Input.GetButtonDown("Slot1"))
+            if (Input.GetButtonDown("Slot1") && Database.Instance.PLAYER_INVENTORY_LVL >= 0)
             {
                 changeSlotSelected(1);
             }
-            else if (Input.GetButtonDown("Slot2"))
+            else if (Input.GetButtonDown("Slot2") && Database.Instance.PLAYER_INVENTORY_LVL >= 1)
             {
                 changeSlotSelected(2);
             }
-            else if (Input.GetButtonDown("Slot3"))
+            else if (Input.GetButtonDown("Slot3") && Database.Instance.PLAYER_INVENTORY_LVL >= 2)
             {
                 changeSlotSelected(3);
             }
-            else if (Input.GetButtonDown("Slot4"))
+            else if (Input.GetButtonDown("Slot4") && Database.Instance.PLAYER_INVENTORY_LVL >= 3)
             {
                 changeSlotSelected(4);
             }
@@ -204,7 +272,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            interactionSymbolE.SetActive(false);
             changeAnimationState(PLAYER_IDLE);
             r2d.velocity = new Vector2(0, r2d.velocity.y);
             if (Input.GetButtonDown("Cancel"))
@@ -231,13 +298,14 @@ public class PlayerController : MonoBehaviour
 
     public void storeTurret()
     {
+        GameManager.Instance.pickupTurret(currentInteractionObject.GetComponent<TurretPlacholder>());
         updateTurretInventoryNumberUI();
         closeMenu();
     }
 
     public void placeTurret(string turretId)
     {
-        GameManager.Instance.placeTurret(currentInteractionObject.transform.position, turretId);
+        GameManager.Instance.placeTurret(currentInteractionObject.transform.position, turretId, currentInteractionObject.GetComponent<TurretPlacholder>());
         updateTurretInventoryNumberUI();
         closeMenu();
     }
@@ -273,6 +341,93 @@ public class PlayerController : MonoBehaviour
         currentSlot = slot;
     }
 
+    public void updateInventorySlots()
+    {
+        if (Database.Instance.PLAYER_INVENTORY_LVL >= 0)
+        {
+            inventoryUISlot1_ResourceImage.gameObject.transform.parent.gameObject.SetActive(true);
+            if (ammoSlot1.ammoImage == null)
+            {
+                inventoryUISlot1_ResourceImage.gameObject.SetActive(false);
+                ammoSlot1.currentAmount = 0;
+                slotAmmoAmount1.SetText("");
+            }
+            else
+            {
+                inventoryUISlot1_ResourceImage.gameObject.SetActive(true);
+                inventoryUISlot1_ResourceImage.sprite = ammoSlot1.ammoImage;
+                slotAmmoAmount1.SetText(ammoSlot1.currentAmount.ToString());
+            }
+        }
+        else if(Database.Instance.PLAYER_INVENTORY_LVL < 0)
+        {
+            inventoryUISlot1_ResourceImage.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+        
+        if (Database.Instance.PLAYER_INVENTORY_LVL >= 1)
+        {
+            inventoryUISlot2_ResourceImage.gameObject.transform.parent.gameObject.SetActive(true);
+            if (ammoSlot2.ammoImage == null)
+            {
+                inventoryUISlot2_ResourceImage.gameObject.SetActive(false);
+                ammoSlot2.currentAmount = 0;
+                slotAmmoAmount2.SetText("");
+            }
+            else
+            {
+                inventoryUISlot2_ResourceImage.gameObject.SetActive(true);
+                inventoryUISlot2_ResourceImage.sprite = ammoSlot2.ammoImage;
+                slotAmmoAmount2.SetText(ammoSlot2.currentAmount.ToString());
+            }
+        }
+        else if (Database.Instance.PLAYER_INVENTORY_LVL < 1)
+        {
+            inventoryUISlot2_ResourceImage.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+
+        if (Database.Instance.PLAYER_INVENTORY_LVL >= 2)
+        {
+            inventoryUISlot3_ResourceImage.gameObject.transform.parent.gameObject.SetActive(true);
+            if (ammoSlot3.ammoImage == null)
+            {
+                inventoryUISlot3_ResourceImage.gameObject.SetActive(false);
+                ammoSlot3.currentAmount = 0;
+                slotAmmoAmount3.SetText("");
+            }
+            else
+            {
+                inventoryUISlot3_ResourceImage.gameObject.SetActive(true);
+                inventoryUISlot3_ResourceImage.sprite = ammoSlot3.ammoImage;
+                slotAmmoAmount3.SetText(ammoSlot3.currentAmount.ToString());
+            }
+        }
+        else if (Database.Instance.PLAYER_INVENTORY_LVL < 2)
+        {
+            inventoryUISlot3_ResourceImage.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+
+        if (Database.Instance.PLAYER_INVENTORY_LVL >= 3)
+        {
+            inventoryUISlot4_ResourceImage.gameObject.transform.parent.gameObject.SetActive(true);
+            if (ammoSlot4.ammoImage == null)
+            {
+                inventoryUISlot4_ResourceImage.gameObject.SetActive(false);
+                ammoSlot4.currentAmount = 0;
+                slotAmmoAmount4.SetText("");
+            }
+            else
+            {
+                inventoryUISlot4_ResourceImage.gameObject.SetActive(true);
+                inventoryUISlot4_ResourceImage.sprite = ammoSlot4.ammoImage;
+                slotAmmoAmount4.SetText(ammoSlot4.currentAmount.ToString());
+            }
+        }
+        else if (Database.Instance.PLAYER_INVENTORY_LVL < 3)
+        {
+            inventoryUISlot4_ResourceImage.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
     public void updateTurretInventoryNumberUI()
     { 
         if(turretsInventory.TryGetValue("MACHINE_SEED", out int amount))
@@ -284,7 +439,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText0.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount1))
+        if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount1))
         {
             turretAmountText1.SetText("x" + amount1);
         }
@@ -293,7 +448,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText1.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount2))
+        if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount2))
         {
             turretAmountText2.SetText("x" + amount2);
         }
@@ -302,7 +457,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText2.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount3))
+        if (turretsInventory.TryGetValue("PORCUTHROW", out int amount3))
         {
             turretAmountText3.SetText("x" + amount3);
         }
@@ -311,7 +466,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText3.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("NUT_ROLL", out int amount4))
+        if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount4))
         {
             turretAmountText4.SetText("x" + amount4);
         }
@@ -320,7 +475,7 @@ public class PlayerController : MonoBehaviour
             turretAmountText4.SetText("x" + 0);
         }
 
-        if (turretsInventory.TryGetValue("PORCUTHROW", out int amount5))
+        if (turretsInventory.TryGetValue("NUT_ROLL", out int amount5))
         {
             turretAmountText5.SetText("x" + amount5);
         }
@@ -328,7 +483,6 @@ public class PlayerController : MonoBehaviour
         {
             turretAmountText5.SetText("x" + 0);
         }
-
         if (turretsInventory.TryGetValue("ELECTRIC_POTATO", out int amount6))
         {
             turretAmountText6.SetText("x" + amount6);

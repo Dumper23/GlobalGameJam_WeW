@@ -13,16 +13,19 @@ public class AmmoPicking : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        //Player ammo inventory add ammo
-        if (GameManager.Instance.pickUpAmmo(ammoType))
+        if (action.Equals("E"))
         {
-            //Player sound allowing action
-            Debug.Log("Ammo taken!");
-        }
-        else
-        {
-            //Player sound denying action
-            Debug.Log("Ammo inventory full");
+            //Player ammo inventory add ammo
+            if (GameManager.Instance.pickUpAmmo(ammoType))
+            {
+                //Player sound allowing action
+                Debug.Log("Ammo taken!");
+            }
+            else
+            {
+                //Player sound denying action
+                Debug.Log("Ammo inventory full");
+            }
         }
     }
 }

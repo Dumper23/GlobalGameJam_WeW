@@ -13,9 +13,11 @@ public class FloorDoor : IEInteractable
     {
         if(action == "up") {
             FloorManager.Instance.floorUp();
+            GameManager.Instance.playLiftSound();
         }
         else if (action == "down")
         {
+            GameManager.Instance.playLiftSound();
             FloorManager.Instance.floorDown();
         }
     }

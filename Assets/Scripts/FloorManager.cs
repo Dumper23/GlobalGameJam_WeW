@@ -44,6 +44,7 @@ public class FloorManager : MonoBehaviour
         }
     }
 
+
     public void floorUp()
     {
         if(GameManager.Instance.getCurrentFloor() < GameManager.Instance.getUnlockedFloors() - 1)
