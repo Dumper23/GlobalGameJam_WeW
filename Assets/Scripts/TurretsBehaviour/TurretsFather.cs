@@ -9,7 +9,7 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]//TMP XQ EXTERN
     protected float rangeAttack, fireRate;
     [SerializeField]//TMP XQ EXTERN
-    protected int ammunituion, damage, maxAmmo;
+    protected int ammunituion, damage, maxAmmo, chest, maxChest;
     #endregion
 
     protected float lastShot = 0;
@@ -96,10 +96,15 @@ public abstract class TurretsFather : MonoBehaviour
         return (ammunituion > 0) ;
     }
 
-    public void GiveAmmo(int ammo)
+    public int GiveAmmo(int newChests)
     {
-        ammunituion += ammo;
+        if (chest + newChests > maxChest)
+        {
+            return (chest + newChests) - maxChest;
+        }
+        //ammunituion += ammo;
         //set deactive panell
+        return 0;
     }
 
     public void PlaceTurret()

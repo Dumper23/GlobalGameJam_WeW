@@ -1315,6 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8f56e5db3424145bb079f626fefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MACHINE_SEED_DESCRIPTION: Shoot a single enemy until it is eliminated
   MACHINE_SEED_DAMAGE_LVL: 0
   MACHINE_SEED_DAMAGE_DESCRIPTION: Increases Turret Damage
   MACHINE_SEED_DAMAGE_NAME: More Seeds!
@@ -1341,6 +1342,8 @@ MonoBehaviour:
   MACHINE_SEED_CHEST_NAME: More Chest!
   MACHINE_SEED_CHEST_COST: 0a000000140000001e000000
   MACHINE_SEED_CHEST: 320000004b00000064000000
+  RESIN_SPIT_DESCRIPTION: Shoots a resin puddle that slows down the enemy as it passes
+    through it
   RESIN_SPIT_DAMAGE_LVL: 0
   RESIN_SPIT_DAMAGE_DESCRIPTION: Now the resin does a little damage per second
   RESIN_SPIT_DAMAGE_NAME: Corrosive Resin
@@ -1384,6 +1387,8 @@ MonoBehaviour:
   RESIN_SPIT_CHEST_NAME: More Chest!
   RESIN_SPIT_CHEST_COST: 0a000000140000001e000000
   RESIN_SPIT_CHEST: 1e000000320000004b000000
+  S_SEEDNIPER_DESCRIPTION: Fires a projectile that does a lot of damage, but has
+    slow firerate.
   S_SEEDNIPER_DAMAGE_LVL: 0
   S_SEEDNIPER_DAMAGE_DESCRIPTION: Increases Turret Damage
   S_SEEDNIPER_DAMAGE_NAME: More Damage!
@@ -1414,6 +1419,8 @@ MonoBehaviour:
   S_SEEDNIPER_CHEST_DESCRIPTION: Increases chest capacity
   S_SEEDNIPER_CHEST_NAME: More Chest!
   S_SEEDNIPER_CHEST: 14000000230000002d000000
+  PINECONE_LAUNCHER_DESCRIPTION: Fires a projectile that does area damage, but has
+    slow firerate.
   PINECONE_LAUNCHER_AREA_LVL: 0
   PINECONE_LAUNCHER_AREA_DESCRIPTION: Increases the area of the explosion
   PINECONE_LAUNCHER_AREA_NAME: More Boom!
@@ -1460,6 +1467,8 @@ MonoBehaviour:
   PINECONE_LAUNCHER_CHEST_DESCRIPTION: Increases chest capacity
   PINECONE_LAUNCHER_CHEST_NAME: More Chest!
   PINECONE_LAUNCHER_CHEST: 1e000000320000004b000000
+  NUT_ROLL_DESCRIPTION: Fires a projectile that rolls around the outside of the tree
+    and damages up to 20 enemies where it passes through.
   NUT_ROLL_DAMAGE_LVL: 0
   NUT_ROLL_DAMAGE_DESCRIPTION: Increases Turret Damage
   NUT_ROLL_DAMAGE_NAME: More Nut Damage!
@@ -1495,6 +1504,8 @@ MonoBehaviour:
   NUT_ROLL_CHEST_NAME: More Chest!
   NUT_ROLL_CHEST_COST: 0a000000140000001e000000
   NUT_ROLL_CHEST: 140000001e00000032000000
+  PORCUTHROW_DESCRIPTION: Fires three projectiles that do a lot of damage at close
+    range
   PORCUTHROW_PROJECTILES_LVL: 0
   PORCUTHROW_PROJECTILES_DESCRIPTION: Increases Turret fired projectiles
   PORCUTHROW_PROJECTILES_NAME: More Projectiles!
@@ -1524,6 +1535,8 @@ MonoBehaviour:
   PORCUTHROW_CHEST_NAME: More Chest!
   PORCUTHROW_CHEST_COST: 0a000000140000001e000000
   PORCUTHROW_CHEST: 320000004b00000064000000
+  ELECTRIC_POTATO_DESCRIPTION: Fires electricity that bounces off some enemies, stunning
+    them
   ELECTRIC_POTATO_RAY_LVL: 0
   ELECTRIC_POTATO_RAY_DESCRIPTION: Increases the number of enemies hit by the lightning
     bolt
@@ -1562,12 +1575,27 @@ MonoBehaviour:
   ELECTRIC_POTATO_CHEST_COST: 0a000000140000001e000000
   ELECTRIC_POTATO_CHEST: 1e000000320000004b000000
   PLAYER_SPEED_LVL: 0
+  PLAYER_SPEED_DESCRIPTION: Increases the Player Movement Speed
+  PLAYER_SPEED_NAME: Gotta Go Fast!
+  PLAYER_SPEED_COST: 0a000000140000001e000000
+  PLAYER_SPEED:
+  - 10
+  - 20
+  - 30
   PLAYER_INVENTORY_LVL: 0
-  PLAYER_CAPACITY_LVL: 0
-  PLAYER_LIFT_LVL: 0
-  PLAYER_SPEED: 0a000000140000001e000000
+  PLAYER_INVENTORY_DESCRIPTION: Increases the inventory slots of the player
+  PLAYER_INVENTORY_NAME: Holding Bag!
+  PLAYER_INVENTORY_COST: 0a000000140000001e000000
   PLAYER_INVENTORY: 0a000000140000001e000000
+  PLAYER_CAPACITY_LVL: 0
+  PLAYER_CAPACITY_DESCRIPTION: Increases the inventory capacity per slot
+  PLAYER_CAPACITY_NAME: Steve!
+  PLAYER_CAPACITY_COST: 0a000000140000001e000000
   PLAYER_CAPACITY: 0a000000140000001e000000
+  PLAYER_LIFT_LVL: 0
+  PLAYER_LIFT_DESCRIPTION: Now you can change between floors as you want
+  PLAYER_LIFT_NAME: Elevator!
+  PLAYER_LIFT_COST: 0a000000
   PLAYER_LIFT: 0a000000
   unlockFloorDays: 0200000005000000080000000b0000000e00000011000000130000001400000015000000
 --- !u!4 &515919434
@@ -2074,6 +2102,7 @@ GameObject:
   - component: {fileID: 755180600}
   - component: {fileID: 755180599}
   - component: {fileID: 755180602}
+  - component: {fileID: 755180603}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2159,6 +2188,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &755180603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755180598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa214e5fcf99384dba665a5da015c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothFactor: 0
+  yOffset: 10
+  xOffset: 0
 --- !u!1 &762801787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3297,11 @@ MonoBehaviour:
   enemyAirWaypoints: []
   playerHP: 0
   enemySpawns: []
+  ammoImages: []
+  floors: []
+  topFloor: {fileID: 0}
+  hud: {fileID: 0}
+  turrets: []
   isDay: 0
 --- !u!1 &1617872989
 GameObject:
