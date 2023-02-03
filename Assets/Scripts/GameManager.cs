@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
 {
     public Camera mainCam;
     public int unlockedFloors = 3;
-    public int unlockedFloors = 10;
     public int fertilizer = 0;
 
     private PlayerController player;
@@ -714,7 +713,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)
     public void playDayNightAnimation()
     {
         if (this.isDay)
@@ -744,7 +742,7 @@ public class GameManager : MonoBehaviour
         setDayNightAnimationPlaying(false);
     }
 
-    public void placeTurret(Vector3 position, string turretId)
+    public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)
     {
         if (!placeHolder.hasTurret)
         {
