@@ -40,9 +40,6 @@ public class Tooltip : MonoBehaviour
         tooltipDesc.text = node.desc;
         tooltipCost.text = node.cost.ToString() + " Abono ";
 
-        /*float textPaddingSize = 4f;
-        Vector2 backgroundSize = new Vector2(tooltipText.preferredWidth + textPaddingSize * 2f, tooltipText.preferredHeight + textPaddingSize * 2f);
-        backgroundRectTransform.sizeDelta = backgroundSize;*/
     }
 
     private void HideTooltip()

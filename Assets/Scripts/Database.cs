@@ -108,7 +108,7 @@ public class Database : MonoBehaviour
 
     #region MACHINE_SEED
 
-    public string MACHINE_SEED_ DESCRIPTION = "Shoot a single enemy until it is eliminated";
+    public string MACHINE_SEED_DESCRIPTION = "Shoot a single enemy until it is eliminated";
 
     public int MACHINE_SEED_DAMAGE_LVL = 0;
     public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
@@ -337,7 +337,7 @@ public class Database : MonoBehaviour
     public string PORCUTHROW_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     public string PORCUTHROW_SPEED_NAME = "Faster!";
     public int[] PORCUTHROW_SPEED_COST = { 10, 20 };
-    public float[] PORCUTHROW_SPEED = { 2.75f, 3.5F };
+    public float[] PORCUTHROW_SPEED = { 3.25f, 2.75f };
 
     public int PORCUTHROW_PIERCING_LVL = 0;
     public string PORCUTHROW_PIERCING_DESCRIPTION = "Now the shots are piercing";

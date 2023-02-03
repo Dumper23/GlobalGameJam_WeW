@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     public float xOffset = 0;
 
     private Vector3 target;
+    private bool isRootView = false;
     private bool isGeneralView;
     private bool wasGeneralView = false;
     private Camera cam;
@@ -27,6 +28,16 @@ public class CameraFollow : MonoBehaviour
         wasGeneralView = !isGeneralView;
     }
 
+    public void toggleRootView()
+    {
+        isRootView = !isRootView;
+    }
+
+    public void setRootView(bool isRootView)
+    {
+        this.isRootView = isRootView;
+    }
+
     public void setGeneralView(bool isGeneralView)
     {
         this.isGeneralView = isGeneralView;
@@ -35,33 +46,36 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        if (!isGeneralView)
+        if (!isRootView)
         {
-            Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
-            target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
-            if (!wasGeneralView)
+            if (!isGeneralView)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, -10), smoothFactor * Time.deltaTime);
+                Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+                target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
 
+                if (!wasGeneralView)
+                {
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, -10), smoothFactor * Time.deltaTime);
+
+                }
+                else
+                {
+                    transform.position = target;
+                    wasGeneralView = false;
+                }
+                cam.orthographicSize = 3f;
             }
             else
             {
-                transform.position = target;
+                transform.position = new Vector3(-1.52f, 7.72f, transform.position.z);
+                cam.orthographicSize = 11f;
             }
-            wasGeneralView = false;
-        }
-        else
-        {
-            transform.position = new Vector3(-1.52f, 7.72f, transform.position.z);
-        }
 
-        if (isGeneralView)
-        {
-            cam.orthographicSize = 11f;
         }
         else
         {
-            cam.orthographicSize = 3f;
+            transform.position = new Vector3(0f, -13f, transform.position.z);
+            cam.orthographicSize = 13f;
         }
     }
 }
