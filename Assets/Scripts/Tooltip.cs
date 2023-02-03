@@ -38,11 +38,8 @@ public class Tooltip : MonoBehaviour
 
         tooltipName.text = node.name;
         tooltipDesc.text = node.desc;
-        tooltipCost.text = node.cost.ToString() + " Abono ";
-
-        /*float textPaddingSize = 4f;
-        Vector2 backgroundSize = new Vector2(tooltipText.preferredWidth + textPaddingSize * 2f, tooltipText.preferredHeight + textPaddingSize * 2f);
-        backgroundRectTransform.sizeDelta = backgroundSize;*/
+        if (node.cost != 0) tooltipCost.text = node.cost.ToString() + " Fertilizer";
+        else tooltipCost.text = "";
     }
 
     private void HideTooltip()

@@ -158,7 +158,7 @@ public class Database : MonoBehaviour
     public int RESIN_SPIT_DURATION_LVL = 0;
     public string RESIN_SPIT_DURATION_DESCRIPTION = "Increases the duration of the resin in the tree";
     public string RESIN_SPIT_DURATION_NAME = "More Resin!";
-    public int[] MACHINE_SEED_DURATION_COST = { 10, 20 };
+    public int[] RESIN_SPIT_DURATION_COST = { 10, 20 };
     public float[] RESIN_SPIT_DURATION = { 3, 4 };
 
     public int RESIN_SPIT_STICKNESS_LVL = 0;
@@ -221,6 +221,7 @@ public class Database : MonoBehaviour
     public string S_SEEDNIPER_CHEST_NAME_UNO = "Create Chest!";
     public string S_SEEDNIPER_CHEST_DESCRIPTION = "Increases chest capacity";
     public string S_SEEDNIPER_CHEST_NAME = "More Chest!";
+    public int[] S_SEEDNIPER_CHEST_COST = { 10, 20, 30 };
     public int[] S_SEEDNIPER_CHEST = { 20, 35, 45 };
     #endregion
 
@@ -237,8 +238,8 @@ public class Database : MonoBehaviour
     public int PINECONE_LAUNCHER_DAMAGE_LVL = 0;
     public string PINECONE_LAUNCHER_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     public string PINECONE_LAUNCHER_DAMAGE_NAME = "More Pinecones!";
-    public int[] PINECONE_LAUNCHER_DAMAGE_COST = { 10, 20 };
-    public int[] PINECONE_LAUNCHER_DAMAGE = { 60, 90 };
+    public int[] PINECONE_LAUNCHER_DAMAGE_COST = { 10 };
+    public int[] PINECONE_LAUNCHER_DAMAGE = { 60 };
 
     public int PINECONE_LAUNCHER_SPEED_LVL = 0;
     public string PINECONE_LAUNCHER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
@@ -275,6 +276,7 @@ public class Database : MonoBehaviour
     public string PINECONE_LAUNCHER_CHEST_NAME_UNO = "Create Chest!";
     public string PINECONE_LAUNCHER_CHEST_DESCRIPTION = "Increases chest capacity";
     public string PINECONE_LAUNCHER_CHEST_NAME = "More Chest!";
+    public int[] PINECONE_LAUNCHER_CHEST_COST = { 10, 20, 30 };
     public int[] PINECONE_LAUNCHER_CHEST = { 30, 50, 75 };
     #endregion
 
@@ -334,8 +336,8 @@ public class Database : MonoBehaviour
     public int PORCUTHROW_SPEED_LVL = 0;
     public string PORCUTHROW_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     public string PORCUTHROW_SPEED_NAME = "Faster!";
-    public int[] PORCUTHROW_SPEED_COST = { 10 };
-    public float[] PORCUTHROW_SPEED = { 2.75f };
+    public int[] PORCUTHROW_SPEED_COST = { 10, 20 };
+    public float[] PORCUTHROW_SPEED = { 3.25f, 2.75f };
 
     public int PORCUTHROW_PIERCING_LVL = 0;
     public string PORCUTHROW_PIERCING_DESCRIPTION = "Now the shots are piercing";
