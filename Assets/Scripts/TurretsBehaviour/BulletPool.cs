@@ -45,12 +45,28 @@ public class BulletPool : MonoBehaviour
     private List<GameObject> porcuthrows;
     #endregion
 
+    #region Cluster
+    [SerializeField]
+    private GameObject clusterBullet;
+    private bool notEnoughClustersInPool = true;
+
+    private List<GameObject> clusters;
+    #endregion
+
     #region NutRoll
     [SerializeField]
     private GameObject nutBullet;
     private bool notEnoughNutsInPool = true;
 
     private List<GameObject> nuts;
+    #endregion
+
+    #region Electric
+    [SerializeField]
+    private GameObject electricBullet;
+    private bool notEnoughElectricsInPool = true;
+
+    private List<GameObject> electrics;
     #endregion
 
     private void Awake()
@@ -66,6 +82,8 @@ public class BulletPool : MonoBehaviour
         pinecones = new List<GameObject>();
         porcuthrows = new List<GameObject>();
         nuts = new List<GameObject>();
+        clusters = new List<GameObject>();
+        electrics = new List<GameObject>();
     }
 
     public GameObject GetSeed()
@@ -185,6 +203,31 @@ public class BulletPool : MonoBehaviour
 
         return null;
     }
+    
+    public GameObject GetCluster()
+    {
+        if (clusters.Count > 0)
+        {
+            for (int i = 0; i < clusters.Count; i++)
+            {
+                if (!clusters[i].activeInHierarchy)
+                {
+                    return clusters[i];
+                }
+            }
+        }
+
+        if (notEnoughClustersInPool)
+        {
+            GameObject bul = Instantiate(clusterBullet);
+            bul.SetActive(false);
+            clusters.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+
     public GameObject GetNut()
     {
         if (nuts.Count > 0)
@@ -203,6 +246,29 @@ public class BulletPool : MonoBehaviour
             GameObject bul = Instantiate(nutBullet);
             bul.SetActive(false);
             nuts.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+    public GameObject GetElectric()
+    {
+        if (electrics.Count > 0)
+        {
+            for (int i = 0; i < electrics.Count; i++)
+            {
+                if (!electrics[i].activeInHierarchy)
+                {
+                    return electrics[i];
+                }
+            }
+        }
+
+        if (notEnoughElectricsInPool)
+        {
+            GameObject bul = Instantiate(electricBullet);
+            bul.SetActive(false);
+            electrics.Add(bul);
             return bul;
         }
 

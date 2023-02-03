@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PineconeTurret : TurretsFather
 {
-
+    [SerializeField]
     private bool cluster = false;
     private float radius = 5;
     private void Awake()
@@ -36,6 +36,7 @@ public class PineconeTurret : TurretsFather
         bul.GetComponent<PineconeBullet>().SetTarget(base.currentTarget.transform);
         bul.GetComponent<PineconeBullet>().SetDamage(base.damage);
         bul.GetComponent<PineconeBullet>().SetRadius(radius);
+        bul.GetComponent<PineconeBullet>().SetCluster(cluster);
         ammunituion--;
     }
 
@@ -78,7 +79,7 @@ public class PineconeTurret : TurretsFather
             }
         }
     }
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1)
+    public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;

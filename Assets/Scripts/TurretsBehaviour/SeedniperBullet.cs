@@ -8,12 +8,17 @@ public class SeedniperBullet : MonoBehaviour
     private float moveSpeed, bulletDuration;
 
     private Transform target;
+    private Transform target2;
 
     private int damage;
 
     private Vector2 lastPos, lastPos2;
 
     private bool lostTarget;
+
+    private bool ricochet;
+
+    private bool firstTarget = true;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +45,7 @@ public class SeedniperBullet : MonoBehaviour
     {
         target = null;
         lostTarget = false;
+        firstTarget = true;
         Invoke("Destroy", bulletDuration);
     }
 
@@ -52,10 +58,19 @@ public class SeedniperBullet : MonoBehaviour
     {
         this.target = target;
     }
+    public void SetTarget2(Transform target2)
+    {
+        this.target2 = target2;
+    }
 
     public void SetDamage(int bulletDamage)
     {
         damage = bulletDamage;
+    }
+
+    public void SetRicochet(bool newRicochet)
+    {
+        ricochet = newRicochet;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,7 +81,31 @@ public class SeedniperBullet : MonoBehaviour
             {
                 collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
                 //collision.gameObject.GetComponent<EnemyScript>().Damage();
-                Destroy();
+                if (ricochet)
+                {
+                    if (!firstTarget)
+                    {
+                        Destroy();
+                    }
+                    else
+                    {
+                        firstTarget = false;
+
+                        if (collision.gameObject.transform == target2)
+                        {
+                            Destroy();
+                        }
+                        else
+                        {
+                            target = target2;
+                        }
+                        lostTarget = false;
+                    }
+                }
+                else
+                {
+                    Destroy();
+                }
             }
             else
             {
@@ -74,7 +113,20 @@ public class SeedniperBullet : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
                     //collision.gameObject.GetComponent<EnemyScript>().Damage();
-                    Destroy();
+                    if (ricochet) {
+                        if (!firstTarget) {
+                            Destroy();
+                        }
+                        else
+                        {
+                            firstTarget = false;
+                            target = target2;
+                        }
+                    }
+                    else
+                    {
+                        Destroy();
+                    }
                 }
             }
 

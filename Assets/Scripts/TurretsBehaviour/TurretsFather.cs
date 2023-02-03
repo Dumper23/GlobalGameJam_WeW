@@ -26,7 +26,7 @@ public abstract class TurretsFather : MonoBehaviour
     private GameObject mobilePart;
 
     [SerializeField]//TMP
-    private Transform endWayPoint;
+    protected Transform endWayPoint;
 
     protected string turretId = "";
 
@@ -40,7 +40,7 @@ public abstract class TurretsFather : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-
+        //TODO: FER CARTUTXOS I AMMO
         if (HasAmmo())
         {
             DetectObjective();
@@ -65,6 +65,7 @@ public abstract class TurretsFather : MonoBehaviour
         else
         {
             //desactivada
+            //set active panell
             mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
             //LerpValues.Lerp();
             //Quaternion.Slerp(mobilePart.transform.rotation, Quaternion.identity, Time.deltaTime / 10);
@@ -86,7 +87,7 @@ public abstract class TurretsFather : MonoBehaviour
         return turretId;
     }
 
-    public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1);//RangeAttack?
+    public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?
 
     protected abstract void InintiateStatsAtCurrentUpgrades();
 
@@ -98,6 +99,7 @@ public abstract class TurretsFather : MonoBehaviour
     public void GiveAmmo(int ammo)
     {
         ammunituion += ammo;
+        //set deactive panell
     }
 
     public void PlaceTurret()
@@ -123,7 +125,7 @@ public abstract class TurretsFather : MonoBehaviour
 
     }
 
-    protected void DetectObjective()
+    protected virtual void DetectObjective()
     {
         int closestPos = -1;
         float closestDistance = Mathf.Infinity;
@@ -170,7 +172,7 @@ public abstract class TurretsFather : MonoBehaviour
         return bulletSpawn;
     }
 
-    private bool IsInRange(GameObject target)
+    protected bool IsInRange(GameObject target)
     {
         return (Vector3.Distance(target.transform.position, gameObject.transform.position) < rangeAttack);
     }

@@ -10,6 +10,7 @@ public class PorcuthrowTurret : TurretsFather
     [SerializeField]
     private int bulletsAmmount = 11;
 
+    [SerializeField]
     private bool piercing = false;
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class PorcuthrowTurret : TurretsFather
             bul.SetActive(true);
             bul.GetComponent<PorcuthrowBullet>().SetTarget(base.currentTarget.transform);
             bul.GetComponent<PorcuthrowBullet>().SetDamage(base.damage);
+            bul.GetComponent<PorcuthrowBullet>().SetPiercing(piercing);
 
             Vector3 facingDir = -GetBulletSpawnPoint().up.normalized;
 
@@ -101,7 +103,7 @@ public class PorcuthrowTurret : TurretsFather
             }
         }
     }
-    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1)
+    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         bulletsAmmount = newProjectiles;
