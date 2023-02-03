@@ -876,6 +876,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void startGame()
+    {
+        changeDayState();
+    }
     private void createNewFloor()
     {
         floorColorIndex++;
