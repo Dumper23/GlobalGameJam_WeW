@@ -16,6 +16,14 @@ public class PineconeBullet : MonoBehaviour
 
     private bool lostTarget;
 
+    private bool cluster;
+
+    [SerializeField]
+    private int numClusters;
+
+    [SerializeField]
+    private float minT, maxT, clusterSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +62,23 @@ public class PineconeBullet : MonoBehaviour
                 c.GetComponent<TMPEnemy>().Damage(damage);
             }
         }
+        if (cluster)
+        {
+            for (int i = 0; i < numClusters; i++)
+            {
+                Debug.Log("1");
+                GameObject bul = BulletPool.bulletPoolInstance.GetCluster();
+                bul.transform.position = transform.position;
+
+
+                bul.GetComponent<ClusterBullet>().SetDamage(damage);
+                bul.GetComponent<ClusterBullet>().SetRadius(radius);
+                bul.GetComponent<ClusterBullet>().SetSpeed(clusterSpeed);
+                bul.GetComponent<ClusterBullet>().SetTime(Random.Range(minT, maxT));
+                bul.GetComponent<ClusterBullet>().SetDirection(new Vector2(Random.Range(-1000,1000), Random.Range(-1000, 1000)).normalized);
+                bul.SetActive(true);
+            }
+        }
         gameObject.SetActive(false);
     }
 
@@ -75,6 +100,11 @@ public class PineconeBullet : MonoBehaviour
     public void SetRadius(float newRadius)
     {
         radius = newRadius;
+    }
+
+    public void SetCluster(bool newCluster)
+    {
+        cluster = newCluster;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -45,6 +45,14 @@ public class BulletPool : MonoBehaviour
     private List<GameObject> porcuthrows;
     #endregion
 
+    #region Cluster
+    [SerializeField]
+    private GameObject clusterBullet;
+    private bool notEnoughClustersInPool = true;
+
+    private List<GameObject> clusters;
+    #endregion
+
     #region NutRoll
     [SerializeField]
     private GameObject nutBullet;
@@ -66,6 +74,7 @@ public class BulletPool : MonoBehaviour
         pinecones = new List<GameObject>();
         porcuthrows = new List<GameObject>();
         nuts = new List<GameObject>();
+        clusters = new List<GameObject>();
     }
 
     public GameObject GetSeed()
@@ -185,6 +194,31 @@ public class BulletPool : MonoBehaviour
 
         return null;
     }
+    
+    public GameObject GetCluster()
+    {
+        if (clusters.Count > 0)
+        {
+            for (int i = 0; i < clusters.Count; i++)
+            {
+                if (!clusters[i].activeInHierarchy)
+                {
+                    return clusters[i];
+                }
+            }
+        }
+
+        if (notEnoughClustersInPool)
+        {
+            GameObject bul = Instantiate(clusterBullet);
+            bul.SetActive(false);
+            clusters.Add(bul);
+            return bul;
+        }
+
+        return null;
+    }
+
     public GameObject GetNut()
     {
         if (nuts.Count > 0)

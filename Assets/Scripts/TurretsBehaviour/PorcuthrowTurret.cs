@@ -10,6 +10,7 @@ public class PorcuthrowTurret : TurretsFather
     [SerializeField]
     private int bulletsAmmount = 11;
 
+    [SerializeField]
     private bool piercing = false;
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class PorcuthrowTurret : TurretsFather
             bul.SetActive(true);
             bul.GetComponent<PorcuthrowBullet>().SetTarget(base.currentTarget.transform);
             bul.GetComponent<PorcuthrowBullet>().SetDamage(base.damage);
+            bul.GetComponent<PorcuthrowBullet>().SetPiercing(piercing);
 
             Vector3 facingDir = -GetBulletSpawnPoint().up.normalized;
 

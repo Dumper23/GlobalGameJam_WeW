@@ -287,9 +287,11 @@ MonoBehaviour:
   enemyList:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   bulletSpawn: {fileID: 1968199747048122548}
   mobilePart: {fileID: 1968199745395071093}
   endWayPoint: {fileID: 0}
+  ricochet: 0
 --- !u!1 &1968199747048122549
 GameObject:
   m_ObjectHideFlags: 0

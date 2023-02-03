@@ -101,6 +101,10 @@ MonoBehaviour:
   moveSpeed: 5
   radius: 5
   bulletDuration: 10
+  numClusters: 8
+  minT: 0.1
+  maxT: 0.5
+  clusterSpeed: 5
 --- !u!58 &5203615738623579401
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class PorcuthrowBullet : MonoBehaviour
 
     private Vector2 newDirection;
 
+    private bool piercing;
+
     //private bool firstHit = false;
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class PorcuthrowBullet : MonoBehaviour
     }
     private void OnEnable()
     {
+        piercing = false;
         Invoke("Destroy", bulletDuration);
         //firstHit = false;
     }
@@ -63,6 +66,11 @@ public class PorcuthrowBullet : MonoBehaviour
         newDirection = dir;
     }
 
+    public void SetPiercing(bool newPiercing)
+    {
+        piercing = newPiercing;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -70,7 +78,7 @@ public class PorcuthrowBullet : MonoBehaviour
             collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
             //collision.gameObject.GetComponent<EnemyScript>().Damage();
 
-            if (false)//check if lvl piercing
+            if (!piercing)//check if lvl piercing
             {
                 Destroy();
             }

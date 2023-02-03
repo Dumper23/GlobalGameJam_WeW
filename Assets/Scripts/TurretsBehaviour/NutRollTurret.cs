@@ -10,6 +10,9 @@ public class NutRollTurret : TurretsFather
     [SerializeField]
     private bool extra = false;
 
+    [SerializeField]
+    private List<Transform> waypoints;
+
     private void Awake()
     {
         turretId = "NUT_ROLL";
@@ -33,13 +36,63 @@ public class NutRollTurret : TurretsFather
 
         GameObject bul = BulletPool.bulletPoolInstance.GetNut();
         bul.transform.position = GetBulletSpawnPoint().position;
-
+        /*
+        int pos = 0;
+        bool found = false;
+        foreach (Transform w in waypoints)
+        {
+            if (!found) {
+                if (w.position.y > GetBulletSpawnPoint().position.y)
+                {
+                    found = true;
+                }
+                else
+                {
+                    pos++;
+                }
+            }
+        }*/
         bul.SetActive(true);
         bul.GetComponent<NutBullet>().SetHits(hits);
         bul.GetComponent<NutBullet>().SetDamage(base.damage);
+        //bul.GetComponent<NutBullet>().DetermineRoute(waypoints, pos-1);
+        if (extra)
+        {
+            Invoke("ExtraShoot", 0.5f);
+        }
         ammunituion--;
     }
-
+    private void ExtraShoot()
+    {
+        GameObject bul = BulletPool.bulletPoolInstance.GetNut();
+        bul.transform.position = GetBulletSpawnPoint().position;
+        /*
+        int pos = 0;
+        bool found = false;
+        foreach (Transform w in waypoints)
+        {
+            if (!found) {
+                if (w.position.y > GetBulletSpawnPoint().position.y)
+                {
+                    found = true;
+                }
+                else
+                {
+                    pos++;
+                }
+            }
+        }*/
+        bul.SetActive(true);
+        bul.GetComponent<NutBullet>().SetHits(hits);
+        bul.GetComponent<NutBullet>().SetDamage(base.damage);
+        //bul.GetComponent<NutBullet>().DetermineRoute(waypoints, pos-1);
+    }
+    /*
+    public void SetWaypointsList(List<GameObject> newEnemyList)
+    {
+        enemyList = new List<GameObject>(newEnemyList);
+    }
+    */
     protected override void FaceObjective()
     {
         //None
