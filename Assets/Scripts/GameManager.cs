@@ -13,14 +13,16 @@ public class TurretEditor
 public class GameManager : MonoBehaviour
 {
     public Camera mainCam;
-    public int unlockedFloors = 10;
+    public int unlockedFloors = 3;
     public int fertilizer = 0;
 
     private PlayerController player;
-    public Transform[] enemyGroundWaypoints;
-    public Transform[] enemyAirWaypoints;
+    public List<Transform> enemyGroundWaypoints;
+    public List<Transform> enemyAirWaypoints;
     public int playerHP; 
     public List<EnemySpawn> enemySpawns;
+    public List<GameObject> floors;
+    public GameObject topFloor;
     [SerializeField]
     public List<TurretEditor> turrets;
     //private Dictionary<string, PlacedTurret> placedTurrets = new Dictionary<string, PlacedTurret>();
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     private int currentFloor = 0;
     private bool playerInMenu = false;
     private int turretAutoincremental = 0;
+    private int floorColorIndex = 0;
 
     private bool gamePaused = false;
 
@@ -161,9 +164,9 @@ public class GameManager : MonoBehaviour
         //Somehow we need to add the ammotype to the turret if the player has it
     }
 
-    public Transform[] getWaypoints(string type)
+    public List<Transform> getWaypoints(string type)
     {
-        Transform[] waypoints = null;
+        List<Transform> waypoints = null;
         switch (type)
         {
             case "walk":
@@ -477,10 +480,13 @@ public class GameManager : MonoBehaviour
             //change music
 
             //create new floor if its day X
-            
+            for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
+            {
+                if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
+            }
 
             //Start day after 60s
-            Invoke("changeDayState", 60);
+            Invoke("changeDayState", 5); //60
         }
     }
 
@@ -593,6 +599,25 @@ public class GameManager : MonoBehaviour
 
     private void createNewFloor()
     {
+        floorColorIndex++;
+        unlockedFloors++;
+        GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
+        aux.transform.parent = GameObject.Find("Floors").transform;
+        topFloor.transform.position += new Vector3(0, 2, 0);
+        FloorManager floorManager = FindObjectOfType<FloorManager>();
 
+        //add floor waypoint
+        Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
+        enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
+        enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
+        enemyGroundWaypoints.Add(topWaypoint);
+        if (floorManager)
+        {
+            floorManager.updateDoors();
+        }
+        if (floorColorIndex == 3)
+        {
+            floorColorIndex = -1;
+        }
     }
 }

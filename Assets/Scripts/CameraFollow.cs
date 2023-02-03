@@ -37,8 +37,11 @@ public class CameraFollow : MonoBehaviour
     {
         if (!isGeneralView)
         {
-            Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
-            target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
+            if (floors.liftDoors.Count > 0)
+            {
+                Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+                target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
+            }
             if (!wasGeneralView)
             {
                 transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, -10), smoothFactor * Time.deltaTime);

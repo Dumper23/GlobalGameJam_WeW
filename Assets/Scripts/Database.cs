@@ -12,11 +12,11 @@ public class Database : MonoBehaviour
     #region WAVES FOR EACH DAY
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
@@ -108,7 +108,7 @@ public class Database : MonoBehaviour
 
     #region MACHINE_SEED
 
-    public string MACHINE_SEED_ DESCRIPTION = "Shoot a single enemy until it is eliminated";
+    public string MACHINE_SEED_DESCRIPTION = "Shoot a single enemy until it is eliminated";
 
     public int MACHINE_SEED_DAMAGE_LVL = 0;
     public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
@@ -428,7 +428,7 @@ public class Database : MonoBehaviour
     public string PLAYER_LIFT_DESCRIPTION = "Now you can change between floors as you want";
     public string PLAYER_LIFT_NAME = "Elevator!";
     public int[] PLAYER_LIFT_COST = { 10 };
-    public int[] PLAYER_LIFT = { 1 }
+    public int[] PLAYER_LIFT = { 1 };
 
     #endregion 
 

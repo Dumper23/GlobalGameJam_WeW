@@ -26,22 +26,7 @@ public class FloorManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        FloorDoor[] doors = FindObjectsOfType<FloorDoor>();
-
-        List<GameObject> unsortedList = new List<GameObject>();
-        List<GameObject> sortedList = new List<GameObject>();
-
-        foreach (var door in doors)
-        {
-            unsortedList.Add(door.gameObject);
-        }
-
-        sortedList = unsortedList.OrderBy(o => o.transform.position.y).ToList();
-
-        foreach (var door in sortedList)
-        {
-            liftDoors.Add(door);
-        }
+        updateDoors();
     }
 
     public void floorUp()
@@ -61,6 +46,27 @@ public class FloorManager : MonoBehaviour
             //TP player to the lower level after an animation
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() - 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+        }
+    }
+
+    public void updateDoors()
+    {
+        liftDoors.Clear();
+        FloorDoor[] doors = FindObjectsOfType<FloorDoor>();
+
+        List<GameObject> unsortedList = new List<GameObject>();
+        List<GameObject> sortedList = new List<GameObject>();
+
+        foreach (var door in doors)
+        {
+            unsortedList.Add(door.gameObject);
+        }
+
+        sortedList = unsortedList.OrderBy(o => o.transform.position.y).ToList();
+
+        foreach (var door in sortedList)
+        {
+            liftDoors.Add(door);
         }
     }
 }

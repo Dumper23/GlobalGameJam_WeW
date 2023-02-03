@@ -62,6 +62,7 @@ public class EnemySpawn : MonoBehaviour
             for (int i = 0; i < pool.amountToPool; i++)
             {
                 aux = Instantiate(pool.objectToPool);
+                aux.transform.parent = GameObject.Find("Enemies").transform;
                 aux.SetActive(false);
                 pool.pooledObjects.Add(aux);
             }
@@ -119,8 +120,7 @@ public class EnemySpawn : MonoBehaviour
                 {
                     GameObject enemy = getPooledObject(poolIndex);
                     enemy.transform.position = getRandomPoint(transform.position);
-                    enemy.GetComponent<Enemy>().waypointIndex = 0;
-                    enemy.GetComponent<Enemy>().currentHealth = enemy.GetComponent<Enemy>().maxHealth;
+                    enemy.GetComponent<Enemy>().initialize();
                     enemy.SetActive(true);
                     enemyWaveState.numSpawned++;
                 }
@@ -143,6 +143,7 @@ public class EnemySpawn : MonoBehaviour
         }
 
         GameObject aux = Instantiate(pools[poolIndex].objectToPool);
+        aux.transform.parent = GameObject.Find("Enemies").transform;
         aux.SetActive(false);
         pools[poolIndex].pooledObjects.Add(aux);
         return aux;
