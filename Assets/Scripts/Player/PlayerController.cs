@@ -503,4 +503,9 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
+
+    public void UpdateDatabase()
+    {
+
+    }
 }

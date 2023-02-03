@@ -187,4 +187,9 @@ public abstract class TurretsFather : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, rangeAttack);
     }
+
+    public void UpdateDatabase()
+    {
+
+    }
 }

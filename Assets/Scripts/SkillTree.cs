@@ -491,6 +491,9 @@ public class SkillTree : MonoBehaviour
             default:
                 break;
         }
+
+        GameManager.Instance.UpdatePlayer();
+        GameManager.Instance.UpdateTurrets();
     }
 
 }

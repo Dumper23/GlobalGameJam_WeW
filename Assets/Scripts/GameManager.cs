@@ -913,4 +913,14 @@ public class GameManager : MonoBehaviour
             floorColorIndex = -1;
         }
     }
+
+    public void UpdateTurrets()
+    {
+        foreach (GameObject turret in placedTurrets.Values) turret.GetComponent<TurretsFather>().UpdateDatabase();
+    }
+
+    public void UpdatePlayer()
+    {
+        player.UpdateDatabase();
+    }
 }
