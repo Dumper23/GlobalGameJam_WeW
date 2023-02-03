@@ -9,6 +9,13 @@ public class TurretEditor
     public GameObject turretPrefab;
 }
 
+[System.SerializableAttribute]
+public class AmmoImage
+{
+    public Sprite image;
+    public string ammoType;
+}
+
 [DefaultExecutionOrder(0)]
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +28,7 @@ public class GameManager : MonoBehaviour
     public Transform[] enemyAirWaypoints;
     public int playerHP; 
     public List<EnemySpawn> enemySpawns;
+    public List<AmmoImage> ammoImages;
     [SerializeField]
     public List<TurretEditor> turrets;
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
@@ -60,6 +68,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         changeDayState();
         player.updateTurretInventoryNumberUI();
+        player.updateInventorySlots();
     }
 
     #region getters & setters
@@ -154,7 +163,8 @@ public class GameManager : MonoBehaviour
                 {
                     player.ammoSlot1.hasAmmo = true;
                     player.ammoSlot1.currentAmmoType = ammoType;
-                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
                     player.updateInventorySlots();
                     return true;
                 }
@@ -172,7 +182,8 @@ public class GameManager : MonoBehaviour
                     {
                         player.ammoSlot2.hasAmmo = true;
                         player.ammoSlot2.currentAmmoType = ammoType;
-                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
                         player.updateInventorySlots();
                         return true;
                     }
@@ -181,7 +192,8 @@ public class GameManager : MonoBehaviour
                 {
                     player.ammoSlot1.hasAmmo = true;
                     player.ammoSlot1.currentAmmoType = ammoType;
-                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
                     player.updateInventorySlots();
                     return true;
                 }
@@ -201,7 +213,8 @@ public class GameManager : MonoBehaviour
                         {
                             player.ammoSlot3.hasAmmo = true;
                             player.ammoSlot3.currentAmmoType = ammoType;
-                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
                             player.updateInventorySlots();
                             return true;
                         }
@@ -210,7 +223,8 @@ public class GameManager : MonoBehaviour
                     {
                         player.ammoSlot2.hasAmmo = true;
                         player.ammoSlot2.currentAmmoType = ammoType;
-                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
                         player.updateInventorySlots();
                         return true;
                     }
@@ -219,7 +233,8 @@ public class GameManager : MonoBehaviour
                 {
                     player.ammoSlot1.hasAmmo = true;
                     player.ammoSlot1.currentAmmoType = ammoType;
-                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
                     player.updateInventorySlots();
                     return true;
                 }
@@ -241,7 +256,8 @@ public class GameManager : MonoBehaviour
                             {
                                 player.ammoSlot4.hasAmmo = true;
                                 player.ammoSlot4.currentAmmoType = ammoType;
-                                player.ammoSlot4.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                                player.ammoSlot4.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                                player.ammoSlot4.ammoImage = getAmmoImage(ammoType);
                                 player.updateInventorySlots();
                                 return true;
                             }
@@ -250,7 +266,8 @@ public class GameManager : MonoBehaviour
                         {
                             player.ammoSlot3.hasAmmo = true;
                             player.ammoSlot3.currentAmmoType = ammoType;
-                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                            player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
                             player.updateInventorySlots();
                             return true;
                         }
@@ -259,7 +276,8 @@ public class GameManager : MonoBehaviour
                     {
                         player.ammoSlot2.hasAmmo = true;
                         player.ammoSlot2.currentAmmoType = ammoType;
-                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                        player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
                         player.updateInventorySlots();
                         return true;
                     }
@@ -268,13 +286,68 @@ public class GameManager : MonoBehaviour
                 {
                     player.ammoSlot1.hasAmmo = true;
                     player.ammoSlot1.currentAmmoType = ammoType;
-                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL;
+                    player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                    player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
                     player.updateInventorySlots();
                     return true;
                 }
             default:
                 return false;
         }
+    }
+
+    public void deleteAmmo()
+    {
+        switch (player.currentSlot)
+        {
+            case 1:
+                player.ammoSlot1.hasAmmo = false;
+                player.ammoSlot1.currentAmmoType = "";
+                player.ammoSlot1.currentAmount = 0;
+                player.ammoSlot1.ammoImage = null;
+                break;
+            case 2:
+                player.ammoSlot2.hasAmmo = false;
+                player.ammoSlot2.currentAmmoType = "";
+                player.ammoSlot2.currentAmount = 0;
+                player.ammoSlot2.ammoImage = null;
+                break;
+            case 3:
+                player.ammoSlot3.hasAmmo = false;
+                player.ammoSlot3.currentAmmoType = "";
+                player.ammoSlot3.currentAmount = 0;
+                player.ammoSlot3.ammoImage = null;
+                break;
+            case 4:
+                player.ammoSlot4.hasAmmo = false;
+                player.ammoSlot4.currentAmmoType = "";
+                player.ammoSlot4.currentAmount = 0;
+                player.ammoSlot4.ammoImage = null;
+                break;
+            default:
+                break;
+        }
+        player.updateInventorySlots();
+    }
+
+    public void playLiftSound()
+    {
+        player.audio.clip = player.audios[player.AUDIO_FLOOR_CHANGE];
+        player.audio.Play();
+    }
+
+    public Sprite getAmmoImage(string ammoType)
+    {
+        AmmoImage ai = null;
+        foreach (var ammoImage in ammoImages)
+        {
+            if (ammoImage.ammoType.Equals(ammoType))
+            {
+                ai = ammoImage;
+                break;
+            }
+        }
+        return ai.image;
     }
 
     public void placeAmmo()

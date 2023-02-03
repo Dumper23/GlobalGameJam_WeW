@@ -22,7 +22,7 @@ public class TurretPlacholder : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        if (action == "")
+        if (action == "E")
         {
             if (hasTurret)
             {
