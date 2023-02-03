@@ -180,4 +180,317 @@ public class SkillTree : MonoBehaviour
         }
     }
 
+    public void DoAction(int id)
+    {
+        switch (id)
+        {
+            case 1: // Node titol
+                break;
+            case 2: // MACHINE_SEED_DMG
+                Database.Instance.MACHINE_SEED_DAMAGE_LVL = 1;
+                break;
+            case 3: // MACHINE_SEED_DMG
+                Database.Instance.MACHINE_SEED_DAMAGE_LVL = 2;
+                break;
+            case 4: // MACHINE_SEED_DMG
+                Database.Instance.MACHINE_SEED_DAMAGE_LVL = 3;
+                break;
+            case 5: // MACHINE_SEED_SPEED
+                Database.Instance.MACHINE_SEED_SPEED_LVL = 1;
+                break;
+            case 6: // MACHINE_SEED_SPEED
+                Database.Instance.MACHINE_SEED_SPEED_LVL = 2;
+                break;
+            case 7: // MACHINE_SEED_SPEED
+                Database.Instance.MACHINE_SEED_SPEED_LVL = 3;
+                break;
+            case 8: // MACHINE_SEED_CAPACITY
+                Database.Instance.MACHINE_SEED_CAPACITY_LVL = 1;
+                break;
+            case 9: // MACHINE_SEED_CAPACITY
+                Database.Instance.MACHINE_SEED_CAPACITY_LVL = 2;
+                break;
+            case 10: // MACHINE_SEED_CAPACITY
+                Database.Instance.MACHINE_SEED_CAPACITY_LVL = 3;
+                break;
+            case 11: // MACHINE_SEED_CHEST
+                Database.Instance.MACHINE_SEED_CHEST_LVL = 1;
+                break;
+            case 12: // MACHINE_SEED_CHEST
+                Database.Instance.MACHINE_SEED_CHEST_LVL = 2;
+                break;
+            case 13: // MACHINE_SEED_CHEST
+                Database.Instance.MACHINE_SEED_CHEST_LVL = 3;
+                break;
+
+            case 14: // Node titol
+                break;
+            case 15:
+                Database.Instance.RESIN_SPIT_SPEED_LVL = 1;
+                break;
+            case 16:
+                Database.Instance.RESIN_SPIT_DURATION_LVL = 1;
+                break;
+            case 17:
+                Database.Instance.RESIN_SPIT_DURATION_LVL = 2;
+                break;
+            case 18:
+                Database.Instance.RESIN_SPIT_DAMAGE_LVL = 1;
+                break;
+            case 19:
+                Database.Instance.RESIN_SPIT_STICKNESS_LVL = 1;
+                break;
+            case 20:
+                Database.Instance.RESIN_SPIT_LONG_LVL = 1;
+                break;
+            case 21:
+                Database.Instance.RESIN_SPIT_CAPACITY_LVL = 1;
+                break;
+            case 22:
+                Database.Instance.RESIN_SPIT_CAPACITY_LVL = 2;
+                break;
+            case 23: 
+                Database.Instance.RESIN_SPIT_CAPACITY_LVL = 3;
+                break;
+            case 24: 
+                Database.Instance.RESIN_SPIT_CHEST_LVL = 1;
+                break;
+            case 25: 
+                Database.Instance.RESIN_SPIT_CHEST_LVL = 2;
+                break;
+            case 26: 
+                Database.Instance.RESIN_SPIT_CHEST_LVL = 3;
+                break;
+
+            case 27: // Node titol
+                break;
+            case 28:
+                Database.Instance.S_SEEDNIPER_DAMAGE_LVL = 1;
+                break;
+            case 29:
+                Database.Instance.S_SEEDNIPER_DAMAGE_LVL = 2;
+                break;
+            case 30:
+                Database.Instance.S_SEEDNIPER_RICOCHET_LVL = 1;
+                break;
+            case 31:
+                Database.Instance.S_SEEDNIPER_SPEED_LVL = 1;
+                break;
+            case 32:
+                Database.Instance.S_SEEDNIPER_SPEED_LVL = 2;
+                break;
+            case 33:
+                Database.Instance.S_SEEDNIPER_SPEED_LVL = 3;
+                break;
+            case 34:
+                Database.Instance.S_SEEDNIPER_CAPACITY_LVL = 1;
+                break;
+            case 35:
+                Database.Instance.S_SEEDNIPER_CAPACITY_LVL = 2;
+                break;
+            case 36:
+                Database.Instance.S_SEEDNIPER_CAPACITY_LVL = 3;
+                break;
+            case 37:
+                Database.Instance.S_SEEDNIPER_CHEST_LVL = 1;
+                break;
+            case 38:
+                Database.Instance.S_SEEDNIPER_CHEST_LVL = 2;
+                break;
+            case 39:
+                Database.Instance.S_SEEDNIPER_CHEST_LVL = 3;
+                break;
+
+            case 40: // Node titol
+                break;
+            case 41:
+                Database.Instance.PINECONE_LAUNCHER_AREA_LVL = 1;
+                break;
+            case 42:
+                Database.Instance.PINECONE_LAUNCHER_DAMAGE_LVL = 1;
+                break;
+            case 43:
+                Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_LVL = 1;
+                break;
+            case 44:
+                Database.Instance.PINECONE_LAUNCHER_SPEED_LVL = 1;
+                break;
+            case 45:
+                Database.Instance.PINECONE_LAUNCHER_RANGE_LVL = 1;
+                break;
+            case 46:
+                Database.Instance.PINECONE_LAUNCHER_CLUSTER_LVL = 1;
+                break;
+            case 47:
+                Database.Instance.PINECONE_LAUNCHER_CAPACITY_LVL = 1;
+                break;
+            case 48:
+                Database.Instance.PINECONE_LAUNCHER_CAPACITY_LVL = 2;
+                break;
+            case 49:
+                Database.Instance.PINECONE_LAUNCHER_CAPACITY_LVL = 3;
+                break;
+            case 50:
+                Database.Instance.PINECONE_LAUNCHER_CHEST_LVL = 1;
+                break;
+            case 51:
+                Database.Instance.PINECONE_LAUNCHER_CHEST_LVL = 2;
+                break;
+            case 52:
+                Database.Instance.PINECONE_LAUNCHER_CHEST_LVL = 3;
+                break;
+
+            case 53: // Node titol
+                break;
+            case 54:
+                Database.Instance.NUT_ROLL_DAMAGE_LVL = 1;
+                break;
+            case 55:
+                Database.Instance.NUT_ROLL_DAMAGE_LVL = 1;
+                break;
+            case 56:
+                Database.Instance.NUT_ROLL_EXTRA_LVL = 1;
+                break;
+            case 57:
+                Database.Instance.NUT_ROLL_SPEED_LVL = 1;
+                break;
+            case 58:
+                Database.Instance.NUT_ROLL_SPEED_LVL = 1;
+                break;
+            case 59:
+                Database.Instance.NUT_ROLL_HITS_LVL = 1;
+                break;
+            case 60:
+                Database.Instance.NUT_ROLL_CAPACITY_LVL = 1;
+                break;
+            case 61:
+                Database.Instance.NUT_ROLL_CAPACITY_LVL = 2;
+                break;
+            case 62:
+                Database.Instance.NUT_ROLL_CAPACITY_LVL = 3;
+                break;
+            case 63:
+                Database.Instance.NUT_ROLL_CHEST_LVL = 1;
+                break;
+            case 64:
+                Database.Instance.NUT_ROLL_CHEST_LVL = 2;
+                break;
+            case 65:
+                Database.Instance.NUT_ROLL_CHEST_LVL = 3;
+                break;
+
+            case 66: // Node titol
+                break;
+            case 67:
+                Database.Instance.PORCUTHROW_PROJECTILES_LVL = 1;
+                break;
+            case 68:
+                Database.Instance.PORCUTHROW_PROJECTILES_LVL = 2;
+                break;
+            case 69:
+                Database.Instance.PORCUTHROW_PROJECTILES_LVL = 3;
+                break;
+            case 70:
+                Database.Instance.PORCUTHROW_SPEED_LVL = 1;
+                break;
+            case 71:
+                Database.Instance.PORCUTHROW_SPEED_LVL = 2;
+                break;
+            case 72:
+                Database.Instance.PORCUTHROW_PIERCING_LVL = 1;
+                break;
+            case 73:
+                Database.Instance.PORCUTHROW_CAPACITY_LVL = 1;
+                break;
+            case 74:
+                Database.Instance.PORCUTHROW_CAPACITY_LVL = 2;
+                break;
+            case 75:
+                Database.Instance.PORCUTHROW_CAPACITY_LVL = 3;
+                break;
+            case 76:
+                Database.Instance.PORCUTHROW_CHEST_LVL = 1;
+                break;
+            case 77:
+                Database.Instance.PORCUTHROW_CHEST_LVL = 2;
+                break;
+            case 78:
+                Database.Instance.PORCUTHROW_CHEST_LVL = 3;
+                break;
+
+            case 79: // Node titol
+                break;
+            case 80:
+                Database.Instance.ELECTRIC_POTATO_RAY_LVL = 1;
+                break;
+            case 81:
+                Database.Instance.ELECTRIC_POTATO_RAY_LVL = 2;
+                break;
+            case 82:
+                Database.Instance.ELECTRIC_POTATO_SPEED_LVL = 3;
+                break;
+            case 83:
+                Database.Instance.ELECTRIC_POTATO_DAMAGE_LVL = 1;
+                break;
+            case 84:
+                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 2;
+                break;
+            case 85:
+                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 1;
+                break;
+            case 86:
+                Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL = 1;
+                break;
+            case 87:
+                Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL = 2;
+                break;
+            case 88:
+                Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL = 3;
+                break;
+            case 89:
+                Database.Instance.ELECTRIC_POTATO_CHEST_LVL = 1;
+                break;
+            case 90:
+                Database.Instance.ELECTRIC_POTATO_CHEST_LVL = 2;
+                break;
+            case 91:
+                Database.Instance.ELECTRIC_POTATO_CHEST_LVL = 3;
+                break;
+
+            case 92: // PLAYER
+                Database.Instance.PLAYER_SPEED_LVL = 1;
+                break;
+            case 93:
+                Database.Instance.PLAYER_SPEED_LVL = 2;
+                break;
+            case 94:
+                Database.Instance.PLAYER_SPEED_LVL = 3;
+                break;
+            case 95:
+                Database.Instance.PLAYER_INVENTORY_LVL = 1;
+                break;
+            case 96:
+                Database.Instance.PLAYER_INVENTORY_LVL = 2;
+                break;
+            case 97:
+                Database.Instance.PLAYER_INVENTORY_LVL = 1;
+                break;
+            case 98:
+                Database.Instance.PLAYER_CAPACITY_LVL = 1;
+                break;
+            case 99:
+                Database.Instance.PLAYER_CAPACITY_LVL = 2;
+                break;
+            case 100:
+                Database.Instance.PLAYER_CAPACITY_LVL = 3;
+                break;
+            case 101:
+                Database.Instance.PLAYER_LIFT_LVL = 1;
+                break;
+
+            default:
+                break;
+        }
+    }
+
 }

@@ -17,6 +17,8 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Clase
     private SkillTree.Node node;
 
+    private bool actionDone = false;
+
     public void Init()
     {
         node = SkillTree.Instance.GetNode(id);
@@ -45,6 +47,9 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
 
         //Accio
+        if (actionDone) return;
+        SkillTree.Instance.DoAction(id);
+        actionDone = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
