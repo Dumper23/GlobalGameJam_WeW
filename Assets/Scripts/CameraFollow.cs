@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     public float xOffset = 0;
 
     private Vector3 target;
-    private bool isGeneralView;
+    private bool isGeneralView = false;
     private bool wasGeneralView = false;
     private Camera cam;
 
@@ -65,6 +66,26 @@ public class CameraFollow : MonoBehaviour
         else
         {
             cam.orthographicSize = 3f;
+        }
+    }
+
+    public void blurCamera()
+    {
+        if (gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out DepthOfField dof))
+        {
+            dof.enabled.value = true;
+
+            dof.focusDistance.value = Mathf.Lerp(10, 1, 1);
+        }
+    }
+
+    public void focusCamera()
+    {
+        if (gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out DepthOfField dof))
+        {
+            dof.focusDistance.value = Mathf.Lerp(1, 10, 1);
+
+            dof.enabled.value = false;
         }
     }
 }
