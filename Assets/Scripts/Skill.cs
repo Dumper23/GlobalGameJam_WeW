@@ -67,8 +67,18 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void UpdateLine()
     {
-        if(lineRenderer.startWidth < 1.0f) lineRenderer.startWidth += 0.1f;
-        if (lineRenderer.endWidth < 1.5f) lineRenderer.endWidth += 0.1f;
-        if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
+        if(SkillTree.Instance.GetNode(node.previousNodeId).id == 0)
+        {
+            if (lineRenderer.startWidth < 10.0f) lineRenderer.startWidth += 0.5f;
+            if (lineRenderer.endWidth < 1.0f) lineRenderer.endWidth += 0.3f;
+            if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
+
+        } else
+        {
+            if (lineRenderer.startWidth < 1.0f) lineRenderer.startWidth += 0.1f;
+            if (lineRenderer.endWidth < 1.5f) lineRenderer.endWidth += 0.1f;
+            if (node.previousNodeId != 0) SkillTree.Instance.GetNode(node.previousNodeId).skill.UpdateLine();
+
+        }
     }
 }

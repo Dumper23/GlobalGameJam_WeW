@@ -430,7 +430,7 @@ public class Database : MonoBehaviour
     public string PLAYER_LIFT_DESCRIPTION = "Now you can change between floors as you want";
     public string PLAYER_LIFT_NAME = "Elevator!";
     public int[] PLAYER_LIFT_COST = { 10 };
-    public int[] PLAYER_LIFT = { 1 }
+    public int[] PLAYER_LIFT = { 1 };
 
     #endregion 
 

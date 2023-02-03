@@ -74,8 +74,8 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(0f, -13f, transform.position.z);
-            cam.orthographicSize = 13f;
+            transform.position = new Vector3(0f, -16f, transform.position.z);
+            cam.orthographicSize = 16f;
         }
     }
 }
