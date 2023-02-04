@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public List<AmmoImage> ammoImages;
     public List<GameObject> floors;
     public GameObject topFloor;
+    public GameObject bottomFloor;
     public GameObject hud;
     [SerializeField]
     public List<TurretEditor> turrets;
@@ -702,10 +703,15 @@ public class GameManager : MonoBehaviour
             //change music
 
             //create new floor if its day X
-            
             for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
             {
                 if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
+            }
+
+            //unloc NPC & ammo if its day X
+            foreach (NPC npc in Database.Instance.unlockNpcDays)
+            {
+                if (npc.day == this.currentDay) this.unlockNPC(npc);
             }
 
             //Start day after 60s
@@ -740,6 +746,48 @@ public class GameManager : MonoBehaviour
         this.hud.transform.Find("dayNightImage").gameObject.SetActive(false);
         //upause player movement
         setDayNightAnimationPlaying(false);
+    }
+
+    private void createNewFloor()
+    {
+        floorColorIndex++;
+        unlockedFloors++;
+        GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
+        aux.transform.parent = GameObject.Find("Floors").transform;
+        topFloor.transform.position += new Vector3(0, 2, 0);
+        FloorManager floorManager = FindObjectOfType<FloorManager>();
+
+        //add floor waypoint
+        Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
+        enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
+        enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
+        enemyGroundWaypoints.Add(topWaypoint);
+        if (floorManager)
+        {
+            floorManager.updateDoors();
+        }
+        if (floorColorIndex == 3)
+        {
+            floorColorIndex = -1;
+        }
+    }
+
+    private void unlockNPC(NPC npc)
+    {
+        Debug.Log("unlock npc");
+        GameObject floor;
+        if(npc.floor == "bottom") floor = this.bottomFloor;
+        else floor = this.topFloor;
+
+        for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
+        {
+            Debug.Log(this.bottomFloor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType);
+            if (this.bottomFloor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == npc.ammoId)
+            {
+                this.bottomFloor.transform.Find("chests").GetChild(i).gameObject.SetActive(true);
+                Debug.Log(npc.ammoId + " activated");
+            }
+        }
     }
 
     public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)
@@ -873,30 +921,6 @@ public class GameManager : MonoBehaviour
         else
         {
             return false;
-        }
-    }
-
-    private void createNewFloor()
-    {
-        floorColorIndex++;
-        unlockedFloors++;
-        GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
-        aux.transform.parent = GameObject.Find("Floors").transform;
-        topFloor.transform.position += new Vector3(0, 2, 0);
-        FloorManager floorManager = FindObjectOfType<FloorManager>();
-
-        //add floor waypoint
-        Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
-        enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
-        enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
-        enemyGroundWaypoints.Add(topWaypoint);
-        if (floorManager)
-        {
-            floorManager.updateDoors();
-        }
-        if (floorColorIndex == 3)
-        {
-            floorColorIndex = -1;
         }
     }
 }

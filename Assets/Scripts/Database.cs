@@ -2,6 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class NPC
+{
+    public int day;
+    public string npcId;
+    public string ammoId;
+    public string floor;
+
+    public NPC(int day, string npcId, string ammoId, string floor)
+    {
+        this.day = day;
+        this.npcId = npcId;
+        this.ammoId = ammoId;
+        this.floor = floor;
+    }
+}
+
 [DefaultExecutionOrder(0)]
 public class Database : MonoBehaviour
 {
@@ -20,31 +36,31 @@ public class Database : MonoBehaviour
     };
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
     public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
@@ -434,5 +450,18 @@ public class Database : MonoBehaviour
 
     #region UNLOCK FLOOR DAYS
     public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
+    #endregion
+
+    #region UNLOCK NPC DAYS
+
+    public List<NPC> unlockNpcDays = new List<NPC>{
+        new NPC(2, "perrito", "sunflower", "top"), //3
+        new NPC(4, "chinchilla", "pinecone", "bottom"), //6
+        new NPC(9, "castor", "resin", "top"),
+        new NPC(12, "puercoespin", "spike", "bottom"),
+        new NPC(15, "capybara", "nut", "bottom"),
+        new NPC(18, "rata", "potato", "top"),
+    };
+
     #endregion
 }
