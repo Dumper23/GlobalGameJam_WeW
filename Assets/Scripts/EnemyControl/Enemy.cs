@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public string type; //flying, etc
     public List<Vector3> waypoints = new List<Vector3>();
+    public int fertilizerToGive = 10;
 
     public int waypointIndex = 0;
     public int currentHealth;
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour
     public void die()
     {
         gameObject.SetActive(false);
+        GameManager.Instance.fertilizer += fertilizerToGive;
     }
 
     private Vector3 getRandomPoint(Vector3 center)
