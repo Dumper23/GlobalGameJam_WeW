@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public GameObject placementMenu;
     public GameObject removeMenu;
     public GameObject inventoryContainer;
+    public GameObject playerSmoke;
 
     //public List<Material> oldMaterials = new List<Material>();
     public string currentState;
@@ -149,6 +150,16 @@ public class PlayerController : MonoBehaviour
                     audioSources[AUDIO_WALK].clip = audios[AUDIO_WALK];
                     audioSources[AUDIO_WALK].Play();
                     stepTime = Time.time + timeToStep - Mathf.Abs(moveDirection) * 0.1f;
+                    if (GetComponent<SpriteRenderer>().flipX && isGrounded())
+                    {
+                        GameObject go = Instantiate(playerSmoke, transform.position - new Vector3(-0.27f, 0.37f, 0), transform.rotation);
+                        go.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    else if (!GetComponent<SpriteRenderer>().flipX && isGrounded())
+                    {
+                        GameObject go = Instantiate(playerSmoke, transform.position - new Vector3(0.37f, 0.37f, 0), transform.rotation);
+                        go.GetComponent<SpriteRenderer>().flipX = false;
+                    }
                 }
                 changeAnimationState(PLAYER_WALK);
             }
