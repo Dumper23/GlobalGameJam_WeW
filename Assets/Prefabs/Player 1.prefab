@@ -1890,6 +1890,7 @@ MonoBehaviour:
   oldInteractables: []
   placementMenu: {fileID: 191616823}
   removeMenu: {fileID: 749302889}
+  inventoryContainer: {fileID: 0}
   currentState: 
   audios:
   - {fileID: 8300000, guid: d17ec48b9aa4122469981b40940a3c5f, type: 3}

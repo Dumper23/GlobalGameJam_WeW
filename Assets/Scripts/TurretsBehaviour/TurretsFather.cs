@@ -18,6 +18,14 @@ public abstract class TurretsFather : MonoBehaviour
     public Sprite outlinedFixed;
     public Sprite outlinedMobile;
 
+    public SpriteRenderer outOfOrtherSign;
+    public Sprite inServiceSprite;
+    public Sprite outOfOrtherSprite;
+
+    public string ammoType;
+
+    //--
+
     [SerializeField]//TMP XQ EXTERN
     protected float rangeAttack, fireRate;
 
@@ -78,6 +86,7 @@ public abstract class TurretsFather : MonoBehaviour
         {
             //desactivada
             //set active panell
+            updateAmmoUI("0");
             mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
             //LerpValues.Lerp();
             //Quaternion.Slerp(mobilePart.transform.rotation, Quaternion.identity, Time.deltaTime / 10);
@@ -117,7 +126,7 @@ public abstract class TurretsFather : MonoBehaviour
                 ammunituion = maxAmmo;
             }
         }
-        updateAmmoUI((ammunituion - 1).ToString());
+        updateAmmoUI((ammunituion).ToString());
         return true;
     }
 
@@ -143,7 +152,7 @@ public abstract class TurretsFather : MonoBehaviour
             return false;
         }
 
-        updateAmmoUI((ammunituion - 1).ToString());
+        updateAmmoUI((ammunituion).ToString());
 
         /*
         if (chest + newChests > maxChest)
@@ -165,7 +174,16 @@ public abstract class TurretsFather : MonoBehaviour
 
     private void updateAmmoUI(string newAmmo)
     {
-        ammoLeftUI.SetText(newAmmo.ToString());
+        if (newAmmo.Equals("0"))
+        {
+            ammoLeftUI.SetText("");
+            outOfOrtherSign.sprite = outOfOrtherSprite;
+        }
+        else
+        {
+            ammoLeftUI.SetText(newAmmo);
+            outOfOrtherSign.sprite = inServiceSprite;
+        }
     }
 
     public void PlaceTurret()
@@ -230,7 +248,7 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        updateAmmoUI((ammunituion - 1).ToString());
+        updateAmmoUI((ammunituion).ToString());
         lastShot = Time.time;
     }
 

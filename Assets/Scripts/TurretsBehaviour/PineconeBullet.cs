@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PineconeBullet : MonoBehaviour
 {
-
     [SerializeField]
     private float moveSpeed, radius, bulletDuration, rotationModifier;
 
@@ -25,13 +24,12 @@ public class PineconeBullet : MonoBehaviour
     private float minT, maxT, clusterSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
         {
@@ -46,6 +44,7 @@ public class PineconeBullet : MonoBehaviour
             lostTarget = true;
         }
     }
+
     private void FixedUpdate()
     {
         if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
@@ -63,6 +62,7 @@ public class PineconeBullet : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
         }
     }
+
     private void OnEnable()
     {
         target = null;
@@ -77,23 +77,24 @@ public class PineconeBullet : MonoBehaviour
         {
             if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                c.GetComponent<Enemy>().takeDamage(damage);
+                if (c != null && c.GetComponent<Enemy>() != null)
+                {
+                    c.GetComponent<Enemy>().takeDamage(damage);
+                }
             }
         }
         if (cluster)
         {
             for (int i = 0; i < numClusters; i++)
             {
-                Debug.Log("1");
                 GameObject bul = BulletPool.bulletPoolInstance.GetCluster();
                 bul.transform.position = transform.position;
-
 
                 bul.GetComponent<ClusterBullet>().SetDamage(damage);
                 bul.GetComponent<ClusterBullet>().SetRadius(radius);
                 bul.GetComponent<ClusterBullet>().SetSpeed(clusterSpeed);
                 bul.GetComponent<ClusterBullet>().SetTime(Random.Range(minT, maxT));
-                bul.GetComponent<ClusterBullet>().SetDirection(new Vector2(Random.Range(-1000,1000), Random.Range(-1000, 1000)).normalized);
+                bul.GetComponent<ClusterBullet>().SetDirection(new Vector2(Random.Range(-1000, 1000), Random.Range(-1000, 1000)).normalized);
                 bul.SetActive(true);
             }
         }
@@ -144,13 +145,14 @@ public class PineconeBullet : MonoBehaviour
                     Destroy();
                 }
             }
-
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
     private void OnDisable()
     {
         CancelInvoke();

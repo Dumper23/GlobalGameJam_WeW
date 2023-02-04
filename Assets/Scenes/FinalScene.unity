@@ -492,6 +492,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6450019896475291812, guid: b6cac6c15fa519e4290b927b35bc0311, type: 3}
   m_PrefabInstance: {fileID: 281209070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &314367202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 158294996079160227, guid: 27050f855888ed946aa6e112b08c87db, type: 3}
+  m_PrefabInstance: {fileID: 1056370831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &360848183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8576499936701127872, guid: 019b2b576572d36479ea4074d86e9b78, type: 3}
@@ -15766,6 +15771,10 @@ PrefabInstance:
       propertyPath: slotAmmoAmount4
       value: 
       objectReference: {fileID: 848246141}
+    - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
+      propertyPath: inventoryContainer
+      value: 
+      objectReference: {fileID: 314367202}
     - target: {fileID: 3050883417187786315, guid: 8afd0dce76b1b0a4eb31f9b75bba3d20, type: 3}
       propertyPath: inventoryUISlot1_select
       value: 

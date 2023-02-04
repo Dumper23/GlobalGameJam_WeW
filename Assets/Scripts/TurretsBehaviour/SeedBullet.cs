@@ -64,7 +64,6 @@ public class SeedBullet : MonoBehaviour
 
     private void Destroy()
     {
-        Debug.Log("destroy");
         gameObject.SetActive(false);
     }
 

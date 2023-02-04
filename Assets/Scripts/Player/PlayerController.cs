@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public List<IEInteractable> oldInteractables = new List<IEInteractable>();
     public GameObject placementMenu;
     public GameObject removeMenu;
+    public GameObject inventoryContainer;
 
     //public List<Material> oldMaterials = new List<Material>();
     public string currentState;

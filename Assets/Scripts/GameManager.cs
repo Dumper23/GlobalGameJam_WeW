@@ -152,6 +152,11 @@ public class GameManager : MonoBehaviour
         mainCam.GetComponent<CameraFollow>().toggleGeneralView();
     }
 
+    public void setVisibilityInventoryUI(bool visible)
+    {
+        player.inventoryContainer.SetActive(visible);
+    }
+
     public void toogleRootView()
     {
         mainCam.GetComponent<CameraFollow>().toggleRootView();
@@ -435,11 +440,39 @@ public class GameManager : MonoBehaviour
     public void placeAmmo(TurretsFather turret)
     {
         //Somehow we need to add the ammotype to the turret if the player has it
-        if (turret.GiveAmmo())
+        string ammoTypeCurrentSlot = "";
+        switch (player.currentSlot)
         {
-            player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
-            player.audioSources[player.AUDIO_TURRET_PLACE].Play();
-            deleteAmmo();
+            case 1:
+                ammoTypeCurrentSlot = player.ammoSlot1.currentAmmoType;
+                break;
+
+            case 2:
+                ammoTypeCurrentSlot = player.ammoSlot2.currentAmmoType;
+                break;
+
+            case 3:
+                ammoTypeCurrentSlot = player.ammoSlot3.currentAmmoType;
+                break;
+
+            case 4:
+                ammoTypeCurrentSlot = player.ammoSlot4.currentAmmoType;
+                break;
+        }
+
+        if (turret.ammoType.Equals(ammoTypeCurrentSlot))
+        {
+            if (turret.GiveAmmo())
+            {
+                player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
+                player.audioSources[player.AUDIO_TURRET_PLACE].Play();
+                deleteAmmo();
+            }
+            else
+            {
+                player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
+                player.audioSources[player.AUDIO_CANCEL].Play();
+            }
         }
         else
         {
