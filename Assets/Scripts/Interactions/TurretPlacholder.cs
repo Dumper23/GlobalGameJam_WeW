@@ -24,6 +24,7 @@ public class TurretPlacholder : IEInteractable
     {
         if (action == "E")
         {
+            GameManager.Instance.interactSound();
             if (hasTurret)
             {
                 GameManager.Instance.showRemoveMenuUI();

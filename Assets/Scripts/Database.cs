@@ -10,99 +10,123 @@ public class Database : MonoBehaviour
     private void Awake() => Instance = this;
 
     #region WAVES FOR EACH DAY
+
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(10, "ant", 1, 10, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(20, "ant", 2, 0, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(30, "ant", 2, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
+
     public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
-    #endregion
+
+    #endregion WAVES FOR EACH DAY
 
     #region TURRET ATTRIBUTES
 
@@ -113,7 +137,7 @@ public class Database : MonoBehaviour
     public int MACHINE_SEED_DAMAGE_LVL = 0;
     public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     public string MACHINE_SEED_DAMAGE_NAME = "More Seeds!";
-    public int[] MACHINE_SEED_DAMAGE_COST = { 10 , 20, 30 };
+    public int[] MACHINE_SEED_DAMAGE_COST = { 10, 20, 30 };
     public int[] MACHINE_SEED_DAMAGE = { 35, 40, 50 };
 
     public int MACHINE_SEED_SPEED_LVL = 0;
@@ -136,8 +160,7 @@ public class Database : MonoBehaviour
     public int[] MACHINE_SEED_CHEST_COST = { 10, 20, 30 };
     public int[] MACHINE_SEED_CHEST = { 50, 75, 100 };
 
-
-    #endregion
+    #endregion MACHINE_SEED
 
     #region RESIN_SPIT
 
@@ -186,7 +209,8 @@ public class Database : MonoBehaviour
     public string RESIN_SPIT_CHEST_NAME = "More Chest!";
     public int[] RESIN_SPIT_CHEST_COST = { 10, 20, 30 };
     public int[] RESIN_SPIT_CHEST = { 30, 50, 75 };
-    #endregion
+
+    #endregion RESIN_SPIT
 
     #region S_SEEDNIPER
 
@@ -222,7 +246,8 @@ public class Database : MonoBehaviour
     public string S_SEEDNIPER_CHEST_DESCRIPTION = "Increases chest capacity";
     public string S_SEEDNIPER_CHEST_NAME = "More Chest!";
     public int[] S_SEEDNIPER_CHEST = { 20, 35, 45 };
-    #endregion
+
+    #endregion S_SEEDNIPER
 
     #region PINECONE_LAUNCHER
 
@@ -243,7 +268,7 @@ public class Database : MonoBehaviour
     public int PINECONE_LAUNCHER_SPEED_LVL = 0;
     public string PINECONE_LAUNCHER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     public string PINECONE_LAUNCHER_SPEED_NAME = "Faster!";
-    public int[] PINECONE_LAUNCHER_SPEED_COST = { 10 }; 
+    public int[] PINECONE_LAUNCHER_SPEED_COST = { 10 };
     public float[] PINECONE_LAUNCHER_SPEED = { 2 };
 
     public int PINECONE_LAUNCHER_RANGE_LVL = 0;
@@ -276,7 +301,8 @@ public class Database : MonoBehaviour
     public string PINECONE_LAUNCHER_CHEST_DESCRIPTION = "Increases chest capacity";
     public string PINECONE_LAUNCHER_CHEST_NAME = "More Chest!";
     public int[] PINECONE_LAUNCHER_CHEST = { 30, 50, 75 };
-    #endregion
+
+    #endregion PINECONE_LAUNCHER
 
     #region NUT_ROLL
 
@@ -319,7 +345,8 @@ public class Database : MonoBehaviour
     public string NUT_ROLL_CHEST_NAME = "More Chest!";
     public int[] NUT_ROLL_CHEST_COST = { 10, 20, 30 };
     public int[] NUT_ROLL_CHEST = { 20, 30, 50 };
-    #endregion
+
+    #endregion NUT_ROLL
 
     #region PORCUTHROW
 
@@ -356,7 +383,8 @@ public class Database : MonoBehaviour
     public string PORCUTHROW_CHEST_NAME = "More Chest!";
     public int[] PORCUTHROW_CHEST_COST = { 10, 20, 30 };
     public int[] PORCUTHROW_CHEST = { 50, 75, 100 };
-    #endregion
+
+    #endregion PORCUTHROW
 
     #region ELECTRIC_POTATO
 
@@ -399,9 +427,10 @@ public class Database : MonoBehaviour
     public string ELECTRIC_POTATO_CHEST_NAME = "More Chest!";
     public int[] ELECTRIC_POTATO_CHEST_COST = { 10, 20, 30 };
     public int[] ELECTRIC_POTATO_CHEST = { 30, 50, 75 };
-    #endregion
 
-    #endregion
+    #endregion ELECTRIC_POTATO
+
+    #endregion TURRET ATTRIBUTES
 
     #region PLAYER
 
@@ -411,7 +440,6 @@ public class Database : MonoBehaviour
     public int[] PLAYER_SPEED_COST = { 10, 20, 30 };
     public float[] PLAYER_SPEED = { 3, 3.5f, 4 };
 
-    
     public int PLAYER_INVENTORY_LVL = 0;
     public string PLAYER_INVENTORY_DESCRIPTION = "Increases the inventory slots of the player";
     public string PLAYER_INVENTORY_NAME = "Holding Bag!";
@@ -430,9 +458,11 @@ public class Database : MonoBehaviour
     public int[] PLAYER_LIFT_COST = { 10 };
     public int[] PLAYER_LIFT = { 1 };
 
-    #endregion 
+    #endregion PLAYER
 
     #region UNLOCK FLOOR DAYS
+
     public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
-    #endregion
+
+    #endregion UNLOCK FLOOR DAYS
 }

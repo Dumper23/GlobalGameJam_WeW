@@ -11,6 +11,7 @@ public class FloorManager : MonoBehaviour
     private PlayerController player;
 
     public static FloorManager Instance { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -20,8 +21,6 @@ public class FloorManager : MonoBehaviour
         }
         Instance = this;
     }
-    
-    
 
     private void Start()
     {
@@ -29,14 +28,18 @@ public class FloorManager : MonoBehaviour
         updateDoors();
     }
 
-
     public void floorUp()
     {
-        if(GameManager.Instance.getCurrentFloor() < GameManager.Instance.getUnlockedFloors() - 1)
+        if (GameManager.Instance.getCurrentFloor() < GameManager.Instance.getUnlockedFloors() - 1)
         {
             //TP player to the upper level after an animation
+            GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() + 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+        }
+        else
+        {
+            GameManager.Instance.cancelSound();
         }
     }
 
@@ -45,8 +48,13 @@ public class FloorManager : MonoBehaviour
         if (GameManager.Instance.getCurrentFloor() > 0)
         {
             //TP player to the lower level after an animation
+            GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() - 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+        }
+        else
+        {
+            GameManager.Instance.cancelSound();
         }
     }
 
