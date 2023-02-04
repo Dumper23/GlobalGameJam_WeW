@@ -18,10 +18,10 @@ public class NPC
     }
 }
 
-[DefaultExecutionOrder(0)]
+//[DefaultExecutionOrder(0)]
 public class Database : MonoBehaviour
 {
-    public static Database Instance;
+    #region Singleton
 
     private void Awake()
     {
@@ -37,44 +37,44 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(10, "ant", 1, 10, 1, "walk"),
+        new EnemyWave(1, "ant", 1, 10, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 2, 0, 1, "walk"),
+        new EnemyWave(2, "ant", 2, 0, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
-        new EnemyWave(30, "ant", 2, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(3, "ant", 2, 0, 1, "walk"),
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(1, "ant", 1, 0, 1, "walk"),
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(3, "ant", 1, 0, 1, "walk"),
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(1, "ant", 1, 0, 1, "walk"),
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(1, "ant", 1, 0, 1, "walk"),
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
@@ -519,12 +519,12 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<NPC> unlockNpcDays = new List<NPC>{
-        new NPC(1, "perrito", "sunflower", "top"), //3
-        new NPC(2, "chinchilla", "pinecone", "bottom"), //6
-        new NPC(3, "castor", "resin", "top"),
-        new NPC(4, "puercoespin", "spike", "top"),
-        new NPC(5, "capybara", "nut", "bottom"),
-        new NPC(6, "rata", "potato", "top"),
+        new NPC(3, "perrito", "sunflower", "top"),
+        new NPC(6, "chinchilla", "pinecone", "bottom"),
+        new NPC(9, "castor", "resin", "top"),
+        new NPC(12, "puercoespin", "spike", "top"),
+        new NPC(15, "capybara", "nut", "bottom"),
+        new NPC(18, "rata", "potato", "top"),
     };
 
     #endregion UNLOCK NPC DAYS
