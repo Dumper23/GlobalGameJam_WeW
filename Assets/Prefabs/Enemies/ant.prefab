@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 6243143561903858948}
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 6243143561903858947}
-  m_Layer: 7
+  - component: {fileID: -2200225556889850534}
+  - component: {fileID: 1325860136480758836}
+  m_Layer: 6
   m_Name: ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,9 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ant
   maxHealth: 6
-  speed: 4
+  speed: 2
   type: walk
   waypoints: []
+  fertilizerToGive: 10
   waypointIndex: 0
   currentHealth: 0
 --- !u!212 &6243143561903858947
@@ -104,3 +107,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &-2200225556889850534
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243143561903858949}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &1325860136480758836
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243143561903858949}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconName: WS
+  original: {fileID: 21300000, guid: 95fd789529080724280304a9f2542253, type: 3}
+  outlined: {fileID: 21300000, guid: a6c3bd45831e8b14782b6b62567ac35a, type: 3}
 --- !u!1 &5671963682948412415
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class CameraFollow : MonoBehaviour
     {
         isGeneralView = !isGeneralView;
         wasGeneralView = !isGeneralView;
+        GameManager.Instance.setVisibilityInventoryUI(!isGeneralView);
     }
 
     public void toggleRootView()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SeedBullet : MonoBehaviour
 {
-
     [SerializeField]
     private float moveSpeed, bulletDuration, rotationModifier;
 
@@ -17,13 +16,12 @@ public class SeedBullet : MonoBehaviour
     private bool lostTarget;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
         {
@@ -38,6 +36,7 @@ public class SeedBullet : MonoBehaviour
             lostTarget = true;
         }
     }
+
     private void FixedUpdate()
     {
         if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
@@ -97,9 +96,9 @@ public class SeedBullet : MonoBehaviour
                     Destroy();
                 }
             }
-
         }
     }
+
     private void OnDisable()
     {
         CancelInvoke();
