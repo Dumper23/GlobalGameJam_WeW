@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6243143561903858948}
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 6243143561903858947}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,9 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ant
   maxHealth: 6
-  speed: 4
+  speed: 2
   type: walk
   waypoints: []
+  fertilizerToGive: 10
   waypointIndex: 0
   currentHealth: 0
 --- !u!212 &6243143561903858947
