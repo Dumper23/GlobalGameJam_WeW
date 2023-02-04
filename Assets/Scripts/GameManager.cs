@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public GameObject topFloor;
     public GameObject bottomFloor;
     public GameObject hud;
+    public Narrative narrative;
 
     public AudioSource introDay;
     public AudioSource loopDay;
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
     public List<GameObject> allEnemies = new List<GameObject>();
+    public NPC npcToAppear = new NPC(0, "", "", "");
 
     private int currentDay = 0;
     private int currentFloor = 0;
@@ -843,32 +845,47 @@ public class GameManager : MonoBehaviour
                 if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
             }
 
+            bool hasUnlockedNpc = false;
             //unloc NPC & ammo if its day X
             foreach (NPC npc in Database.Instance.unlockNpcDays)
             {
-                if (npc.day == this.currentDay) this.unlockNPC(npc);
+                if (npc.day == this.currentDay)
+                {
+                    hasUnlockedNpc = true;
+                    this.npcToAppear = npc;
+                    Invoke("unlockNPC", 4.5f);
+                }
             }
 
-            //Start day after 60s
-            Invoke("changeDayState", 60);
-
-            //Music
-            fadeOutDay();
-            if (!isFirstTime)
+            if (!hasUnlockedNpc)
             {
-                Invoke("playChangeSound", 1.5f);
+                this.handleAnimationAndSound();
             }
-            else
-            {
-                isFirstTime = false;
-            }
-            Invoke("fadeInNight", 1f);
-            Invoke("fadeOutNight", 61.5f);
-            Invoke("playChangeSound", 63);
-            Invoke("playIntroDay", 65);
-
-            loopNight.Play();
         }
+    }
+
+    public void handleAnimationAndSound()
+    {
+        //Start day after 60s
+        Invoke("changeDayState", 15);//60
+
+        //Music
+        fadeOutDay();
+        if (!isFirstTime)
+        {
+            Invoke("playChangeSound", 1.5f);
+        }
+        else
+        {
+            isFirstTime = false;
+        }
+
+        Invoke("fadeInNight", 1f);
+        Invoke("fadeOutNight", 61.5f);
+        Invoke("playChangeSound", 63);
+        Invoke("playIntroDay", 65);
+
+        loopNight.Play();
     }
 
     public void playDayNightAnimation()
@@ -899,16 +916,20 @@ public class GameManager : MonoBehaviour
         //upause player movement
         setDayNightAnimationPlaying(false);
     }
-
-    private void unlockNPC(NPC npc)
+    
+    private void unlockNPC()
     {
+        //show animation
+        this.narrative.startNpcScene(this.npcToAppear);
+
         GameObject floor;
+        if(this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
         if (npc.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
 
         for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
         {
-            if (floor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == npc.ammoId)
+            if (floor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == this.npcToAppear.ammoId)
             {
                 floor.transform.Find("chests").GetChild(i).gameObject.SetActive(true);
             }
