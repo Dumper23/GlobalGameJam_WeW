@@ -427,16 +427,16 @@ public class SkillTree : MonoBehaviour
                 Database.Instance.ELECTRIC_POTATO_RAY_LVL = 2;
                 break;
             case 82:
-                Database.Instance.ELECTRIC_POTATO_SPEED_LVL = 3;
+                Database.Instance.ELECTRIC_POTATO_SPEED_LVL = 1;
                 break;
             case 83:
                 Database.Instance.ELECTRIC_POTATO_DAMAGE_LVL = 1;
                 break;
             case 84:
-                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 2;
+                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 1;
                 break;
             case 85:
-                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 1;
+                Database.Instance.ELECTRIC_POTATO_STUN_LVL = 2;
                 break;
             case 86:
                 Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL = 1;
