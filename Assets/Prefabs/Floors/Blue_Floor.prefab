@@ -330,7 +330,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0794a1800909d83418373429d2957b3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -661310407
   m_Mesh: {fileID: 0}
-  m_InstanceId: 271298
+  m_InstanceId: -238302
 --- !u!1 &5316054698290657750
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 540353b9b92582a4a9fbd05e9658e7df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: 1299405817
   m_Mesh: {fileID: 0}
-  m_InstanceId: 271348
+  m_InstanceId: -238308
 --- !u!1 &8576499936601283208
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +684,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8576499936701127873}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.9900005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: db172b7d339b0e243a49b728eebcd57f, type: 3}
+    - target: {fileID: 2826132385764055771, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4229809521802887620, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_Name
       value: Balcony
@@ -1038,6 +1042,14 @@ PrefabInstance:
     - target: {fileID: 4613435791529733311, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762021434558792961, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.646
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762021434558792961, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.394
       objectReference: {fileID: 0}
     - target: {fileID: 5762021434558792966, guid: 1352d676ba4dd7340a7a731b626eaa90, type: 3}
       propertyPath: m_Name

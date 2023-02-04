@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6877625285858926545}
   - component: {fileID: 5805228610847636576}
   - component: {fileID: 4419968785999153214}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -2200225556889850534}
   - component: {fileID: 1325860136480758836}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,8 +162,11 @@ MonoBehaviour:
   fertilizerToGive: 10
   isSlowed: 0
   isStunned: 0
+  bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}
+  bloodDecal: {fileID: 8115271143686780524, guid: 9b4127452c401004bb1f7b164f946a82, type: 3}
   waypointIndex: 0
   currentHealth: 0
+  deathSound: {fileID: 326704153493189425, guid: fee1757b5354dee4b8ed35febc930177, type: 3}
 --- !u!58 &-2200225556889850534
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -211,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2523896180585799812}
   - component: {fileID: 612402529931469139}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

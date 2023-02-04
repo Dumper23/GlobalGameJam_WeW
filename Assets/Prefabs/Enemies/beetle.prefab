@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2813190788879434846}
   - component: {fileID: 6289741411456516379}
   - component: {fileID: 5377362133307570912}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 5943234435391410516}
   - component: {fileID: -3364071057937299563}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: beetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,8 +162,11 @@ MonoBehaviour:
   fertilizerToGive: 10
   isSlowed: 0
   isStunned: 0
+  bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}
+  bloodDecal: {fileID: 8115271143686780524, guid: 9b4127452c401004bb1f7b164f946a82, type: 3}
   waypointIndex: 0
   currentHealth: 0
+  deathSound: {fileID: 326704153493189425, guid: fee1757b5354dee4b8ed35febc930177, type: 3}
 --- !u!58 &5943234435391410516
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -211,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275110650367267355}
   - component: {fileID: 4406924640831816067}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

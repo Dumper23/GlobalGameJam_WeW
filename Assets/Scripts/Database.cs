@@ -41,7 +41,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(1, "ant", 1, 10, 1, "walk"),
+        new EnemyWave(25, "ant", 1, 1, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 

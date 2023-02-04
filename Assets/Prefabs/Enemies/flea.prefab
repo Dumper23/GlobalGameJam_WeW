@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7462776816920723203}
   - component: {fileID: 1095440429427767718}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -912543528245624891}
   - component: {fileID: 5262542013152642941}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: flea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,8 +141,11 @@ MonoBehaviour:
   fertilizerToGive: 10
   isSlowed: 0
   isStunned: 0
+  bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}
+  bloodDecal: {fileID: 8115271143686780524, guid: 9b4127452c401004bb1f7b164f946a82, type: 3}
   waypointIndex: 0
   currentHealth: 0
+  deathSound: {fileID: 326704153493189425, guid: fee1757b5354dee4b8ed35febc930177, type: 3}
 --- !u!58 &-912543528245624891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -191,7 +194,7 @@ GameObject:
   - component: {fileID: 646383509430899330}
   - component: {fileID: 8638586622985826278}
   - component: {fileID: 8926760068864699776}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

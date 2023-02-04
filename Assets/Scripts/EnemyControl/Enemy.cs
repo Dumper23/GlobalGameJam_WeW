@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     public static float TARGET_OFFSET = 0.5f;
     private Vector3 currentAngle = new Vector3();
 
+    public GameObject deathSound;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -97,6 +99,7 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(bloodParticles, transform.position, Quaternion.identity);
         Instantiate(bloodDecal, transform.position, Quaternion.identity);
+        Instantiate(deathSound, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
         GameManager.Instance.fertilizer += fertilizerToGive;
     }

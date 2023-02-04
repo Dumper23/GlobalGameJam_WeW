@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2860485439496205780}
   - component: {fileID: 2795719443892831720}
   - component: {fileID: 3172339548364606915}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 7133543771876935659}
   - component: {fileID: 7258794094140212838}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,8 +161,11 @@ MonoBehaviour:
   fertilizerToGive: 10
   isSlowed: 0
   isStunned: 0
+  bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}
+  bloodDecal: {fileID: 8115271143686780524, guid: 9b4127452c401004bb1f7b164f946a82, type: 3}
   waypointIndex: 0
   currentHealth: 0
+  deathSound: {fileID: 326704153493189425, guid: fee1757b5354dee4b8ed35febc930177, type: 3}
 --- !u!58 &7133543771876935659
 CircleCollider2D:
   m_ObjectHideFlags: 0
