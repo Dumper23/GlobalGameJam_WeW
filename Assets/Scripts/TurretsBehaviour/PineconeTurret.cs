@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PineconeTurret : TurretsFather
 {
+    [Header("Pinecone Default Stats")]
+
     [SerializeField]
     private bool cluster = false;
+    [SerializeField]
     private float radius = 5;
+    [SerializeField]
+    private float stunness;
+
     private void Awake()
     {
         turretId = "PINECONE_LAUNCHER";
@@ -37,6 +43,7 @@ public class PineconeTurret : TurretsFather
         bul.GetComponent<PineconeBullet>().SetDamage(base.damage);
         bul.GetComponent<PineconeBullet>().SetRadius(radius);
         bul.GetComponent<PineconeBullet>().SetCluster(cluster);
+        bul.GetComponent<PineconeBullet>().SetStunness(stunness);
         ammunituion--;
     }
 
@@ -44,40 +51,95 @@ public class PineconeTurret : TurretsFather
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
-        foreach (KeyValuePair<string, float> stat in d)
+
+        if (d.TryGetValue("damageLevel", out float LDamage))
         {
-            switch (stat.Key)
+            if (LDamage != 0)
             {
-                case "capacity":
-                    if ((int)stat.Value != 0)
-                    {
-                        maxAmmo = (int)stat.Value;
-                    }
-                    break;
-                case "damage":
-                    if ((int)stat.Value != 0)
-                    {
-                        damage = (int)stat.Value;
-                    }
-                    break;
-                case "area":
-                    if (stat.Value != 0)
-                    {
-                        radius = stat.Value;
-                    }
-                    break;
-                case "cluster":
-                    if (stat.Value == 0)
+                if (d.TryGetValue("damage", out float newDamage))
+                {
+                    damage = (int)newDamage;
+                }
+            }
+        }
+        if (d.TryGetValue("capacityLevel", out float LCapacity))
+        {
+            if (LCapacity != 0)
+            {
+                if (d.TryGetValue("capacity", out float newCapacity))
+                {
+                    maxAmmo = (int)newCapacity;
+                }
+            }
+        }
+        if (d.TryGetValue("chestLevel", out float LChest))
+        {
+            if (LChest != 0)
+            {
+                if (d.TryGetValue("chest", out float newChest))
+                {
+                    maxChest = (int)newChest;
+                }
+            }
+        }
+        if (d.TryGetValue("speedLevel", out float LSpeed))
+        {
+            if (LSpeed != 0)
+            {
+                if (d.TryGetValue("speed", out float newSpeed))
+                {
+                    fireRate = newSpeed;
+                }
+            }
+        }
+        if (d.TryGetValue("areaLevel", out float LArea))
+        {
+            if (LArea != 0)
+            {
+                if (d.TryGetValue("area", out float newArea))
+                {
+                    radius = newArea;
+                }
+            }
+        }
+        if (d.TryGetValue("clusterLevel", out float LCluster))
+        {
+            if (LCluster != 0)
+            {
+                if (d.TryGetValue("cluster", out float newCluster))
+                {
+                    if ((int)newCluster == 0)
                     {
                         cluster = false;
                     }
-                    if (stat.Value == 1)
+                    if ((int)newCluster == 1)
                     {
                         cluster = true;
                     }
-                    break;
+                }
             }
         }
+        if (d.TryGetValue("damageStunLevel", out float LStun))
+        {
+            if (LStun != 0)
+            {
+                if (d.TryGetValue("stun", out float newStun))
+                {
+                    stunness = newStun;
+                }
+            }
+        }
+        if (d.TryGetValue("rangeLevel", out float LRange))
+        {
+            if (LRange != 0)
+            {
+                if (d.TryGetValue("range", out float newRange))
+                {
+                    rangeAttack = newRange;
+                }
+            }
+        }
+
     }
     public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1, float none1 = -1, float none2 = -1)
     {

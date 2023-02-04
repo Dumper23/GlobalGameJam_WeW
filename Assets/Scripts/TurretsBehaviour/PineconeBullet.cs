@@ -17,6 +17,8 @@ public class PineconeBullet : MonoBehaviour
 
     private bool cluster;
 
+    private float stunness;
+
     [SerializeField]
     private int numClusters;
 
@@ -80,6 +82,7 @@ public class PineconeBullet : MonoBehaviour
                 if (c != null && c.GetComponent<Enemy>() != null)
                 {
                     c.GetComponent<Enemy>().takeDamage(damage);
+                    //STUN
                 }
             }
         }
@@ -124,6 +127,10 @@ public class PineconeBullet : MonoBehaviour
     public void SetCluster(bool newCluster)
     {
         cluster = newCluster;
+    }
+    public void SetStunness(float newStun)
+    {
+        stunness = newStun;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

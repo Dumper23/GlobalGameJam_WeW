@@ -26,11 +26,17 @@ public abstract class TurretsFather : MonoBehaviour
 
     //--
 
-    [SerializeField]//TMP XQ EXTERN
-    protected float rangeAttack, fireRate;
+    [Header("Default Stats")]
 
-    [SerializeField]//TMP XQ EXTERN
-    protected int ammunituion, damage, maxAmmo, chest, maxChest;
+    [SerializeField]
+    protected float fireRate;
+    [SerializeField]
+    protected float rangeAttack;
+
+    [SerializeField]
+    protected int damage, maxAmmo, maxChest;
+
+    protected int ammunituion, chest;
 
     #endregion traits
 
@@ -40,6 +46,7 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected List<GameObject> enemyList;
 
+    [Header("Settings")]
     [SerializeField]
     private Transform bulletSpawn;
 

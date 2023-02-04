@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class NutRollTurret : TurretsFather
 {
+    [Header("NutRoll Default Stats")]
+
     [SerializeField]
     private int hits = 10;
 
     [SerializeField]
     private bool extra = false;
 
+    /*
+    [Header("NutRoll Settings")]
+
     [SerializeField]
-    private List<Transform> waypoints;
+    private List<Transform> waypoints;*/
 
     private void Awake()
     {
@@ -101,44 +106,71 @@ public class NutRollTurret : TurretsFather
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
-        foreach (KeyValuePair<string, float> stat in d)
+        if (d.TryGetValue("damageLevel", out float LDamage))
         {
-            switch (stat.Key)
+            if (LDamage != 0)
             {
-                case "capacity":
-                    if ((int)stat.Value != 0)
-                    {
-                        maxAmmo = (int)stat.Value;
-                    }
-                    break;
-                case "damage":
-                    if ((int)stat.Value != 0)
-                    {
-                        damage = (int)stat.Value;
-                    }
-                    break;
-                case "speed":
-                    if (stat.Value != 0)
-                    {
-                        fireRate = stat.Value;
-                    }
-                    break;
-                case "extra":
-                    if (stat.Value == 0)
+                if (d.TryGetValue("damage", out float newDamage))
+                {
+                    damage = (int)newDamage;
+                }
+            }
+        }
+        if (d.TryGetValue("capacityLevel", out float LCapacity))
+        {
+            if (LCapacity != 0)
+            {
+                if (d.TryGetValue("capacity", out float newCapacity))
+                {
+                    maxAmmo = (int)newCapacity;
+                }
+            }
+        }
+        if (d.TryGetValue("chestLevel", out float LChest))
+        {
+            if (LChest != 0)
+            {
+                if (d.TryGetValue("chest", out float newChest))
+                {
+                    maxChest = (int)newChest;
+                }
+            }
+        }
+        if (d.TryGetValue("speedLevel", out float LSpeed))
+        {
+            if (LSpeed != 0)
+            {
+                if (d.TryGetValue("speed", out float newSpeed))
+                {
+                    fireRate = newSpeed;
+                }
+            }
+        }
+        if (d.TryGetValue("hitsLevel", out float LHits))
+        {
+            if (LHits != 0)
+            {
+                if (d.TryGetValue("hits", out float newHits))
+                {
+                    hits = (int)newHits;
+                }
+            }
+        }
+        if (d.TryGetValue("extraLevel", out float LExtra))
+        {
+            if (LExtra != 0)
+            {
+                if (d.TryGetValue("extra", out float newExtra))
+                {
+                    if ((int)newExtra == 0)
                     {
                         extra = false;
                     }
-                    if (stat.Value == 1)
+                    if ((int)newExtra == 1)
                     {
                         extra = true;
                     }
-                    break;
-                case "hits":
-                    if ((int)stat.Value != 0)
-                    {
-                        hits = (int)stat.Value;
-                    }
-                    break;
+                }
             }
         }
     }
