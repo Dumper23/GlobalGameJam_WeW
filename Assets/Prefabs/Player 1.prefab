@@ -65,7 +65,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 300
   m_TargetDisplay: 0
 --- !u!114 &191616826
 MonoBehaviour:
@@ -1892,6 +1892,7 @@ MonoBehaviour:
   placementMenu: {fileID: 191616823}
   removeMenu: {fileID: 749302889}
   inventoryContainer: {fileID: 0}
+  playerSmoke: {fileID: 3514595442604219812, guid: 53b3703a1f7e9b248a539724c1e75b1e, type: 3}
   currentState: 
   audios:
   - {fileID: 8300000, guid: d17ec48b9aa4122469981b40940a3c5f, type: 3}
