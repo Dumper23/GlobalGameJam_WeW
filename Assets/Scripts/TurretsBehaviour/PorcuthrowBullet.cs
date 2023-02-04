@@ -44,6 +44,7 @@ public class PorcuthrowBullet : MonoBehaviour
         }
         */
         transform.Translate(newDirection * moveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.LookRotation(newDirection + (Vector2)transform.position);
     }
 
     private void Destroy()
@@ -75,7 +76,7 @@ public class PorcuthrowBullet : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
             //collision.gameObject.GetComponent<EnemyScript>().Damage();
 
             if (!piercing)//check if lvl piercing

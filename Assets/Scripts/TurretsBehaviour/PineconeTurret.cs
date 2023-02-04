@@ -16,7 +16,7 @@ public class PineconeTurret : TurretsFather
     {
         //ammunituion = 5;
         //damage = 10;
-
+        base.Start();
 
     }
 

@@ -757,6 +757,7 @@ public class GameManager : MonoBehaviour
                         {
                             GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                             go.SetActive(true);
+                            //go.GetComponent<TurretsFather>().PlaceTurret();
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;
@@ -776,6 +777,7 @@ public class GameManager : MonoBehaviour
                             {
                                 GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                                 go.SetActive(true);
+                                //go.GetComponent<TurretsFather>().PlaceTurret();
                                 placeHolder.turretPlacementId = turretAutoincremental;
                                 placeHolder.hasTurret = true;
                                 placeHolder.turretId = turretId;
@@ -798,6 +800,7 @@ public class GameManager : MonoBehaviour
                         {
                             GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                             go.SetActive(true);
+                            //go.GetComponent<TurretsFather>().PlaceTurret();
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;

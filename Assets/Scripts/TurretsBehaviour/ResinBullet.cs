@@ -62,7 +62,7 @@ public class ResinBullet : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
             //collision.gameObject.GetComponent<EnemyScript>().Slow() i dmg;
         }
     }

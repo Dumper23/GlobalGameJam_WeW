@@ -17,7 +17,7 @@ public class SeedniperTurret : TurretsFather
     {
         //ammunituion = 5;
         //damage = 10;
-
+        base.Start();
     }
 
     void Update()
@@ -102,7 +102,7 @@ public class SeedniperTurret : TurretsFather
 
             if (o != null && o.activeInHierarchy)
             {
-                if (IsInRange(o) && o.GetComponent<TMPEnemy>().fly)
+                if (IsInRange(o) && o.GetComponent<Enemy>().type == "fly")
                 {
 
                     if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
@@ -131,7 +131,7 @@ public class SeedniperTurret : TurretsFather
 
                 if (o != null && o.activeInHierarchy)
                 {
-                    if (IsInRange(o) && !o.GetComponent<TMPEnemy>().fly)
+                    if (IsInRange(o) && o.GetComponent<Enemy>().type == "walk")
                     {
 
                         if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
@@ -157,35 +157,7 @@ public class SeedniperTurret : TurretsFather
         #endregion
         #region 2nd
         //SECOND TARGET
-        closestPos = -1;
-        closestDistance = Mathf.Infinity;
-        posIterator = 0;
-        foreach (GameObject o in enemyList)
-        {
-
-            if (o != null && o.activeInHierarchy)
-            {
-                if (o.gameObject != currentTarget.gameObject && IsInRange(o) && o.GetComponent<TMPEnemy>().fly)
-                {
-
-                    if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
-                    {
-                        closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
-                        closestPos = posIterator;
-                    }
-                }
-            }
-            posIterator++;
-
-        }
-        if (closestPos != -1)
-        {
-            //Attack fly
-            secondTarget = enemyList[closestPos];
-        }
-        else
-        {
-            secondTarget = null;
+        if (currentTarget != null) {
             closestPos = -1;
             closestDistance = Mathf.Infinity;
             posIterator = 0;
@@ -194,7 +166,7 @@ public class SeedniperTurret : TurretsFather
 
                 if (o != null && o.activeInHierarchy)
                 {
-                    if (o.gameObject != currentTarget.gameObject && IsInRange(o) && !o.GetComponent<TMPEnemy>().fly)
+                    if (o.gameObject != currentTarget.gameObject && IsInRange(o) && o.GetComponent<Enemy>().type == "fly")
                     {
 
                         if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
@@ -209,13 +181,43 @@ public class SeedniperTurret : TurretsFather
             }
             if (closestPos != -1)
             {
-                //Attack no fly
+                //Attack fly
                 secondTarget = enemyList[closestPos];
             }
             else
             {
-                //No attack
                 secondTarget = null;
+                closestPos = -1;
+                closestDistance = Mathf.Infinity;
+                posIterator = 0;
+                foreach (GameObject o in enemyList)
+                {
+
+                    if (o != null && o.activeInHierarchy)
+                    {
+                        if (o.gameObject != currentTarget.gameObject && IsInRange(o) && o.GetComponent<Enemy>().type == "walk")
+                        {
+
+                            if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                            {
+                                closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                                closestPos = posIterator;
+                            }
+                        }
+                    }
+                    posIterator++;
+
+                }
+                if (closestPos != -1)
+                {
+                    //Attack no fly
+                    secondTarget = enemyList[closestPos];
+                }
+                else
+                {
+                    //No attack
+                    secondTarget = null;
+                }
             }
         }
         #endregion

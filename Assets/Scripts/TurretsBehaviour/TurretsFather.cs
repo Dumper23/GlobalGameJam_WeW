@@ -16,7 +16,6 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected GameObject currentTarget;
 
-    [SerializeField]//TMP
     protected List<GameObject> enemyList;
 
     [SerializeField]
@@ -25,7 +24,6 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]
     private GameObject mobilePart;
 
-    [SerializeField]//TMP
     protected Transform endWayPoint;
 
     protected string turretId = "";
@@ -34,15 +32,16 @@ public abstract class TurretsFather : MonoBehaviour
     protected void Start()
     {
         //Set Default settings
-
+        enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
+        endWayPoint = GameManager.Instance.topFloor.transform.Find("waypoint").transform;
     }
 
     // Update is called once per frame
     protected void Update()
     {
-        //TODO: FER CARTUTXOS I AMMO
         if (HasAmmo())
         {
+
             DetectObjective();
             
             if (HaveTarget())
@@ -141,7 +140,7 @@ public abstract class TurretsFather : MonoBehaviour
     {
         //maybe set active?
         ammunituion = 0;
-        //check lvls
+        chest = 0;
         InintiateStatsAtCurrentUpgrades();
     }
 

@@ -6,7 +6,7 @@ public class SeedBullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, bulletDuration;
+    private float moveSpeed, bulletDuration, rotationModifier;
 
     private Transform target;
 
@@ -33,8 +33,26 @@ public class SeedBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            //transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
             lostTarget = true;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
+        {
+            Vector3 vectorTarget = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1000);
+        }
+        else
+        {
+            Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
+            float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
         }
     }
 
@@ -66,7 +84,7 @@ public class SeedBullet : MonoBehaviour
         {
             if (lostTarget)
             {
-                collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+                collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
                 //collision.gameObject.GetComponent<EnemyScript>().Damage();
                 Destroy();
             }
@@ -74,7 +92,7 @@ public class SeedBullet : MonoBehaviour
             {
                 if (collision.gameObject.transform == target)
                 {
-                    collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+                    collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
                     //collision.gameObject.GetComponent<EnemyScript>().Damage();
                     Destroy();
                 }

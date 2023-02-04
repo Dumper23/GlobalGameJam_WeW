@@ -20,7 +20,7 @@ public class ElectricTurret : TurretsFather
     {
         //ammunituion = 5;
         //damage = 10;
-
+        base.Start();
     }
 
     void Update()
