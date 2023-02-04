@@ -207,9 +207,15 @@ public class PlayerController : MonoBehaviour
                     interactionSymbolWS.SetActive(true);
                     interactionSymbolR.SetActive(false);
                 }
+                else if (interaction.iconName == "ER")
+                {
+                    interactionSymbolE.SetActive(true);
+                    interactionSymbolWS.SetActive(false);
+                    interactionSymbolR.SetActive(true);
+                }
                 else if (interaction.iconName == "R")
                 {
-                    //interactionSymbolE.SetActive(false);
+                    interactionSymbolE.SetActive(false);
                     interactionSymbolWS.SetActive(false);
                     interactionSymbolR.SetActive(true);
                 }
@@ -455,11 +461,13 @@ public class PlayerController : MonoBehaviour
     {
         if (turretsInventory.TryGetValue("MACHINE_SEED", out int amount))
         {
+            turretAmountText0.color = Color.green;
             turretAmountText0.SetText("x" + amount);
         }
         else
         {
-            turretAmountText0.SetText("x" + 0);
+            turretAmountText0.color = Color.yellow;
+            turretAmountText0.SetText("x" + 10);
         }
 
         if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount1))
