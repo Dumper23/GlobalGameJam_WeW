@@ -487,11 +487,11 @@ public class Database : MonoBehaviour
     #region UNLOCK NPC DAYS
     public List<NPC> unlockNpcDays = new List<NPC>{
         new NPC(1, "perrito", "sunflower", "top"), //3
-        new NPC(3, "chinchilla", "pinecone", "bottom"), //6
-        new NPC(9, "castor", "resin", "top"),
-        new NPC(12, "puercoespin", "spike", "bottom"),
-        new NPC(15, "capybara", "nut", "bottom"),
-        new NPC(18, "rata", "potato", "top"),
+        new NPC(2, "chinchilla", "pinecone", "bottom"), //6
+        new NPC(3, "castor", "resin", "top"),
+        new NPC(4, "puercoespin", "spike", "top"),
+        new NPC(5, "capybara", "nut", "bottom"),
+        new NPC(6, "rata", "potato", "top"),
     };
     #endregion
 }
