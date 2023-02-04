@@ -11,6 +11,9 @@ public class RootAccess : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        GameManager.Instance.setRootView(true);
+        if (action.Equals("E"))
+        {
+            GameManager.Instance.setRootView(true);
+        }
     }
 }

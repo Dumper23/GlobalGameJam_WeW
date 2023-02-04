@@ -1875,9 +1875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0881c826a40248a4dbc7041acb9fa47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconName: 
-  original: {fileID: 0}
-  outlined: {fileID: 0}
+  iconName: E
+  original: {fileID: 21300000, guid: 599c2034e6439b949a04e6f1edc85889, type: 3}
+  outlined: {fileID: 21300000, guid: 614dd1e21b83e35419c69d81a4fa3192, type: 3}
 --- !u!20 &1518160217 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7329766561230107641, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}

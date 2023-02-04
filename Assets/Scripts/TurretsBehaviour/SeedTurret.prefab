@@ -343,7 +343,7 @@ MonoBehaviour:
   rangeAttack: 10
   fireRate: 2
   ammunituion: 5
-  damage: 1
+  damage: 3
   maxAmmo: 50
   chest: 0
   maxChest: 1
