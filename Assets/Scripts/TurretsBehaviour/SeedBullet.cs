@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SeedBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
+
     [SerializeField]
-    private float moveSpeed, bulletDuration, rotationModifier;
+    private float moveSpeed, bulletDuration;
 
     private Transform target;
 
@@ -14,6 +16,13 @@ public class SeedBullet : MonoBehaviour
     private Vector2 lastPos, lastPos2;
 
     private bool lostTarget;
+
+    [Header("Bullet Settings")]
+
+    [SerializeField]
+    private GameObject sprite;
+    [SerializeField]
+    private float rotationModifier;
 
     // Start is called before the first frame update
     private void Start()
@@ -31,8 +40,8 @@ public class SeedBullet : MonoBehaviour
         }
         else
         {
-            //transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
+            transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
             lostTarget = true;
         }
     }
@@ -44,15 +53,15 @@ public class SeedBullet : MonoBehaviour
             Vector3 vectorTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1000);
+            sprite.transform.rotation = Quaternion.Slerp(sprite.transform.rotation, q, Time.deltaTime * 1000);
         }
-        else
+        /*else
         {
             Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
-        }
+        }*/
     }
 
     private void OnEnable()

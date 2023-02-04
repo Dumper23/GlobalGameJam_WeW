@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ElectricBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
     [SerializeField]
     private float moveSpeed, bulletDuration, radiusDetection;
-
+    //NEED ROTATION?
     private Transform target;
 
     private int damage;
@@ -18,6 +19,15 @@ public class ElectricBullet : MonoBehaviour
     private float stunness;
 
     private int hitsRay, currentHits;
+
+    [Header("Bullet Settings")]
+
+    [SerializeField]
+    private TrailRenderer tr;
+    [SerializeField]
+    private GameObject sprite;
+    [SerializeField]
+    private float rotationModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +50,16 @@ public class ElectricBullet : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        Vector3 vectorTarget = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+        sprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
     private void OnEnable()
     {
+        tr.Clear();
         target = null;
         lostTarget = false;
         enemisDone = new List<Transform>();
@@ -143,6 +160,25 @@ public class ElectricBullet : MonoBehaviour
                 }
             }
 
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (collision.gameObject.transform == target)
+            {
+                currentHits--;
+                collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
+                //STUN
+                Debug.Log("STAY");
+                lostTarget = true;
+                SearchNewTarget();
+                if (currentHits <= 0)
+                {
+                    Destroy();
+                }
+            }
         }
     }
     private void OnDisable()

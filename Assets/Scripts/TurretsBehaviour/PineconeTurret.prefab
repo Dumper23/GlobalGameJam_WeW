@@ -312,17 +312,17 @@ MonoBehaviour:
   outOfOrtherSign: {fileID: 1752346450}
   inServiceSprite: {fileID: 21300000, guid: ccf52518583c64a48b0363f9a4c84610, type: 3}
   outOfOrtherSprite: {fileID: 21300000, guid: 66c0a58cb94f92c4faf337f3f70d9b1e, type: 3}
-  ammoType: 
-  rangeAttack: 10
+  ammoType: pinecone
   fireRate: 5
-  ammunituion: 5
+  rangeAttack: 10
   damage: 4
   maxAmmo: 5
-  chest: 0
-  maxChest: 0
+  maxChest: 10
   bulletSpawn: {fileID: 856318494662998}
   mobilePart: {fileID: 1582663688751747084}
   cluster: 0
+  radius: 5
+  stunness: 0
 --- !u!61 &4597826457994812893
 BoxCollider2D:
   m_ObjectHideFlags: 0

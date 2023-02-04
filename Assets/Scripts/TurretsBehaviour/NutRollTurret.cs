@@ -98,6 +98,11 @@ public class NutRollTurret : TurretsFather
         enemyList = new List<GameObject>(newEnemyList);
     }
     */
+    protected override void DeactivateTurret()
+    {
+        //None
+    }
+
     protected override void FaceObjective()
     {
         //None

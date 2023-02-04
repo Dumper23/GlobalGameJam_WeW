@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PorcuthrowBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
     [SerializeField]
     private float moveSpeed, bulletDuration;
 
@@ -14,6 +15,12 @@ public class PorcuthrowBullet : MonoBehaviour
     private Vector2 newDirection;
 
     private bool piercing;
+    [Header("Bullet Settings")]
+
+    [SerializeField]
+    private GameObject sprite;
+    [SerializeField]
+    private float rotationModifier;
 
     //private bool firstHit = false;
 
@@ -44,7 +51,16 @@ public class PorcuthrowBullet : MonoBehaviour
         }
         */
         transform.Translate(newDirection * moveSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.LookRotation(newDirection + (Vector2)transform.position);
+        //transform.rotation = Quaternion.LookRotation(newDirection + (Vector2)transform.position);
+    }
+    private void FixedUpdate()
+    {
+        //Vector2 v = (newDirection + (Vector2)transform.position);
+        //sprite.transform.rotation = Quaternion.LookRotation(Vector3.forward, newDirection);
+        Vector3 vectorTarget = newDirection;
+        float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+        sprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
     }
 
     private void Destroy()

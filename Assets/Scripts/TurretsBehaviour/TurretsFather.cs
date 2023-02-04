@@ -94,7 +94,7 @@ public abstract class TurretsFather : MonoBehaviour
             //desactivada
             //set active panell
             updateAmmoUI("0");
-            mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
+            DeactivateTurret();
             //LerpValues.Lerp();
             //Quaternion.Slerp(mobilePart.transform.rotation, Quaternion.identity, Time.deltaTime / 10);
         }
@@ -113,6 +113,11 @@ public abstract class TurretsFather : MonoBehaviour
     public string GetTurretId()
     {
         return turretId;
+    }
+
+    protected virtual void DeactivateTurret()
+    {
+        mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
     }
 
     public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?

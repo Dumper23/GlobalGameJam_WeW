@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SeedniperBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
     [SerializeField]
-    private float moveSpeed, bulletDuration, rotationModifier;
+    private float moveSpeed;
+    [SerializeField]
+    private float bulletDuration;
 
     private Transform target;
     private Transform target2;
@@ -19,6 +22,13 @@ public class SeedniperBullet : MonoBehaviour
     private bool ricochet;
 
     private bool firstTarget = true;
+
+    [Header("Bullet Settings")]
+
+    [SerializeField]
+    private GameObject sprite;
+    [SerializeField]
+    private float rotationModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +48,8 @@ public class SeedniperBullet : MonoBehaviour
         }
         else
         {
-            //transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
+            transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
             lostTarget = true;
 
         }
@@ -52,14 +62,18 @@ public class SeedniperBullet : MonoBehaviour
             Vector3 vectorTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1000);
+            sprite.transform.rotation = Quaternion.Slerp(sprite.transform.rotation, q, Time.deltaTime * 1000);
         }
         else
         {
-            Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
+            //Debug.Log(transform.po - transform.position);
+            //Vector3 vectorTarget = ((lastPos - lastPos2) + (Vector2)transform.position).normalized;
+            //Vector3 vectorTarget = transform.position*2 -transform.position;
+            /*Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
+
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
+            sprite.transform.rotation = Quaternion.Slerp(sprite.transform.rotation, q, Time.deltaTime * moveSpeed);*/
         }
     }
 

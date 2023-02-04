@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PineconeBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
+
     [SerializeField]
-    private float moveSpeed, radius, bulletDuration, rotationModifier;
+    private float moveSpeed;
+    [SerializeField]
+    private float radius, bulletDuration;
 
     private Transform target;
 
@@ -19,11 +23,15 @@ public class PineconeBullet : MonoBehaviour
 
     private float stunness;
 
-    [SerializeField]
-    private int numClusters;
+
+    [Header("Bullet Settings")]
 
     [SerializeField]
-    private float minT, maxT, clusterSpeed;
+    private GameObject sprite;
+    [SerializeField]
+    private int numClusters;
+    [SerializeField]
+    private float minT, maxT, clusterSpeed, rotationModifier;
 
     // Start is called before the first frame update
     private void Start()
@@ -41,8 +49,8 @@ public class PineconeBullet : MonoBehaviour
         }
         else
         {
-            //transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
+            transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
             lostTarget = true;
         }
     }
@@ -54,14 +62,14 @@ public class PineconeBullet : MonoBehaviour
             Vector3 vectorTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1000);
+            sprite.transform.rotation = Quaternion.Slerp(sprite.transform.rotation, q, Time.deltaTime * 1000);
         }
         else
         {
-            Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
+            /*Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
             float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);*/
         }
     }
 

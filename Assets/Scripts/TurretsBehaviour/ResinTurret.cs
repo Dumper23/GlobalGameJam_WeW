@@ -62,7 +62,10 @@ public class ResinTurret : TurretsFather
         lastShot = Time.time + resinDuration;
         iShooting = true;
     }
-
+    protected override void DeactivateTurret()
+    {
+        //None
+    }
     protected override void FaceObjective()
     {
         //None

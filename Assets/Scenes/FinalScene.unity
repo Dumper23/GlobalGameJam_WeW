@@ -449,6 +449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 155053730}
     m_Modifications:
+    - target: {fileID: 4753350176785360468, guid: b6cac6c15fa519e4290b927b35bc0311, type: 3}
+      propertyPath: ammoType
+      value: potato
+      objectReference: {fileID: 0}
     - target: {fileID: 5574711099817117465, guid: b6cac6c15fa519e4290b927b35bc0311, type: 3}
       propertyPath: frontground
       value: 
@@ -2167,6 +2171,10 @@ PrefabInstance:
       propertyPath: enemyAirWaypoints.Array.data[6]
       value: 
       objectReference: {fileID: 527469433}
+    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
+      propertyPath: ammoImages.Array.data[6].ammoType
+      value: potato
+      objectReference: {fileID: 0}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: enemyGroundWaypoints.Array.data[0]
       value: 
@@ -5948,7 +5956,7 @@ MonoBehaviour:
   tooltipDesc: {fileID: 5440575872917369517}
   tooltipCost: {fileID: 5440575871970653025}
   backgroundRectTransform: {fileID: 558050699000648087}
-  canvasRectTransform: {fileID: 0}
+  canvasRectTransform: {fileID: 5230218270652003283}
 --- !u!222 &558050698523752505
 CanvasRenderer:
   m_ObjectHideFlags: 0

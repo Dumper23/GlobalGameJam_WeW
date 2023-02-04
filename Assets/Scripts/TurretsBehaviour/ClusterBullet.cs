@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClusterBullet : MonoBehaviour
 {
+    [Header("Bullet Stats")]
     [SerializeField]
     private float moveSpeed, radius, bulletDuration;
 
