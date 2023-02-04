@@ -883,6 +883,7 @@ public class GameManager : MonoBehaviour
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;
+                            placeHolder.currentTurretObject = go;
                             placedTurrets.Add(turretAutoincremental.ToString(), go);
                             player.turretsInventory[turretId] -= 1;
                             player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
@@ -905,6 +906,7 @@ public class GameManager : MonoBehaviour
                                 placeHolder.turretPlacementId = turretAutoincremental;
                                 placeHolder.hasTurret = true;
                                 placeHolder.turretId = turretId;
+                                placeHolder.currentTurretObject = go;
                                 placedTurrets.Add(turretAutoincremental.ToString(), go);
                                 player.audioSources[player.AUDIO_BUY].clip = player.audios[player.AUDIO_BUY];
                                 player.audioSources[player.AUDIO_BUY].Play();
@@ -930,6 +932,7 @@ public class GameManager : MonoBehaviour
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;
+                            placeHolder.currentTurretObject = go;
                             placedTurrets.Add(turretAutoincremental.ToString(), go);
                             player.turretsInventory.Add(turretId, 0);
                             player.audioSources[player.AUDIO_BUY].clip = player.audios[player.AUDIO_BUY];

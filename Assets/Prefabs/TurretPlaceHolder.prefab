@@ -72,13 +72,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c093ad35ef2464fbcab5ffc7f4e88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconName: E
+  iconName: ER
   original: {fileID: 21300000, guid: 3535da23c5bf9a545abf196c9bde5811, type: 3}
   outlined: {fileID: 21300000, guid: 3b084200fb7c0bf49bc4a59f005a4b44, type: 3}
   hasTurret: 0
   turretPlacementId: 0
   turretId: 
   turretPlaceHolder: {fileID: 7802490959391082914}
+  currentTurretObject: {fileID: 0}
 --- !u!212 &2660498639926314659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 3535da23c5bf9a545abf196c9bde5811, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

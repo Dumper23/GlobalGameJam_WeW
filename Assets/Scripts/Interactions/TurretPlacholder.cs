@@ -8,6 +8,7 @@ public class TurretPlacholder : IEInteractable
     public int turretPlacementId;
     public string turretId;
     public GameObject turretPlaceHolder;
+    public GameObject currentTurretObject;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class TurretPlacholder : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        if (action == "E")
+        if (action.Equals("E"))
         {
             GameManager.Instance.interactSound();
             if (hasTurret)
@@ -34,6 +35,13 @@ public class TurretPlacholder : IEInteractable
                 GameManager.Instance.showPlacementMenuUI();
             }
             GameManager.Instance.setMenuState(true);
+        }
+        else if (action.Equals("R"))
+        {
+            if (currentTurretObject != null)
+            {
+                GameManager.Instance.placeAmmo(currentTurretObject.GetComponent<TurretsFather>());
+            }
         }
     }
 }
