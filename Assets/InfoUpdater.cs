@@ -9,6 +9,7 @@ public class InfoUpdater : MonoBehaviour
     public TMP_Text day;
     public TMP_Text time;
     public TMP_Text enemies;
+    public TMP_Text money;
 
     private float timeValue = 0;
     private bool timeUp = false;

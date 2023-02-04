@@ -298,6 +298,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.Instance.hidePlacementMenuUI();
                 GameManager.Instance.hideRemoveMenuUI();
+                GameManager.Instance.setRootView(false);
             }
         }
     }
