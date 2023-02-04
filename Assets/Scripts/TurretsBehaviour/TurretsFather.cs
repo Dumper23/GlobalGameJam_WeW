@@ -141,18 +141,17 @@ public abstract class TurretsFather : MonoBehaviour
             chest++;
             return true;
         }*/
+        updateAmmoUI((ammunituion).ToString());
 
-        if (ammunituion < maxAmmo)
+        if (chest < maxChest)
         {
-            ammunituion = maxAmmo;
+            chest++;
             return true;
         }
         else
         {
             return false;
         }
-
-        updateAmmoUI((ammunituion).ToString());
 
         /*
         if (chest + newChests > maxChest)
