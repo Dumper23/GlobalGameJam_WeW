@@ -867,7 +867,7 @@ public class GameManager : MonoBehaviour
     public void handleAnimationAndSound()
     {
         //Start day after 60s
-        Invoke("changeDayState", 15);//60
+        Invoke("changeDayState", 20);//60
 
         //Music
         fadeOutDay();
@@ -924,7 +924,6 @@ public class GameManager : MonoBehaviour
 
         GameObject floor;
         if(this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
-        if (npc.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
 
         for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
