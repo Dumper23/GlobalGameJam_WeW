@@ -774,18 +774,15 @@ public class GameManager : MonoBehaviour
 
     private void unlockNPC(NPC npc)
     {
-        Debug.Log("unlock npc");
         GameObject floor;
         if(npc.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
 
         for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
         {
-            Debug.Log(this.bottomFloor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType);
-            if (this.bottomFloor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == npc.ammoId)
+            if (floor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == npc.ammoId)
             {
-                this.bottomFloor.transform.Find("chests").GetChild(i).gameObject.SetActive(true);
-                Debug.Log(npc.ammoId + " activated");
+                floor.transform.Find("chests").GetChild(i).gameObject.SetActive(true);
             }
         }
     }
