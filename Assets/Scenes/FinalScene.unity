@@ -5948,7 +5948,7 @@ MonoBehaviour:
   tooltipDesc: {fileID: 5440575872917369517}
   tooltipCost: {fileID: 5440575871970653025}
   backgroundRectTransform: {fileID: 558050699000648087}
-  canvasRectTransform: {fileID: 0}
+  canvasRectTransform: {fileID: 5230218270652003283}
 --- !u!222 &558050698523752505
 CanvasRenderer:
   m_ObjectHideFlags: 0

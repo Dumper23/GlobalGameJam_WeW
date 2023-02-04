@@ -23,7 +23,15 @@ public class Database : MonoBehaviour
 {
     public static Database Instance;
 
-    private void Awake() => Instance = this;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
 
     #region WAVES FOR EACH DAY
 
@@ -503,7 +511,7 @@ public class Database : MonoBehaviour
 
     #region UNLOCK FLOOR DAYS
 
-    [HideInInspector] public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
+    [HideInInspector] public int[] unlockFloorDays = { 1, 5, 8, 11, 14, 17, 19, 20, 21 };
 
     #endregion UNLOCK FLOOR DAYS
 
