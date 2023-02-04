@@ -102,8 +102,8 @@ public class EnemySpawn : MonoBehaviour
                 {
                     if (checkAllWavesCompleted() && checkAllEnemiesDeactivated())
                     {
-                        //go to night
-                        GameManager.Instance.changeDayState();
+                        //check if can go to night
+                        GameManager.Instance.checkRoundEnded();
                         return;
                     }
                 }
@@ -179,7 +179,7 @@ public class EnemySpawn : MonoBehaviour
         return center + new Vector3((Random.value - 0.5f) * AREA_RANGE, (Random.value - 0.5f) * AREA_RANGE, 0);
     }
     
-    private bool checkAllWavesCompleted()
+    public bool checkAllWavesCompleted()
     {
         foreach (EnemyWaveState wave in enemyWaveStates)
         {
@@ -188,7 +188,7 @@ public class EnemySpawn : MonoBehaviour
         return true;
     }
 
-    private bool checkAllEnemiesDeactivated()
+    public bool checkAllEnemiesDeactivated()
     {
         foreach (Pool pool in pools)
         {
@@ -198,6 +198,15 @@ public class EnemySpawn : MonoBehaviour
             }
         }
         return true;
+    }
+    public int getNumEnemiesToFinish()
+    {
+        int num = 0;
+        foreach (EnemyWaveState wave in enemyWaveStates)
+        {
+            num += wave.totalEnemies - wave.numSpawned;
+        }
+        return num;
     }
 
     void OnDrawGizmosSelected()

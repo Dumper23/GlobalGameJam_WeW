@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public string id;
     public int maxHealth;
     public float speed;
+    public float currentSpeed;
     public string type; //flying, etc
     public List<Vector3> waypoints = new List<Vector3>();
     public int fertilizerToGive = 10;
@@ -14,7 +15,8 @@ public class Enemy : MonoBehaviour
     public int waypointIndex = 0;
     public int currentHealth;
 
-    public static float TARGET_OFFSET = 2f;
+    public static float TARGET_OFFSET = 0.5f;
+    private Vector3 currentAngle = new Vector3();
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,9 @@ public class Enemy : MonoBehaviour
             Vector3 offsetWaypoint = getRandomPoint(waypoint.position);
             waypoints.Add(offsetWaypoint);
         }
-        currentHealth = maxHealth;
+        this.currentHealth = this.maxHealth;
+        this.currentSpeed = this.speed;
+        this.rotateEnemy(0);
     }
 
     void move()
@@ -50,7 +54,15 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex], speed * Time.deltaTime);
         //getRandomPoint(waypoints[waypointIndex].transform.position)
 
-        if (Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.5) waypointIndex += 1;
+        if (Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.5)
+        {
+            if(waypointIndex == 2 && this.type=="walk")
+            {
+                //rotate enemy
+                this.rotateEnemy(90f);
+            }
+            waypointIndex += 1;
+        }
 
         if (waypointIndex == waypoints.Count)
         {
@@ -59,6 +71,12 @@ public class Enemy : MonoBehaviour
 
             gameObject.SetActive(false); //Disappears when reaches the top of the tree
         }
+    }
+
+    public void rotateEnemy(float offset)
+    {
+        float angle2 = Mathf.Atan2(Vector3.forward.normalized.y, Vector3.forward.normalized.x) * Mathf.Rad2Deg;
+        this.gameObject.transform.rotation = Quaternion.AngleAxis(angle2 + offset, Vector3.forward);
     }
 
     public void takeDamage(int damage)
@@ -78,6 +96,23 @@ public class Enemy : MonoBehaviour
 
     private Vector3 getRandomPoint(Vector3 center)
     {
-        return center + new Vector3((Random.value - 0.5f) * TARGET_OFFSET, (Random.value - 0.5f) * TARGET_OFFSET, 0);
+        return center + new Vector3(Random.Range(-1, 1) * TARGET_OFFSET, Random.Range(-1, 1) * TARGET_OFFSET, 0);
+    }
+
+    public void stun(float time)
+    {
+        this.currentSpeed = 0;
+        Invoke("setOriginalSpeed", time);
+    }
+
+    public void slowDown(float amount)
+    {
+        this.currentSpeed -= this.currentSpeed * amount;
+        Invoke("setOriginalSpeed", 3);
+    }
+
+    public void setOriginalSpeed()
+    {
+        this.currentSpeed = this.speed;
     }
 }

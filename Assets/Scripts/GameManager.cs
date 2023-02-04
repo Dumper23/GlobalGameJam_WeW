@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> floorList = new List<GameObject>();
 
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
-    public bool isDay = false;
+    public bool isDay = true;
     public List<GameObject> allEnemies = new List<GameObject>();
     public NPC npcToAppear = new NPC(0, "", "", "");
     public int floorColorIndex = 0;
@@ -821,11 +821,7 @@ public class GameManager : MonoBehaviour
 
             currentDay++;
 
-            //activate spawns
-            foreach (EnemySpawn spawn in enemySpawns)
-            {
-                spawn.activateSpawn();
-            }
+            Invoke("activateEnemySpawns", 6);
         }
         else
         {
@@ -843,8 +839,6 @@ public class GameManager : MonoBehaviour
             }
 
             //change background
-
-            //Change to night sound and music
 
             //create new floor if its day X
             bool hasUnlockedFloor = false;
@@ -869,35 +863,44 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+            //Music
+            fadeOutDay();
+            if (!isFirstTime)
+            {
+                Invoke("playChangeSound", 1.5f);
+            }
+            else
+            {
+                isFirstTime = false;
+            }
+
+            Invoke("fadeInNight", 1f);
+            Invoke("fadeOutNight", 61.5f);
+            Invoke("playChangeSound", 63);
+            Invoke("playIntroDay", 65);
+
+            loopNight.Play();
+
             if (!hasUnlockedNpc && !hasUnlockedFloor)
             {
-                this.handleAnimationAndSound();
+                //Start day after 60s
+                Invoke("changeDayState", 15);//60
             }
         }
     }
 
-    public void handleAnimationAndSound()
+    public void activateEnemySpawns()
     {
-        //Start day after 60s
-        Invoke("changeDayState", 30);//60
-
-        //Music
-        fadeOutDay();
-        if (!isFirstTime)
+        //activate spawns
+        foreach (EnemySpawn spawn in enemySpawns)
         {
-            Invoke("playChangeSound", 1.5f);
+            spawn.activateSpawn();
         }
-        else
-        {
-            isFirstTime = false;
-        }
+    }
 
-        Invoke("fadeInNight", 1f);
-        Invoke("fadeOutNight", 61.5f);
-        Invoke("playChangeSound", 63);
-        Invoke("playIntroDay", 65);
-
-        loopNight.Play();
+    public void handleChangeState()
+    {
+        Invoke("changeDayState", 60);
     }
 
     public void playDayNightAnimation()
@@ -1115,17 +1118,25 @@ public class GameManager : MonoBehaviour
         unlockedFloors++;
         //show animation
         this.unlockFloorNarrative.startFloorScene();
+
         GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
         aux.transform.parent = GameObject.Find("Floors").transform;
         topFloor.transform.position += new Vector3(0, 2, 0);
         FloorManager floorManager = FindObjectOfType<FloorManager>();
         floorList.Insert(floorList.Count-1,aux);
 
-        //add floor waypoint
+        //add ground floor waypoint
         Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
         enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
         enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
         enemyGroundWaypoints.Add(topWaypoint);
+
+        //add fly floor waypoint
+        Transform topWaypointAir = enemyAirWaypoints[enemyAirWaypoints.Count - 1];
+        enemyAirWaypoints.RemoveAt(enemyAirWaypoints.Count - 1);
+        enemyAirWaypoints.Add(aux.transform.Find("waypointAir"));
+        enemyAirWaypoints.Add(topWaypointAir);
+
         if (floorManager)
         {
             floorManager.updateDoors();
@@ -1217,5 +1228,24 @@ public class GameManager : MonoBehaviour
         floorList[currentFloor].GetComponent<FloorItem>().hideFloor();
         treetopForeground.SetActive(true);
         rootHidder.SetActive(true);
+    }
+
+    public void checkRoundEnded()
+    {
+        foreach (EnemySpawn spawn in enemySpawns)
+        {
+            if (!spawn.checkAllWavesCompleted() || !spawn.checkAllEnemiesDeactivated()) return;
+        }
+        this.changeDayState();
+    }
+
+    public int getRemainingNumEnemies()
+    {
+        int numTotal = 0;
+        foreach (EnemySpawn spawn in this.enemySpawns)
+        {
+            numTotal += spawn.getNumEnemiesToFinish();
+        }
+        return numTotal;
     }
 }

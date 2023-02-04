@@ -156,13 +156,13 @@ public class Narrative : MonoBehaviour
         NPC npc = GameManager.Instance.npcToAppear;
         this.gameObject.transform.Find("characters").transform.Find(npc.ammoId).gameObject.SetActive(false);
         this.gameObject.SetActive(false);
-        GameManager.Instance.handleAnimationAndSound();
+        GameManager.Instance.handleChangeState();
     }
 
     public void stopFloorScene()
     {
         this.gameObject.SetActive(false);
-        GameManager.Instance.handleAnimationAndSound();
+        GameManager.Instance.handleChangeState();
     }
 
     public void nextDialog()
