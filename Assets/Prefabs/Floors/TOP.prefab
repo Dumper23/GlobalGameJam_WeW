@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3032704402560742025}
   - component: {fileID: 8124208564173981349}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FloorColision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1685987932655901360}
   - component: {fileID: 6708921585735717281}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightWallCollision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -430,6 +430,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3942091311722140797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8610791342334261866}
+  - component: {fileID: 289833801920526159}
+  m_Layer: 0
+  m_Name: Shadows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8610791342334261866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942091311722140797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.192, y: 0.49, z: 0.031624436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6450019896475291812}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289833801920526159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942091311722140797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5, y: -1.4838101, z: 0}
+  - {x: -0.5, y: 0.5078316, z: 0}
+  - {x: 0.30158424, y: 0.5165347, z: 0}
+  - {x: 0.276783, y: -1.4838102, z: 0}
+  m_ShapePathHash: -661310407
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 272208
 --- !u!1 &4525819848269030687
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6875036113892503038}
   - component: {fileID: 4829453173769104240}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftWallCollision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -561,6 +620,9 @@ Transform:
   - {fileID: 3957045227608412179}
   - {fileID: 655110179581528662}
   - {fileID: 8593151656927989788}
+  - {fileID: 8610791342334261866}
+  - {fileID: 3924516094494941717}
+  - {fileID: 6911298229490270166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -750,7 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6472947663011733435}
   - component: {fileID: 375487137054778608}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RoofColision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -798,6 +860,124 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.3284874, y: 0.11866331}
   m_EdgeRadius: 0
+--- !u!1 &7876557348434473744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3924516094494941717}
+  - component: {fileID: 6615385989737226136}
+  m_Layer: 0
+  m_Name: Shadows (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3924516094494941717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876557348434473744}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.44, y: 0.49, z: 0.031624436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6450019896475291812}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6615385989737226136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876557348434473744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.28316355, y: -1.48381, z: 0}
+  - {x: -0.28316355, y: 0.5078316, z: 0}
+  - {x: 0.30158424, y: 0.5165347, z: 0}
+  - {x: 0.276783, y: -1.4838102, z: 0}
+  m_ShapePathHash: 2012647317
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 272282
+--- !u!1 &8449227062540203735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6911298229490270166}
+  - component: {fileID: 4129194544131138751}
+  m_Layer: 0
+  m_Name: Shadows (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6911298229490270166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449227062540203735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.2, y: 0.5, z: 0.031624436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6450019896475291812}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4129194544131138751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449227062540203735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.4668131, y: 0.3857231, z: 0}
+  - {x: -0.5, y: 0.5078316, z: 0}
+  - {x: 7.912464, y: 0.5054722, z: 0}
+  - {x: 7.92085, y: 0.3746605, z: 0}
+  m_ShapePathHash: 416792631
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 272252
 --- !u!1001 &3872586784574535735
 PrefabInstance:
   m_ObjectHideFlags: 0

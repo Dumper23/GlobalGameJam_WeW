@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525559530692990235}
   - component: {fileID: 1664052843196376589}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftWallCollision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -142,6 +142,65 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08134031, y: 2.002355}
   m_EdgeRadius: 0
+--- !u!1 &1140138227779953312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2693745528385398943}
+  - component: {fileID: 3265650799485953265}
+  m_Layer: 0
+  m_Name: Shadows (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2693745528385398943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140138227779953312}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.453, y: 0.49099994, z: 0.031624436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8576499936701127872}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3265650799485953265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140138227779953312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.2939155, y: -1.4761773, z: 0}
+  - {x: -0.2939155, y: 0.5154643, z: 0}
+  - {x: 0.30158424, y: 0.5165347, z: 0}
+  - {x: 0.276783, y: -1.4838102, z: 0}
+  m_ShapePathHash: -730471031
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 272446
 --- !u!1 &1401394203248322031
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +515,65 @@ Transform:
   m_Father: {fileID: 8576499936701127872}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7678917202331724117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7021263177273780359}
+  - component: {fileID: 4532513031611595486}
+  m_Layer: 0
+  m_Name: Shadows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7021263177273780359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678917202331724117}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.192, y: 0.49099994, z: 0.031624436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8576499936701127872}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4532513031611595486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678917202331724117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5, y: -1.4838101, z: 0}
+  - {x: -0.5, y: 0.5078316, z: 0}
+  - {x: 0.30158424, y: 0.5165347, z: 0}
+  - {x: 0.276783, y: -1.4838102, z: 0}
+  m_ShapePathHash: -661310407
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 272452
 --- !u!1 &8576499936601283208
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +647,8 @@ Transform:
   - {fileID: 4441333779242506524}
   - {fileID: 9050700320089831017}
   - {fileID: 520362107146602805}
+  - {fileID: 7021263177273780359}
+  - {fileID: 2693745528385398943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -684,7 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8576499937790790236}
   - component: {fileID: 8576499937790790211}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FloorColision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -742,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8576499937806974291}
   - component: {fileID: 8576499937806974290}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightWallCollision
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -800,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8576499938531883388}
   - component: {fileID: 8576499938531883363}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RoofColision
   m_TagString: Ground
   m_Icon: {fileID: 0}
