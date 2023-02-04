@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public string type; //flying, etc
     public List<Vector3> waypoints = new List<Vector3>();
     public int fertilizerToGive = 10;
+    public bool isSlowed = false;
+    public bool isStunned = false;
 
     public GameObject bloodParticles;
     public GameObject bloodDecal;
@@ -107,17 +109,21 @@ public class Enemy : MonoBehaviour
     public void stun(float time)
     {
         this.currentSpeed = 0;
+        this.isStunned = true;
         Invoke("setOriginalSpeed", time);
     }
 
     public void slowDown(float amount)
     {
         this.currentSpeed -= this.currentSpeed * amount;
+        this.isSlowed = true;
         Invoke("setOriginalSpeed", 3);
     }
 
     public void setOriginalSpeed()
     {
         this.currentSpeed = this.speed;
+        this.isSlowed = false;
+        this.isStunned = false;
     }
 }
