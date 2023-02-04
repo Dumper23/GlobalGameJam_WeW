@@ -1100,6 +1100,7 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayer()
     {
         player.UpdateDatabase();
+        player.updateInventorySlots();
     }
 
     public List<GameObject> getAllEnemies()
