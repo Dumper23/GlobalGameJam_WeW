@@ -6,7 +6,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class CameraFollow : MonoBehaviour
 {
     private FloorManager floors;
-    
+
     public float smoothFactor;
     public float yOffset = 10;
     public float xOffset = 0;
@@ -44,8 +44,7 @@ public class CameraFollow : MonoBehaviour
         this.isGeneralView = isGeneralView;
     }
 
-
-    void Update()
+    private void Update()
     {
         if (!isRootView)
         {
@@ -57,7 +56,6 @@ public class CameraFollow : MonoBehaviour
                 if (!wasGeneralView)
                 {
                     transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, -10), smoothFactor * Time.deltaTime);
-
                 }
                 else
                 {
@@ -68,10 +66,9 @@ public class CameraFollow : MonoBehaviour
             }
             else
             {
-                transform.position = new Vector3(-1.52f, 7.72f, transform.position.z);
-                cam.orthographicSize = 11f;
+                transform.position = new Vector3(-1.52f, 9f, transform.position.z);
+                cam.orthographicSize = 14f;
             }
-
         }
         else
         {

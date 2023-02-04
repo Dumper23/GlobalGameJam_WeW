@@ -8,7 +8,6 @@ public class AmmoPicking : IEInteractable
 
     public override void EndInteraction()
     {
-        
     }
 
     public override void Interaction(string action = "")
@@ -18,13 +17,11 @@ public class AmmoPicking : IEInteractable
             //Player ammo inventory add ammo
             if (GameManager.Instance.pickUpAmmo(ammoType))
             {
-                //Player sound allowing action
-                Debug.Log("Ammo taken!");
+                GameManager.Instance.interactSound();
             }
             else
             {
-                //Player sound denying action
-                Debug.Log("Ammo inventory full");
+                GameManager.Instance.cancelSound();
             }
         }
     }

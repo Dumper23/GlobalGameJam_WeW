@@ -4,13 +4,15 @@ using UnityEngine;
 
 public abstract class TurretsFather : MonoBehaviour
 {
-
     #region traits
+
     [SerializeField]//TMP XQ EXTERN
     protected float rangeAttack, fireRate;
+
     [SerializeField]//TMP XQ EXTERN
     protected int ammunituion, damage, maxAmmo, chest, maxChest;
-    #endregion
+
+    #endregion traits
 
     protected float lastShot = 0;
 
@@ -41,9 +43,8 @@ public abstract class TurretsFather : MonoBehaviour
     {
         if (HasAmmo())
         {
-
             DetectObjective();
-            
+
             if (HaveTarget())
             {
                 FaceObjective();
@@ -155,8 +156,7 @@ public abstract class TurretsFather : MonoBehaviour
 
         direction.Normalize();
 
-        mobilePart.transform.rotation = Quaternion.LookRotation(direction, Vector3.back) * Quaternion.Euler(90, 0 , -90);
-
+        mobilePart.transform.rotation = Quaternion.LookRotation(direction, Vector3.back) * Quaternion.Euler(90, 0, -90);
     }
 
     protected virtual void DetectObjective()
@@ -167,9 +167,10 @@ public abstract class TurretsFather : MonoBehaviour
 
         foreach (GameObject o in enemyList)
         {
-            if (o != null && o.activeInHierarchy) {
-                if (IsInRange(o)) {
-
+            if (o != null && o.activeInHierarchy)
+            {
+                if (IsInRange(o))
+                {
                     if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
                     {
                         closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
@@ -211,7 +212,6 @@ public abstract class TurretsFather : MonoBehaviour
         return (Vector3.Distance(target.transform.position, gameObject.transform.position) < rangeAttack);
     }
 
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, rangeAttack);
@@ -219,6 +219,6 @@ public abstract class TurretsFather : MonoBehaviour
 
     public void UpdateDatabase()
     {
-
+        InintiateStatsAtCurrentUpgrades();
     }
 }

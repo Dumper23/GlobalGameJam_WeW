@@ -26,14 +26,23 @@ public class GameManager : MonoBehaviour
     private PlayerController player;
     public List<Transform> enemyGroundWaypoints;
     public List<Transform> enemyAirWaypoints;
-    public int playerHP; 
+    public int playerHP;
     public List<EnemySpawn> enemySpawns;
     public List<AmmoImage> ammoImages;
     public List<GameObject> floors;
     public GameObject topFloor;
     public GameObject hud;
+
+    public AudioSource introDay;
+    public AudioSource loopDay;
+    public AudioSource loopNight;
+    public AudioSource backgroundSoundsNight;
+    public AudioSource backgroundSoundsDay;
+    public AudioSource changeSound;
+
     [SerializeField]
     public List<TurretEditor> turrets;
+
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
     public List<GameObject> allEnemies = new List<GameObject>();
@@ -44,18 +53,22 @@ public class GameManager : MonoBehaviour
     private bool dayNightAnimationPlaying = false;
     private int turretAutoincremental = 0;
     private int floorColorIndex = 0;
+    private bool isFirstTime = true;
 
     private bool gamePaused = false;
 
     #region Constants
+
     public static string ANT_ID = "ant";
     public static string FLEA_ID = "flea";
     public static string BEETLE_ID = "beetle";
     public static string FLY_ID = "fly";
     public static string WASP_ID = "wasp";
-    #endregion
+
+    #endregion Constants
 
     #region Singleton
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -67,10 +80,12 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
     }
-    #endregion
+
+    #endregion Singleton
 
     private void Start()
     {
+        //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         changeDayState();
         player.updateTurretInventoryNumberUI();
@@ -78,6 +93,7 @@ public class GameManager : MonoBehaviour
     }
 
     #region getters & setters
+
     public bool getPlayerInMenu()
     {
         return playerInMenu;
@@ -106,7 +122,6 @@ public class GameManager : MonoBehaviour
     public int getCurrentFloor()
     {
         return currentFloor;
-
     }
 
     public int getUnlockedFloors()
@@ -128,7 +143,8 @@ public class GameManager : MonoBehaviour
     {
         this.currentDay = day;
     }
-    #endregion
+
+    #endregion getters & setters
 
     public void toggleMapView()
     {
@@ -154,7 +170,7 @@ public class GameManager : MonoBehaviour
     {
         player.placementMenu.SetActive(true);
     }
-    
+
     public void showRemoveMenuUI()
     {
         player.removeMenu.SetActive(true);
@@ -171,6 +187,18 @@ public class GameManager : MonoBehaviour
     {
         player.placementMenu.SetActive(false);
         setMenuState(false);
+    }
+
+    public void cancelSound()
+    {
+        player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
+        player.audioSources[player.AUDIO_CANCEL].Play();
+    }
+
+    public void interactSound()
+    {
+        player.audioSources[player.AUDIO_INTERACT].clip = player.audios[player.AUDIO_INTERACT];
+        player.audioSources[player.AUDIO_INTERACT].Play();
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -332,24 +360,28 @@ public class GameManager : MonoBehaviour
                 player.ammoSlot1.currentAmount = 0;
                 player.ammoSlot1.ammoImage = null;
                 break;
+
             case 2:
                 player.ammoSlot2.hasAmmo = false;
                 player.ammoSlot2.currentAmmoType = "";
                 player.ammoSlot2.currentAmount = 0;
                 player.ammoSlot2.ammoImage = null;
                 break;
+
             case 3:
                 player.ammoSlot3.hasAmmo = false;
                 player.ammoSlot3.currentAmmoType = "";
                 player.ammoSlot3.currentAmount = 0;
                 player.ammoSlot3.ammoImage = null;
                 break;
+
             case 4:
                 player.ammoSlot4.hasAmmo = false;
                 player.ammoSlot4.currentAmmoType = "";
                 player.ammoSlot4.currentAmount = 0;
                 player.ammoSlot4.ammoImage = null;
                 break;
+
             default:
                 break;
         }
@@ -358,8 +390,8 @@ public class GameManager : MonoBehaviour
 
     public void playLiftSound()
     {
-        player.audio.clip = player.audios[player.AUDIO_FLOOR_CHANGE];
-        player.audio.Play();
+        player.audioSources[player.AUDIO_FLOOR_CHANGE].clip = player.audios[player.AUDIO_FLOOR_CHANGE];
+        player.audioSources[player.AUDIO_FLOOR_CHANGE].Play();
     }
 
     public Sprite getAmmoImage(string ammoType)
@@ -379,6 +411,9 @@ public class GameManager : MonoBehaviour
     public void placeAmmo()
     {
         //Somehow we need to add the ammotype to the turret if the player has it
+        //Turret.GiveAmmo() retorna si ha pogut posar ammo o si no i esta a tope
+        //si no es pot player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
+        //player.audioSources[player.AUDIO_CANCEL].Play();
     }
 
     public List<Transform> getWaypoints(string type)
@@ -389,6 +424,7 @@ public class GameManager : MonoBehaviour
             case "walk":
                 waypoints = enemyGroundWaypoints;
                 break;
+
             case "fly":
                 waypoints = enemyAirWaypoints;
                 break;
@@ -402,7 +438,7 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 return Database.Instance.DAY1_WAVES;
-                
+
             case 2:
                 return Database.Instance.DAY2_WAVES;
 
@@ -526,13 +562,13 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("capacityLevel", capacityLevel);
 
                 return turretInfo;
+
             case "RESIN_SPIT":
                 chestLevel = Database.Instance.RESIN_SPIT_CHEST_LVL;
                 capacityLevel = Database.Instance.RESIN_SPIT_CAPACITY_LVL;
                 damageLevel = Database.Instance.RESIN_SPIT_DAMAGE_LVL;
                 speedLevel = Database.Instance.RESIN_SPIT_SPEED_LVL;
                 sticknessLevel = Database.Instance.RESIN_SPIT_STICKNESS_LVL;
-
 
                 turretInfo.Add("capacity", Database.Instance.RESIN_SPIT_CAPACITY[capacityLevel]);
                 turretInfo.Add("chest", Database.Instance.RESIN_SPIT_CHEST[chestLevel]);
@@ -545,6 +581,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 turretInfo.Add("sticknessLevel", sticknessLevel);
                 return turretInfo;
+
             case "S_SEEDNIPER":
                 chestLevel = Database.Instance.S_SEEDNIPER_CHEST_LVL;
                 capacityLevel = Database.Instance.S_SEEDNIPER_CAPACITY_LVL;
@@ -564,6 +601,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("ricochetLevel", ricochetLevel);
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
+
             case "PINECONE_LAUNCHER":
                 chestLevel = Database.Instance.PINECONE_LAUNCHER_CHEST_LVL;
                 capacityLevel = Database.Instance.PINECONE_LAUNCHER_CAPACITY_LVL;
@@ -580,7 +618,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("cluster", Database.Instance.PINECONE_LAUNCHER_CLUSTER[clusterLevel]);
                 turretInfo.Add("damage", Database.Instance.PINECONE_LAUNCHER_DAMAGE[damageLevel]);
                 turretInfo.Add("stun", Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN[damageStunLevel]);
-                turretInfo.Add("range", Database.Instance.PINECONE_LAUNCHER_RANGE[rangeLevel]); 
+                turretInfo.Add("range", Database.Instance.PINECONE_LAUNCHER_RANGE[rangeLevel]);
                 turretInfo.Add("speed", Database.Instance.PINECONE_LAUNCHER_SPEED[speedLevel]);
 
                 turretInfo.Add("capacityLevel", capacityLevel);
@@ -592,6 +630,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("rangeLevel", rangeLevel);
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
+
             case "NUT_ROLL":
                 chestLevel = Database.Instance.NUT_ROLL_CHEST_LVL;
                 capacityLevel = Database.Instance.NUT_ROLL_CAPACITY_LVL;
@@ -614,6 +653,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("hitsLevel", hitsLevel);
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
+
             case "PORCUTHROW":
                 chestLevel = Database.Instance.PORCUTHROW_CHEST_LVL;
                 capacityLevel = Database.Instance.PORCUTHROW_CAPACITY_LVL;
@@ -633,6 +673,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("projectilesLevel", projectilesLevel);
                 turretInfo.Add("speedLevel", speedLevel);
                 return turretInfo;
+
             case "ELECTRIC_POTATO":
                 chestLevel = Database.Instance.ELECTRIC_POTATO_CHEST_LVL;
                 capacityLevel = Database.Instance.ELECTRIC_POTATO_CAPACITY_LVL;
@@ -655,6 +696,7 @@ public class GameManager : MonoBehaviour
                 turretInfo.Add("speedLevel", speedLevel);
                 turretInfo.Add("stunLevel", stunLevel);
                 return turretInfo;
+
             default:
 
                 return null;
@@ -710,10 +752,10 @@ public class GameManager : MonoBehaviour
 
             //change background
 
-            //change music
+            //Change to night sound and music
 
             //create new floor if its day X
-            
+
             for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
             {
                 if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
@@ -721,6 +763,23 @@ public class GameManager : MonoBehaviour
 
             //Start day after 60s
             Invoke("changeDayState", 60);
+
+            //Music
+            fadeOutDay();
+            if (!isFirstTime)
+            {
+                Invoke("playChangeSound", 1.5f);
+            }
+            else
+            {
+                isFirstTime = false;
+            }
+            Invoke("fadeInNight", 1f);
+            Invoke("fadeOutNight", 61.5f);
+            Invoke("playChangeSound", 63);
+            Invoke("playIntroDay", 65);
+
+            loopNight.Play();
         }
     }
 
@@ -773,6 +832,8 @@ public class GameManager : MonoBehaviour
                             placeHolder.turretId = turretId;
                             placedTurrets.Add(turretAutoincremental.ToString(), go);
                             player.turretsInventory[turretId] -= 1;
+                            player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
+                            player.audioSources[player.AUDIO_TURRET_PLACE].Play();
                             break;
                         }
                     }
@@ -792,6 +853,8 @@ public class GameManager : MonoBehaviour
                                 placeHolder.hasTurret = true;
                                 placeHolder.turretId = turretId;
                                 placedTurrets.Add(turretAutoincremental.ToString(), go);
+                                player.audioSources[player.AUDIO_BUY].clip = player.audios[player.AUDIO_BUY];
+                                player.audioSources[player.AUDIO_BUY].Play();
                                 break;
                             }
                         }
@@ -816,6 +879,8 @@ public class GameManager : MonoBehaviour
                             placeHolder.turretId = turretId;
                             placedTurrets.Add(turretAutoincremental.ToString(), go);
                             player.turretsInventory.Add(turretId, 0);
+                            player.audioSources[player.AUDIO_BUY].clip = player.audios[player.AUDIO_BUY];
+                            player.audioSources[player.AUDIO_BUY].Play();
                             break;
                         }
                     }
@@ -828,7 +893,7 @@ public class GameManager : MonoBehaviour
 
     public void pickupTurret(TurretPlacholder placeHolder)
     {
-        if(placedTurrets.TryGetValue(placeHolder.turretPlacementId.ToString(), out GameObject turretGameObject))
+        if (placedTurrets.TryGetValue(placeHolder.turretPlacementId.ToString(), out GameObject turretGameObject))
         {
             Destroy(turretGameObject);
             placeHolder.hasTurret = false;
@@ -836,12 +901,14 @@ public class GameManager : MonoBehaviour
             if (player.turretsInventory.TryGetValue(placeHolder.turretId, out int amount))
             {
                 player.turretsInventory.Remove(placeHolder.turretId);
-                player.turretsInventory.Add(placeHolder.turretId, amount+1);
+                player.turretsInventory.Add(placeHolder.turretId, amount + 1);
             }
             else
             {
                 player.turretsInventory.Add(placeHolder.turretId, 1);
             }
+            player.audioSources[player.AUDIO_PICK_TURRET].clip = player.audios[player.AUDIO_PICK_TURRET];
+            player.audioSources[player.AUDIO_PICK_TURRET].Play();
         }
         player.updateTurretInventoryNumberUI();
     }
@@ -853,24 +920,31 @@ public class GameManager : MonoBehaviour
             case "MACHINE_SEED":
                 //Database.Instance.MACHINE_SEED_PRICE
                 return 1;
+
             case "S_SEEDNIPER":
 
                 return 2;
+
             case "RESIN_SPIT":
 
                 return 3;
+
             case "PINECONE_LAUNCHER":
 
                 return 4;
+
             case "NUT_ROLL":
 
                 return 5;
+
             case "PORCUTHROW":
 
                 return 6;
+
             case "ELECTRIC_POTATO":
 
                 return 7;
+
             default:
 
                 return 0;
@@ -879,13 +953,15 @@ public class GameManager : MonoBehaviour
 
     public bool spendFertilizer(int fertilizerAmount)
     {
-        if(fertilizer - fertilizerAmount >= 0)
+        if (fertilizer - fertilizerAmount >= 0)
         {
             fertilizer -= fertilizerAmount;
             return true;
         }
         else
         {
+            player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
+            player.audioSources[player.AUDIO_CANCEL].Play();
             return false;
         }
     }
@@ -894,6 +970,7 @@ public class GameManager : MonoBehaviour
     {
         changeDayState();
     }
+
     private void createNewFloor()
     {
         floorColorIndex++;
@@ -918,6 +995,47 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void playIntroDay()
+    {
+        introDay.Play();
+        Invoke("playLoopDay", 21);
+        backgroundSoundsDay.Play();
+        backgroundSoundsNight.Stop();
+    }
+
+    public void playChangeSound()
+    {
+        changeSound.Play();
+    }
+
+    public void playLoopDay()
+    {
+        loopDay.Play();
+        loopDay.GetComponent<Animator>().Play("SoundDay");
+    }
+
+    public void fadeOutDay()
+    {
+        loopDay.GetComponent<Animator>().Play("FadeOutDay");
+    }
+
+    public void fadeInDay()
+    {
+        loopDay.GetComponent<Animator>().Play("FadeInDay");
+    }
+
+    public void fadeOutNight()
+    {
+        loopNight.GetComponent<Animator>().Play("FadeOutNight");
+    }
+
+    public void fadeInNight()
+    {
+        backgroundSoundsDay.Stop();
+        backgroundSoundsNight.Play();
+        loopNight.GetComponent<Animator>().Play("FadeInNight");
+    }
+
     public void UpdateTurrets()
     {
         foreach (GameObject turret in placedTurrets.Values) turret.GetComponent<TurretsFather>().UpdateDatabase();
@@ -926,7 +1044,8 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayer()
     {
         player.UpdateDatabase();
-        }
+    }
+
     public List<GameObject> getAllEnemies()
     {
         return this.allEnemies;
