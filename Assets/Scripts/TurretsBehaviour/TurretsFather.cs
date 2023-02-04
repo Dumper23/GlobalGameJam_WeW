@@ -1,10 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class TurretsFather : MonoBehaviour
 {
     #region traits
+
+    //Coses carles
+    public TextMeshProUGUI ammoLeftUI;
+
+    public SpriteRenderer mobile;
+    public SpriteRenderer fixedPart;
+
+    public Sprite originalMobile;
+    public Sprite originalFixed;
+    public Sprite outlinedFixed;
+    public Sprite outlinedMobile;
 
     [SerializeField]//TMP XQ EXTERN
     protected float rangeAttack, fireRate;
@@ -105,12 +117,13 @@ public abstract class TurretsFather : MonoBehaviour
                 ammunituion = maxAmmo;
             }
         }
+        updateAmmoUI((ammunituion - 1).ToString());
         return true;
     }
 
     public bool GiveAmmo()
     {
-        if (chest >= maxChest)
+        /*if (chest >= maxChest)
         {
             return false;
         }
@@ -118,7 +131,20 @@ public abstract class TurretsFather : MonoBehaviour
         {
             chest++;
             return true;
+        }*/
+
+        if (ammunituion < maxAmmo)
+        {
+            ammunituion = maxAmmo;
+            return true;
         }
+        else
+        {
+            return false;
+        }
+
+        updateAmmoUI((ammunituion - 1).ToString());
+
         /*
         if (chest + newChests > maxChest)
         {
@@ -135,6 +161,11 @@ public abstract class TurretsFather : MonoBehaviour
         }*/
         //ammunituion += ammo;
         //set deactive panell
+    }
+
+    private void updateAmmoUI(string newAmmo)
+    {
+        ammoLeftUI.SetText(newAmmo.ToString());
     }
 
     public void PlaceTurret()
@@ -199,6 +230,7 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected virtual void Shoot()
     {
+        updateAmmoUI((ammunituion - 1).ToString());
         lastShot = Time.time;
     }
 
