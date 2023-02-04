@@ -535,7 +535,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 
-    public void UpdateDatabase()
-    {
+    public void UpdateDatabase(){
+        movementSpeed = Database.Instance.PLAYER_SPEEDY[Database.Instance.PLAYER_SPEED_LVL];
+
     }
 }

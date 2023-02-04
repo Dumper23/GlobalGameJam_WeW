@@ -474,7 +474,7 @@ public class SkillTree : MonoBehaviour
                 Database.Instance.PLAYER_INVENTORY_LVL = 2;
                 break;
             case 97:
-                Database.Instance.PLAYER_INVENTORY_LVL = 1;
+                Database.Instance.PLAYER_INVENTORY_LVL = 3;
                 break;
             case 98:
                 Database.Instance.PLAYER_CAPACITY_LVL = 1;

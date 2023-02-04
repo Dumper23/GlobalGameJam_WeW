@@ -62,10 +62,12 @@ public class Tooltip : MonoBehaviour
     public static void ShowTooltip_Static(SkillTree.Node node)
     {
         Instance.ShowTooltip(node);
+        Debug.Log("Show");
     }
 
     public static void HideTooltip_Static()
     {
         Instance.HideTooltip();
+        Debug.Log("Hide");
     }
 }
