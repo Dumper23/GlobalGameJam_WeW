@@ -32,13 +32,13 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (node == null) Init();
 
         if (icons.Length == 3) image.sprite = node.buyed ? icons[0] : !SkillTree.Instance.GetNode(node.previousNodeId).buyed ? icons[0] :
-            SkillTree.Instance.Money >= node.cost ? icons[2] : icons[1];
+            GameManager.Instance.fertilizer >= node.cost ? icons[2] : icons[1];
     }
 
     public void Buy()
     {
-        if (SkillTree.Instance.Money < node.cost || node.buyed || !SkillTree.Instance.GetNode(node.previousNodeId).buyed) return;
-        SkillTree.Instance.Money -= node.cost;
+        if (GameManager.Instance.fertilizer < node.cost || node.buyed || !SkillTree.Instance.GetNode(node.previousNodeId).buyed) return;
+        GameManager.Instance.fertilizer -= node.cost;
         node.buyed = true;
         SkillTree.Instance.UpdateAllSkillsUI();
 

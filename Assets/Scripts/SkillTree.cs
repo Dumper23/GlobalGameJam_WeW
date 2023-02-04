@@ -32,15 +32,9 @@ public class SkillTree : MonoBehaviour
     public Dictionary<int, Node> SkillNodes = new Dictionary<int, Node>();
     public List<Skill> SkillHolder;
 
-    //public List<Skill> SkillsList;
-    //public GameObject SkillHolder;
-
-    public int Money;
 
     private void Start()
     {
-        Money = 50000;
-
         //Base
         SkillNodes.Add(0, new Node(0, "Name 0", "Desc 0", 0, 0));
         SkillNodes[0].buyed = true;

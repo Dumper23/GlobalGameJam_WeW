@@ -10,6 +10,7 @@ public class InfoUpdater : MonoBehaviour
     public TMP_Text time;
     public TMP_Text enemies;
     public TMP_Text money;
+    public TMP_Text lives;
 
     private float timeValue = 0;
     private bool timeUp = false;
@@ -35,6 +36,7 @@ public class InfoUpdater : MonoBehaviour
 
         DisplayTime(timeValue);
         money.text = GameManager.Instance.fertilizer.ToString() + " f";
+        money.text = GameManager.Instance.playerHP.ToString();
 
     }
 
