@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     public List<Vector3> waypoints = new List<Vector3>();
     public int fertilizerToGive = 10;
 
+    public GameObject bloodParticles;
+    public GameObject bloodDecal;
+
     public int waypointIndex = 0;
     public int currentHealth;
 
@@ -19,13 +22,13 @@ public class Enemy : MonoBehaviour
     private Vector3 currentAngle = new Vector3();
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         initialize();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         move();
     }
@@ -45,7 +48,7 @@ public class Enemy : MonoBehaviour
         this.rotateEnemy(0);
     }
 
-    void move()
+    private void move()
     {
         //Put z to 0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -56,7 +59,7 @@ public class Enemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.5)
         {
-            if(waypointIndex == 2 && this.type=="walk")
+            if (waypointIndex == 2 && this.type == "walk")
             {
                 //rotate enemy
                 this.rotateEnemy(90f);
@@ -82,7 +85,7 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             die();
         }
@@ -90,6 +93,8 @@ public class Enemy : MonoBehaviour
 
     public void die()
     {
+        Instantiate(bloodParticles, transform.position, Quaternion.identity);
+        Instantiate(bloodDecal, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
         GameManager.Instance.fertilizer += fertilizerToGive;
     }
