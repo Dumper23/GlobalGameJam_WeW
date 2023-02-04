@@ -93,7 +93,7 @@ public class SkillTree : MonoBehaviour
         // Turret 4
         SkillNodes.Add(40, new Node(40, "PINECONE LAUNCHER", Database.Instance.PINECONE_LAUNCHER_DESCRIPTION, 0, 0));
         SkillNodes.Add(41, new Node(41, Database.Instance.PINECONE_LAUNCHER_AREA_NAME, Database.Instance.PINECONE_LAUNCHER_AREA_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_AREA_COST[0], 40));
-        SkillNodes.Add(42, new Node(42, Database.Instance.PINECONE_LAUNCHER_DAMAGE_NAME, Database.Instance.PINECONE_LAUNCHER_DAMAGE_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_DAMAGE_COST[1], 41));
+        SkillNodes.Add(42, new Node(42, Database.Instance.PINECONE_LAUNCHER_DAMAGE_NAME, Database.Instance.PINECONE_LAUNCHER_DAMAGE_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_DAMAGE_COST[0], 41));
         SkillNodes.Add(43, new Node(43, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_NAME, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_COST[0], 42));
         SkillNodes.Add(44, new Node(44, Database.Instance.PINECONE_LAUNCHER_SPEED_NAME, Database.Instance.PINECONE_LAUNCHER_SPEED_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_SPEED_COST[0], 40));
         SkillNodes.Add(45, new Node(45, Database.Instance.PINECONE_LAUNCHER_RANGE_NAME, Database.Instance.PINECONE_LAUNCHER_RANGE_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_RANGE_COST[0], 44));

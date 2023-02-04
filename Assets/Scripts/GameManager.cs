@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject bottomFloor;
     public GameObject hud;
     public Narrative narrative;
+    public Narrative unlockFloorNarrative;
 
     public AudioSource introDay;
     public AudioSource loopDay;
@@ -52,13 +53,13 @@ public class GameManager : MonoBehaviour
     public bool isDay = false;
     public List<GameObject> allEnemies = new List<GameObject>();
     public NPC npcToAppear = new NPC(0, "", "", "");
+    public int floorColorIndex = 0;
 
     private int currentDay = 0;
     private int currentFloor = 0;
     private bool playerInMenu = false;
     private bool dayNightAnimationPlaying = false;
     private int turretAutoincremental = 0;
-    private int floorColorIndex = 0;
     private bool isFirstTime = true;
 
     private bool gamePaused = false;
@@ -839,10 +840,14 @@ public class GameManager : MonoBehaviour
             //Change to night sound and music
 
             //create new floor if its day X
-
+            bool hasUnlockedFloor = false;
             for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
             {
-                if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
+                if (currentDay == Database.Instance.unlockFloorDays[i])
+                {
+                    hasUnlockedFloor = true;
+                    Invoke("createNewFloor", 4.5f);
+                }
             }
 
             bool hasUnlockedNpc = false;
@@ -857,7 +862,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (!hasUnlockedNpc)
+            if (!hasUnlockedNpc && !hasUnlockedFloor)
             {
                 this.handleAnimationAndSound();
             }
@@ -867,7 +872,7 @@ public class GameManager : MonoBehaviour
     public void handleAnimationAndSound()
     {
         //Start day after 60s
-        Invoke("changeDayState", 20);//60
+        Invoke("changeDayState", 30);//60
 
         //Music
         fadeOutDay();
@@ -1101,6 +1106,8 @@ public class GameManager : MonoBehaviour
     {
         floorColorIndex++;
         unlockedFloors++;
+        //show animation
+        this.unlockFloorNarrative.startFloorScene();
         GameObject aux = Instantiate(floors[floorColorIndex], topFloor.transform.position, Quaternion.identity);
         aux.transform.parent = GameObject.Find("Floors").transform;
         topFloor.transform.position += new Vector3(0, 2, 0);
@@ -1115,7 +1122,7 @@ public class GameManager : MonoBehaviour
         {
             floorManager.updateDoors();
         }
-        if (floorColorIndex == 3)
+        if (floorColorIndex == 4)
         {
             floorColorIndex = -1;
         }
