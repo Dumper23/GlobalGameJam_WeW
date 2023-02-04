@@ -34,6 +34,8 @@ public class InfoUpdater : MonoBehaviour
         }
 
         DisplayTime(timeValue);
+        money.text = GameManager.Instance.fertilizer.ToString() + " f";
+
     }
 
     void DisplayTime(float timeToDisplay)
@@ -56,11 +58,12 @@ public class InfoUpdater : MonoBehaviour
 
     public void SetDay(int value)
     {
-        day.text = "Day " + value;
+        day.text = value.ToString();
     }
 
     public void SetEnemies(int value)
     {
-        enemies.text = "Enemies: " + value;
+        enemies.text = value.ToString();
     }
+
 }
