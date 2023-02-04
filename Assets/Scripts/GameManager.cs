@@ -824,11 +824,7 @@ public class GameManager : MonoBehaviour
 
             currentDay++;
 
-            //activate spawns
-            foreach (EnemySpawn spawn in enemySpawns)
-            {
-                spawn.activateSpawn();
-            }
+            Invoke("activateEnemySpawns", 6);
         }
         else
         {
@@ -876,6 +872,15 @@ public class GameManager : MonoBehaviour
             {
                 this.handleAnimationAndSound();
             }
+        }
+    }
+
+    public void activateEnemySpawns()
+    {
+        //activate spawns
+        foreach (EnemySpawn spawn in enemySpawns)
+        {
+            spawn.activateSpawn();
         }
     }
 
@@ -1124,11 +1129,18 @@ public class GameManager : MonoBehaviour
         FloorManager floorManager = FindObjectOfType<FloorManager>();
         floorList.Insert(floorList.Count-1,aux);
 
-        //add floor waypoint
+        //add ground floor waypoint
         Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
         enemyGroundWaypoints.RemoveAt(enemyGroundWaypoints.Count - 1);
         enemyGroundWaypoints.Add(aux.transform.Find("waypoint"));
         enemyGroundWaypoints.Add(topWaypoint);
+
+        //add fly floor waypoint
+        Transform topWaypointAir = enemyAirWaypoints[enemyAirWaypoints.Count - 1];
+        enemyAirWaypoints.RemoveAt(enemyAirWaypoints.Count - 1);
+        enemyAirWaypoints.Add(aux.transform.Find("waypointAir"));
+        enemyAirWaypoints.Add(topWaypointAir);
+
         if (floorManager)
         {
             floorManager.updateDoors();
@@ -1218,5 +1230,14 @@ public class GameManager : MonoBehaviour
     {
         floorList[currentFloor].GetComponent<FloorItem>().hideFloor();
         treetopForeground.SetActive(true);
+    }
+
+    public void checkRoundEnded()
+    {
+        foreach (EnemySpawn spawn in enemySpawns)
+        {
+            if (!spawn.checkAllWavesCompleted() || !spawn.checkAllEnemiesDeactivated()) return;
+        }
+        this.changeDayState();
     }
 }
