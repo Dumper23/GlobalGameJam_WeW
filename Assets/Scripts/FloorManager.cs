@@ -36,6 +36,7 @@ public class FloorManager : MonoBehaviour
             GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() + 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+            GameManager.Instance.updateFloorVisuals();
             return true;
         }
         else
@@ -53,6 +54,7 @@ public class FloorManager : MonoBehaviour
             GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() - 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+            GameManager.Instance.updateFloorVisuals();
             return true;
         }
         else

@@ -51,6 +51,7 @@ public class CameraFollow : MonoBehaviour
         {
             if (!isGeneralView)
             {
+                GameManager.Instance.updateFloorVisuals();
                 Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
                 target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
 
@@ -67,6 +68,7 @@ public class CameraFollow : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.globalMapVisionUpdate(true);
                 transform.position = new Vector3(-1.52f, 9f, transform.position.z);
                 cam.orthographicSize = 14f;
             }

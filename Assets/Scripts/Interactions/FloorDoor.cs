@@ -43,6 +43,7 @@ public class FloorDoor : IEInteractable
                 GameManager.Instance.alreadyInteracted = true;
                 GameManager.Instance.interactionCooldown = cooldown;
                 GameManager.Instance.playLiftAnimation();
+                
                 Invoke("notInteracted", cooldown);
             }
         }
