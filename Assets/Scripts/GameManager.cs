@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public List<AmmoImage> ammoImages;
     public List<GameObject> floors;
     public GameObject topFloor;
+    public GameObject bottomFloor;
     public GameObject hud;
 
     public AudioSource introDay;
@@ -761,6 +762,12 @@ public class GameManager : MonoBehaviour
                 if (currentDay == Database.Instance.unlockFloorDays[i]) createNewFloor();
             }
 
+            //unloc NPC & ammo if its day X
+            foreach (NPC npc in Database.Instance.unlockNpcDays)
+            {
+                if (npc.day == this.currentDay) this.unlockNPC(npc);
+            }
+
             //Start day after 60s
             Invoke("changeDayState", 60);
 
@@ -810,6 +817,21 @@ public class GameManager : MonoBehaviour
         this.hud.transform.Find("dayNightImage").gameObject.SetActive(false);
         //upause player movement
         setDayNightAnimationPlaying(false);
+    }
+
+    private void unlockNPC(NPC npc)
+    {
+        GameObject floor;
+        if(npc.floor == "bottom") floor = this.bottomFloor;
+        else floor = this.topFloor;
+
+        for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
+        {
+            if (floor.transform.Find("chests").GetChild(i).GetComponent<AmmoPicking>().ammoType == npc.ammoId)
+            {
+                floor.transform.Find("chests").GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
 
     public void placeTurret(Vector3 position, string turretId, TurretPlacholder placeHolder)

@@ -2,6 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class NPC
+{
+    public int day;
+    public string npcId;
+    public string ammoId;
+    public string floor;
+
+    public NPC(int day, string npcId, string ammoId, string floor)
+    {
+        this.day = day;
+        this.npcId = npcId;
+        this.ammoId = ammoId;
+        this.floor = floor;
+    }
+}
+
 [DefaultExecutionOrder(0)]
 public class Database : MonoBehaviour
 {
@@ -467,4 +483,15 @@ public class Database : MonoBehaviour
     public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
 
     #endregion UNLOCK FLOOR DAYS
+
+    #region UNLOCK NPC DAYS
+    public List<NPC> unlockNpcDays = new List<NPC>{
+        new NPC(1, "perrito", "sunflower", "top"), //3
+        new NPC(3, "chinchilla", "pinecone", "bottom"), //6
+        new NPC(9, "castor", "resin", "top"),
+        new NPC(12, "puercoespin", "spike", "bottom"),
+        new NPC(15, "capybara", "nut", "bottom"),
+        new NPC(18, "rata", "potato", "top"),
+    };
+    #endregion
 }
