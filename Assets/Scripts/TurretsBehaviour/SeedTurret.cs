@@ -37,36 +37,53 @@ public class SeedTurret : TurretsFather
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
-        foreach (KeyValuePair<string, float> stat in d)
+
+        if (d.TryGetValue("damageLevel", out float LDamage))
         {
-            switch (stat.Key)
+            if (LDamage != 0)
             {
-                case "capacity":
-                    if ((int)stat.Value != 0)
-                    {
-                        maxAmmo = (int)stat.Value;
-                    }
-                    break;
-                case "damage":
-                    if ((int)stat.Value != 0)
-                    {
-                        damage = (int)stat.Value;
-                    }
-                    break;
-                case "speed":
-                    if (stat.Value != 0)
-                    {
-                        fireRate = stat.Value;
-                    }
-                    break;
+                if (d.TryGetValue("damage", out float newDamage))
+                {
+                    damage = (int)newDamage;
+                }
+            }
+        }
+        if (d.TryGetValue("capacityLevel", out float LCapacity))
+        {
+            if (LCapacity != 0)
+            {
+                if (d.TryGetValue("capacity", out float newCapacity))
+                {
+                    maxAmmo = (int)newCapacity;
+                }
+            }
+        }
+        if (d.TryGetValue("chestLevel", out float LChest))
+        {
+            if (LChest != 0)
+            {
+                if (d.TryGetValue("chest", out float newChest))
+                {
+                    maxChest = (int)newChest;
+                }
+            }
+        }
+        if (d.TryGetValue("speedLevel", out float LSpeed))
+        {
+            if (LSpeed != 0)
+            {
+                if (d.TryGetValue("speed", out float newSpeed))
+                {
+                    fireRate = newSpeed;
+                }
             }
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float none = -1, float none1 = -1, float none2 = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         fireRate = newFireRate;
-    }
+    }*/
 }

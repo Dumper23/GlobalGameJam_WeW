@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class PorcuthrowTurret : TurretsFather
 {
-    [SerializeField]
-    private float startAngle = 0f, endAngle = 360f;
+    [Header("Porcuthrow Default Stats")]
 
     [SerializeField]
     private int bulletsAmmount = 11;
 
     [SerializeField]
     private bool piercing = false;
+
+    [Header("Porcuthrow Settings")]
+    [SerializeField]
+    private float startAngle = 0f;
+    [SerializeField]
+    private float endAngle = 360f;
+
     private void Awake()
     {
         turretId = "PORCUTHROW";
@@ -69,48 +75,71 @@ public class PorcuthrowTurret : TurretsFather
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
-        foreach (KeyValuePair<string, float> stat in d)
+        if (d.TryGetValue("capacityLevel", out float LCapacity))
         {
-            switch (stat.Key)
+            if (LCapacity != 0)
             {
-                case "capacity":
-                    if ((int)stat.Value != 0)
-                    {
-                        maxAmmo = (int)stat.Value;
-                    }
-                    break;
-                case "projectiles":
-                    if ((int)stat.Value != 0)
-                    {
-                        bulletsAmmount = (int)stat.Value - 1;
-                    }
-                    break;
-                case "speed":
-                    if (stat.Value != 0)
-                    {
-                        fireRate = stat.Value;
-                    }
-                    break;
-                case "piercing":
-                    if (stat.Value == 0)
+                if (d.TryGetValue("capacity", out float newCapacity))
+                {
+                    maxAmmo = (int)newCapacity;
+                }
+            }
+        }
+        if (d.TryGetValue("chestLevel", out float LChest))
+        {
+            if (LChest != 0)
+            {
+                if (d.TryGetValue("chest", out float newChest))
+                {
+                    maxChest = (int)newChest;
+                }
+            }
+        }
+        if (d.TryGetValue("speedLevel", out float LSpeed))
+        {
+            if (LSpeed != 0)
+            {
+                if (d.TryGetValue("speed", out float newSpeed))
+                {
+                    fireRate = newSpeed;
+                }
+            }
+        }
+        if (d.TryGetValue("projectilesLevel", out float LProjectiles))
+        {
+            if (LProjectiles != 0)
+            {
+                if (d.TryGetValue("projectiles", out float newProjectiles))
+                {
+                    bulletsAmmount = (int)newProjectiles - 1;
+                }
+            }
+        }
+        if (d.TryGetValue("piercingLevel", out float LPiercing))
+        {
+            if (LPiercing != 0)
+            {
+                if (d.TryGetValue("piercing", out float newPiercing))
+                {
+                    if ((int)newPiercing == 0)
                     {
                         piercing = false;
                     }
-                    if (stat.Value == 1)
+                    if ((int)newPiercing == 1)
                     {
                         piercing = true;
                     }
-                    break;
+                }
             }
         }
     }
-    public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1, float none1 = -1, float none2 = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newProjectiles, float newFireRate, bool newPiercing = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         bulletsAmmount = newProjectiles;
         fireRate = newFireRate;
         piercing = newPiercing;
-    }
+    }*/
     protected override void DetectObjective()
     {
         int closestPos = -1;
