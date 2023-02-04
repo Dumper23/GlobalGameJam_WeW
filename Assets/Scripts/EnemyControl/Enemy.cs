@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public string id;
     public int maxHealth;
     public float speed;
+    public float currentSpeed;
     public string type; //flying, etc
     public List<Vector3> waypoints = new List<Vector3>();
     public int fertilizerToGive = 10;
@@ -39,7 +40,8 @@ public class Enemy : MonoBehaviour
             Vector3 offsetWaypoint = getRandomPoint(waypoint.position);
             waypoints.Add(offsetWaypoint);
         }
-        currentHealth = maxHealth;
+        this.currentHealth = this.maxHealth;
+        this.currentSpeed = this.speed;
         this.rotateEnemy(0);
     }
 
@@ -95,5 +97,22 @@ public class Enemy : MonoBehaviour
     private Vector3 getRandomPoint(Vector3 center)
     {
         return center + new Vector3(Random.Range(-1, 1) * TARGET_OFFSET, Random.Range(-1, 1) * TARGET_OFFSET, 0);
+    }
+
+    public void stun(float time)
+    {
+        this.currentSpeed = 0;
+        Invoke("setOriginalSpeed", time);
+    }
+
+    public void slowDown(float amount)
+    {
+        this.currentSpeed -= this.currentSpeed * amount;
+        Invoke("setOriginalSpeed", 3);
+    }
+
+    public void setOriginalSpeed()
+    {
+        this.currentSpeed = this.speed;
     }
 }

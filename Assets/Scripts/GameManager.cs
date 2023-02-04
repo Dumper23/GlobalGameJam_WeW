@@ -1239,4 +1239,14 @@ public class GameManager : MonoBehaviour
         }
         this.changeDayState();
     }
+
+    public int getRemainingNumEnemies()
+    {
+        int numTotal = 0;
+        foreach (EnemySpawn spawn in this.enemySpawns)
+        {
+            numTotal += spawn.getNumEnemiesToFinish();
+        }
+        return numTotal;
+    }
 }

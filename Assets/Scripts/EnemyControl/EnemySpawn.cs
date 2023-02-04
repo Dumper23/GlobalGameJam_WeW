@@ -199,6 +199,15 @@ public class EnemySpawn : MonoBehaviour
         }
         return true;
     }
+    public int getNumEnemiesToFinish()
+    {
+        int num = 0;
+        foreach (EnemyWaveState wave in enemyWaveStates)
+        {
+            num += wave.totalEnemies - wave.numSpawned;
+        }
+        return num;
+    }
 
     void OnDrawGizmosSelected()
     {
