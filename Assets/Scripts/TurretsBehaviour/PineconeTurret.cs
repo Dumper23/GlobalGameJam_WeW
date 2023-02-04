@@ -141,13 +141,13 @@ public class PineconeTurret : TurretsFather
         }
 
     }
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1, float none1 = -1, float none2 = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newRadius, bool newCluster = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         radius = newRadius;
         cluster = newCluster;
-    }
+    }*/
     protected override void DetectObjective()
     {
         int closestPos = -1;

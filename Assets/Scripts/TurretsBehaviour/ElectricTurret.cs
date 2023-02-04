@@ -109,12 +109,12 @@ public class ElectricTurret : TurretsFather
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float newRayHits = -1, float newStun = -1, float none = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float newRayHits = -1, float newStun = -1, float none = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         fireRate = newFireRate;
         rayHits = (int)newRayHits;
         stunness = newStun;
-    }
+    }*/
 }

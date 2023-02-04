@@ -120,7 +120,7 @@ public abstract class TurretsFather : MonoBehaviour
         mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
     }
 
-    public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?
+    //public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?
 
     protected abstract void InintiateStatsAtCurrentUpgrades();
 

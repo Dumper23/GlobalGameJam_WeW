@@ -66,4 +66,12 @@ public class ResinBullet : MonoBehaviour
             //collision.gameObject.GetComponent<EnemyScript>().Slow() i dmg;
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            //collision.gameObject.GetComponent<EnemyScript>().Slow() i dmg;
+            //remove slow
+        }
+    }
 }

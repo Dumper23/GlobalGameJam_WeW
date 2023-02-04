@@ -147,7 +147,7 @@ public class ResinTurret : TurretsFather
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float newSize = -1, float newStickness = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float newSize = -1, float newStickness = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
@@ -155,5 +155,5 @@ public class ResinTurret : TurretsFather
         resinDuration = durationResin;
         length = newSize;
         slowness = newStickness;
-    }
+    }*/
 }

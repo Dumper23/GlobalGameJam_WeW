@@ -105,13 +105,13 @@ public class SeedniperTurret : TurretsFather
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newRicochet = false, float none = -1, float none1 = -1, float none2 = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newRicochet = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         fireRate = newFireRate;
         ricochet = newRicochet;
-    }
+    }*/
 
     protected override void DetectObjective()
     {
