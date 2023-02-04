@@ -18,7 +18,7 @@ public class NPC
     }
 }
 
-//[DefaultExecutionOrder(0)]
+[DefaultExecutionOrder(0)]
 public class Database : MonoBehaviour
 {
     #region Singleton
@@ -515,7 +515,7 @@ public class Database : MonoBehaviour
 
     #region UNLOCK FLOOR DAYS
 
-    [HideInInspector] public int[] unlockFloorDays = { 1, 5, 8, 11, 14, 17, 19, 20, 21 };
+    [HideInInspector] public int[] unlockFloorDays = { 2, 5, 8, 11, 14, 17, 19, 20, 21 };
 
     #endregion UNLOCK FLOOR DAYS
 
