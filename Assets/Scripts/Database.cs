@@ -23,6 +23,8 @@ public class Database : MonoBehaviour
 {
     #region Singleton
 
+    public static Database Instance { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -32,6 +34,8 @@ public class Database : MonoBehaviour
         }
         Instance = this;
     }
+
+    #endregion Singleton
 
     #region WAVES FOR EACH DAY
 
