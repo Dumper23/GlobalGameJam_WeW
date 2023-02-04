@@ -65,6 +65,7 @@ public class EnemySpawn : MonoBehaviour
                 aux.transform.parent = GameObject.Find("Enemies").transform;
                 aux.SetActive(false);
                 pool.pooledObjects.Add(aux);
+                GameManager.Instance.allEnemies.Add(aux);
             }
         }
     }
@@ -146,6 +147,7 @@ public class EnemySpawn : MonoBehaviour
         aux.transform.parent = GameObject.Find("Enemies").transform;
         aux.SetActive(false);
         pools[poolIndex].pooledObjects.Add(aux);
+        GameManager.Instance.allEnemies.Add(aux);
         return aux;
     }
 
@@ -202,18 +204,5 @@ public class EnemySpawn : MonoBehaviour
     {
         UnityEditor.Handles.color = Color.green;
         UnityEditor.Handles.DrawWireDisc(transform.position, transform.up, AREA_RANGE);
-    }
-
-    public List<GameObject> getEnemies()
-    {
-        List<GameObject> enemies = new List<GameObject>();
-        foreach (Pool pool in pools)
-        {
-            foreach (GameObject enemy in pool.pooledObjects)
-            {
-                enemies.Add(enemy);
-            }
-        }
-        return enemies;
     }
 }

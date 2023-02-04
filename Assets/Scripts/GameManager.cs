@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public List<TurretEditor> turrets;
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
+    public List<GameObject> allEnemies = new List<GameObject>();
 
     private int currentDay = 0;
     private int currentFloor = 0;
@@ -898,5 +899,10 @@ public class GameManager : MonoBehaviour
         {
             floorColorIndex = -1;
         }
+    }
+
+    public List<GameObject> getAllEnemies()
+    {
+        return this.allEnemies;
     }
 }
