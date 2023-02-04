@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject topFloor;
     public GameObject bottomFloor;
     public GameObject treetopForeground;
+    public GameObject rootHidder;
     public GameObject hud;
     public Narrative narrative;
 
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         changeDayState();
@@ -170,11 +172,6 @@ public class GameManager : MonoBehaviour
     public void setVisibilityInventoryUI(bool visible)
     {
         player.inventoryContainer.SetActive(visible);
-    }
-
-    public void toogleRootView()
-    {
-        mainCam.GetComponent<CameraFollow>().toggleRootView();
     }
 
     public void setRootView(bool isRootView)
@@ -1205,11 +1202,13 @@ public class GameManager : MonoBehaviour
         if (currentFloor != floorList.Count-1) floorList[currentFloor + 1].GetComponent<FloorItem>().hideFloor();
         floorList[currentFloor].GetComponent<FloorItem>().showFloor();
         if(currentFloor == floorList.Count-1) treetopForeground.SetActive(false); else treetopForeground.SetActive(true);
+        rootHidder.SetActive(false);
     }
 
-    public void globalMapVisionUpdate(bool hide)
+    public void globalMapVisionUpdate()
     {
         floorList[currentFloor].GetComponent<FloorItem>().hideFloor();
         treetopForeground.SetActive(true);
+        rootHidder.SetActive(true);
     }
 }

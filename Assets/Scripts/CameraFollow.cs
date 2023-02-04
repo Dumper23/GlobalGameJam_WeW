@@ -13,6 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 target;
     private bool isRootView = false;
+    private bool wasRootView = false;
     private bool isGeneralView;
     private bool wasGeneralView = false;
     private Camera cam;
@@ -30,14 +31,10 @@ public class CameraFollow : MonoBehaviour
         GameManager.Instance.setVisibilityInventoryUI(!isGeneralView);
     }
 
-    public void toggleRootView()
-    {
-        isRootView = !isRootView;
-    }
-
     public void setRootView(bool isRootView)
     {
         this.isRootView = isRootView;
+        wasRootView = !isRootView;
     }
 
     public void setGeneralView(bool isGeneralView)
@@ -55,7 +52,7 @@ public class CameraFollow : MonoBehaviour
                 Vector3 floorPosition = floors.liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
                 target = new Vector3(floorPosition.x + xOffset, floorPosition.y + yOffset, transform.position.z);
 
-                if (!wasGeneralView)
+                if (!wasGeneralView && !wasRootView)
                 {
                     transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, -10), smoothFactor * Time.deltaTime);
                 }
@@ -63,14 +60,15 @@ public class CameraFollow : MonoBehaviour
                 {
                     transform.position = target;
                     wasGeneralView = false;
+                    wasRootView = false;
                 }
                 cam.orthographicSize = 3f;
             }
             else
             {
-                GameManager.Instance.globalMapVisionUpdate(true);
-                transform.position = new Vector3(-1.52f, 9f, transform.position.z);
-                cam.orthographicSize = 14f;
+                GameManager.Instance.globalMapVisionUpdate();
+                transform.position = new Vector3(0, 10f, transform.position.z);
+                cam.orthographicSize = 18f;
             }
         }
         else
