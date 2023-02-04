@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> floors;
     public GameObject topFloor;
     public GameObject bottomFloor;
+    public GameObject treetopForeground;
     public GameObject hud;
     public Narrative narrative;
 
@@ -42,11 +44,14 @@ public class GameManager : MonoBehaviour
     public AudioSource loopDay;
     public AudioSource loopNight;
     public AudioSource backgroundSoundsNight;
+
+
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
 
     [SerializeField]
     public List<TurretEditor> turrets;
+    private List<GameObject> floorList = new List<GameObject>();
 
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
@@ -96,6 +101,11 @@ public class GameManager : MonoBehaviour
         changeDayState();
         player.updateTurretInventoryNumberUI();
         player.updateInventorySlots();
+
+        // List
+        floorList.Add(GameObject.Find("BOTTOM"));
+        floorList.Add(GameObject.Find("Blue_Floor"));
+        floorList.Add(GameObject.Find("TOP"));
     }
 
     #region getters & setters
@@ -1105,6 +1115,7 @@ public class GameManager : MonoBehaviour
         aux.transform.parent = GameObject.Find("Floors").transform;
         topFloor.transform.position += new Vector3(0, 2, 0);
         FloorManager floorManager = FindObjectOfType<FloorManager>();
+        floorList.Insert(floorList.Count-1,aux);
 
         //add floor waypoint
         Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
@@ -1186,5 +1197,19 @@ public class GameManager : MonoBehaviour
     public void playLiftAnimation()
     {
         player.liftDelayCircle.fillAmount = interactionCooldown;
+    }
+
+    public void updateFloorVisuals()
+    {
+        if (currentFloor != 0) floorList[currentFloor - 1].GetComponent<FloorItem>().hideFloor();
+        if (currentFloor != floorList.Count-1) floorList[currentFloor + 1].GetComponent<FloorItem>().hideFloor();
+        floorList[currentFloor].GetComponent<FloorItem>().showFloor();
+        if(currentFloor == floorList.Count-1) treetopForeground.SetActive(false); else treetopForeground.SetActive(true);
+    }
+
+    public void globalMapVisionUpdate(bool hide)
+    {
+        floorList[currentFloor].GetComponent<FloorItem>().hideFloor();
+        treetopForeground.SetActive(true);
     }
 }
