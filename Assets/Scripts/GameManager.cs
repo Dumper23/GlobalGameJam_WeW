@@ -389,6 +389,29 @@ public class GameManager : MonoBehaviour
         player.updateInventorySlots();
     }
 
+    public void deleteAmmoAmount(int amount, string ammoType)
+    {
+        if (player.ammoSlot1.currentAmmoType.Equals(ammoType) && player.ammoSlot1.currentAmount - 1 >= 0)
+        {
+            player.ammoSlot1.currentAmount -= 1;
+        }
+
+        if (player.ammoSlot2.currentAmmoType.Equals(ammoType) && player.ammoSlot2.currentAmount - 1 >= 0)
+        {
+            player.ammoSlot2.currentAmount -= 1;
+        }
+        else if (player.ammoSlot3.currentAmmoType.Equals(ammoType) && player.ammoSlot3.currentAmount - 1 >= 0)
+        {
+            player.ammoSlot3.currentAmount -= 1;
+        }
+        else if (player.ammoSlot4.currentAmmoType.Equals(ammoType) && player.ammoSlot4.currentAmount - 1 >= 0)
+        {
+            player.ammoSlot4.currentAmount -= 1;
+        }
+
+        player.updateInventorySlots();
+    }
+
     public void playLiftSound()
     {
         player.audioSources[player.AUDIO_FLOOR_CHANGE].clip = player.audios[player.AUDIO_FLOOR_CHANGE];
@@ -416,6 +439,7 @@ public class GameManager : MonoBehaviour
         {
             player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
             player.audioSources[player.AUDIO_TURRET_PLACE].Play();
+            deleteAmmo();
         }
         else
         {

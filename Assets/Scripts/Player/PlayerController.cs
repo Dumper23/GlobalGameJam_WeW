@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
                 {
                     interactionSymbolE.SetActive(true);
                     interactionSymbolWS.SetActive(false);
-                    interactionSymbolR.SetActive(false);
+                    //interactionSymbolR.SetActive(false);
                 }
                 else if (interaction.iconName == "WS")
                 {
@@ -209,12 +209,11 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (interaction.iconName == "R")
                 {
-                    interactionSymbolE.SetActive(false);
+                    //interactionSymbolE.SetActive(false);
                     interactionSymbolWS.SetActive(false);
                     interactionSymbolR.SetActive(true);
                 }
 
-                //interaction.gameObject.GetComponent<SpriteRenderer>().material = outlineMaterial;
                 if (Input.GetButtonDown("Interaction"))
                 {
                     interaction.Interaction("E");
@@ -530,6 +529,5 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateDatabase()
     {
-
     }
 }

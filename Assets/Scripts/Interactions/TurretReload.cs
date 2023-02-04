@@ -10,6 +10,10 @@ public class TurretReload : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        GameManager.Instance.placeAmmo(GetComponent<TurretsFather>());
+        if (action.Equals("R"))
+        {
+            Debug.Log("Hola");
+            GameManager.Instance.placeAmmo(GetComponent<TurretsFather>());
+        }
     }
 }

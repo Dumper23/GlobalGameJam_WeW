@@ -41,6 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2412192368525986102}
   - component: {fileID: 7145350692635599430}
+  - component: {fileID: 880137751151164698}
+  - component: {fileID: 2460866478547018470}
   m_Layer: 0
   m_Name: ElectricTurret
   m_TagString: Untagged
@@ -88,6 +90,47 @@ MonoBehaviour:
   mobilePart: {fileID: 2412192369430153044}
   stunness: 5
   rayHits: 5
+--- !u!114 &880137751151164698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412192368525986104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165f7a8d118c0e34e945b7f602c7e8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconName: R
+  original: {fileID: 0}
+  outlined: {fileID: 0}
+--- !u!61 &2460866478547018470
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412192368525986104}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2412192368631083366
 GameObject:
   m_ObjectHideFlags: 0

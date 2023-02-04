@@ -190,6 +190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3973925625254682359}
   - component: {fileID: 8998293220336867991}
+  - component: {fileID: 4728421036917193765}
+  - component: {fileID: 7963854462041688516}
   m_Layer: 0
   m_Name: PorcothrowTurret
   m_TagString: Untagged
@@ -231,15 +233,55 @@ MonoBehaviour:
   ammunituion: 10
   damage: 5
   maxAmmo: 30
-  enemyList:
-  - {fileID: 0}
-  - {fileID: 0}
+  chest: 0
+  maxChest: 0
   bulletSpawn: {fileID: 896369789814219168}
   mobilePart: {fileID: 4656341952732876695}
-  endWayPoint: {fileID: 0}
   startAngle: 155
   endAngle: 205
   bulletsAmmount: 2
+  piercing: 0
+--- !u!114 &4728421036917193765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899878034113650534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165f7a8d118c0e34e945b7f602c7e8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconName: R
+  original: {fileID: 0}
+  outlined: {fileID: 0}
+--- !u!61 &7963854462041688516
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899878034113650534}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8374104515755435784
 GameObject:
   m_ObjectHideFlags: 0
