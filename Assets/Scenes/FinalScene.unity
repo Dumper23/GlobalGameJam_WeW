@@ -2066,7 +2066,7 @@ GameObject:
   - component: {fileID: 1098413365}
   - component: {fileID: 1098413364}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SunMoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6941,6 +6941,7 @@ MonoBehaviour:
   enemies: {fileID: 826745375129875945}
   money: {fileID: 1011601463}
   lives: {fileID: 1579463640}
+  sunMoon: {fileID: 1098413362}
 --- !u!222 &826745375129875944
 CanvasRenderer:
   m_ObjectHideFlags: 0

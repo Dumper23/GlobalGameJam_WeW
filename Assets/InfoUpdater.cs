@@ -11,6 +11,7 @@ public class InfoUpdater : MonoBehaviour
     public TMP_Text enemies;
     public TMP_Text money;
     public TMP_Text lives;
+    public GameObject sunMoon;
 
     private float timeValue = 0;
     private bool timeUp = false;
@@ -27,11 +28,13 @@ public class InfoUpdater : MonoBehaviour
     {
         if (timeUp)
         {
-            timeValue += Time.deltaTime; 
+            timeValue += Time.deltaTime;
+            sunMoon.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
             if (timeValue > 0) timeValue -= Time.deltaTime; else timeValue = 0;
+            sunMoon.transform.rotation = Quaternion.Euler(0, 0, 180);
         }
 
         DisplayTime(timeValue);
@@ -52,7 +55,16 @@ public class InfoUpdater : MonoBehaviour
     }
     public void ChangeDay()
     {
-        if (dayStateValue % 2 == 0) timeValue = 0; else timeValue = 60;
+        if (dayStateValue % 2 == 0)
+        {
+            timeValue = 0;
+
+        }
+        else
+        {
+            timeValue = 60;
+        }
+
         timeUp = !timeUp;
         dayStateValue++;
         SetDay(dayStateValue / 2);
