@@ -18,6 +18,8 @@ public class Tooltip : MonoBehaviour
     private TMP_Text tooltipCost;
     [SerializeField]
     private RectTransform backgroundRectTransform;
+    [SerializeField]
+    private RectTransform canvasRectTransform;
 
     private void Awake()
     {
@@ -29,6 +31,16 @@ public class Tooltip : MonoBehaviour
     {
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
+
+        
+        if (localPoint.x + backgroundRectTransform.rect.width > canvasRectTransform.rect.width/2){
+            localPoint.x -= ((backgroundRectTransform.rect.width + localPoint.x) - canvasRectTransform.rect.width/2);
+        }
+
+        if (localPoint.y + backgroundRectTransform.rect.height > canvasRectTransform.rect.height/2){
+            localPoint.y -= ((backgroundRectTransform.rect.height + localPoint.y) - canvasRectTransform.rect.height / 2);
+        }
+
         transform.localPosition = localPoint;
     }
 

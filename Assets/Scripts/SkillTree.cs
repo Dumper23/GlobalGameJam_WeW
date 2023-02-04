@@ -150,16 +150,17 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(91, new Node(91, Database.Instance.ELECTRIC_POTATO_CHEST_NAME, Database.Instance.ELECTRIC_POTATO_CHEST_DESCRIPTION, Database.Instance.ELECTRIC_POTATO_CHEST_COST[2], 90));
 
         //Perso
-        SkillNodes.Add(92, new Node(92, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[0], 0));
+        SkillNodes.Add(102, new Node(102, "Player", "Player upgrades", 0, 0));
+        SkillNodes.Add(92, new Node(92, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[0], 102));
         SkillNodes.Add(93, new Node(93, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[1], 92));
         SkillNodes.Add(94, new Node(94, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[2], 93));
-        SkillNodes.Add(95, new Node(95, Database.Instance.PLAYER_INVENTORY_NAME, Database.Instance.PLAYER_INVENTORY_DESCRIPTION, Database.Instance.PLAYER_INVENTORY_COST[0], 0));
+        SkillNodes.Add(95, new Node(95, Database.Instance.PLAYER_INVENTORY_NAME, Database.Instance.PLAYER_INVENTORY_DESCRIPTION, Database.Instance.PLAYER_INVENTORY_COST[0], 102));
         SkillNodes.Add(96, new Node(96, Database.Instance.PLAYER_INVENTORY_NAME, Database.Instance.PLAYER_INVENTORY_DESCRIPTION, Database.Instance.PLAYER_INVENTORY_COST[1], 95));
         SkillNodes.Add(97, new Node(97, Database.Instance.PLAYER_INVENTORY_NAME, Database.Instance.PLAYER_INVENTORY_DESCRIPTION, Database.Instance.PLAYER_INVENTORY_COST[2], 96));
-        SkillNodes.Add(98, new Node(98, Database.Instance.PLAYER_CAPACITY_NAME, Database.Instance.PLAYER_CAPACITY_DESCRIPTION, Database.Instance.PLAYER_CAPACITY_COST[0], 0));
+        SkillNodes.Add(98, new Node(98, Database.Instance.PLAYER_CAPACITY_NAME, Database.Instance.PLAYER_CAPACITY_DESCRIPTION, Database.Instance.PLAYER_CAPACITY_COST[0], 102));
         SkillNodes.Add(99, new Node(99, Database.Instance.PLAYER_CAPACITY_NAME, Database.Instance.PLAYER_CAPACITY_DESCRIPTION, Database.Instance.PLAYER_CAPACITY_COST[1], 98));
         SkillNodes.Add(100, new Node(100, Database.Instance.PLAYER_CAPACITY_NAME, Database.Instance.PLAYER_CAPACITY_DESCRIPTION, Database.Instance.PLAYER_CAPACITY_COST[2], 99));
-        SkillNodes.Add(101, new Node(101, Database.Instance.PLAYER_LIFT_NAME, Database.Instance.PLAYER_LIFT_DESCRIPTION, Database.Instance.PLAYER_LIFT_COST[0], 0));
+        SkillNodes.Add(101, new Node(101, Database.Instance.PLAYER_LIFT_NAME, Database.Instance.PLAYER_LIFT_DESCRIPTION, Database.Instance.PLAYER_LIFT_COST[0], 102));
 
         foreach (Skill skill in SkillHolder) skill.Init();
 
