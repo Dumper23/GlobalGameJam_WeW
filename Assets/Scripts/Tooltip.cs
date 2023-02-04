@@ -50,7 +50,7 @@ public class Tooltip : MonoBehaviour
 
         tooltipName.text = node.name;
         tooltipDesc.text = node.desc;
-        if (node.cost != 0) tooltipCost.text = node.cost.ToString() + " Fertilizer";
+        if (node.cost != 0) tooltipCost.text = node.cost.ToString() + " f";
         else tooltipCost.text = "";
     }
 

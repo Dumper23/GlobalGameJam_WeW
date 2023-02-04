@@ -39,7 +39,7 @@ public class InfoUpdater : MonoBehaviour
 
         DisplayTime(timeValue);
         money.text = GameManager.Instance.fertilizer.ToString() + " f";
-        money.text = GameManager.Instance.playerHP.ToString();
+        lives.text = GameManager.Instance.playerHP.ToString();
 
     }
 
