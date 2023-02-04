@@ -82,13 +82,10 @@ MonoBehaviour:
   ammunituion: 50
   damage: 7
   maxAmmo: 50
-  enemyList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  chest: 0
+  maxChest: 0
   bulletSpawn: {fileID: 2412192368212930798}
   mobilePart: {fileID: 2412192369430153044}
-  endWayPoint: {fileID: 0}
   stunness: 5
   rayHits: 5
 --- !u!1 &2412192368631083366
@@ -163,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 64fb8c174d40abd4984c7cfb64facf35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -279,7 +276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 174392d58b52bab47b2e08777f8c7f55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

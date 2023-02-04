@@ -409,12 +409,19 @@ public class GameManager : MonoBehaviour
         return ai.image;
     }
 
-    public void placeAmmo()
+    public void placeAmmo(TurretsFather turret)
     {
         //Somehow we need to add the ammotype to the turret if the player has it
-        //Turret.GiveAmmo() retorna si ha pogut posar ammo o si no i esta a tope
-        //si no es pot player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
-        //player.audioSources[player.AUDIO_CANCEL].Play();
+        if (turret.GiveAmmo())
+        {
+            player.audioSources[player.AUDIO_TURRET_PLACE].clip = player.audios[player.AUDIO_TURRET_PLACE];
+            player.audioSources[player.AUDIO_TURRET_PLACE].Play();
+        }
+        else
+        {
+            player.audioSources[player.AUDIO_CANCEL].clip = player.audios[player.AUDIO_CANCEL];
+            player.audioSources[player.AUDIO_CANCEL].Play();
+        }
     }
 
     public List<Transform> getWaypoints(string type)
@@ -822,7 +829,7 @@ public class GameManager : MonoBehaviour
     private void unlockNPC(NPC npc)
     {
         GameObject floor;
-        if(npc.floor == "bottom") floor = this.bottomFloor;
+        if (npc.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
 
         for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
