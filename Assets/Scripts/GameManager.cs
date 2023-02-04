@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int fertilizer = 0;
 
     private PlayerController player;
+    public InfoUpdater infoUpdater;
     public List<Transform> enemyGroundWaypoints;
     public List<Transform> enemyAirWaypoints;
     public int playerHP;
@@ -749,6 +750,7 @@ public class GameManager : MonoBehaviour
     {
         //pause player movement
         setDayNightAnimationPlaying(true);
+        infoUpdater.ChangeDay();
         isDay = !isDay;
         if (isDay)
         {
