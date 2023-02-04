@@ -17,7 +17,7 @@ public class SeedniperTurret : TurretsFather
     {
         //ammunituion = 5;
         //damage = 10;
-
+        base.Start();
     }
 
     void Update()
@@ -91,12 +91,138 @@ public class SeedniperTurret : TurretsFather
 
     protected override void DetectObjective()
     {
-        base.DetectObjective();
-
+        //FIRST TARGET
+        #region 1st
         int closestPos = -1;
         float closestDistance = Mathf.Infinity;
         int posIterator = 0;
+        
+        foreach (GameObject o in enemyList)
+        {
 
+            if (o != null && o.activeInHierarchy)
+            {
+                if (IsInRange(o) && o.GetComponent<Enemy>().type == "fly")
+                {
+
+                    if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                    {
+                        closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                        closestPos = posIterator;
+                    }
+                }
+            }
+            posIterator++;
+
+        }
+        if (closestPos != -1)
+        {
+            //Attack fly
+            currentTarget = enemyList[closestPos];
+        }
+        else
+        {
+            currentTarget = null;
+            closestPos = -1;
+            closestDistance = Mathf.Infinity;
+            posIterator = 0;
+            foreach (GameObject o in enemyList)
+            {
+
+                if (o != null && o.activeInHierarchy)
+                {
+                    if (IsInRange(o) && o.GetComponent<Enemy>().type == "walk")
+                    {
+
+                        if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                        {
+                            closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                            closestPos = posIterator;
+                        }
+                    }
+                }
+                posIterator++;
+            }
+            if (closestPos != -1)
+            {
+                //Attack no fly
+                currentTarget = enemyList[closestPos];
+            }
+            else
+            {
+                //No attack
+                currentTarget = null;
+            }
+        }
+        #endregion
+        #region 2nd
+        //SECOND TARGET
+        if (currentTarget != null) {
+            closestPos = -1;
+            closestDistance = Mathf.Infinity;
+            posIterator = 0;
+            foreach (GameObject o in enemyList)
+            {
+
+                if (o != null && o.activeInHierarchy)
+                {
+                    if (o.gameObject != currentTarget.gameObject && IsInRange(o) && o.GetComponent<Enemy>().type == "fly")
+                    {
+
+                        if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                        {
+                            closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                            closestPos = posIterator;
+                        }
+                    }
+                }
+                posIterator++;
+
+            }
+            if (closestPos != -1)
+            {
+                //Attack fly
+                secondTarget = enemyList[closestPos];
+            }
+            else
+            {
+                secondTarget = null;
+                closestPos = -1;
+                closestDistance = Mathf.Infinity;
+                posIterator = 0;
+                foreach (GameObject o in enemyList)
+                {
+
+                    if (o != null && o.activeInHierarchy)
+                    {
+                        if (o.gameObject != currentTarget.gameObject && IsInRange(o) && o.GetComponent<Enemy>().type == "walk")
+                        {
+
+                            if (closestDistance > Vector2.Distance(endWayPoint.position, o.transform.position))
+                            {
+                                closestDistance = Vector2.Distance(endWayPoint.position, o.transform.position);
+                                closestPos = posIterator;
+                            }
+                        }
+                    }
+                    posIterator++;
+
+                }
+                if (closestPos != -1)
+                {
+                    //Attack no fly
+                    secondTarget = enemyList[closestPos];
+                }
+                else
+                {
+                    //No attack
+                    secondTarget = null;
+                }
+            }
+        }
+        #endregion
+        /*
+         * base----
         foreach (GameObject o in enemyList)
         {
             if (o != null && o.activeInHierarchy)
@@ -122,6 +248,6 @@ public class SeedniperTurret : TurretsFather
         {
             //No attack
             secondTarget = null;
-        }
+        }*/
     }
 }

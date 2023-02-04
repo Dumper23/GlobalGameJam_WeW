@@ -6,7 +6,7 @@ public class PineconeBullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, radius, bulletDuration;
+    private float moveSpeed, radius, bulletDuration, rotationModifier;
 
     private Transform target;
 
@@ -41,8 +41,26 @@ public class PineconeBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            //transform.Translate((lastPos - lastPos2).normalized * moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, lastPos, moveSpeed * Time.deltaTime);
             lostTarget = true;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
+        {
+            Vector3 vectorTarget = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1000);
+        }
+        else
+        {
+            Vector3 vectorTarget = (lastPos - (Vector2)transform.position);
+            float angle = Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * moveSpeed);
         }
     }
     private void OnEnable()
@@ -59,7 +77,7 @@ public class PineconeBullet : MonoBehaviour
         {
             if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                c.GetComponent<TMPEnemy>().Damage(damage);
+                c.GetComponent<Enemy>().takeDamage(damage);
             }
         }
         if (cluster)

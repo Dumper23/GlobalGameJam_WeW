@@ -65,6 +65,7 @@ public class EnemySpawn : MonoBehaviour
                 aux.transform.parent = GameObject.Find("Enemies").transform;
                 aux.SetActive(false);
                 pool.pooledObjects.Add(aux);
+                GameManager.Instance.allEnemies.Add(aux);
             }
         }
     }
@@ -146,6 +147,7 @@ public class EnemySpawn : MonoBehaviour
         aux.transform.parent = GameObject.Find("Enemies").transform;
         aux.SetActive(false);
         pools[poolIndex].pooledObjects.Add(aux);
+        GameManager.Instance.allEnemies.Add(aux);
         return aux;
     }
 

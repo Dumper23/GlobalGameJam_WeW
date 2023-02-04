@@ -40,6 +40,7 @@ public class ElectricBullet : MonoBehaviour
             }
         }
     }
+
     private void OnEnable()
     {
         target = null;
@@ -132,7 +133,7 @@ public class ElectricBullet : MonoBehaviour
             if (collision.gameObject.transform == target)
             {
                 currentHits--;
-                collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+                collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
                 //STUN
                 lostTarget = true;
                 SearchNewTarget();

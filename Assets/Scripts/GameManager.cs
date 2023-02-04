@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public List<TurretEditor> turrets;
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
     public bool isDay = false;
+    public List<GameObject> allEnemies = new List<GameObject>();
 
     private int currentDay = 0;
     private int currentFloor = 0;
@@ -766,6 +767,7 @@ public class GameManager : MonoBehaviour
                         {
                             GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                             go.SetActive(true);
+                            //go.GetComponent<TurretsFather>().PlaceTurret();
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;
@@ -785,6 +787,7 @@ public class GameManager : MonoBehaviour
                             {
                                 GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                                 go.SetActive(true);
+                                //go.GetComponent<TurretsFather>().PlaceTurret();
                                 placeHolder.turretPlacementId = turretAutoincremental;
                                 placeHolder.hasTurret = true;
                                 placeHolder.turretId = turretId;
@@ -807,6 +810,7 @@ public class GameManager : MonoBehaviour
                         {
                             GameObject go = Instantiate(t.turretPrefab, position, Quaternion.identity);
                             go.SetActive(true);
+                            //go.GetComponent<TurretsFather>().PlaceTurret();
                             placeHolder.turretPlacementId = turretAutoincremental;
                             placeHolder.hasTurret = true;
                             placeHolder.turretId = turretId;
@@ -922,5 +926,9 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayer()
     {
         player.UpdateDatabase();
+        }
+    public List<GameObject> getAllEnemies()
+    {
+        return this.allEnemies;
     }
 }

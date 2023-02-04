@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResinTurret : TurretsFather
 {
     [SerializeField]
-    private float resinDuration, slowness;
+    private float resinDuration, slowness, length;
     private float startTime;
 
     [SerializeField]
@@ -20,7 +20,7 @@ public class ResinTurret : TurretsFather
     // Start is called before the first frame update
     void Start()
     {
-
+        base.Start();
     }
 
     // Update is called once per frame
@@ -46,10 +46,12 @@ public class ResinTurret : TurretsFather
         ammunituion--;
 
         resinBullet.transform.position = GetBulletSpawnPoint().position;
-        resinBullet.SetActive(true);
         resinBullet.GetComponent<ResinBullet>().SetDuration(resinDuration);
+        resinBullet.GetComponent<ResinBullet>().SetLength(length);
+        resinBullet.SetActive(true);
         resinBullet.GetComponent<ResinBullet>().SetDamage(damage);
         resinBullet.GetComponent<ResinBullet>().SetSlowness(slowness);
+
         startTime = Time.time;
         lastShot = Time.time + resinDuration;
         iShooting = true;
@@ -98,12 +100,12 @@ public class ResinTurret : TurretsFather
                         resinDuration = stat.Value;
                     }
                     break;
-                /*case "length":
+                case "length":
                     if (stat.Value != 0)
                     {
                         length = stat.Value;
                     }
-                    break;*/
+                    break;
             }
         }
     }
@@ -114,7 +116,7 @@ public class ResinTurret : TurretsFather
         damage = newDamage;
         fireRate = newFireRate;
         resinDuration = durationResin;
-        //length = size;
+        length = newSize;
         slowness = newStickness;
     }
 }

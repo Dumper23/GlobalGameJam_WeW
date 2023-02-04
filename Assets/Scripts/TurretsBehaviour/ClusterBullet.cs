@@ -34,7 +34,7 @@ public class ClusterBullet : MonoBehaviour
         {
             if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                c.GetComponent<TMPEnemy>().Damage(damage);
+                c.GetComponent<Enemy>().takeDamage(damage);
             }
         }
         gameObject.SetActive(false);

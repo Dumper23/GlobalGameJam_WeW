@@ -52,6 +52,7 @@ public class NutBullet : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * moveSpeed);
             }
         }*/
+        transform.Rotate(Vector3.forward * (moveSpeed * Time.deltaTime));
     }
 
     private void OnEnable()
@@ -105,8 +106,7 @@ public class NutBullet : MonoBehaviour
             }
             */
             hits--;
-            Debug.Log("HIIIIITTT!!");
-            collision.gameObject.GetComponent<TMPEnemy>().Damage(damage);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
             if (hits <= 0)
             {
                 Destroy();
