@@ -316,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3390193636915209999, guid: 766252461f399144096617c8aa0cda3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.712
+      value: -11.079
       objectReference: {fileID: 0}
     - target: {fileID: 3390193636915209999, guid: 766252461f399144096617c8aa0cda3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2220,6 +2220,10 @@ PrefabInstance:
       propertyPath: hud
       value: 
       objectReference: {fileID: 1028682955}
+    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
+      propertyPath: isDay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: mainCam
       value: 
