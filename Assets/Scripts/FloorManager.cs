@@ -28,7 +28,7 @@ public class FloorManager : MonoBehaviour
         updateDoors();
     }
 
-    public void floorUp()
+    public bool floorUp()
     {
         if (GameManager.Instance.getCurrentFloor() < GameManager.Instance.getUnlockedFloors() - 1)
         {
@@ -36,14 +36,16 @@ public class FloorManager : MonoBehaviour
             GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() + 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+            return true;
         }
         else
         {
             GameManager.Instance.cancelSound();
+            return false;
         }
     }
 
-    public void floorDown()
+    public bool floorDown()
     {
         if (GameManager.Instance.getCurrentFloor() > 0)
         {
@@ -51,10 +53,12 @@ public class FloorManager : MonoBehaviour
             GameManager.Instance.playLiftSound();
             GameManager.Instance.setCurrentFloor(GameManager.Instance.getCurrentFloor() - 1);
             player.transform.position = liftDoors[GameManager.Instance.getCurrentFloor()].transform.position;
+            return true;
         }
         else
         {
             GameManager.Instance.cancelSound();
+            return false;
         }
     }
 

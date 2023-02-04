@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class IEInteractable : MonoBehaviour
 {
-    protected bool alredyInteracted = false;
-    protected float cooldown = 0f;
+    public bool alredyInteracted = false;
+    public float cooldown = 0f;
     public string iconName;
     public Sprite original;
     public Sprite outlined;

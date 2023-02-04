@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
     public Image inventoryUISlot3_ResourceImage;
     public Image inventoryUISlot4_ResourceImage;
 
+    public Image liftDelayCircle;
+
     public TextMeshProUGUI slotAmmoAmount1;
     public TextMeshProUGUI slotAmmoAmount2;
     public TextMeshProUGUI slotAmmoAmount3;
@@ -536,8 +538,11 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 
-    public void UpdateDatabase(){
-        movementSpeed = Database.Instance.PLAYER_SPEEDY[Database.Instance.PLAYER_SPEED_LVL];
-
+    public void UpdateDatabase()
+    {
+        if (Database.Instance.PLAYER_SPEED_LVL > 0)
+        {
+            movementSpeed = Database.Instance.PLAYER_SPEEDY[Database.Instance.PLAYER_SPEED_LVL - 1];
+        }
     }
 }

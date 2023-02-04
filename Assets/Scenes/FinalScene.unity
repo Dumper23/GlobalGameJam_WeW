@@ -196,11 +196,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6450019896475291812, guid: c6a2a06b142b0c34cbb423270c2e3e61, type: 3}
   m_PrefabInstance: {fileID: 22853851}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &39910074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7329766561230107647, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
-  m_PrefabInstance: {fileID: 7329766561000846372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155053729
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +840,8 @@ MonoBehaviour:
   PLAYER_LIFT_DESCRIPTION: Now you can change between floors as you want
   PLAYER_LIFT_NAME: Elevator!
   PLAYER_LIFT_COST: 0a000000
-  PLAYER_LIFT: 0a000000
+  PLAYER_LIFT_VALUE:
+  - 0.4
   unlockFloorDays: 0200000005000000080000000b0000000e00000011000000130000001400000015000000
 --- !u!4 &384577335
 Transform:
@@ -1218,11 +1214,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6533dd7c67bdcd448bc73fda0f7fc6d, type: 3}
---- !u!82 &908230877 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 908230877, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-  m_PrefabInstance: {fileID: 1434887437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &999980785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,18 +1656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 301866858, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 574089821, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: Priority
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401526988, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8470770520909610289, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1686,10 +1665,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1028682955}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: isDay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 1518160217}
@@ -1698,18 +1673,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 843339463}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: changeSound
-      value: 
-      objectReference: {fileID: 908230877}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: unlockedFloors
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: turrets.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: enemySpawns.Array.data[0]
       value: 
       objectReference: {fileID: 1163321157}
@@ -1717,10 +1680,6 @@ PrefabInstance:
       propertyPath: enemySpawns.Array.data[1]
       value: 
       objectReference: {fileID: 2045926245}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: turrets.Array.data[6].turretId
-      value: ELECTRIC_POTATO
-      objectReference: {fileID: 0}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: enemyAirWaypoints.Array.data[0]
       value: 
@@ -1750,10 +1709,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 527469433}
     - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: enemyGroundWaypoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: enemyGroundWaypoints.Array.data[0]
       value: 
       objectReference: {fileID: 180417588}
@@ -1769,26 +1724,6 @@ PrefabInstance:
       propertyPath: enemyGroundWaypoints.Array.data[3]
       value: 
       objectReference: {fileID: 1102904567}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: enemyGroundWaypoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: enemyGroundWaypoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: enemyGroundWaypoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: enemyGroundWaypoints.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470770520909610294, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
-      propertyPath: turrets.Array.data[6].turretPrefab
-      value: 
-      objectReference: {fileID: 2412192368525986104, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
     - target: {fileID: 8470770520909610295, guid: 3ff2d578d46e1454ca2e3b6f5e7071d0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1883,6 +1818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0881c826a40248a4dbc7041acb9fa47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alredyInteracted: 0
+  cooldown: 0
   iconName: E
   original: {fileID: 21300000, guid: 599c2034e6439b949a04e6f1edc85889, type: 3}
   outlined: {fileID: 21300000, guid: 614dd1e21b83e35419c69d81a4fa3192, type: 3}
@@ -1891,88 +1828,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7329766561230107641, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
   m_PrefabInstance: {fileID: 7329766561000846372}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1518160221 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7329766561230107642, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
-  m_PrefabInstance: {fileID: 7329766561000846372}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1518160222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39910074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1518160221}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 2147483647
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
-  m_ShowCustomSorter: 1
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
---- !u!114 &1518160223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39910074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 5f21a70d620440845bbbcb4d51dfa35c, type: 2}
-  isGlobal: 1
-  blendDistance: 7.58
-  weight: 1
-  priority: 0
 --- !u!114 &1575669422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 158294995154276764, guid: 27050f855888ed946aa6e112b08c87db, type: 3}
@@ -28794,18 +28649,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7329766561230107588, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
-      propertyPath: xOffset
-      value: -0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329766561230107641, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
-      propertyPath: m_Depth
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329766561230107641, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
-      propertyPath: orthographic size
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 7329766561230107642, guid: d97ff5deae1d0de4aa2e3db43712d598, type: 3}
       propertyPath: m_RootOrder
       value: 1

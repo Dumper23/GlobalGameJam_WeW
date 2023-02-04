@@ -27,117 +27,140 @@ public class Database : MonoBehaviour
 
     #region WAVES FOR EACH DAY
 
-    [HideInInspector] public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
         new EnemyWave(10, "ant", 1, 10, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
         new EnemyWave(20, "ant", 2, 0, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
         new EnemyWave(30, "ant", 2, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
-    [HideInInspector] public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
+    [HideInInspector]
+    public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
         new EnemyWave(5, "ant", 1, 0, 1, "walk"),
         new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
@@ -474,7 +497,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PLAYER_LIFT_DESCRIPTION = "Now you can change between floors as you want";
     [HideInInspector] public string PLAYER_LIFT_NAME = "Elevator!";
     [HideInInspector] public int[] PLAYER_LIFT_COST = { 10 };
-    [HideInInspector] public int[] PLAYER_LIFT = { 1 };
+    [HideInInspector] public float[] PLAYER_LIFT_VALUE = { 0.4f };
 
     #endregion PLAYER
 
@@ -485,7 +508,9 @@ public class Database : MonoBehaviour
     #endregion UNLOCK FLOOR DAYS
 
     #region UNLOCK NPC DAYS
-    [HideInInspector] public List<NPC> unlockNpcDays = new List<NPC>{
+
+    [HideInInspector]
+    public List<NPC> unlockNpcDays = new List<NPC>{
         new NPC(1, "perrito", "sunflower", "top"), //3
         new NPC(3, "chinchilla", "pinecone", "bottom"), //6
         new NPC(9, "castor", "resin", "top"),
@@ -493,5 +518,6 @@ public class Database : MonoBehaviour
         new NPC(15, "capybara", "nut", "bottom"),
         new NPC(18, "rata", "potato", "top"),
     };
-    #endregion
+
+    #endregion UNLOCK NPC DAYS
 }

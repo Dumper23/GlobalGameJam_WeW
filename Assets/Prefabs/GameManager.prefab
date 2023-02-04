@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &301866859
 Transform:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 119
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -421,7 +421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1401526989
 Transform:
   m_ObjectHideFlags: 0
@@ -861,13 +861,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
-  unlockedFloors: 12
+  unlockedFloors: 3
   fertilizer: 20
+  alreadyInteracted: 0
+  interactionCooldown: 0
   enemyGroundWaypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -905,13 +903,14 @@ MonoBehaviour:
   - {fileID: 6450019896475291739, guid: 5250e0d60906cbc4fb303cdf6aeb27ec, type: 3}
   - {fileID: 5671963683546071900, guid: 1e6a67fb24557af46a31e6ab65114dab, type: 3}
   topFloor: {fileID: 0}
+  bottomFloor: {fileID: 0}
   hud: {fileID: 0}
   introDay: {fileID: 2145113574}
   loopDay: {fileID: 574089821}
   loopNight: {fileID: 1510862623}
   backgroundSoundsNight: {fileID: 301866860}
   backgroundSoundsDay: {fileID: 1401526990}
-  changeSound: {fileID: 0}
+  changeSound: {fileID: 908230877}
   turrets:
   - turretId: MACHINE_SEED
     turretPrefab: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
@@ -925,4 +924,7 @@ MonoBehaviour:
     turretPrefab: {fileID: 5953673050596963096, guid: d12d48aafc3ec99459aac91e1bd7a81d, type: 3}
   - turretId: PORCUTHROW
     turretPrefab: {fileID: 6899878034113650534, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
+  - turretId: ELECTRIC_POTATO
+    turretPrefab: {fileID: 2412192368525986104, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
   isDay: 0
+  allEnemies: []

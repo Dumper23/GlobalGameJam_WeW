@@ -342,6 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea254a3f600a7de458b6a35cb7960a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alredyInteracted: 0
+  cooldown: 0.75
   iconName: WS
   original: {fileID: 21300000, guid: 95fd789529080724280304a9f2542253, type: 3}
   outlined: {fileID: 21300000, guid: a6c3bd45831e8b14782b6b62567ac35a, type: 3}

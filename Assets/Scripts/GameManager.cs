@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public Camera mainCam;
     public int unlockedFloors = 3;
     public int fertilizer = 0;
+    public bool alreadyInteracted = false;
+    public float interactionCooldown = 0;
 
     private PlayerController player;
     public List<Transform> enemyGroundWaypoints;
@@ -205,6 +207,19 @@ public class GameManager : MonoBehaviour
     {
         player.audioSources[player.AUDIO_INTERACT].clip = player.audios[player.AUDIO_INTERACT];
         player.audioSources[player.AUDIO_INTERACT].Play();
+    }
+
+    private void Update()
+    {
+        if (!alreadyInteracted)
+        {
+            player.liftDelayCircle.gameObject.SetActive(false);
+        }
+        else
+        {
+            player.liftDelayCircle.gameObject.SetActive(true);
+            player.liftDelayCircle.fillAmount -= Time.deltaTime;
+        }
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -1130,6 +1145,11 @@ public class GameManager : MonoBehaviour
         foreach (GameObject turret in placedTurrets.Values) turret.GetComponent<TurretsFather>().UpdateDatabase();
     }
 
+    public void UpdateDoors()
+    {
+        foreach (FloorDoor door in FindObjectsOfType<FloorDoor>()) door.updateCooldown();
+    }
+
     public void UpdatePlayer()
     {
         player.UpdateDatabase();
@@ -1139,5 +1159,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> getAllEnemies()
     {
         return this.allEnemies;
+    }
+
+    public void playLiftAnimation()
+    {
+        player.liftDelayCircle.fillAmount = interactionCooldown;
     }
 }
