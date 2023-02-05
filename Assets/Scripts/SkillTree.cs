@@ -175,6 +175,11 @@ public class SkillTree : MonoBehaviour
         SkillHolder[101].Buy();
     }
 
+    private void Update()
+    {
+        UpdateAllSkillsUI();
+    }
+
     public Node GetNode(int id)
     {
         return SkillNodes[id];
