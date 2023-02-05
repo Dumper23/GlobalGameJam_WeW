@@ -36,7 +36,7 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]
     protected int damage, maxAmmo, maxChest;
 
-    protected int ammunituion, chest;
+    private int ammunituion, chest;
 
     #endregion traits
 

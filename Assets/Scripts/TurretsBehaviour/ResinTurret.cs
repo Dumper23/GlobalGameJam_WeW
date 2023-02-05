@@ -72,7 +72,6 @@ public class ResinTurret : TurretsFather
     }
     protected override void InintiateStatsAtCurrentUpgrades()
     {
-        Debug.Log(turretId);
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
         if (d.TryGetValue("damageLevel", out float LDamage))

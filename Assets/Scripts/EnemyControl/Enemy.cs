@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         waypoints[waypointIndex] = new Vector3(waypoints[waypointIndex].x, waypoints[waypointIndex].y, 0);
 
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex], speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex], currentSpeed * Time.deltaTime);
         //getRandomPoint(waypoints[waypointIndex].transform.position)
 
         if (Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.5)
@@ -123,6 +123,7 @@ public class Enemy : MonoBehaviour
 
     public void slowDown(float amount)
     {
+
         this.currentSpeed -= this.currentSpeed * amount;
         this.isSlowed = true;
         Invoke("setOriginalSpeed", 3);
