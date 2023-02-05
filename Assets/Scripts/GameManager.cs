@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [System.SerializableAttribute]
 public class TurretEditor
@@ -49,6 +50,17 @@ public class GameManager : MonoBehaviour
 
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
+
+    public Light2D globalLight;
+    public float intensityDay = 2;
+    public float intensityNight = 0.45f;
+    public Color dayColor;
+    public Color nightColor;
+    private float dayChangeStartTime;
+    private float nightChangeStartTime;
+    public float dayChangeDuration = 4f;
+    public float nightChangeDuration = 4f;
+    private bool changeLight;
 
     [SerializeField]
     public List<TurretEditor> turrets;
@@ -231,6 +243,7 @@ public class GameManager : MonoBehaviour
             player.liftDelayCircle.gameObject.SetActive(true);
             player.liftDelayCircle.fillAmount -= Time.deltaTime;
         }
+        DayLight();
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -814,6 +827,51 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void DayLight()
+    {
+        if (changeLight)
+        {
+            if (isDay)
+            {
+                if (Time.time >= dayChangeStartTime + dayChangeDuration)
+                {
+                    changeLight = false;
+
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityNight, intensityDay, dayChangeStartTime, dayChangeDuration);
+
+                    float r = LerpValues.Lerp(nightColor.r, dayColor.r, dayChangeStartTime, dayChangeDuration);
+                    float g = LerpValues.Lerp(nightColor.g, dayColor.g, dayChangeStartTime, dayChangeDuration);
+                    float b = LerpValues.Lerp(nightColor.b, dayColor.b, dayChangeStartTime, dayChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+                }
+            }
+            else
+            {
+                if (Time.time >= nightChangeStartTime + nightChangeDuration)
+                {
+                    changeLight = false;
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityDay, intensityNight, nightChangeStartTime, nightChangeDuration);
+
+                    float r = LerpValues.Lerp(dayColor.r, nightColor.r, nightChangeStartTime, nightChangeDuration);
+                    float g = LerpValues.Lerp(dayColor.g, nightColor.g, nightChangeStartTime, nightChangeDuration);
+                    float b = LerpValues.Lerp(dayColor.b, nightColor.b, nightChangeStartTime, nightChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+
+                }
+            }
+
+        }
+    }
+
     public void changeDayState()
     {
         //pause player movement
@@ -821,8 +879,10 @@ public class GameManager : MonoBehaviour
         infoUpdater.ChangeDay();
         player.updateTurretPlacementMenu();
         isDay = !isDay;
+        changeLight = true;
         if (isDay)
         {
+            dayChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
             this.hud.transform.Find("Background").gameObject.SetActive(true);
@@ -833,9 +893,11 @@ public class GameManager : MonoBehaviour
             currentDay++;
 
             Invoke("activateEnemySpawns", 6);
+
         }
         else
         {
+            nightChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
             this.hud.transform.Find("Background").gameObject.SetActive(true);
