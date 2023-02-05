@@ -428,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8041958494950532961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 0.025, z: 0}
+  m_LocalPosition: {x: -1.387, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -730,12 +730,10 @@ MonoBehaviour:
   inServiceSprite: {fileID: 21300000, guid: ccf52518583c64a48b0363f9a4c84610, type: 3}
   outOfOrtherSprite: {fileID: 21300000, guid: 66c0a58cb94f92c4faf337f3f70d9b1e, type: 3}
   ammoType: resin
-  rangeAttack: 3
   fireRate: 4
-  ammunituion: 4
+  rangeAttack: 3
   damage: 2
   maxAmmo: 10
-  chest: 4
   maxChest: 4
   bulletSpawn: {fileID: 8041958494950532990}
   mobilePart: {fileID: 8041958495874027716}

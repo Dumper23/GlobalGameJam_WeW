@@ -26,11 +26,17 @@ public abstract class TurretsFather : MonoBehaviour
 
     //--
 
-    [SerializeField]//TMP XQ EXTERN
-    protected float rangeAttack, fireRate;
+    [Header("Default Stats")]
 
-    [SerializeField]//TMP XQ EXTERN
-    protected int ammunituion, damage, maxAmmo, chest, maxChest;
+    [SerializeField]
+    protected float fireRate;
+    [SerializeField]
+    protected float rangeAttack;
+
+    [SerializeField]
+    protected int damage, maxAmmo, maxChest;
+
+    protected int ammunituion, chest;
 
     #endregion traits
 
@@ -40,6 +46,7 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected List<GameObject> enemyList;
 
+    [Header("Settings")]
     [SerializeField]
     private Transform bulletSpawn;
 
@@ -87,7 +94,7 @@ public abstract class TurretsFather : MonoBehaviour
             //desactivada
             //set active panell
             updateAmmoUI("0");
-            mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
+            DeactivateTurret();
             //LerpValues.Lerp();
             //Quaternion.Slerp(mobilePart.transform.rotation, Quaternion.identity, Time.deltaTime / 10);
         }
@@ -108,7 +115,12 @@ public abstract class TurretsFather : MonoBehaviour
         return turretId;
     }
 
-    public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?
+    protected virtual void DeactivateTurret()
+    {
+        mobilePart.transform.rotation = Quaternion.Euler(0, 0, 45);
+    }
+
+    //public abstract void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool extra = false, float durationResin = -1, float size = -1, float stickness = -1);//RangeAttack?
 
     protected abstract void InintiateStatsAtCurrentUpgrades();
 

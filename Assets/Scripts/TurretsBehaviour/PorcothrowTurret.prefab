@@ -642,22 +642,20 @@ MonoBehaviour:
   outlinedFixed: {fileID: 21300000, guid: 3b084200fb7c0bf49bc4a59f005a4b44, type: 3}
   outlinedMobile: {fileID: 21300000, guid: e8b40e205ed380e4b96c146e12e353b7, type: 3}
   outOfOrtherSign: {fileID: 573330437}
-  inServiceSprite: {fileID: 0}
-  outOfOrtherSprite: {fileID: 0}
-  ammoType: 
-  rangeAttack: 20
+  inServiceSprite: {fileID: 21300000, guid: ccf52518583c64a48b0363f9a4c84610, type: 3}
+  outOfOrtherSprite: {fileID: 21300000, guid: 66c0a58cb94f92c4faf337f3f70d9b1e, type: 3}
+  ammoType: spike
   fireRate: 1
-  ammunituion: 10
+  rangeAttack: 20
   damage: 5
   maxAmmo: 30
-  chest: 0
-  maxChest: 0
+  maxChest: 10
   bulletSpawn: {fileID: 896369789814219168}
   mobilePart: {fileID: 4656341952732876695}
-  startAngle: 155
-  endAngle: 205
   bulletsAmmount: 2
   piercing: 0
+  startAngle: 155
+  endAngle: 205
 --- !u!61 &7963854462041688516
 BoxCollider2D:
   m_ObjectHideFlags: 0

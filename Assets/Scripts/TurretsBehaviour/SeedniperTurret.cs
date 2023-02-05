@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SeedniperTurret : TurretsFather
 {
+    [Header("Seedniper Default Stats")]
     [SerializeField]
     private bool ricochet = false;
 
@@ -45,49 +46,72 @@ public class SeedniperTurret : TurretsFather
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
 
-        foreach (KeyValuePair<string, float> stat in d)
+        if (d.TryGetValue("damageLevel", out float LDamage))
         {
-            switch (stat.Key)
+            if (LDamage != 0)
             {
-                case "capacity":
-                    if ((int)stat.Value != 0)
-                    {
-                        maxAmmo = (int)stat.Value;
-                    }
-                    break;
-                case "damage":
-                    if ((int)stat.Value != 0)
-                    {
-                        damage = (int)stat.Value;
-                    }
-                    break;
-                case "speed":
-                    if (stat.Value != 0)
-                    {
-                        fireRate = stat.Value;
-                    }
-                    break;
-                case "ricochet":
-                    if (stat.Value == 0)
+                if (d.TryGetValue("damage", out float newDamage))
+                {
+                    damage = (int)newDamage;
+                }
+            }
+        }
+        if (d.TryGetValue("capacityLevel", out float LCapacity))
+        {
+            if (LCapacity != 0)
+            {
+                if (d.TryGetValue("capacity", out float newCapacity))
+                {
+                    maxAmmo = (int)newCapacity;
+                }
+            }
+        }
+        if (d.TryGetValue("chestLevel", out float LChest))
+        {
+            if (LChest != 0)
+            {
+                if (d.TryGetValue("chest", out float newChest))
+                {
+                    maxChest = (int)newChest;
+                }
+            }
+        }
+        if (d.TryGetValue("speedLevel", out float LSpeed))
+        {
+            if (LSpeed != 0)
+            {
+                if (d.TryGetValue("speed", out float newSpeed))
+                {
+                    fireRate = newSpeed;
+                }
+            }
+        }
+        if (d.TryGetValue("ricochetLevel", out float LRicochet))
+        {
+            if (LRicochet != 0)
+            {
+                if (d.TryGetValue("speed", out float newRicochet))
+                {
+                    if ((int)newRicochet == 0)
                     {
                         ricochet = false;
                     }
-                    if (stat.Value == 1)
+                    if ((int)newRicochet == 1)
                     {
                         ricochet = true;
                     }
-                    break;
+                }
             }
         }
     }
 
-    public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newRicochet = false, float none = -1, float none1 = -1, float none2 = -1)
+    /*public override void SetTraits(int newmaxAmmo, int newDamage, float newFireRate, bool newRicochet = false, float none = -1, float none1 = -1, float none2 = -1)
     {
         maxAmmo = newmaxAmmo;
         damage = newDamage;
         fireRate = newFireRate;
         ricochet = newRicochet;
-    }
+    }*/
 
     protected override void DetectObjective()
     {

@@ -99,9 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c255b95892f1c6643bf708363ac834d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 500
   bulletDuration: 10
-  nextWPRadius: 0.5
   hits: 8
 --- !u!58 &5519165902116727021
 CircleCollider2D:

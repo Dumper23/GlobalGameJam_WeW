@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class NutBullet : MonoBehaviour
 {
-
+    [Header("Bullet Stats")]
     [SerializeField]
-    private float moveSpeed, bulletDuration, nextWPRadius = 1;
+    private float moveSpeed, bulletDuration;
 
     [SerializeField]
     private int hits;
 
+    /*
     private List<Transform> waypoints;
     private int start;
-    private int current;
+    private int current;*/
 
-    private bool move = false;
+    //private bool move = false;
 
     //private Transform target;
 
@@ -117,9 +118,5 @@ public class NutBullet : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, nextWPRadius);
     }
 }
