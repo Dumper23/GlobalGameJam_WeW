@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 [System.SerializableAttribute]
 public class TurretEditor
@@ -54,17 +53,6 @@ public class GameManager : MonoBehaviour
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
 
-    public Light2D globalLight;
-    public float intensityDay = 2;
-    public float intensityNight = 0.45f;
-    public Color dayColor;
-    public Color nightColor;
-    private float dayChangeStartTime;
-    private float nightChangeStartTime;
-    public float dayChangeDuration = 4f;
-    public float nightChangeDuration = 4f;
-    private bool changeLight;
-
     [SerializeField]
     public List<TurretEditor> turrets;
 
@@ -84,6 +72,17 @@ public class GameManager : MonoBehaviour
     private bool isFirstTime = true;
 
     private bool gamePaused = false;
+
+    public UnityEngine.Rendering.Universal.Light2D globalLight;
+    public float intensityDay = 2;
+    public float intensityNight = 0.45f;
+    public Color dayColor;
+    public Color nightColor;
+    private float dayChangeStartTime;
+    private float nightChangeStartTime;
+    public float dayChangeDuration = 4f;
+    public float nightChangeDuration = 4f;
+    private bool changeLight;
 
     #region Constants
 
@@ -113,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         player.updateTurretInventoryNumberUI();
@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
+        changeDayState();
     }
 
     #region getters & setters
@@ -236,6 +237,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        DayLight();
         if (!alreadyInteracted)
         {
             player.liftDelayCircle.gameObject.SetActive(false);
@@ -245,7 +247,48 @@ public class GameManager : MonoBehaviour
             player.liftDelayCircle.gameObject.SetActive(true);
             player.liftDelayCircle.fillAmount -= Time.deltaTime;
         }
-        DayLight();
+        updateRemainingNumEnemies();
+    }
+
+    public void DayLight()
+    {
+        if (changeLight)
+        {
+            if (isDay)
+            {
+                if (Time.time >= dayChangeStartTime + dayChangeDuration)
+                {
+                    changeLight = false;
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityNight, intensityDay, dayChangeStartTime, dayChangeDuration);
+
+                    float r = LerpValues.Lerp(nightColor.r, dayColor.r, dayChangeStartTime, dayChangeDuration);
+                    float g = LerpValues.Lerp(nightColor.g, dayColor.g, dayChangeStartTime, dayChangeDuration);
+                    float b = LerpValues.Lerp(nightColor.b, dayColor.b, dayChangeStartTime, dayChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+                }
+            }
+            else
+            {
+                if (Time.time >= nightChangeStartTime + nightChangeDuration)
+                {
+                    changeLight = false;
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityDay, intensityNight, nightChangeStartTime, nightChangeDuration);
+
+                    float r = LerpValues.Lerp(dayColor.r, nightColor.r, nightChangeStartTime, nightChangeDuration);
+                    float g = LerpValues.Lerp(dayColor.g, nightColor.g, nightChangeStartTime, nightChangeDuration);
+                    float b = LerpValues.Lerp(dayColor.b, nightColor.b, nightChangeStartTime, nightChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+                }
+            }
+        }
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -410,10 +453,15 @@ public class GameManager : MonoBehaviour
                 {
                     cancelSound();
                 }
-                player.ammoSlot1.hasAmmo = false;
-                player.ammoSlot1.currentAmmoType = "";
+
                 player.ammoSlot1.currentAmount -= 1;
-                player.ammoSlot1.ammoImage = null;
+
+                if (player.ammoSlot1.currentAmount <= 0)
+                {
+                    player.ammoSlot1.hasAmmo = false;
+                    player.ammoSlot1.currentAmmoType = "";
+                    player.ammoSlot1.ammoImage = null;
+                }
                 break;
 
             case 2:
@@ -425,10 +473,14 @@ public class GameManager : MonoBehaviour
                 {
                     cancelSound();
                 }
-                player.ammoSlot2.hasAmmo = false;
-                player.ammoSlot2.currentAmmoType = "";
+
                 player.ammoSlot2.currentAmount -= 1;
-                player.ammoSlot2.ammoImage = null;
+                if (player.ammoSlot2.currentAmount <= 0)
+                {
+                    player.ammoSlot2.hasAmmo = false;
+                    player.ammoSlot2.currentAmmoType = "";
+                    player.ammoSlot2.ammoImage = null;
+                }
                 break;
 
             case 3:
@@ -440,10 +492,13 @@ public class GameManager : MonoBehaviour
                 {
                     cancelSound();
                 }
-                player.ammoSlot3.hasAmmo = false;
-                player.ammoSlot3.currentAmmoType = "";
                 player.ammoSlot3.currentAmount -= 1;
-                player.ammoSlot3.ammoImage = null;
+                if (player.ammoSlot3.currentAmount <= 0)
+                {
+                    player.ammoSlot3.hasAmmo = false;
+                    player.ammoSlot3.currentAmmoType = "";
+                    player.ammoSlot3.ammoImage = null;
+                }
                 break;
 
             case 4:
@@ -455,10 +510,14 @@ public class GameManager : MonoBehaviour
                 {
                     cancelSound();
                 }
-                player.ammoSlot4.hasAmmo = false;
-                player.ammoSlot4.currentAmmoType = "";
                 player.ammoSlot4.currentAmount -= 1;
-                player.ammoSlot4.ammoImage = null;
+
+                if (player.ammoSlot1.currentAmount <= 0)
+                {
+                    player.ammoSlot4.hasAmmo = false;
+                    player.ammoSlot4.currentAmmoType = "";
+                    player.ammoSlot4.ammoImage = null;
+                }
                 break;
 
             default:
@@ -863,53 +922,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    public void DayLight()
-    {
-        if (changeLight)
-        {
-            if (isDay)
-            {
-                if (Time.time >= dayChangeStartTime + dayChangeDuration)
-                {
-                    changeLight = false;
-
-                }
-                else
-                {
-                    globalLight.intensity = LerpValues.Lerp(intensityNight, intensityDay, dayChangeStartTime, dayChangeDuration);
-
-                    float r = LerpValues.Lerp(nightColor.r, dayColor.r, dayChangeStartTime, dayChangeDuration);
-                    float g = LerpValues.Lerp(nightColor.g, dayColor.g, dayChangeStartTime, dayChangeDuration);
-                    float b = LerpValues.Lerp(nightColor.b, dayColor.b, dayChangeStartTime, dayChangeDuration);
-
-                    globalLight.color = new Color(r, g, b);
-                }
-            }
-            else
-            {
-                if (Time.time >= nightChangeStartTime + nightChangeDuration)
-                {
-                    changeLight = false;
-                }
-                else
-                {
-                    globalLight.intensity = LerpValues.Lerp(intensityDay, intensityNight, nightChangeStartTime, nightChangeDuration);
-
-                    float r = LerpValues.Lerp(dayColor.r, nightColor.r, nightChangeStartTime, nightChangeDuration);
-                    float g = LerpValues.Lerp(dayColor.g, nightColor.g, nightChangeStartTime, nightChangeDuration);
-                    float b = LerpValues.Lerp(dayColor.b, nightColor.b, nightChangeStartTime, nightChangeDuration);
-
-                    globalLight.color = new Color(r, g, b);
-
-                }
-            }
-
-        }
-    }
-
     public void changeDayState()
     {
+        stopMenuSong();
         //pause player movement
         setDayNightAnimationPlaying(true);
         infoUpdater.ChangeDay();
@@ -918,6 +933,8 @@ public class GameManager : MonoBehaviour
         changeLight = true;
         if (isDay)
         {
+            Debug.Log("A");
+            fadeInDay();
             dayChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
@@ -927,12 +944,12 @@ public class GameManager : MonoBehaviour
             Invoke("removeDayNightAnimation", 5);
 
             currentDay++;
-
             Invoke("activateEnemySpawns", 6);
-
         }
         else
         {
+            Debug.Log("B");
+            fadeInNight();
             nightChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
@@ -972,28 +989,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            //Music
-            fadeOutDay();
-            if (!isFirstTime)
-            {
-                Invoke("playChangeSound", 1.5f);
-            }
-            else
-            {
-                isFirstTime = false;
-            }
-
-            Invoke("fadeInNight", 1f);
-            Invoke("fadeOutNight", 61.5f);
-            Invoke("playChangeSound", 63);
-            Invoke("playIntroDay", 65);
-
-            loopNight.Play();
-
             if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
-                Invoke("changeDayState", 60);//60
+                infoUpdater.ResetTimer();
+                Invoke("changeDayState", 60);
             }
 
             if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
@@ -1157,11 +1157,13 @@ public class GameManager : MonoBehaviour
             placeHolder.turretPlacementId = -1;
             if (player.turretsInventory.TryGetValue(placeHolder.turretId, out int amount))
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Remove(placeHolder.turretId);
                 player.turretsInventory.Add(placeHolder.turretId, amount + 1);
             }
             else
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Add(placeHolder.turretId, 1);
             }
             player.audioSources[player.AUDIO_PICK_TURRET].clip = player.audios[player.AUDIO_PICK_TURRET];
@@ -1289,7 +1291,11 @@ public class GameManager : MonoBehaviour
 
     public void fadeInDay()
     {
+        loopNight.Pause();
+        backgroundSoundsDay.Play();
+        backgroundSoundsNight.Stop();
         loopDay.GetComponent<Animator>().Play("FadeInDay");
+        loopDay.Play();
     }
 
     public void fadeOutNight()
@@ -1299,14 +1305,21 @@ public class GameManager : MonoBehaviour
 
     public void fadeInNight()
     {
+        loopDay.Pause();
         backgroundSoundsDay.Stop();
         backgroundSoundsNight.Play();
         loopNight.GetComponent<Animator>().Play("FadeInNight");
+        loopNight.Play();
     }
 
     public void playMenuSong()
     {
         mainMenuSound.Play();
+    }
+
+    public void stopMenuSong()
+    {
+        mainMenuSound.Stop();
     }
 
     public void UpdateTurrets()
@@ -1360,13 +1373,13 @@ public class GameManager : MonoBehaviour
         this.changeDayState();
     }
 
-    public int getRemainingNumEnemies()
+    public void updateRemainingNumEnemies()
     {
         int numTotal = 0;
         foreach (EnemySpawn spawn in this.enemySpawns)
         {
             numTotal += spawn.getNumEnemiesToFinish();
         }
-        return numTotal;
+        infoUpdater.SetEnemies(numTotal);
     }
 }
