@@ -376,6 +376,7 @@ MonoBehaviour:
   - {fileID: 6558104340614827287}
   - {fileID: 3818886875759120422}
   - {fileID: 5885247506216896461}
+  shootSound: {fileID: 326704153493189425, guid: 32c24ca44c4f5024ba4a895f336228f3, type: 3}
   stunness: 2
   rayHits: 5
 --- !u!61 &2460866478547018470

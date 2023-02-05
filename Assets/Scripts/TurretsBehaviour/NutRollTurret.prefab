@@ -879,6 +879,7 @@ MonoBehaviour:
   - {fileID: 7830902984470047468}
   - {fileID: 3710676938744451338}
   - {fileID: 4073734796665349782}
+  shootSound: {fileID: 326704153493189425, guid: ea146e2b858c8fd4db05ec2650134654, type: 3}
   hits: 10
   extra: 0
 --- !u!61 &-6773425775079556249

@@ -328,6 +328,7 @@ MonoBehaviour:
   - {fileID: 8626282447724571025}
   - {fileID: 4855722872024685577}
   - {fileID: 4564370804976768832}
+  shootSound: {fileID: 326704153493189425, guid: 8709be9bbd7306c4698d99f47f3d6379, type: 3}
   cluster: 0
   radius: 5
   stunness: 3

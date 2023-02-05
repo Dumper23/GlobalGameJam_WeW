@@ -1018,6 +1018,7 @@ MonoBehaviour:
   - {fileID: 9000248321150485935}
   - {fileID: 4939155086706383077}
   - {fileID: 6981535786293201628}
+  shootSound: {fileID: 326704153493189425, guid: d112021343982c34a80389b731d28787, type: 3}
   resinDuration: 4
   slowness: 0.75
   length: 10

@@ -1017,6 +1017,7 @@ MonoBehaviour:
   - {fileID: 6295229253481081325}
   - {fileID: 1822668095111559058}
   - {fileID: 2019650153073043428}
+  shootSound: {fileID: 326704153493189425, guid: b696437cb0a363849a98bae07140cbff, type: 3}
   bulletsAmmount: 2
   piercing: 0
   startAngle: 155

@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public GameObject treetopForeground;
     public GameObject rootHidder;
     public GameObject hud;
+    public GameObject HPSound;
     public Narrative narrative;
     public Narrative unlockFloorNarrative;
     public Narrative initialAnim;
@@ -854,6 +855,7 @@ public class GameManager : MonoBehaviour
     public void removePlayerHP()
     {
         playerHP--;
+        Instantiate(HPSound);
         if (playerHP <= 0)
         {
             //gameOver

@@ -662,6 +662,7 @@ MonoBehaviour:
   - {fileID: 8966699122965280020}
   - {fileID: 7205190449369092180}
   - {fileID: 6206058721811730}
+  shootSound: {fileID: 326704153493189425, guid: 1596a4bcbda74c741acbc25fa6fd5d9c, type: 3}
   ricochet: 0
 --- !u!61 &3072048307641863089
 BoxCollider2D:

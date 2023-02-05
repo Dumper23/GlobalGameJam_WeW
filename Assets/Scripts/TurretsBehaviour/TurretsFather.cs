@@ -36,7 +36,7 @@ public abstract class TurretsFather : MonoBehaviour
     [SerializeField]
     protected int damage, maxAmmo, maxChest;
 
-    protected int ammunituion, chest;
+    public int ammunituion, chest;
 
     #endregion traits
 
@@ -59,6 +59,9 @@ public abstract class TurretsFather : MonoBehaviour
 
     [SerializeField]
     protected List<GameObject> chestIndicators;
+
+    [SerializeField]
+    protected GameObject shootSound;
 
     // Start is called before the first frame update
     protected void Start()
@@ -292,6 +295,7 @@ public abstract class TurretsFather : MonoBehaviour
     {
         updateAmmoUI((ammunituion).ToString());
         lastShot = Time.time;
+        Instantiate(shootSound);
     }
 
     protected Transform GetBulletSpawnPoint()

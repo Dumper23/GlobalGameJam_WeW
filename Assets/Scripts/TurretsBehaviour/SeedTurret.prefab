@@ -717,6 +717,7 @@ MonoBehaviour:
   - {fileID: 6279023721662293975}
   - {fileID: 3018828208316323873}
   - {fileID: 1480584841998186784}
+  shootSound: {fileID: 326704153493189425, guid: 93be3f7f661141c489177bf0db153b45, type: 3}
 --- !u!61 &6772233573243738249
 BoxCollider2D:
   m_ObjectHideFlags: 0
