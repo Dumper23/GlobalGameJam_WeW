@@ -75,6 +75,16 @@ public class ElectricTurret : TurretsFather
                 {
                     if (maxChest != (int)newChest)
                     {
+                        for (int i = 0; i < (int)newChest; i++)
+                        {
+
+                            if (!chestIndicators[i].activeInHierarchy)
+                            {
+
+                                chestIndicators[i].SetActive(true);
+                                chestIndicators[i].GetComponent<SpriteRenderer>().color = Color.red;
+                            }
+                        }
                         maxChest = (int)newChest;
                         chestIndicators[maxChest - 1].SetActive(true);
                         chestIndicators[maxChest - 1].GetComponent<SpriteRenderer>().color = Color.red;
