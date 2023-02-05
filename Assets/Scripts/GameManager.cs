@@ -47,12 +47,12 @@ public class GameManager : MonoBehaviour
     public AudioSource loopNight;
     public AudioSource backgroundSoundsNight;
 
-
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
 
     [SerializeField]
     public List<TurretEditor> turrets;
+
     private List<GameObject> floorList = new List<GameObject>();
 
     private Dictionary<string, GameObject> placedTurrets = new Dictionary<string, GameObject>();
@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         changeDayState();
@@ -809,6 +808,7 @@ public class GameManager : MonoBehaviour
         //pause player movement
         setDayNightAnimationPlaying(true);
         infoUpdater.ChangeDay();
+        player.updateTurretPlacementMenu();
         isDay = !isDay;
         if (isDay)
         {
@@ -931,14 +931,14 @@ public class GameManager : MonoBehaviour
         //upause player movement
         setDayNightAnimationPlaying(false);
     }
-    
+
     private void unlockNPC()
     {
         //show animation
         this.narrative.startNpcScene(this.npcToAppear);
 
         GameObject floor;
-        if(this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
+        if (this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
 
         for (int i = 0; i < floor.transform.Find("chests").childCount; i++)
@@ -1123,7 +1123,7 @@ public class GameManager : MonoBehaviour
         aux.transform.parent = GameObject.Find("Floors").transform;
         topFloor.transform.position += new Vector3(0, 2, 0);
         FloorManager floorManager = FindObjectOfType<FloorManager>();
-        floorList.Insert(floorList.Count-1,aux);
+        floorList.Insert(floorList.Count - 1, aux);
 
         //add ground floor waypoint
         Transform topWaypoint = enemyGroundWaypoints[enemyGroundWaypoints.Count - 1];
@@ -1217,9 +1217,9 @@ public class GameManager : MonoBehaviour
     public void updateFloorVisuals()
     {
         if (currentFloor != 0) floorList[currentFloor - 1].GetComponent<FloorItem>().hideFloor();
-        if (currentFloor != floorList.Count-1) floorList[currentFloor + 1].GetComponent<FloorItem>().hideFloor();
+        if (currentFloor != floorList.Count - 1) floorList[currentFloor + 1].GetComponent<FloorItem>().hideFloor();
         floorList[currentFloor].GetComponent<FloorItem>().showFloor();
-        if(currentFloor == floorList.Count-1) treetopForeground.SetActive(false); else treetopForeground.SetActive(true);
+        if (currentFloor == floorList.Count - 1) treetopForeground.SetActive(false); else treetopForeground.SetActive(true);
         rootHidder.SetActive(false);
     }
 

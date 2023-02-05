@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public GameObject inventoryContainer;
     public GameObject playerSmoke;
 
+    public List<GameObject> turretBuyMenu = new List<GameObject>();
+
     //public List<Material> oldMaterials = new List<Material>();
     public string currentState;
 
@@ -125,6 +127,12 @@ public class PlayerController : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         animator = GetComponent<Animator>();
+
+        foreach (var item in turretBuyMenu)
+        {
+            item.SetActive(false);
+        }
+        turretBuyMenu[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -311,6 +319,36 @@ public class PlayerController : MonoBehaviour
                 GameManager.Instance.hideRemoveMenuUI();
                 GameManager.Instance.setRootView(false);
             }
+        }
+    }
+
+    public void updateTurretPlacementMenu()
+    {
+        switch (GameManager.Instance.getCurrentDay())
+        {
+            case 3:
+                turretBuyMenu[1].SetActive(true);
+                break;
+
+            case 6:
+                turretBuyMenu[2].SetActive(true);
+                break;
+
+            case 9:
+                turretBuyMenu[3].SetActive(true);
+                break;
+
+            case 12:
+                turretBuyMenu[4].SetActive(true);
+                break;
+
+            case 15:
+                turretBuyMenu[5].SetActive(true);
+                break;
+
+            case 18:
+                turretBuyMenu[6].SetActive(true);
+                break;
         }
     }
 
