@@ -203,9 +203,19 @@ public class EnemySpawn : MonoBehaviour
         int num = 0;
         foreach (EnemyWaveState wave in enemyWaveStates)
         {
+            //els que falten x fer spawn
             num += wave.totalEnemies - wave.numSpawned;
         }
-        return num;
+
+        int activeEnemies = 0;
+        foreach (Pool pool in pools)
+        {
+            foreach (GameObject pooledObject in pool.pooledObjects)
+            {
+                if (pooledObject.activeInHierarchy) activeEnemies++;
+            }
+        }
+        return num + activeEnemies;
     }
 
     private void OnDrawGizmosSelected()
