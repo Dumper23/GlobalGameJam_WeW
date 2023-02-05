@@ -1151,11 +1151,13 @@ public class GameManager : MonoBehaviour
             placeHolder.turretPlacementId = -1;
             if (player.turretsInventory.TryGetValue(placeHolder.turretId, out int amount))
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Remove(placeHolder.turretId);
                 player.turretsInventory.Add(placeHolder.turretId, amount + 1);
             }
             else
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Add(placeHolder.turretId, 1);
             }
             player.audioSources[player.AUDIO_PICK_TURRET].clip = player.audios[player.AUDIO_PICK_TURRET];
