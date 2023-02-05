@@ -21,17 +21,12 @@ public class Narrative : MonoBehaviour
     private Dictionary<string, string[]> dialogs = new Dictionary<string, string[]>();
     private int dialogIndex = 0;
     private string[] floorColors = {"blue", "orange", "yellow", "green","white"};
+    private int introKeyIndex = 0;
 
     // Start is called before the first frame update
     void Awake()
     {
         this.initializeDialogs();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void initializeDialogs()
@@ -114,10 +109,48 @@ public class Narrative : MonoBehaviour
         };
         this.dialogs.Add("bunny12", bunnyDialogs12);
         #endregion
+
+        #region INTRO
+        string[] intro0 = {
+            "Hey you! Wake up soldier, no time to sleep!",
+            "You are the first of the United Rodent Army that arrives to this outpost",
+            "The enemy knows no mercy and they will do anything to reach the top of this tree and steal our supplies",
+            "If we hold on and resist 23 more days, all of our allies will have arrived and we will win the war!"
+        };
+        this.dialogs.Add("intro0", intro0);
+
+        string[] intro1 = {
+            "But captain...I don't think we have the time...",
+            "Look...I think I just got a premonitory dream. And the fate that waits us is quite...",
+            "Like an apocalyptic and massively destructive near future that the main character of an indie game has to somehow manage to solve?"
+        };
+        this.dialogs.Add("intro1", intro1);
+
+        string[] intro2 =
+        {
+            "What in the- how dare you break the fourth wall while we are at war soldier?!\nFOCUS! Or we ain't gonna see a tomorrow!",
+            "I will be guarding the ammunition on this floor. Open that chest and take a charger",
+            "Each charger fills all the ammunition of a turret",
+            "Now go upstairs and build the first turret on the balcony to defend us. Fast! the enemy is coming",
+            "They don't attack at night, so take advantage of that and prepare for tomorrow"
+        };
+        this.dialogs.Add("intro2", intro2);
+
+        string[] intro3 = {
+            "Holy carrots soldier! I really thought those ants were going to invade our tree!",
+            "As the days pass the tree will absorb the fallen enemies and grow, giving you the option to place more defenses",
+            "I have asked for reinforcements, they bring ammunition and designs of different types of turrets that will serve to protect this tree",
+            "You can improve some aspects of the turrets by talking to me",
+            "I will give you access to the roots of the tree, the stronger they are, the stronger the tree will be"
+        };
+        this.dialogs.Add("intro3", intro3);
+        #endregion
     }
-    
+
     public void startNpcScene(NPC npc)
     {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
         this.dialogIndex = 0;
         this.gameObject.SetActive(true);
         this.transform.Find("FloorBackground").GetComponent<Image>().sprite = this.backgroundFloors.Find((x) => x.ammoId == npc.ammoId).sprite;
@@ -136,6 +169,8 @@ public class Narrative : MonoBehaviour
 
     public void startFloorScene()
     {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
         this.dialogIndex = 0;
         this.gameObject.SetActive(true);
         this.transform.Find("FloorBackground").GetComponent<Image>().sprite = this.colorFloors.Find((x) => x.name == this.floorColors[GameManager.Instance.floorColorIndex]);
@@ -151,8 +186,62 @@ public class Narrative : MonoBehaviour
         Invoke("nextDialogBunny", 1);
     }
 
+    public void startIntroScene()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
+        this.dialogIndex = 0;
+        this.introKeyIndex = 0;
+        this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("static");
+        this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
+        Invoke("startIntroScene2", 8f);
+    }
+
+    public void startIntroScene2()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
+        //first dialog bunny
+        this.transform.Find("Dream").gameObject.SetActive(false);
+        this.transform.Find("FloorBackground").gameObject.SetActive(true);
+        this.transform.Find("characters").gameObject.SetActive(true);
+        this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText("");
+
+        //Play animations
+        this.transform.Find("FloorBackground").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.gameObject.transform.Find("characters").transform.Find("bunny").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.GetComponent<Animator>().Play("fadeIn_white");
+        this.gameObject.transform.Find("characters").transform.Find("player").gameObject.GetComponent<Animator>().Play("fadeIn");
+
+        Invoke("nextDialogBunnyIntro", 1);
+    }
+
+    public void startIntroScene3()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
+        this.dialogIndex = 0;
+        this.introKeyIndex = 3;
+        this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.transform.Find("FloorBackground").gameObject.SetActive(true);
+        this.transform.Find("characters").gameObject.SetActive(true);
+        this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText("");
+
+        //Play animations
+        this.transform.Find("FloorBackground").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.gameObject.transform.Find("characters").transform.Find("bunny").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.GetComponent<Animator>().Play("fadeIn_white");
+        this.gameObject.transform.Find("characters").transform.Find("player").gameObject.GetComponent<Animator>().Play("fadeIn");
+
+        Invoke("nextDialogBunnyIntro", 1);
+    }
+
     public void stopNpcScene()
     {
+        GameManager.Instance.setDayNightAnimationPlaying(false);
+
         NPC npc = GameManager.Instance.npcToAppear;
         this.gameObject.transform.Find("characters").transform.Find(npc.ammoId).gameObject.SetActive(false);
         this.gameObject.SetActive(false);
@@ -161,8 +250,25 @@ public class Narrative : MonoBehaviour
 
     public void stopFloorScene()
     {
+        GameManager.Instance.setDayNightAnimationPlaying(false);
+
         this.gameObject.SetActive(false);
         GameManager.Instance.handleChangeState();
+    }
+
+    public void stopIntroScene()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(false);
+
+        this.gameObject.SetActive(false);
+        if(this.introKeyIndex != 3)
+        {
+            GameManager.Instance.changeDayState();
+        }
+        else
+        {
+            GameManager.Instance.handleChangeState();
+        }
     }
 
     public void nextDialog()
@@ -210,6 +316,67 @@ public class Narrative : MonoBehaviour
                 this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.GetComponent<Animator>().Play("fadeOut_white");
                 this.gameObject.transform.Find("characters").transform.Find("player").gameObject.GetComponent<Animator>().Play("fadeOut");
                 Invoke("stopFloorScene", 1);
+            }
+        }
+    }
+
+    public void nextDialogBunnyIntro()
+    {
+        if (this.dialogs.TryGetValue("intro" + this.introKeyIndex, out string[] dialogs))
+        {
+            if (this.dialogIndex < dialogs.Length)
+            {
+                if(this.introKeyIndex != 1)
+                {
+                    //It's bunny
+                    this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.SetActive(true);
+                    this.gameObject.transform.Find("characters").transform.Find("player").transform.GetChild(0).gameObject.SetActive(false);
+                    this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
+                    this.dialogIndex++;
+                }
+                else
+                {
+                    //It's player
+                    this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.SetActive(false);
+                    this.gameObject.transform.Find("characters").transform.Find("player").transform.GetChild(0).gameObject.SetActive(true);
+                    this.gameObject.transform.Find("characters").transform.Find("player").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
+                    this.dialogIndex++;
+                }
+
+                switch (this.introKeyIndex)
+                {
+                    case 0:
+                        Invoke("nextDialogBunnyIntro", 4.5f);
+                        break;
+                    case 1:
+                        Invoke("nextDialogBunnyIntro", 5.5f);
+                        break;
+                    case 2:
+                        Invoke("nextDialogBunnyIntro", 7f);
+                        break;
+                    case 3:
+                        Invoke("nextDialogBunnyIntro", 7f);
+                        break;
+                }
+            }
+            else
+            {
+                if(this.introKeyIndex < 2)
+                {
+                    this.introKeyIndex++;
+                    this.dialogIndex = 0;
+                    Invoke("nextDialogBunnyIntro", 3.5f);
+                }
+                else
+                {
+                    //Play animations
+                    this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeOut");
+                    this.transform.Find("FloorBackground").gameObject.GetComponent<Animator>().Play("fadeOut_white");
+                    this.gameObject.transform.Find("characters").transform.Find("bunny").gameObject.GetComponent<Animator>().Play("fadeOut");
+                    this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.GetComponent<Animator>().Play("fadeOut_white");
+                    this.gameObject.transform.Find("characters").transform.Find("player").gameObject.GetComponent<Animator>().Play("fadeOut");
+                    Invoke("stopIntroScene", 1);
+                }
             }
         }
     }
