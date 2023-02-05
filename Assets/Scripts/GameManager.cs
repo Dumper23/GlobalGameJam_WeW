@@ -1013,7 +1013,7 @@ public class GameManager : MonoBehaviour
                 {
                     //Start day after 60s
                     infoUpdater.ResetTimer();
-                    Invoke("changeDayState", 15);
+                    Invoke("changeDayState", 60);
                 }
 
                 if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
