@@ -46,7 +46,7 @@ public class EnemySpawn : MonoBehaviour
     public string id;
     public float area;
 
-    public static int AREA_RANGE = 5;
+    public static int AREA_RANGE = 1;
 
     private bool isActive = false;
     private List<EnemyWave> enemyWaves = new List<EnemyWave>();

@@ -41,19 +41,21 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(15, "ant", 3, 2, 1, "walk"),
+        new EnemyWave(14, "ant", 3, 2, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
         new EnemyWave(20, "ant", 3, 2, 1, "walk"),
+
      
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
-        new EnemyWave(3, "ant", 2, 0, 1, "walk"),
+        new EnemyWave(35, "ant", 3, 2, 1, "walk"),
+        new EnemyWave(5, "flea", 3, 2, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 

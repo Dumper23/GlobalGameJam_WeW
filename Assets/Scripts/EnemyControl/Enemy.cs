@@ -98,7 +98,8 @@ public class Enemy : MonoBehaviour
     public void die()
     {
         Instantiate(bloodParticles, transform.position, Quaternion.identity);
-        Instantiate(bloodDecal, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(bloodDecal, transform.position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0f, 360f))));
+        go.GetComponentInChildren<SpriteRenderer>().color = new Color(0.0990566f, Random.Range(0.1f, 0.9f), 0.1093038f);
         Instantiate(deathSound, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
         GameManager.Instance.fertilizer += fertilizerToGive;

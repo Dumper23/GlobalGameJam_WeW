@@ -8,14 +8,15 @@ public class SeedTurret : TurretsFather
     {
         turretId = "MACHINE_SEED";
     }
-    void Start()
+
+    private void Start()
     {
         //ammunituion = 5;
         //damage = 10;
         base.Start();
     }
 
-    void Update()
+    private void Update()
     {
         base.Update();
     }
@@ -36,7 +37,6 @@ public class SeedTurret : TurretsFather
     protected override void InintiateStatsAtCurrentUpgrades()
     {
         Dictionary<string, float> d = GameManager.Instance.getTurretInfo(turretId);
-
 
         if (d.TryGetValue("damageLevel", out float LDamage))
         {
@@ -64,7 +64,8 @@ public class SeedTurret : TurretsFather
             {
                 if (d.TryGetValue("chest", out float newChest))
                 {
-                    if (maxChest != (int)newChest) {
+                    if (maxChest != (int)newChest)
+                    {
                         maxChest = (int)newChest;
                         chestIndicators[maxChest - 1].SetActive(true);
                         chestIndicators[maxChest - 1].GetComponent<SpriteRenderer>().color = Color.red;

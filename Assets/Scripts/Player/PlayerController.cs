@@ -383,6 +383,7 @@ public class PlayerController : MonoBehaviour
 
     public void changeSlotSelected(int slot)
     {
+        Debug.Log(slot);
         switch (slot)
         {
             case 1:

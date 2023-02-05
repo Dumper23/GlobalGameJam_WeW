@@ -8,9 +8,18 @@ public class MainMenu : MonoBehaviour
     public GameObject menu;
     public GameObject credits;
 
+    private void Start()
+    {
+        GameManager.Instance.mainMenuSound.Play();
+        Time.timeScale = 0;
+    }
+
     public void playGame()
     {
         menu.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.Instance.initialAnim.gameObject.SetActive(true);
+        GameManager.Instance.initialAnim.startIntroScene();
     }
 
     public void creditsMenuOn()

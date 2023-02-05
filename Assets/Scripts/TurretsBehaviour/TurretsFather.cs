@@ -27,9 +27,9 @@ public abstract class TurretsFather : MonoBehaviour
     //--
 
     [Header("Default Stats")]
-
     [SerializeField]
     protected float fireRate;
+
     [SerializeField]
     protected float rangeAttack;
 
@@ -64,19 +64,19 @@ public abstract class TurretsFather : MonoBehaviour
     protected void Start()
     {
         //Set Default settings
-        InintiateStatsAtCurrentUpgrades();
-        enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
         endWayPoint = GameManager.Instance.topFloor.transform.Find("waypoint").transform;
         foreach (GameObject g in chestIndicators)
         {
             g.GetComponent<SpriteRenderer>().color = Color.red;
             g.SetActive(false);
         }
+        InintiateStatsAtCurrentUpgrades();
     }
 
     // Update is called once per frame
     protected void Update()
     {
+        enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
         if (HasAmmo())
         {
             DetectObjective();
@@ -145,7 +145,8 @@ public abstract class TurretsFather : MonoBehaviour
             {
                 chest--;
 
-                if (chestIndicators[chest].activeInHierarchy) {
+                if (chestIndicators[chest].activeInHierarchy)
+                {
                     chestIndicators[chest].GetComponent<SpriteRenderer>().color = Color.red;
                 }
 
@@ -180,7 +181,6 @@ public abstract class TurretsFather : MonoBehaviour
         }
         else
         {
-
             if (chest < maxChest)
             {
                 if (chestIndicators[chest].activeInHierarchy)
