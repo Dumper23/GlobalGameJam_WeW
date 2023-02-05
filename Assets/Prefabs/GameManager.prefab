@@ -451,7 +451,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.15
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
   unlockedFloors: 3
-  fertilizer: 250
+  fertilizer: 418
   alreadyInteracted: 0
   interactionCooldown: 0
   infoUpdater: {fileID: 0}
@@ -1036,8 +1036,10 @@ MonoBehaviour:
   treetopForeground: {fileID: 0}
   rootHidder: {fileID: 0}
   hud: {fileID: 0}
+  HPSound: {fileID: 326704153493189425, guid: b0399ef13aeb2b14e94e97b6726cfcd5, type: 3}
   narrative: {fileID: 0}
   unlockFloorNarrative: {fileID: 0}
+  initialAnim: {fileID: 0}
   introDay: {fileID: 2145113574}
   loopDay: {fileID: 574089821}
   loopNight: {fileID: 1510862623}
@@ -1045,13 +1047,6 @@ MonoBehaviour:
   mainMenuSound: {fileID: 1086162986}
   backgroundSoundsDay: {fileID: 1401526990}
   changeSound: {fileID: 908230877}
-  globalLight: {fileID: 0}
-  intensityDay: 2
-  intensityNight: 0.45
-  dayColor: {r: 1, g: 1, b: 1, a: 0}
-  nightColor: {r: 0.19339621, g: 0.51402664, b: 1, a: 0}
-  dayChangeDuration: 4
-  nightChangeDuration: 4
   turrets:
   - turretId: MACHINE_SEED
     turretPrefab: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}
@@ -1070,3 +1065,10 @@ MonoBehaviour:
   isDay: 1
   allEnemies: []
   floorColorIndex: 0
+  globalLight: {fileID: 0}
+  intensityDay: 2
+  intensityNight: 1.6
+  dayColor: {r: 1, g: 1, b: 1, a: 0}
+  nightColor: {r: 0.19339621, g: 0.51402664, b: 1, a: 0}
+  dayChangeDuration: 4
+  nightChangeDuration: 4

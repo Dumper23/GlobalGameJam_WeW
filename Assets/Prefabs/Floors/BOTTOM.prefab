@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 3b64c636cbf74bf4c867835a91d9f809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -405455083
   m_Mesh: {fileID: 0}
-  m_InstanceId: 310806
+  m_InstanceId: -960356
 --- !u!1 &3671283642939765592
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 3b64c636cbf74bf4c867835a91d9f809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -497,7 +497,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 3b64c636cbf74bf4c867835a91d9f809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -661310407
   m_Mesh: {fileID: 0}
-  m_InstanceId: 310784
+  m_InstanceId: -960350
 --- !u!1 &4724364320009873732
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5038137965168752093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.33, y: -0.426, z: 0.024085049}
+  m_LocalPosition: {x: 1.535, y: -0.426, z: 0.024085049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692604474658940209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.626, y: -0.424, z: 0.024085049}
+  m_LocalPosition: {x: 1.897, y: -0.424, z: 0.024085049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1630,7 +1630,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 3b64c636cbf74bf4c867835a91d9f809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1714,7 +1714,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 3b64c636cbf74bf4c867835a91d9f809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1889,7 +1889,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -374665018
   m_Mesh: {fileID: 0}
-  m_InstanceId: 310888
+  m_InstanceId: -960362
 --- !u!1001 &880644736583202247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1911,7 +1911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: a7a00cea631aed24f9f9e60a41807b31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.331
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: a7a00cea631aed24f9f9e60a41807b31, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1977,7 +1977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: 0e5aaf7659d175f42badc57c96fea06e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72099996
+      value: 0.713
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: 0e5aaf7659d175f42badc57c96fea06e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2043,7 +2043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: 1f87cedbf1a7c594faba02f20cc1c7bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.43
+      value: -3.852
       objectReference: {fileID: 0}
     - target: {fileID: 1641286348385484259, guid: 1f87cedbf1a7c594faba02f20cc1c7bb, type: 3}
       propertyPath: m_LocalPosition.y
