@@ -246,6 +246,7 @@ public class GameManager : MonoBehaviour
             player.liftDelayCircle.gameObject.SetActive(true);
             player.liftDelayCircle.fillAmount -= Time.deltaTime;
         }
+        updateRemainingNumEnemies();
     }
 
     public void DayLight()
@@ -1370,13 +1371,13 @@ public class GameManager : MonoBehaviour
         this.changeDayState();
     }
 
-    public int getRemainingNumEnemies()
+    public void updateRemainingNumEnemies()
     {
         int numTotal = 0;
         foreach (EnemySpawn spawn in this.enemySpawns)
         {
             numTotal += spawn.getNumEnemiesToFinish();
         }
-        return numTotal;
+        infoUpdater.SetEnemies(numTotal);
     }
 }
