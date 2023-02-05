@@ -1052,7 +1052,7 @@ public class GameManager : MonoBehaviour
     {
         //show animation
         this.narrative.startNpcScene(this.npcToAppear);
-
+        SkillTree.Instance.NextTurret();
         GameObject floor;
         if (this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;

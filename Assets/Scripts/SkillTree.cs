@@ -32,6 +32,7 @@ public class SkillTree : MonoBehaviour
     public Dictionary<int, Node> SkillNodes = new Dictionary<int, Node>();
     public List<Skill> SkillHolder;
 
+    private int counter = 0;
 
     private void Start()
     {
@@ -165,19 +166,48 @@ public class SkillTree : MonoBehaviour
         UpdateAllSkillsUI();
 
         //Setup
-        SkillHolder[0].Buy();
-        SkillHolder[13].Buy();
-        SkillHolder[26].Buy();
-        SkillHolder[39].Buy();
-        SkillHolder[52].Buy();
-        SkillHolder[65].Buy();
-        SkillHolder[78].Buy();
-        SkillHolder[101].Buy();
+        SkillNodes[1].buyed = true;
+        SkillHolder[0].CreateLine();
+        SkillNodes[102].buyed = true;
+        SkillHolder[101].CreateLine();
     }
 
     private void Update()
     {
         UpdateAllSkillsUI();
+    }
+
+    public void NextTurret()
+    {
+        counter++;
+
+        switch (counter)
+        {
+            case 1:
+                SkillNodes[14].buyed = true;
+                SkillHolder[13].CreateLine();
+                break;
+            case 2:
+                SkillNodes[27].buyed = true;
+                SkillHolder[26].CreateLine();
+                break;
+            case 3:
+                SkillNodes[40].buyed = true;
+                SkillHolder[39].CreateLine();
+                break;
+            case 4:
+                SkillNodes[53].buyed = true;
+                SkillHolder[52].CreateLine();
+                break;
+            case 5:
+                SkillNodes[66].buyed = true;
+                SkillHolder[65].CreateLine();
+                break;
+            case 6:
+                SkillNodes[78].buyed = true;
+                SkillHolder[77].CreateLine();
+                break;
+        }
     }
 
     public Node GetNode(int id)
