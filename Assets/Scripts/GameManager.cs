@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int fertilizer = 0;
     public bool alreadyInteracted = false;
     public float interactionCooldown = 0;
+    public bool gameOver = false;
 
     private PlayerController player;
     public InfoUpdater infoUpdater;
@@ -913,90 +914,99 @@ public class GameManager : MonoBehaviour
 
     public void removePlayerHP()
     {
-        playerHP--;
-        Instantiate(HPSound);
-        if (playerHP <= 0)
+        if (!this.gameOver)
         {
-            //gameOver
-            Debug.Log("game over :(");
+            playerHP--;
+            Instantiate(HPSound);
+            if (playerHP <= 0)
+            {
+                //gameOver
+                this.gameOver = true;
+                GameManager.Instance.initialAnim.gameObject.SetActive(true);
+                GameManager.Instance.initialAnim.startGameOverScene();
+                Debug.Log("game over :(");
+            }
         }
     }
 
     public void changeDayState()
     {
-        stopMenuSong();
-        //pause player movement
-        setDayNightAnimationPlaying(true);
-        infoUpdater.ChangeDay();
-        player.updateTurretPlacementMenu();
-        isDay = !isDay;
-        changeLight = true;
-        if (isDay)
+        if (!this.gameOver)
         {
-            Debug.Log("A");
-            fadeInDay();
-            dayChangeStartTime = Time.time;
-            //show animation
-            mainCam.GetComponent<CameraFollow>().blurCamera();
-            this.hud.transform.Find("Background").gameObject.SetActive(true);
-            this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
-            Invoke("playDayNightAnimation", 0.75f);
-            Invoke("removeDayNightAnimation", 5);
-
-            currentDay++;
-            Invoke("activateEnemySpawns", 6);
-        }
-        else
-        {
-            Debug.Log("B");
-            fadeInNight();
-            nightChangeStartTime = Time.time;
-            //show animation
-            mainCam.GetComponent<CameraFollow>().blurCamera();
-            this.hud.transform.Find("Background").gameObject.SetActive(true);
-            this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
-            Invoke("playDayNightAnimation", 0.75f);
-            Invoke("removeDayNightAnimation", 5);
-
-            //deactivate spawns
-            foreach (EnemySpawn spawn in enemySpawns)
+            stopMenuSong();
+            //pause player movement
+            setDayNightAnimationPlaying(true);
+            infoUpdater.ChangeDay();
+            player.updateTurretPlacementMenu();
+            isDay = !isDay;
+            changeLight = true;
+            if (isDay)
             {
-                spawn.deactivateSpawn();
+                Debug.Log("A");
+                fadeInDay();
+                dayChangeStartTime = Time.time;
+                //show animation
+                mainCam.GetComponent<CameraFollow>().blurCamera();
+                this.hud.transform.Find("Background").gameObject.SetActive(true);
+                this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
+                Invoke("playDayNightAnimation", 0.75f);
+                Invoke("removeDayNightAnimation", 5);
+
+                currentDay++;
+                Invoke("activateEnemySpawns", 6);
             }
-
-            //change background
-
-            //create new floor if its day X
-            bool hasUnlockedFloor = false;
-            for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
+            else
             {
-                if (currentDay == Database.Instance.unlockFloorDays[i])
+                Debug.Log("B");
+                fadeInNight();
+                nightChangeStartTime = Time.time;
+                //show animation
+                mainCam.GetComponent<CameraFollow>().blurCamera();
+                this.hud.transform.Find("Background").gameObject.SetActive(true);
+                this.hud.transform.Find("Background").GetComponent<Animator>().Play("backgroundFadeIn");
+                Invoke("playDayNightAnimation", 0.75f);
+                Invoke("removeDayNightAnimation", 5);
+
+                //deactivate spawns
+                foreach (EnemySpawn spawn in enemySpawns)
                 {
-                    hasUnlockedFloor = true;
-                    Invoke("createNewFloor", 4.5f);
+                    spawn.deactivateSpawn();
                 }
-            }
 
-            bool hasUnlockedNpc = false;
-            //unloc NPC & ammo if its day X
-            foreach (NPC npc in Database.Instance.unlockNpcDays)
-            {
-                if (npc.day == this.currentDay)
+                //change background
+
+                //create new floor if its day X
+                bool hasUnlockedFloor = false;
+                for (int i = 0; i < Database.Instance.unlockFloorDays.Length; i++)
                 {
-                    hasUnlockedNpc = true;
-                    this.npcToAppear = npc;
-                    Invoke("unlockNPC", 4.5f);
+                    if (currentDay == Database.Instance.unlockFloorDays[i])
+                    {
+                        hasUnlockedFloor = true;
+                        Invoke("createNewFloor", 4.5f);
+                    }
                 }
-            }
 
-            if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
-            {
-                //Start day after 60s
-                infoUpdater.ResetTimer();
-                Invoke("changeDayState", 60);
-            }
+                bool hasUnlockedNpc = false;
+                //unloc NPC & ammo if its day X
+                foreach (NPC npc in Database.Instance.unlockNpcDays)
+                {
+                    if (npc.day == this.currentDay)
+                    {
+                        hasUnlockedNpc = true;
+                        this.npcToAppear = npc;
+                        Invoke("unlockNPC", 4.5f);
+                    }
+                }
 
-            if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
+                if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
+                {
+                    //Start day after 60s
+                    infoUpdater.ResetTimer();
+                    Invoke("changeDayState", 60);
+                }
+
+                if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
+            }
         }
     }
 
@@ -1052,7 +1062,7 @@ public class GameManager : MonoBehaviour
     {
         //show animation
         this.narrative.startNpcScene(this.npcToAppear);
-
+        SkillTree.Instance.NextTurret();
         GameObject floor;
         if (this.npcToAppear.floor == "bottom") floor = this.bottomFloor;
         else floor = this.topFloor;
