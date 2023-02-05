@@ -195,9 +195,33 @@ public class Narrative : MonoBehaviour
         this.dialogIndex = 0;
         this.introKeyIndex = 0;
         this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.SetActive(true);
         this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("static");
+        this.transform.Find("Dream").gameObject.SetActive(true);
         this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
         Invoke("startIntroScene2", 8f);
+    }
+
+    public void startGameOverScene()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
+        this.dialogIndex = 0;
+        this.introKeyIndex = 0;
+        this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.transform.Find("Dream").gameObject.SetActive(true);
+        this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
+        Invoke("showGameOver", 8f);
+    }
+
+    public void showGameOver()
+    {
+        this.transform.Find("Dream").gameObject.SetActive(false);
+        this.transform.Find("GameOver").gameObject.SetActive(true);
+        this.transform.Find("GameOver").gameObject.transform.GetChild(0).GetComponent<Animator>().Play("gameOver");
+        this.transform.Find("GameOver").gameObject.transform.GetChild(1).GetComponent<Animator>().Play("exitButtonFadeIn");
     }
 
     public void startIntroScene2()
