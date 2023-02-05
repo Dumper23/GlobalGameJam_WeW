@@ -262,7 +262,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string RESIN_SPIT_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string RESIN_SPIT_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] RESIN_SPIT_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] RESIN_SPIT_CHEST = { 30, 50, 75 };
+    [HideInInspector] public int[] RESIN_SPIT_CHEST = { 1, 2, 3 };
 
     #endregion RESIN_SPIT
 
@@ -300,7 +300,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string S_SEEDNIPER_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string S_SEEDNIPER_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] S_SEEDNIPER_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] S_SEEDNIPER_CHEST = { 20, 35, 45 };
+    [HideInInspector] public int[] S_SEEDNIPER_CHEST = { 1, 2, 3 };
 
     #endregion S_SEEDNIPER
 
@@ -356,7 +356,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST = { 30, 50, 75 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST = { 1, 2, 3 };
 
     #endregion PINECONE_LAUNCHER
 
@@ -400,7 +400,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string NUT_ROLL_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string NUT_ROLL_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] NUT_ROLL_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] NUT_ROLL_CHEST = { 20, 30, 50 };
+    [HideInInspector] public int[] NUT_ROLL_CHEST = { 1, 2, 3 };
 
     #endregion NUT_ROLL
 
@@ -438,7 +438,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PORCUTHROW_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string PORCUTHROW_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] PORCUTHROW_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] PORCUTHROW_CHEST = { 50, 75, 100 };
+    [HideInInspector] public int[] PORCUTHROW_CHEST = { 1, 2, 3 };
 
     #endregion PORCUTHROW
 
@@ -482,7 +482,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_NAME = "More Chest!";
     [HideInInspector] public int[] ELECTRIC_POTATO_CHEST_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] ELECTRIC_POTATO_CHEST = { 30, 50, 75 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_CHEST = { 1, 2, 3 };
 
     #endregion ELECTRIC_POTATO
 
