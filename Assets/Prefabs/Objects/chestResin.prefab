@@ -184,7 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001b5c7b4f7ea264798893cb3c5bd90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alredyInteracted: 0
+  cooldown: 0
   iconName: E
+  original: {fileID: 21300000, guid: 50a5c8cab089faf4a978a7f0baf7474b, type: 3}
+  outlined: {fileID: 21300000, guid: f5964180ca699c140ae83a74cb6a53b9, type: 3}
   ammoType: resin
 --- !u!61 &6084298975057947564
 BoxCollider2D:
