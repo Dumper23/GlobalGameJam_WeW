@@ -388,36 +388,69 @@ public class GameManager : MonoBehaviour
         switch (player.currentSlot)
         {
             case 1:
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot1.hasAmmo = false;
                 player.ammoSlot1.currentAmmoType = "";
-                player.ammoSlot1.currentAmount = 0;
+                player.ammoSlot1.currentAmount -= 1;
                 player.ammoSlot1.ammoImage = null;
                 break;
 
             case 2:
+                if (player.ammoSlot2.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot2.hasAmmo = false;
                 player.ammoSlot2.currentAmmoType = "";
-                player.ammoSlot2.currentAmount = 0;
+                player.ammoSlot2.currentAmount -= 1;
                 player.ammoSlot2.ammoImage = null;
                 break;
 
             case 3:
+                if (player.ammoSlot3.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot3.hasAmmo = false;
                 player.ammoSlot3.currentAmmoType = "";
-                player.ammoSlot3.currentAmount = 0;
+                player.ammoSlot3.currentAmount -= 1;
                 player.ammoSlot3.ammoImage = null;
                 break;
 
             case 4:
+                if (player.ammoSlot4.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot4.hasAmmo = false;
                 player.ammoSlot4.currentAmmoType = "";
-                player.ammoSlot4.currentAmount = 0;
+                player.ammoSlot4.currentAmount -= 1;
                 player.ammoSlot4.ammoImage = null;
                 break;
 
             default:
                 break;
         }
+
         player.updateInventorySlots();
     }
 
