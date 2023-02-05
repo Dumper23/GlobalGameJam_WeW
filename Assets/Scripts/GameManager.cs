@@ -112,7 +112,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         player.updateTurretInventoryNumberUI();
@@ -1325,7 +1324,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTurrets()
     {
-        foreach (GameObject turret in placedTurrets.Values) turret.GetComponent<TurretsFather>().UpdateDatabase();
+        foreach (GameObject turret in placedTurrets.Values) if (turret != null) turret.GetComponent<TurretsFather>().UpdateDatabase();
     }
 
     public void UpdateDoors()
