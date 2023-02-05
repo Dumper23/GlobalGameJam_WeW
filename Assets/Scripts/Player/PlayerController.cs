@@ -515,66 +515,135 @@ public class PlayerController : MonoBehaviour
     {
         if (turretsInventory.TryGetValue("MACHINE_SEED", out int amount))
         {
-            turretAmountText0.color = Color.green;
-            turretAmountText0.SetText("x" + amount);
+            if (amount > 0)
+            {
+                turretAmountText0.color = Color.green;
+                turretAmountText0.SetText("x" + amount);
+            }
+            else
+            {
+                turretAmountText0.color = Color.red;
+                turretAmountText0.SetText("x" + 0);
+            }
         }
         else
         {
             turretAmountText0.color = Color.yellow;
-            turretAmountText0.SetText("x" + 10);
+            turretAmountText0.SetText("$" + GameManager.Instance.getTurretPrice("MACHINE_SEED"));
         }
 
         if (turretsInventory.TryGetValue("S_SEEDNIPER", out int amount1))
         {
-            turretAmountText1.SetText("x" + amount1);
+            if (amount > 0)
+            {
+                turretAmountText1.color = Color.green;
+                turretAmountText1.SetText("x" + amount1);
+            }
+            else
+            {
+                turretAmountText1.color = Color.red;
+                turretAmountText1.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText1.SetText("x" + 0);
+            turretAmountText1.color = Color.yellow;
+            turretAmountText1.SetText("$" + GameManager.Instance.getTurretPrice("S_SEEDNIPER"));
         }
 
         if (turretsInventory.TryGetValue("RESIN_SPIT", out int amount2))
         {
-            turretAmountText2.SetText("x" + amount2);
+            if (amount > 0)
+            {
+                turretAmountText2.color = Color.green;
+                turretAmountText2.SetText("x" + amount2);
+            }
+            else
+            {
+                turretAmountText2.color = Color.red;
+                turretAmountText2.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText2.SetText("x" + 0);
+            turretAmountText2.color = Color.yellow;
+            turretAmountText2.SetText("$" + GameManager.Instance.getTurretPrice("RESIN_SPIT"));
         }
 
         if (turretsInventory.TryGetValue("PORCUTHROW", out int amount3))
         {
-            turretAmountText3.SetText("x" + amount3);
+            if (amount > 0)
+            {
+                turretAmountText3.color = Color.green;
+                turretAmountText3.SetText("x" + amount3);
+            }
+            else
+            {
+                turretAmountText3.color = Color.red;
+                turretAmountText3.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText3.SetText("x" + 0);
+            turretAmountText3.color = Color.yellow;
+            turretAmountText3.SetText("$" + GameManager.Instance.getTurretPrice("PORCUTHROW"));
         }
 
         if (turretsInventory.TryGetValue("PINECONE_LAUNCHER", out int amount4))
         {
-            turretAmountText4.SetText("x" + amount4);
+            if (amount > 0)
+            {
+                turretAmountText4.color = Color.green;
+                turretAmountText4.SetText("x" + amount4);
+            }
+            else
+            {
+                turretAmountText4.color = Color.red;
+                turretAmountText4.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText4.SetText("x" + 0);
+            turretAmountText4.color = Color.yellow;
+            turretAmountText4.SetText("$" + GameManager.Instance.getTurretPrice("PINECONE_LAUNCHER"));
         }
 
         if (turretsInventory.TryGetValue("NUT_ROLL", out int amount5))
         {
-            turretAmountText5.SetText("x" + amount5);
+            if (amount > 0)
+            {
+                turretAmountText5.color = Color.green;
+                turretAmountText5.SetText("x" + amount5);
+            }
+            else
+            {
+                turretAmountText5.color = Color.red;
+                turretAmountText5.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText5.SetText("x" + 0);
+            turretAmountText5.color = Color.yellow;
+            turretAmountText5.SetText("$" + GameManager.Instance.getTurretPrice("NUT_ROLL"));
         }
+
         if (turretsInventory.TryGetValue("ELECTRIC_POTATO", out int amount6))
         {
-            turretAmountText6.SetText("x" + amount6);
+            if (amount > 0)
+            {
+                turretAmountText6.color = Color.green;
+                turretAmountText6.SetText("x" + amount6);
+            }
+            else
+            {
+                turretAmountText6.color = Color.red;
+                turretAmountText6.SetText("x" + 0);
+            }
         }
         else
         {
-            turretAmountText6.SetText("x" + 0);
+            turretAmountText6.color = Color.yellow;
+            turretAmountText6.SetText("$" + GameManager.Instance.getTurretPrice("ELECTRIC_POTATO"));
         }
     }
 
