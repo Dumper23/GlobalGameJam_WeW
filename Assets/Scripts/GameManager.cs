@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public GameObject treetopForeground;
     public GameObject rootHidder;
     public GameObject hud;
+    public GameObject HPSound;
     public Narrative narrative;
     public Narrative unlockFloorNarrative;
     public Narrative initialAnim;
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         player.updateTurretInventoryNumberUI();
@@ -246,6 +248,7 @@ public class GameManager : MonoBehaviour
             player.liftDelayCircle.gameObject.SetActive(true);
             player.liftDelayCircle.fillAmount -= Time.deltaTime;
         }
+        updateRemainingNumEnemies();
     }
 
     public void DayLight()
@@ -912,6 +915,7 @@ public class GameManager : MonoBehaviour
     public void removePlayerHP()
     {
         playerHP--;
+        Instantiate(HPSound);
         if (playerHP <= 0)
         {
             //gameOver
@@ -989,6 +993,7 @@ public class GameManager : MonoBehaviour
             if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
+                infoUpdater.ResetTimer();
                 Invoke("changeDayState", 60);
             }
 
@@ -1369,13 +1374,13 @@ public class GameManager : MonoBehaviour
         this.changeDayState();
     }
 
-    public int getRemainingNumEnemies()
+    public void updateRemainingNumEnemies()
     {
         int numTotal = 0;
         foreach (EnemySpawn spawn in this.enemySpawns)
         {
             numTotal += spawn.getNumEnemiesToFinish();
         }
-        return numTotal;
+        infoUpdater.SetEnemies(numTotal);
     }
 }

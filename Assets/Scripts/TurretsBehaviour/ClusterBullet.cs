@@ -8,9 +8,18 @@ public class ClusterBullet : MonoBehaviour
     [SerializeField]
     private float moveSpeed, radius, bulletDuration;
 
+    private bool isDestroying = false;
+
     private int damage;
 
     private Vector2 direction;
+    [Header("Bullet Settings")]
+    [SerializeField]
+    private GameObject sprite;
+    [SerializeField]
+    private Animator explosion;
+    [SerializeField]
+    private GameObject eSoundB;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +30,10 @@ public class ClusterBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        if (!isDestroying)
+        {
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+        }
     }
     private void OnEnable()
     {
@@ -30,14 +42,28 @@ public class ClusterBullet : MonoBehaviour
 
     private void Destroy()
     {
+        isDestroying = true;
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D c in enemies)
         {
             if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 c.GetComponent<Enemy>().takeDamage(damage);
+                explosion.gameObject.SetActive(true);
+                explosion.Play("explosionSmall");
+                Instantiate(eSoundB);
+                sprite.SetActive(false);
             }
         }
+        Invoke("Disable", 1f);
+    }
+    private void Disable()
+    {
+        isDestroying = false;
+
+        sprite.SetActive(true);
+        explosion.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 

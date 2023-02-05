@@ -47,7 +47,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 3, 2, 1, "walk"),
+        new EnemyWave(20, "ant", 3, 2, 1, "walk")
 
      
     };
@@ -62,122 +62,187 @@ public class Database : MonoBehaviour
     [HideInInspector]
     public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
         new EnemyWave(45, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(15, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(5, "flea", 3, 2, 1, "walk")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
-        new EnemyWave(3, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(55, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(10, "flea", 2, 1, 1, "walk")
+
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
-        new EnemyWave(1, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(55, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(5, "fly", 1, 0, 1, "fly")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
-        new EnemyWave(1, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(65, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(10, "fly", 1, 0, 1, "fly")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(80, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(30, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(15, "fly", 1, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(85, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(20, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(10, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 0, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(95, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(15, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(1, "beetle", 1, 20, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(95, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(10, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(1, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(5, "wasp", 1, 5, 1, "walk")
+
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(110, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(40, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(25, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(3, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(5, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(15, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(140, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(40, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(40, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(6, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(8, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(25, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(160, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(50, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(40, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(6, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(8, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(25, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(165, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(65, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(55, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(8, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(12, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(35, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(180, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(76, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(80, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(10, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(14, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(45, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(200, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(90, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(100, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(12, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(14, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(60, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(215, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(100, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(120, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(12, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(16, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(75, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(235, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(115, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(140, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(14, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(16, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(80, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(255, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(135, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(160, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(16, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(20, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(95, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(275, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(145, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(175, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(18, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(20, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(110, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(295, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(155, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(185, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(18, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(22, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(130, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
-        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
+        new EnemyWave(310, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(175, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(195, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(22, "beetle", 1, 0, 1, "walk"),
+        new EnemyWave(24, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(150, "wasp", 1, 5, 1, "walk")
     };
 
     #endregion WAVES FOR EACH DAY
@@ -197,7 +262,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int MACHINE_SEED_SPEED_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string MACHINE_SEED_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 100, 100, 5000 };
+    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 100, 1000, 5000 };
     [HideInInspector] public float[] MACHINE_SEED_SPEED = { 0.7f, 0.5f, 0.3f };
 
     [HideInInspector] public int MACHINE_SEED_CAPACITY_LVL = 0;
