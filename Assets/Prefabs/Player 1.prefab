@@ -65,7 +65,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 300
+  m_SortingOrder: 120
   m_TargetDisplay: 0
 --- !u!114 &191616826
 MonoBehaviour:
@@ -306,7 +306,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 120
   m_TargetDisplay: 0
 --- !u!114 &749302892
 MonoBehaviour:
@@ -555,7 +555,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 32
+  m_SortingOrder: 130
   m_Sprite: {fileID: 21300000, guid: 2bdc298089ee02a4ea06f6ccc99c407a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   interactionRange: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
   interactionSymbolE: {fileID: 1372899126511182026}
   interactionSymbolR: {fileID: 1605008858}
   interactionSymbolWS: {fileID: 3386540338704403130}
@@ -1893,6 +1893,14 @@ MonoBehaviour:
   removeMenu: {fileID: 749302889}
   inventoryContainer: {fileID: 0}
   playerSmoke: {fileID: 3514595442604219812, guid: 53b3703a1f7e9b248a539724c1e75b1e, type: 3}
+  turretBuyMenu:
+  - {fileID: 75449180903415940}
+  - {fileID: 2110297438596779053}
+  - {fileID: 6295418484594370366}
+  - {fileID: 8503421874855679756}
+  - {fileID: 5571498408586986353}
+  - {fileID: 7766879299230888156}
+  - {fileID: 1511487751721138164}
   currentState: 
   audios:
   - {fileID: 8300000, guid: d17ec48b9aa4122469981b40940a3c5f, type: 3}
@@ -2278,7 +2286,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 130
   m_Sprite: {fileID: 21300000, guid: 7f0af4790d99a3b43ad6ea8bd9449d34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2416,7 +2424,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 130
   m_Sprite: {fileID: 21300000, guid: 123b1ce80e07e3e4f871e05a9ac5e9a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3284,7 +3292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 36
+  m_SortingOrder: 130
   m_Sprite: {fileID: 21300000, guid: 40ee57ef09399ba4aa5d4448784d4286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
