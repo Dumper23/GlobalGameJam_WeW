@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class TrashCan : IEInteractable
 {
-
     public override void EndInteraction()
     {
-        
     }
 
     public override void Interaction(string action)
     {
-        if (action.Equals("R"))
+        if (action.Equals("E"))
         {
             GameManager.Instance.deleteAmmo();
         }
