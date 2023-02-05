@@ -65,6 +65,8 @@ public class SeedTurret : TurretsFather
                 if (d.TryGetValue("chest", out float newChest))
                 {
                     maxChest = (int)newChest;
+                    chestIndicators[maxChest - 1].SetActive(true);
+                    chestIndicators[maxChest - 1].GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
         }
