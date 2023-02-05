@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public AudioSource loopDay;
     public AudioSource loopNight;
     public AudioSource backgroundSoundsNight;
+    public AudioSource mainMenuSound;
 
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
@@ -1197,6 +1198,11 @@ public class GameManager : MonoBehaviour
         backgroundSoundsDay.Stop();
         backgroundSoundsNight.Play();
         loopNight.GetComponent<Animator>().Play("FadeInNight");
+    }
+
+    public void playMenuSong()
+    {
+        mainMenuSound.Play();
     }
 
     public void UpdateTurrets()
