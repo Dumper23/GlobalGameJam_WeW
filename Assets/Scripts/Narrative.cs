@@ -20,11 +20,11 @@ public class Narrative : MonoBehaviour
 
     private Dictionary<string, string[]> dialogs = new Dictionary<string, string[]>();
     private int dialogIndex = 0;
-    private string[] floorColors = {"blue", "orange", "yellow", "green","white"};
+    private string[] floorColors = { "blue", "orange", "yellow", "green", "white" };
     private int introKeyIndex = 0;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         this.initializeDialogs();
     }
@@ -32,6 +32,7 @@ public class Narrative : MonoBehaviour
     private void initializeDialogs()
     {
         #region NPC
+
         string[] conejoDialogs = { "how r u you doing pal?" };
         this.dialogs.Add("conejo", conejoDialogs);
 
@@ -47,14 +48,16 @@ public class Narrative : MonoBehaviour
         string[] puercoespinDialogs = { "Good night newbie, I bring you a little present", "Hehehe destroy those bastards at ease!" };
         this.dialogs.Add("puercoespin", puercoespinDialogs);
 
-        string[] capybaraDialogs = { "Hello...I brought something that might help you...", "I hope it helps you, I'll be here if you need anything"};
+        string[] capybaraDialogs = { "Hello...I brought something that might help you...", "I hope it helps you, I'll be here if you need anything" };
         this.dialogs.Add("capybara", capybaraDialogs);
 
         string[] rataDialogs = { "Hey boy come here, I've brought you a nice gadget muahahaha", "All yours, give those bugs a good cramp!" };
         this.dialogs.Add("rata", rataDialogs);
-        #endregion
+
+        #endregion NPC
 
         #region UNLOCK FLOORS
+
         string[] bunnyDialogs4 = {
             "How you doing soldier? The tree has been nourished with the corpses of our enemies",
             "It has grown bigger and unlocked a new floor! (a little macabre if you think about it...)"
@@ -110,9 +113,11 @@ public class Narrative : MonoBehaviour
             "Let's finish this once and for all! Shall we?"
         };
         this.dialogs.Add("bunny12", bunnyDialogs12);
-        #endregion
+
+        #endregion UNLOCK FLOORS
 
         #region INTRO
+
         string[] intro0 = {
             "Hey you! Wake up soldier, no time to sleep!",
             "You are the first of the United Rodent Army that arrives to this outpost",
@@ -146,7 +151,8 @@ public class Narrative : MonoBehaviour
             "I will give you access to the roots of the tree, the stronger they are, the stronger the tree will be"
         };
         this.dialogs.Add("intro3", intro3);
-        #endregion
+
+        #endregion INTRO
     }
 
     public void startNpcScene(NPC npc)
@@ -195,9 +201,33 @@ public class Narrative : MonoBehaviour
         this.dialogIndex = 0;
         this.introKeyIndex = 0;
         this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.SetActive(true);
         this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("static");
+        this.transform.Find("Dream").gameObject.SetActive(true);
         this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
         Invoke("startIntroScene2", 8f);
+    }
+
+    public void startGameOverScene()
+    {
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+
+        this.dialogIndex = 0;
+        this.introKeyIndex = 0;
+        this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.transform.Find("Dream").gameObject.SetActive(true);
+        this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
+        Invoke("showGameOver", 8f);
+    }
+
+    public void showGameOver()
+    {
+        this.transform.Find("Dream").gameObject.SetActive(false);
+        this.transform.Find("GameOver").gameObject.SetActive(true);
+        this.transform.Find("GameOver").gameObject.transform.GetChild(0).GetComponent<Animator>().Play("gameOver");
+        this.transform.Find("GameOver").gameObject.transform.GetChild(1).GetComponent<Animator>().Play("exitButtonFadeIn");
     }
 
     public void startIntroScene2()
@@ -226,6 +256,7 @@ public class Narrative : MonoBehaviour
         this.dialogIndex = 0;
         this.introKeyIndex = 3;
         this.gameObject.SetActive(true);
+        this.transform.Find("Background").gameObject.SetActive(true);
         this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
         this.transform.Find("FloorBackground").gameObject.SetActive(true);
         this.transform.Find("characters").gameObject.SetActive(true);
@@ -263,7 +294,7 @@ public class Narrative : MonoBehaviour
         GameManager.Instance.setDayNightAnimationPlaying(false);
 
         this.gameObject.SetActive(false);
-        if(this.introKeyIndex != 3)
+        if (this.introKeyIndex != 3)
         {
             GameManager.Instance.changeDayState();
         }
@@ -276,9 +307,9 @@ public class Narrative : MonoBehaviour
     public void nextDialog()
     {
         NPC npc = GameManager.Instance.npcToAppear;
-        if(this.dialogs.TryGetValue(npc.npcId, out string[] dialogs))
+        if (this.dialogs.TryGetValue(npc.npcId, out string[] dialogs))
         {
-            if(this.dialogIndex < dialogs.Length)
+            if (this.dialogIndex < dialogs.Length)
             {
                 this.gameObject.transform.Find("characters").transform.Find(npc.ammoId).transform.Find(npc.npcId).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
                 this.dialogIndex++;
@@ -328,7 +359,7 @@ public class Narrative : MonoBehaviour
         {
             if (this.dialogIndex < dialogs.Length)
             {
-                if(this.introKeyIndex != 1)
+                if (this.introKeyIndex != 1)
                 {
                     //It's bunny
                     this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).gameObject.SetActive(true);
@@ -350,12 +381,15 @@ public class Narrative : MonoBehaviour
                     case 0:
                         Invoke("nextDialogBunnyIntro", 4.5f);
                         break;
+
                     case 1:
                         Invoke("nextDialogBunnyIntro", 5.5f);
                         break;
+
                     case 2:
                         Invoke("nextDialogBunnyIntro", 7f);
                         break;
+
                     case 3:
                         Invoke("nextDialogBunnyIntro", 7f);
                         break;
@@ -363,7 +397,7 @@ public class Narrative : MonoBehaviour
             }
             else
             {
-                if(this.introKeyIndex < 2)
+                if (this.introKeyIndex < 2)
                 {
                     this.introKeyIndex++;
                     this.dialogIndex = 0;

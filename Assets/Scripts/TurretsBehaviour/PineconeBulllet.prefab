@@ -153,12 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  radius: 5
+  radius: 3
   bulletDuration: 10
   sprite: {fileID: 5713014168536339376}
   numClusters: 8
   minT: 0.1
-  maxT: 0.5
+  maxT: 0.4
   clusterSpeed: 5
   rotationModifier: 180
   explosion: {fileID: 4350340264928308987}

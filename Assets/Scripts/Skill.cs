@@ -37,6 +37,7 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Buy()
     {
+        if (node.cost == 0) return;
         if (GameManager.Instance.fertilizer < node.cost || node.buyed || !SkillTree.Instance.GetNode(node.previousNodeId).buyed) return;
         GameManager.Instance.fertilizer -= node.cost;
         node.buyed = true;
