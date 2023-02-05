@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6704970395889098291}
   - component: {fileID: 1256901158445816414}
   - component: {fileID: 143990647502029809}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -2943740694936088147}
   - component: {fileID: 4710959101488898812}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: wasp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
