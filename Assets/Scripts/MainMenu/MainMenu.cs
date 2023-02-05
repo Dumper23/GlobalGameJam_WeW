@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject menu;
-    public GameObject cmenu;
+    public GameObject credits;
 
     public void playGame()
     {
@@ -15,12 +15,12 @@ public class MainMenu : MonoBehaviour
 
     public void creditsMenuOn()
     {
-        cmenu.SetActive(true);
+        credits.SetActive(true);
     }
 
     public void creditsMenuOff()
     {
-        cmenu.SetActive(false);
+        credits.SetActive(false);
         menu.SetActive(true);
     }
 
