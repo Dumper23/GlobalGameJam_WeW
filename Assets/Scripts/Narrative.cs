@@ -17,7 +17,7 @@ public class Narrative : MonoBehaviour
 {
     public List<backgroundFloor> backgroundFloors;
     public List<Sprite> colorFloors;
-
+   
     private Dictionary<string, string[]> dialogs = new Dictionary<string, string[]>();
     private int dialogIndex = 0;
     private string[] floorColors = { "blue", "orange", "yellow", "green", "white" };
@@ -136,8 +136,8 @@ public class Narrative : MonoBehaviour
         string[] intro2 =
         {
             "What in the- how dare you break the fourth wall while we are at war soldier?!\nFOCUS! Or we ain't gonna see a tomorrow!",
-            "I will be guarding the ammunition on this floor. Open that chest and take a charger",
-            "Each charger fills all the ammunition of a turret",
+            "I will be guarding the ammunition on this floor. Open that chest and take a magazine",
+            "Each magazine fills all the ammunition of a turret",
             "Now go upstairs and build the first turret on the balcony to defend us. Fast! the enemy is coming",
             "They don't attack at night, so take advantage of that and prepare for tomorrow"
         };
@@ -215,11 +215,31 @@ public class Narrative : MonoBehaviour
         this.dialogIndex = 0;
         this.introKeyIndex = 0;
         this.gameObject.SetActive(true);
-        this.transform.Find("Background").gameObject.SetActive(true);
-        this.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
-        this.transform.Find("Dream").gameObject.SetActive(true);
-        this.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
+        this.gameObject.transform.Find("Background").gameObject.SetActive(true);
+        this.gameObject.transform.Find("Background").gameObject.GetComponent<Animator>().Play("fadeIn");
+        this.gameObject.transform.Find("Dream").gameObject.SetActive(true);
+        this.gameObject.transform.Find("Dream").gameObject.GetComponent<Animator>().Play("fadeIn"); //dura 6.5f
         Invoke("showGameOver", 8f);
+    }
+
+    public void startEndGameScene()
+    {
+        GameManager.Instance.gameEnd.SetActive(true);
+        GameManager.Instance.setDayNightAnimationPlaying(true);
+        this.gameObject.SetActive(true);
+        GameManager.Instance.background.SetActive(true);
+        GameManager.Instance.background.GetComponent<Animator>().Play("black");
+        GameManager.Instance.tree.SetActive(true);
+        GameManager.Instance.tree.GetComponent<Animator>().Play("camera");
+        GameManager.Instance.playerAnim.SetActive(true);
+        GameManager.Instance.playerAnim.transform.GetChild(0).GetComponent<Animator>().Play("walk");
+        Invoke("showExitButton", 20);
+    }
+
+    public void showExitButton()
+    {
+        GameManager.Instance.exitButton.SetActive(true);
+        GameManager.Instance.exitButton.GetComponent<Animator>().Play("exitButtonFadeIn");
     }
 
     public void showGameOver()

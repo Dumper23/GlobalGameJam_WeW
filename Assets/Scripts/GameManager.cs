@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     public bool alreadyInteracted = false;
     public float interactionCooldown = 0;
     public bool gameOver = false;
+    public GameObject exitButton;
+    public GameObject tree;
+    public GameObject playerAnim;
+    public GameObject background;
+    public GameObject gameEnd;
 
     private PlayerController player;
     public InfoUpdater infoUpdater;
@@ -44,6 +49,7 @@ public class GameManager : MonoBehaviour
     public Narrative narrative;
     public Narrative unlockFloorNarrative;
     public Narrative initialAnim;
+    public Narrative endGameAnim;
 
     public AudioSource introDay;
     public AudioSource loopDay;
@@ -65,7 +71,7 @@ public class GameManager : MonoBehaviour
     public NPC npcToAppear = new NPC(0, "", "", "");
     public int floorColorIndex = 0;
 
-    private int currentDay = 0;
+    public int currentDay = 0;
     private int currentFloor = 0;
     private bool playerInMenu = false;
     private bool dayNightAnimationPlaying = false;
@@ -951,7 +957,14 @@ public class GameManager : MonoBehaviour
                 Invoke("removeDayNightAnimation", 5);
 
                 currentDay++;
-                Invoke("activateEnemySpawns", 6);
+                if(currentDay != 23)
+                {
+                    Invoke("activateEnemySpawns", 6);
+                }
+                else
+                {
+                    Invoke("callStartEndGameScene", 6);
+                }
             }
             else
             {
@@ -1000,7 +1013,7 @@ public class GameManager : MonoBehaviour
                 {
                     //Start day after 60s
                     infoUpdater.ResetTimer();
-                    Invoke("changeDayState", 60);
+                    Invoke("changeDayState", 15);
                 }
 
                 if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
@@ -1011,6 +1024,13 @@ public class GameManager : MonoBehaviour
     private void callStartIntroScene3()
     {
         this.initialAnim.startIntroScene3();
+    }
+
+    private void callStartEndGameScene()
+    {
+        this.initialAnim.startEndGameScene();
+        this.gameEnd.SetActive(true);
+        Debug.Log("called end game scene");
     }
 
     public void activateEnemySpawns()
@@ -1024,7 +1044,7 @@ public class GameManager : MonoBehaviour
 
     public void handleChangeState()
     {
-        Invoke("changeDayState", 60);
+        Invoke("changeDayState", 600);
     }
 
     public void playDayNightAnimation()
