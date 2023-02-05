@@ -120,8 +120,6 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
-
-        changeDayState();
     }
 
     #region getters & setters

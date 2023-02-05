@@ -282,7 +282,7 @@ public class Narrative : MonoBehaviour
             {
                 this.gameObject.transform.Find("characters").transform.Find(npc.ammoId).transform.Find(npc.npcId).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
                 this.dialogIndex++;
-                Invoke("nextDialog", 3);
+                Invoke("nextDialog", 4);
             }
             else
             {
@@ -307,7 +307,7 @@ public class Narrative : MonoBehaviour
             {
                 this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
                 this.dialogIndex++;
-                Invoke("nextDialogBunny", 3);
+                Invoke("nextDialogBunny", 4);
             }
             else
             {
