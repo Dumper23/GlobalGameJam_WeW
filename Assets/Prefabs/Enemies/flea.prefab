@@ -133,12 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: flea
-  maxHealth: 4
-  speed: 8
+  maxHealth: 125
+  speed: 0.9
   currentSpeed: 0
   type: walk
   waypoints: []
-  fertilizerToGive: 10
+  fertilizerToGive: 16
   isSlowed: 0
   isStunned: 0
   bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}

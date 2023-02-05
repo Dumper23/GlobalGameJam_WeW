@@ -1071,7 +1071,7 @@ public class GameManager : MonoBehaviour
         {
             case "MACHINE_SEED":
                 //Database.Instance.MACHINE_SEED_PRICE
-                return 1;
+                return 250;
 
             case "S_SEEDNIPER":
 

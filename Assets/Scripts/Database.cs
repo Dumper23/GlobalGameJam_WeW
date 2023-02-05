@@ -41,7 +41,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(25, "ant", 1, 1, 1, "walk"),
+        new EnemyWave(15, "ant", 3, 2, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
@@ -191,19 +191,19 @@ public class Database : MonoBehaviour
     [HideInInspector] public int MACHINE_SEED_DAMAGE_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string MACHINE_SEED_DAMAGE_NAME = "More Seeds!";
-    [HideInInspector] public int[] MACHINE_SEED_DAMAGE_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] MACHINE_SEED_DAMAGE_COST = { 100, 20, 30 };
     [HideInInspector] public int[] MACHINE_SEED_DAMAGE = { 35, 40, 50 };
 
     [HideInInspector] public int MACHINE_SEED_SPEED_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string MACHINE_SEED_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 100, 20, 30 };
     [HideInInspector] public float[] MACHINE_SEED_SPEED = { 0.7f, 0.5f, 0.3f };
 
     [HideInInspector] public int MACHINE_SEED_CAPACITY_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string MACHINE_SEED_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] MACHINE_SEED_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] MACHINE_SEED_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] MACHINE_SEED_CAPACITY = { 75, 100, 200 };
 
     [HideInInspector] public int MACHINE_SEED_CHEST_LVL = 0;
@@ -211,8 +211,8 @@ public class Database : MonoBehaviour
     [HideInInspector] public string MACHINE_SEED_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string MACHINE_SEED_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string MACHINE_SEED_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] MACHINE_SEED_CHEST_COST = { 10, 20, 30 };
-    [HideInInspector] public int[] MACHINE_SEED_CHEST = { 50, 75, 100 };
+    [HideInInspector] public int[] MACHINE_SEED_CHEST_COST = { 100, 20, 30 };
+    [HideInInspector] public int[] MACHINE_SEED_CHEST = { 1, 2, 3 };
 
     #endregion MACHINE_SEED
 
@@ -223,13 +223,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int RESIN_SPIT_DAMAGE_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_DAMAGE_DESCRIPTION = "Now the resin does a little damage per second";
     [HideInInspector] public string RESIN_SPIT_DAMAGE_NAME = "Corrosive Resin";
-    [HideInInspector] public int[] RESIN_SPIT_DAMAGE_COST = { 10 };
+    [HideInInspector] public int[] RESIN_SPIT_DAMAGE_COST = { 100 };
     [HideInInspector] public int[] RESIN_SPIT_DAMAGE = { 5 };
 
     [HideInInspector] public int RESIN_SPIT_SPEED_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string RESIN_SPIT_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] RESIN_SPIT_SPEED_COST = { 10 };
+    [HideInInspector] public int[] RESIN_SPIT_SPEED_COST = { 100 };
     [HideInInspector] public float[] RESIN_SPIT_SPEED = { 6 };
 
     [HideInInspector] public int RESIN_SPIT_DURATION_LVL = 0;
@@ -253,7 +253,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int RESIN_SPIT_CAPACITY_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string RESIN_SPIT_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] RESIN_SPIT_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] RESIN_SPIT_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] RESIN_SPIT_CAPACITY = { 50, 75, 100 };
 
     [HideInInspector] public int RESIN_SPIT_CHEST_LVL = 0;
@@ -261,7 +261,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string RESIN_SPIT_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string RESIN_SPIT_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string RESIN_SPIT_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] RESIN_SPIT_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] RESIN_SPIT_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] RESIN_SPIT_CHEST = { 30, 50, 75 };
 
     #endregion RESIN_SPIT
@@ -273,13 +273,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int S_SEEDNIPER_DAMAGE_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string S_SEEDNIPER_DAMAGE_NAME = "More Damage!";
-    [HideInInspector] public int[] S_SEEDNIPER_DAMAGE_COST = { 10, 20 };
+    [HideInInspector] public int[] S_SEEDNIPER_DAMAGE_COST = { 100, 20 };
     [HideInInspector] public int[] S_SEEDNIPER_DAMAGE = { 90, 110 };
 
     [HideInInspector] public int S_SEEDNIPER_SPEED_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string S_SEEDNIPER_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] S_SEEDNIPER_SPEED_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] S_SEEDNIPER_SPEED_COST = { 100, 20, 30 };
     [HideInInspector] public float[] S_SEEDNIPER_SPEED = { 1.3f, 1, 0.8f };
 
     [HideInInspector] public int S_SEEDNIPER_RICOCHET_LVL = 0;
@@ -291,7 +291,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int S_SEEDNIPER_CAPACITY_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string S_SEEDNIPER_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] S_SEEDNIPER_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] S_SEEDNIPER_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] S_SEEDNIPER_CAPACITY = { 35, 45, 90 };
 
     [HideInInspector] public int S_SEEDNIPER_CHEST_LVL = 0;
@@ -299,7 +299,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string S_SEEDNIPER_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string S_SEEDNIPER_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string S_SEEDNIPER_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] S_SEEDNIPER_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] S_SEEDNIPER_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] S_SEEDNIPER_CHEST = { 20, 35, 45 };
 
     #endregion S_SEEDNIPER
@@ -311,7 +311,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PINECONE_LAUNCHER_AREA_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_AREA_DESCRIPTION = "Increases the area of the explosion";
     [HideInInspector] public string PINECONE_LAUNCHER_AREA_NAME = "More Boom!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_AREA_COST = { 10 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_AREA_COST = { 100 };
     [HideInInspector] public int[] PINECONE_LAUNCHER_AREA = { 10 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_DAMAGE_LVL = 0;
@@ -323,7 +323,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PINECONE_LAUNCHER_SPEED_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string PINECONE_LAUNCHER_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_SPEED_COST = { 10 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_SPEED_COST = { 100 };
     [HideInInspector] public float[] PINECONE_LAUNCHER_SPEED = { 2 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_RANGE_LVL = 0;
@@ -347,7 +347,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PINECONE_LAUNCHER_CAPACITY_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string PINECONE_LAUNCHER_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY = { 50, 75, 100 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_CHEST_LVL = 0;
@@ -355,7 +355,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PINECONE_LAUNCHER_CHEST = { 30, 50, 75 };
 
     #endregion PINECONE_LAUNCHER
@@ -367,13 +367,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int NUT_ROLL_DAMAGE_LVL = 0;
     [HideInInspector] public string NUT_ROLL_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string NUT_ROLL_DAMAGE_NAME = "More Nut Damage!";
-    [HideInInspector] public int[] NUT_ROLL_DAMAGE_COST = { 10, 20 };
+    [HideInInspector] public int[] NUT_ROLL_DAMAGE_COST = { 100, 20 };
     [HideInInspector] public int[] NUT_ROLL_DAMAGE = { 20, 30 };
 
     [HideInInspector] public int NUT_ROLL_SPEED_LVL = 0;
     [HideInInspector] public string NUT_ROLL_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string NUT_ROLL_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] NUT_ROLL_SPEED_COST = { 10, 20 };
+    [HideInInspector] public int[] NUT_ROLL_SPEED_COST = { 100, 20 };
     [HideInInspector] public float[] NUT_ROLL_SPEED = { 10, 8 };
 
     [HideInInspector] public int NUT_ROLL_EXTRA_LVL = 0;
@@ -391,7 +391,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int NUT_ROLL_CAPACITY_LVL = 0;
     [HideInInspector] public string NUT_ROLL_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string NUT_ROLL_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] NUT_ROLL_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] NUT_ROLL_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] NUT_ROLL_CAPACITY = { 30, 50, 70 };
 
     [HideInInspector] public int NUT_ROLL_CHEST_LVL = 0;
@@ -399,7 +399,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string NUT_ROLL_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string NUT_ROLL_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string NUT_ROLL_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] NUT_ROLL_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] NUT_ROLL_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] NUT_ROLL_CHEST = { 20, 30, 50 };
 
     #endregion NUT_ROLL
@@ -411,13 +411,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PORCUTHROW_PROJECTILES_LVL = 0;
     [HideInInspector] public string PORCUTHROW_PROJECTILES_DESCRIPTION = "Increases Turret fired projectiles";
     [HideInInspector] public string PORCUTHROW_PROJECTILES_NAME = "More Projectiles!";
-    [HideInInspector] public int[] PORCUTHROW_PROJECTILES_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PORCUTHROW_PROJECTILES_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PORCUTHROW_PROJECTILES = { 5, 8, 12 };
 
     [HideInInspector] public int PORCUTHROW_SPEED_LVL = 0;
     [HideInInspector] public string PORCUTHROW_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string PORCUTHROW_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] PORCUTHROW_SPEED_COST = { 10, 20 };
+    [HideInInspector] public int[] PORCUTHROW_SPEED_COST = { 100, 20 };
     [HideInInspector] public float[] PORCUTHROW_SPEED = { 3.25f, 2.75f };
 
     [HideInInspector] public int PORCUTHROW_PIERCING_LVL = 0;
@@ -429,7 +429,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PORCUTHROW_CAPACITY_LVL = 0;
     [HideInInspector] public string PORCUTHROW_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string PORCUTHROW_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] PORCUTHROW_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PORCUTHROW_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PORCUTHROW_CAPACITY = { 75, 100, 200 };
 
     [HideInInspector] public int PORCUTHROW_CHEST_LVL = 0;
@@ -437,7 +437,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PORCUTHROW_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string PORCUTHROW_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string PORCUTHROW_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] PORCUTHROW_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PORCUTHROW_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PORCUTHROW_CHEST = { 50, 75, 100 };
 
     #endregion PORCUTHROW
@@ -449,19 +449,19 @@ public class Database : MonoBehaviour
     [HideInInspector] public int ELECTRIC_POTATO_RAY_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_RAY_DESCRIPTION = "Increases the number of enemies hit by the lightning bolt";
     [HideInInspector] public string ELECTRIC_POTATO_RAY_NAME = "Lightning Upgrade!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_RAY_COST = { 10, 20 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_RAY_COST = { 100, 20 };
     [HideInInspector] public int[] ELECTRIC_POTATO_RAY = { 10, 15 };
 
     [HideInInspector] public int ELECTRIC_POTATO_DAMAGE_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_DESCRIPTION = "Now the Turret does damage";
-    [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_NAME = "More Seeds!";
+    [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_NAME = "Taser!";
     [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE_COST = { 10 };
     [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE = { 20 };
 
     [HideInInspector] public int ELECTRIC_POTATO_SPEED_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string ELECTRIC_POTATO_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_SPEED_COST = { 10 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_SPEED_COST = { 100 };
     [HideInInspector] public float[] ELECTRIC_POTATO_SPEED = { 5 };
 
     [HideInInspector] public int ELECTRIC_POTATO_STUN_LVL = 0;
@@ -473,7 +473,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int ELECTRIC_POTATO_CAPACITY_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string ELECTRIC_POTATO_CAPACITY_NAME = "More Magazine!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY = { 50, 75, 100 };
 
     [HideInInspector] public int ELECTRIC_POTATO_CHEST_LVL = 0;
@@ -481,7 +481,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_NAME_UNO = "Create Chest!";
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_DESCRIPTION = "Increases chest capacity";
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_NAME = "More Chest!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_CHEST_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_CHEST_COST = { 100, 20, 30 };
     [HideInInspector] public int[] ELECTRIC_POTATO_CHEST = { 30, 50, 75 };
 
     #endregion ELECTRIC_POTATO
@@ -493,25 +493,25 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PLAYER_SPEED_LVL = 0;
     [HideInInspector] public string PLAYER_SPEED_DESCRIPTION = "Increases the Player Movement Speed";
     [HideInInspector] public string PLAYER_SPEED_NAME = "Gotta Go Fast!";
-    [HideInInspector] public int[] PLAYER_SPEED_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PLAYER_SPEED_COST = { 100, 20, 30 };
     [HideInInspector] public float[] PLAYER_SPEEDY = { 3, 3.5f, 4 };
 
     [HideInInspector] public int PLAYER_INVENTORY_LVL = 0;
     [HideInInspector] public string PLAYER_INVENTORY_DESCRIPTION = "Increases the inventory slots of the player";
     [HideInInspector] public string PLAYER_INVENTORY_NAME = "Holding Bag!";
-    [HideInInspector] public int[] PLAYER_INVENTORY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PLAYER_INVENTORY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PLAYER_INVENTORY = { 2, 3, 4 };
 
     [HideInInspector] public int PLAYER_CAPACITY_LVL = 0;
     [HideInInspector] public string PLAYER_CAPACITY_DESCRIPTION = "Increases the inventory capacity per slot";
     [HideInInspector] public string PLAYER_CAPACITY_NAME = "Steve!";
-    [HideInInspector] public int[] PLAYER_CAPACITY_COST = { 10, 20, 30 };
+    [HideInInspector] public int[] PLAYER_CAPACITY_COST = { 100, 20, 30 };
     [HideInInspector] public int[] PLAYER_CAPACITY = { 75, 100, 200 };
 
     [HideInInspector] public int PLAYER_LIFT_LVL = 0;
     [HideInInspector] public string PLAYER_LIFT_DESCRIPTION = "Now you can change between floors as you want";
     [HideInInspector] public string PLAYER_LIFT_NAME = "Elevator!";
-    [HideInInspector] public int[] PLAYER_LIFT_COST = { 10 };
+    [HideInInspector] public int[] PLAYER_LIFT_COST = { 100 };
     [HideInInspector] public float[] PLAYER_LIFT_VALUE = { 0.4f };
 
     #endregion PLAYER

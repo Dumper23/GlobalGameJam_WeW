@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: wasp
-  maxHealth: 10
-  speed: 4
+  maxHealth: 150
+  speed: 1
   currentSpeed: 0
   type: fly
   waypoints: []
