@@ -37,8 +37,6 @@ public class EnemyWaveState
     }
 }
 
-
-
 [System.Serializable]
 public class EnemySpawn : MonoBehaviour
 {
@@ -51,9 +49,9 @@ public class EnemySpawn : MonoBehaviour
     private bool isActive = false;
     private List<EnemyWave> enemyWaves = new List<EnemyWave>();
     private List<EnemyWaveState> enemyWaveStates = new List<EnemyWaveState>();
-    
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //Create pools
         foreach (var pool in pools)
@@ -71,8 +69,8 @@ public class EnemySpawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    { 
+    private void Update()
+    {
         if (isActive) //and not paused
         {
             foreach (EnemyWaveState enemyWaveState in enemyWaveStates)
@@ -113,11 +111,11 @@ public class EnemySpawn : MonoBehaviour
 
     public void spawnEnemy(int poolIndex, EnemyWaveState enemyWaveState)
     {
-        if(poolIndex >= 0)
+        if (poolIndex >= 0)
         {
             for (int i = 0; i < enemyWaveState.amount; i++)
             {
-                if(enemyWaveState.numSpawned < enemyWaveState.totalEnemies)
+                if (enemyWaveState.numSpawned < enemyWaveState.totalEnemies)
                 {
                     GameObject enemy = getPooledObject(poolIndex);
                     enemy.transform.position = getRandomPoint(transform.position);
@@ -178,7 +176,7 @@ public class EnemySpawn : MonoBehaviour
     {
         return center + new Vector3((Random.value - 0.5f) * AREA_RANGE, (Random.value - 0.5f) * AREA_RANGE, 0);
     }
-    
+
     public bool checkAllWavesCompleted()
     {
         foreach (EnemyWaveState wave in enemyWaveStates)
@@ -199,6 +197,7 @@ public class EnemySpawn : MonoBehaviour
         }
         return true;
     }
+
     public int getNumEnemiesToFinish()
     {
         int num = 0;
@@ -209,9 +208,9 @@ public class EnemySpawn : MonoBehaviour
         return num;
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
-        UnityEditor.Handles.color = Color.green;
-        UnityEditor.Handles.DrawWireDisc(transform.position, transform.up, AREA_RANGE);
+        //UnityEditor.Handles.color = Color.green;
+        //UnityEditor.Handles.DrawWireDisc(transform.position, transform.up, AREA_RANGE);
     }
 }
