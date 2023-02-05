@@ -16,6 +16,8 @@ public class ammoSlot
 public class PlayerController : MonoBehaviour
 {
     // Move player in 2D space
+    public MainMenu pauseMenu;
+
     public float movementSpeed = 4f;
 
     public float jumpHeight = 6.5f;
@@ -141,6 +143,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance.getPlayerInMenu() && !GameManager.Instance.getDayNightAnimationPlaying())
         {
+            if (Input.GetButtonDown("Pause"))
+            {
+                pauseMenu.pauseMenu();
+            }
+
             closeMenu();
 
             #region Movement

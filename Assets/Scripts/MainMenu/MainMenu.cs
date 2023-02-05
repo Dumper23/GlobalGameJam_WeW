@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     public GameObject menu;
     public GameObject credits;
 
+    private bool isPauseMenu = false;
+
     private void Start()
     {
         GameManager.Instance.mainMenuSound.Play();
@@ -16,10 +18,26 @@ public class MainMenu : MonoBehaviour
 
     public void playGame()
     {
-        menu.SetActive(false);
-        Time.timeScale = 1;
-        GameManager.Instance.initialAnim.gameObject.SetActive(true);
-        GameManager.Instance.initialAnim.startIntroScene();
+        if (isPauseMenu)
+        {
+            menu.SetActive(false);
+            Time.timeScale = 1;
+            GameManager.Instance.mainMenuSound.Stop();
+        }
+        else
+        {
+            menu.SetActive(false);
+            Time.timeScale = 1;
+            GameManager.Instance.initialAnim.gameObject.SetActive(true);
+            GameManager.Instance.initialAnim.startIntroScene();
+        }
+    }
+
+    public void pauseMenu()
+    {
+        isPauseMenu = true;
+        menu.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void creditsMenuOn()
