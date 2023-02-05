@@ -865,14 +865,13 @@ MonoBehaviour:
   fertilizer: 20
   alreadyInteracted: 0
   interactionCooldown: 0
+  infoUpdater: {fileID: 0}
   enemyGroundWaypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   enemyAirWaypoints:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -899,12 +898,17 @@ MonoBehaviour:
     ammoType: potat
   floors:
   - {fileID: 8576499936701127873, guid: 019b2b576572d36479ea4074d86e9b78, type: 3}
-  - {fileID: 4843102748534706331, guid: dad5d19f839c24d48bb0e4a947fd2ac7, type: 3}
-  - {fileID: 6450019896475291739, guid: 5250e0d60906cbc4fb303cdf6aeb27ec, type: 3}
-  - {fileID: 5671963683546071900, guid: 1e6a67fb24557af46a31e6ab65114dab, type: 3}
+  - {fileID: 8576499936701127873, guid: 6dd8bf9ca8e80674cbb1b785d9be29f4, type: 3}
+  - {fileID: 8576499936701127873, guid: 7c2cae0a8d5c9a947a477c6ca83ab2ee, type: 3}
+  - {fileID: 8576499936701127873, guid: 2831111102c982447b28009a50048f17, type: 3}
+  - {fileID: 8576499936701127873, guid: d582fc6b34464c246a3f71c1f254020c, type: 3}
   topFloor: {fileID: 0}
   bottomFloor: {fileID: 0}
+  treetopForeground: {fileID: 0}
+  rootHidder: {fileID: 0}
   hud: {fileID: 0}
+  narrative: {fileID: 0}
+  unlockFloorNarrative: {fileID: 0}
   introDay: {fileID: 2145113574}
   loopDay: {fileID: 574089821}
   loopNight: {fileID: 1510862623}
@@ -926,5 +930,6 @@ MonoBehaviour:
     turretPrefab: {fileID: 6899878034113650534, guid: 76d07099cfdd0aa4292086e797fafa88, type: 3}
   - turretId: ELECTRIC_POTATO
     turretPrefab: {fileID: 2412192368525986104, guid: 747af1bdfa4bcd24ab3987a422b68ae0, type: 3}
-  isDay: 0
+  isDay: 1
   allEnemies: []
+  floorColorIndex: 0
