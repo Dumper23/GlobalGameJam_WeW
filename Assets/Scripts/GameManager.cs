@@ -667,12 +667,12 @@ public class GameManager : MonoBehaviour
                 lengthResinLevel = Database.Instance.RESIN_SPIT_LONG_LVL;
 
                 if (capacityLevel != 0) turretInfo.Add("capacity", Database.Instance.RESIN_SPIT_CAPACITY[capacityLevel - 1]);
-                if (chestLevel != 0) turretInfo.Add("chest", Database.Instance.RESIN_SPIT_CHEST[chestLevel-1]);
-                if (damageLevel != 0) turretInfo.Add("damage", Database.Instance.RESIN_SPIT_DAMAGE[damageLevel-1]);
-                if (speedLevel != 0) turretInfo.Add("speed", Database.Instance.RESIN_SPIT_SPEED[speedLevel-1]);
-                if (sticknessLevel != 0) turretInfo.Add("stick", Database.Instance.RESIN_SPIT_STICKNESS[sticknessLevel-1]);
-                if (durationResinLevel != 0) turretInfo.Add("duration", Database.Instance.RESIN_SPIT_DURATION[durationResinLevel-1]);
-                if (lengthResinLevel != 0) turretInfo.Add("length", Database.Instance.RESIN_SPIT_LONG[lengthResinLevel-1]);
+                if (chestLevel != 0) turretInfo.Add("chest", Database.Instance.RESIN_SPIT_CHEST[chestLevel - 1]);
+                if (damageLevel != 0) turretInfo.Add("damage", Database.Instance.RESIN_SPIT_DAMAGE[damageLevel - 1]);
+                if (speedLevel != 0) turretInfo.Add("speed", Database.Instance.RESIN_SPIT_SPEED[speedLevel - 1]);
+                if (sticknessLevel != 0) turretInfo.Add("stick", Database.Instance.RESIN_SPIT_STICKNESS[sticknessLevel - 1]);
+                if (durationResinLevel != 0) turretInfo.Add("duration", Database.Instance.RESIN_SPIT_DURATION[durationResinLevel - 1]);
+                if (lengthResinLevel != 0) turretInfo.Add("length", Database.Instance.RESIN_SPIT_LONG[lengthResinLevel - 1]);
 
                 turretInfo.Add("chestLevel", chestLevel);
                 turretInfo.Add("capacityLevel", capacityLevel);
