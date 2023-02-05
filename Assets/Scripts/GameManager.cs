@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         player.updateTurretInventoryNumberUI();
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
+        changeDayState();
     }
 
     #region getters & setters
