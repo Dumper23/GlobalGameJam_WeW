@@ -65,7 +65,6 @@ public abstract class TurretsFather : MonoBehaviour
     {
         //Set Default settings
         InintiateStatsAtCurrentUpgrades();
-        enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
         endWayPoint = GameManager.Instance.topFloor.transform.Find("waypoint").transform;
         foreach (GameObject g in chestIndicators)
         {
@@ -77,6 +76,7 @@ public abstract class TurretsFather : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
         if (HasAmmo())
         {
             DetectObjective();

@@ -1075,7 +1075,7 @@ public class GameManager : MonoBehaviour
 
             case "S_SEEDNIPER":
 
-                return 2;
+                return 350;
 
             case "RESIN_SPIT":
 
