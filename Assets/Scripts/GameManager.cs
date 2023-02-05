@@ -991,7 +991,7 @@ public class GameManager : MonoBehaviour
             if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
-                Invoke("changeDayState", 15);//60
+                Invoke("changeDayState", 60);//60
             }
 
             if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
