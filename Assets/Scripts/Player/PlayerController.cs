@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public GameObject inventoryContainer;
     public GameObject playerSmoke;
 
+    public GameObject UI;
     public List<GameObject> turretBuyMenu = new List<GameObject>();
 
     //public List<Material> oldMaterials = new List<Material>();

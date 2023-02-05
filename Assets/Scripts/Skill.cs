@@ -86,4 +86,17 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         }
     }
+
+    public void GeneralMapVision(bool show)
+    {
+        if (show)
+        {
+            lineRenderer.sortingOrder = 50;
+            image.gameObject.SetActive(false);
+        } else
+        {
+            lineRenderer.sortingOrder = 0;
+            image.gameObject.SetActive(true);
+        }
+    }
 }

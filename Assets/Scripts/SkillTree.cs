@@ -37,10 +37,12 @@ public class SkillTree : MonoBehaviour
     {
         //Base
         SkillNodes.Add(0, new Node(0, "Name 0", "Desc 0", 0, 0));
-        SkillNodes[0].buyed = true;
+        SkillNodes[0].buyed = true; 
+        SkillNodes.Add(103, new Node(0, "Name 0", "Desc 0", 0, 0));
+        SkillNodes[103].buyed = true;
 
         // Turret 1
-        SkillNodes.Add(1, new Node(1, "MACHINE SEED", Database.Instance.MACHINE_SEED_DESCRIPTION, 0, 0));
+        SkillNodes.Add(1, new Node(1, "MACHINE SEED", Database.Instance.MACHINE_SEED_DESCRIPTION, 0, 103));
         SkillNodes.Add(2, new Node(2, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[0], 1));
         SkillNodes.Add(3, new Node(3, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[1], 2));
         SkillNodes.Add(4, new Node(4, Database.Instance.MACHINE_SEED_DAMAGE_NAME, Database.Instance.MACHINE_SEED_DAMAGE_DESCRIPTION, Database.Instance.MACHINE_SEED_DAMAGE_COST[2], 3));
@@ -55,7 +57,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(13, new Node(13, Database.Instance.MACHINE_SEED_CHEST_NAME, Database.Instance.MACHINE_SEED_CHEST_DESCRIPTION, Database.Instance.MACHINE_SEED_CHEST_COST[2], 12));
 
         // Turret 2
-        SkillNodes.Add(14, new Node(14, "RESIN SPIT", Database.Instance.RESIN_SPIT_DESCRIPTION, 0, 0));
+        SkillNodes.Add(14, new Node(14, "RESIN SPIT", Database.Instance.RESIN_SPIT_DESCRIPTION, 0, 103));
         SkillNodes.Add(15, new Node(15, Database.Instance.RESIN_SPIT_SPEED_NAME, Database.Instance.RESIN_SPIT_SPEED_DESCRIPTION, Database.Instance.RESIN_SPIT_SPEED_COST[0], 14));
         SkillNodes.Add(16, new Node(16, Database.Instance.RESIN_SPIT_DURATION_NAME, Database.Instance.RESIN_SPIT_DURATION_DESCRIPTION, Database.Instance.RESIN_SPIT_DURATION_COST[0], 15));
         SkillNodes.Add(17, new Node(17, Database.Instance.RESIN_SPIT_DURATION_NAME, Database.Instance.RESIN_SPIT_DURATION_DESCRIPTION, Database.Instance.RESIN_SPIT_DURATION_COST[1], 16));
@@ -70,7 +72,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(26, new Node(26, Database.Instance.RESIN_SPIT_CHEST_NAME, Database.Instance.RESIN_SPIT_CHEST_DESCRIPTION, Database.Instance.RESIN_SPIT_CHEST_COST[2], 25));
 
         // Turret 3
-        SkillNodes.Add(27, new Node(27, "S SEEDNIPER", Database.Instance.S_SEEDNIPER_DESCRIPTION, 0, 0));
+        SkillNodes.Add(27, new Node(27, "S SEEDNIPER", Database.Instance.S_SEEDNIPER_DESCRIPTION, 0, 103));
         SkillNodes.Add(28, new Node(28, Database.Instance.S_SEEDNIPER_DAMAGE_NAME, Database.Instance.S_SEEDNIPER_DAMAGE_DESCRIPTION, Database.Instance.S_SEEDNIPER_DAMAGE_COST[0], 27));
         SkillNodes.Add(29, new Node(29, Database.Instance.S_SEEDNIPER_DAMAGE_NAME, Database.Instance.S_SEEDNIPER_DAMAGE_DESCRIPTION, Database.Instance.S_SEEDNIPER_DAMAGE_COST[1], 28));
         SkillNodes.Add(30, new Node(30, Database.Instance.S_SEEDNIPER_RICOCHET_NAME, Database.Instance.S_SEEDNIPER_RICOCHET_DESCRIPTION, Database.Instance.S_SEEDNIPER_RICOCHET_COST[0], 29));
@@ -85,7 +87,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(39, new Node(39, Database.Instance.S_SEEDNIPER_CHEST_NAME, Database.Instance.S_SEEDNIPER_CHEST_DESCRIPTION, Database.Instance.S_SEEDNIPER_CHEST_COST[2], 38));
 
         // Turret 4
-        SkillNodes.Add(40, new Node(40, "PINECONE LAUNCHER", Database.Instance.PINECONE_LAUNCHER_DESCRIPTION, 0, 0));
+        SkillNodes.Add(40, new Node(40, "PINECONE LAUNCHER", Database.Instance.PINECONE_LAUNCHER_DESCRIPTION, 0, 103));
         SkillNodes.Add(41, new Node(41, Database.Instance.PINECONE_LAUNCHER_AREA_NAME, Database.Instance.PINECONE_LAUNCHER_AREA_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_AREA_COST[0], 40));
         SkillNodes.Add(42, new Node(42, Database.Instance.PINECONE_LAUNCHER_DAMAGE_NAME, Database.Instance.PINECONE_LAUNCHER_DAMAGE_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_DAMAGE_COST[0], 41));
         SkillNodes.Add(43, new Node(43, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_NAME, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_DAMAGE_STUN_COST[0], 42));
@@ -100,7 +102,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(52, new Node(52, Database.Instance.PINECONE_LAUNCHER_CHEST_NAME, Database.Instance.PINECONE_LAUNCHER_CHEST_DESCRIPTION, Database.Instance.PINECONE_LAUNCHER_CHEST_COST[2], 51));
 
         // Turret 5
-        SkillNodes.Add(53, new Node(53, "NUT ROLL", Database.Instance.NUT_ROLL_DESCRIPTION, 0, 0));
+        SkillNodes.Add(53, new Node(53, "NUT ROLL", Database.Instance.NUT_ROLL_DESCRIPTION, 0, 103));
         SkillNodes.Add(54, new Node(54, Database.Instance.NUT_ROLL_DAMAGE_NAME, Database.Instance.NUT_ROLL_DAMAGE_DESCRIPTION, Database.Instance.NUT_ROLL_DAMAGE_COST[0], 53));
         SkillNodes.Add(55, new Node(55, Database.Instance.NUT_ROLL_DAMAGE_NAME, Database.Instance.NUT_ROLL_DAMAGE_DESCRIPTION, Database.Instance.NUT_ROLL_DAMAGE_COST[1], 54));
         SkillNodes.Add(56, new Node(56, Database.Instance.NUT_ROLL_EXTRA_NAME, Database.Instance.NUT_ROLL_EXTRA_DESCRIPTION, Database.Instance.NUT_ROLL_EXTRA_COST[0], 55));
@@ -115,7 +117,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(65, new Node(65, Database.Instance.NUT_ROLL_CHEST_NAME, Database.Instance.NUT_ROLL_CHEST_DESCRIPTION, Database.Instance.NUT_ROLL_CHEST_COST[2], 64));
 
         // Turret 6
-        SkillNodes.Add(66, new Node(66, "PORCUTHROW", Database.Instance.PORCUTHROW_DESCRIPTION, 0, 0));
+        SkillNodes.Add(66, new Node(66, "PORCUTHROW", Database.Instance.PORCUTHROW_DESCRIPTION, 0, 103));
         SkillNodes.Add(67, new Node(67, Database.Instance.PORCUTHROW_PROJECTILES_NAME, Database.Instance.PORCUTHROW_PROJECTILES_DESCRIPTION, Database.Instance.PORCUTHROW_PROJECTILES_COST[0], 66));
         SkillNodes.Add(68, new Node(68, Database.Instance.PORCUTHROW_PROJECTILES_NAME, Database.Instance.PORCUTHROW_PROJECTILES_DESCRIPTION, Database.Instance.PORCUTHROW_PROJECTILES_COST[1], 67));
         SkillNodes.Add(69, new Node(69, Database.Instance.PORCUTHROW_PROJECTILES_NAME, Database.Instance.PORCUTHROW_PROJECTILES_DESCRIPTION, Database.Instance.PORCUTHROW_PROJECTILES_COST[2], 68));
@@ -130,7 +132,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(78, new Node(78, Database.Instance.PORCUTHROW_CHEST_NAME, Database.Instance.PORCUTHROW_CHEST_DESCRIPTION, Database.Instance.PORCUTHROW_CHEST_COST[2], 77));
 
         // Turret 7
-        SkillNodes.Add(79, new Node(79, "ELECTRIC POTATO", Database.Instance.ELECTRIC_POTATO_DESCRIPTION, 0, 0));
+        SkillNodes.Add(79, new Node(79, "ELECTRIC POTATO", Database.Instance.ELECTRIC_POTATO_DESCRIPTION, 0, 103));
         SkillNodes.Add(80, new Node(80, Database.Instance.ELECTRIC_POTATO_RAY_NAME, Database.Instance.ELECTRIC_POTATO_RAY_DESCRIPTION, Database.Instance.ELECTRIC_POTATO_RAY_COST[0], 79));
         SkillNodes.Add(81, new Node(81, Database.Instance.ELECTRIC_POTATO_RAY_NAME, Database.Instance.ELECTRIC_POTATO_RAY_DESCRIPTION, Database.Instance.ELECTRIC_POTATO_RAY_COST[0], 80));
         SkillNodes.Add(82, new Node(82, Database.Instance.ELECTRIC_POTATO_SPEED_NAME, Database.Instance.ELECTRIC_POTATO_SPEED_DESCRIPTION, Database.Instance.ELECTRIC_POTATO_SPEED_COST[0], 81));
@@ -145,7 +147,7 @@ public class SkillTree : MonoBehaviour
         SkillNodes.Add(91, new Node(91, Database.Instance.ELECTRIC_POTATO_CHEST_NAME, Database.Instance.ELECTRIC_POTATO_CHEST_DESCRIPTION, Database.Instance.ELECTRIC_POTATO_CHEST_COST[2], 90));
 
         //Perso
-        SkillNodes.Add(102, new Node(102, "Player", "Player upgrades", 0, 0));
+        SkillNodes.Add(102, new Node(102, "Player", "Player upgrades", 0, 103));
         SkillNodes.Add(92, new Node(92, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[0], 102));
         SkillNodes.Add(93, new Node(93, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[1], 92));
         SkillNodes.Add(94, new Node(94, Database.Instance.PLAYER_SPEED_NAME, Database.Instance.PLAYER_SPEED_DESCRIPTION, Database.Instance.PLAYER_SPEED_COST[2], 93));
@@ -159,7 +161,18 @@ public class SkillTree : MonoBehaviour
 
         foreach (Skill skill in SkillHolder) skill.Init();
 
+
         UpdateAllSkillsUI();
+
+        //Setup
+        SkillHolder[0].Buy();
+        SkillHolder[13].Buy();
+        SkillHolder[26].Buy();
+        SkillHolder[39].Buy();
+        SkillHolder[52].Buy();
+        SkillHolder[65].Buy();
+        SkillHolder[78].Buy();
+        SkillHolder[101].Buy();
     }
 
     public Node GetNode(int id)
@@ -173,6 +186,15 @@ public class SkillTree : MonoBehaviour
         {
             if (node.id == 0) continue;
             node.skill.UpdateUI();
+        }
+    }
+
+    public void GeneralMapUpdateAll(bool show)
+    {
+        foreach (Node node in SkillNodes.Values)
+        {
+            if (node.id == 0) continue;
+            node.skill.GeneralMapVision(show);
         }
     }
 
