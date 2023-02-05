@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
     {
         menu.SetActive(false);
         Time.timeScale = 1;
+        GameManager.Instance.initialAnim.gameObject.SetActive(true);
+        GameManager.Instance.initialAnim.startIntroScene();
     }
 
     public void creditsMenuOn()

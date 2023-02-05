@@ -102,9 +102,6 @@ public class GameManager : MonoBehaviour
     {
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
-        this.initialAnim.gameObject.SetActive(true);
-        this.initialAnim.startIntroScene();
-        //changeDayState();
         player.updateTurretInventoryNumberUI();
         player.updateInventorySlots();
 
