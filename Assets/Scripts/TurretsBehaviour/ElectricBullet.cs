@@ -151,7 +151,7 @@ public class ElectricBullet : MonoBehaviour
             {
                 currentHits--;
                 collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
-                //STUN
+                collision.gameObject.GetComponent<Enemy>().stun(stunness);
                 lostTarget = true;
                 SearchNewTarget();
                 if (currentHits <= 0)
@@ -170,7 +170,7 @@ public class ElectricBullet : MonoBehaviour
             {
                 currentHits--;
                 collision.gameObject.GetComponent<Enemy>().takeDamage(damage);
-                //STUN
+                collision.gameObject.GetComponent<Enemy>().stun(stunness);
                 Debug.Log("STAY");
                 lostTarget = true;
                 SearchNewTarget();

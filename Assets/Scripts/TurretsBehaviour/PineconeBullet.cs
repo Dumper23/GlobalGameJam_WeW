@@ -90,7 +90,7 @@ public class PineconeBullet : MonoBehaviour
                 if (c != null && c.GetComponent<Enemy>() != null)
                 {
                     c.GetComponent<Enemy>().takeDamage(damage);
-                    //STUN
+                    c.GetComponent<Enemy>().stun(stunness);
                 }
             }
         }
