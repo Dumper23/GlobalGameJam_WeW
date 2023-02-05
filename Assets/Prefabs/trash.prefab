@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alredyInteracted: 0
   cooldown: 0
-  iconName: R
+  iconName: E
   original: {fileID: 21300000, guid: 78a92e82f4a578244983bf4b3643b0d0, type: 3}
   outlined: {fileID: 21300000, guid: 64972c3ca0456f04c87a86fef8da2a03, type: 3}
 --- !u!61 &3739023033524431404

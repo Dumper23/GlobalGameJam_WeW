@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
         player.updateTurretInventoryNumberUI();
@@ -120,6 +121,7 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
+        changeDayState();
     }
 
     #region getters & setters
@@ -1152,11 +1154,13 @@ public class GameManager : MonoBehaviour
             placeHolder.turretPlacementId = -1;
             if (player.turretsInventory.TryGetValue(placeHolder.turretId, out int amount))
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Remove(placeHolder.turretId);
                 player.turretsInventory.Add(placeHolder.turretId, amount + 1);
             }
             else
             {
+                placedTurrets.Remove(placeHolder.turretPlacementId.ToString());
                 player.turretsInventory.Add(placeHolder.turretId, 1);
             }
             player.audioSources[player.AUDIO_PICK_TURRET].clip = player.audios[player.AUDIO_PICK_TURRET];

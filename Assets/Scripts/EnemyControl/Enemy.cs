@@ -44,8 +44,12 @@ public class Enemy : MonoBehaviour
         //get waypoints from GameManager
         foreach (Transform waypoint in GameManager.Instance.getWaypoints(type))
         {
-            Vector3 offsetWaypoint = getRandomPoint(waypoint.position);
-            waypoints.Add(offsetWaypoint);
+            if (waypoint != null)
+            {
+                Vector3 offsetWaypoint = getRandomPoint(waypoint.position);
+                waypoints.Add(offsetWaypoint);
+            }
+            
         }
         this.currentHealth = this.maxHealth;
         this.currentSpeed = this.speed;

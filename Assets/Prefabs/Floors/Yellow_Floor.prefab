@@ -510,7 +510,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -1497579747
   m_Mesh: {fileID: 0}
-  m_InstanceId: 837078
+  m_InstanceId: 930346
 --- !u!1 &3610118673606371449
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9050700320089831017}
   - component: {fileID: 8372076322887673298}
+  - component: {fileID: 5824138492900402223}
   m_Layer: 0
   m_Name: frame amb torreta
   m_TagString: Untagged
@@ -594,6 +595,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!331 &5824138492900402223
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610118673606371449}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 0794a1800909d83418373429d2957b3d, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3628457245327954630
 GameObject:
@@ -737,7 +789,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -661310407
   m_Mesh: {fileID: 0}
-  m_InstanceId: 837126
+  m_InstanceId: 930404
 --- !u!1 &4779222873362783752
 GameObject:
   m_ObjectHideFlags: 0

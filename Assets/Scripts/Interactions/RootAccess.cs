@@ -13,16 +13,19 @@ public class RootAccess : IEInteractable
         if (GameManager.Instance.getCurrentDay() == 0)
         {
             canAccesTable = false;
+            GameManager.Instance.cancelSound();
         }
         else if (GameManager.Instance.getCurrentDay() == 1 && GameManager.Instance.isDay)
         {
             canAccesTable = false;
+            GameManager.Instance.cancelSound();
         }
 
         if (action.Equals("E") && !GameManager.Instance.getPlayerInMenu() && canAccesTable)
         {
             GameManager.Instance.setRootView(true);
             GameManager.Instance.setMenuState(true);
+            GameManager.Instance.interactSound();
         }
         else if (GameManager.Instance.getCurrentDay() == 0 || !canAccesTable)
         {
