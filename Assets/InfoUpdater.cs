@@ -26,7 +26,7 @@ public class InfoUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeUp)
+        if (!timeUp)
         {
             timeValue += Time.deltaTime;
             sunMoon.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -55,7 +55,7 @@ public class InfoUpdater : MonoBehaviour
     }
     public void ChangeDay()
     {
-        if (dayStateValue % 2 == 0)
+        if (dayStateValue % 2 != 0)
         {
             timeValue = 0;
 
@@ -78,6 +78,19 @@ public class InfoUpdater : MonoBehaviour
     public void SetEnemies(int value)
     {
         enemies.text = value.ToString();
+    }
+
+    public void ResetTimer()
+    {
+        if (dayStateValue % 2 == 0)
+        {
+            timeValue = 0;
+
+        }
+        else
+        {
+            timeValue = 60;
+        }
     }
 
 }

@@ -987,6 +987,7 @@ public class GameManager : MonoBehaviour
             if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
+                infoUpdater.ResetTimer();
                 Invoke("changeDayState", 60);
             }
 
