@@ -13,28 +13,31 @@ public class ClusterBullet : MonoBehaviour
     private int damage;
 
     private Vector2 direction;
+
     [Header("Bullet Settings")]
     [SerializeField]
     private GameObject sprite;
+
     [SerializeField]
     private Animator explosion;
+
     [SerializeField]
     private GameObject eSoundB;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!isDestroying)
         {
             transform.Translate(direction * moveSpeed * Time.deltaTime);
         }
     }
+
     private void OnEnable()
     {
         Invoke("Destroy", bulletDuration);
@@ -50,14 +53,15 @@ public class ClusterBullet : MonoBehaviour
             if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 c.GetComponent<Enemy>().takeDamage(damage);
-                explosion.gameObject.SetActive(true);
-                explosion.Play("explosionSmall");
-                Instantiate(eSoundB);
-                sprite.SetActive(false);
             }
         }
+        explosion.gameObject.SetActive(true);
+        explosion.Play("explosionSmall");
+        Instantiate(eSoundB);
+        sprite.SetActive(false);
         Invoke("Disable", 1f);
     }
+
     private void Disable()
     {
         isDestroying = false;
@@ -69,12 +73,12 @@ public class ClusterBullet : MonoBehaviour
 
     public void SetDamage(int bulletDamage)
     {
-        damage = bulletDamage/4;
+        damage = bulletDamage / 4;
     }
 
     public void SetRadius(float newRadius)
     {
-        radius = newRadius/6;
+        radius = newRadius / 6;
     }
 
     public void SetDirection(Vector2 dir)
@@ -96,6 +100,7 @@ public class ClusterBullet : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
     private void OnDisable()
     {
         CancelInvoke();

@@ -5,9 +5,9 @@ using UnityEngine;
 public class PineconeBullet : MonoBehaviour
 {
     [Header("Bullet Stats")]
-
     [SerializeField]
     private float moveSpeed;
+
     [SerializeField]
     private float radius, bulletDuration;
 
@@ -25,17 +25,19 @@ public class PineconeBullet : MonoBehaviour
 
     private bool isDestroying = false;
 
-
     [Header("Bullet Settings")]
-
     [SerializeField]
     private GameObject sprite;
+
     [SerializeField]
     private int numClusters;
+
     [SerializeField]
     private float minT, maxT, clusterSpeed, rotationModifier;
+
     [SerializeField]
     private Animator explosion;
+
     [SerializeField]
     private GameObject eSoundB;
 
@@ -47,7 +49,8 @@ public class PineconeBullet : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!isDestroying) {
+        if (!isDestroying)
+        {
             if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
@@ -65,7 +68,8 @@ public class PineconeBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isDestroying) {
+        if (!isDestroying)
+        {
             if (target != null && target.gameObject.activeInHierarchy && !lostTarget)
             {
                 Vector3 vectorTarget = target.transform.position - transform.position;
@@ -102,10 +106,6 @@ public class PineconeBullet : MonoBehaviour
                 {
                     c.GetComponent<Enemy>().takeDamage(damage);
                     c.GetComponent<Enemy>().stun(stunness);
-                    explosion.gameObject.SetActive(true);
-                    explosion.Play("Explosion");
-                    Instantiate(eSoundB);
-                    sprite.SetActive(false);
                 }
             }
         }
@@ -124,6 +124,10 @@ public class PineconeBullet : MonoBehaviour
                 bul.SetActive(true);
             }
         }
+        explosion.gameObject.SetActive(true);
+        explosion.Play("Explosion");
+        Instantiate(eSoundB);
+        sprite.SetActive(false);
         Invoke("Disable", 1.1f);
     }
 
@@ -159,6 +163,7 @@ public class PineconeBullet : MonoBehaviour
     {
         cluster = newCluster;
     }
+
     public void SetStunness(float newStun)
     {
         stunness = newStun;

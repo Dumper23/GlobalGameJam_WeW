@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3348578808355848830}
   - component: {fileID: 5519165902116727021}
   - component: {fileID: 5581923618743568049}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: NutBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4809878640045143977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -15.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
