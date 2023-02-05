@@ -921,6 +921,7 @@ public class GameManager : MonoBehaviour
 
     public void changeDayState()
     {
+        stopMenuSong();
         //pause player movement
         setDayNightAnimationPlaying(true);
         infoUpdater.ChangeDay();
@@ -929,6 +930,8 @@ public class GameManager : MonoBehaviour
         changeLight = true;
         if (isDay)
         {
+            Debug.Log("A");
+            fadeInDay();
             dayChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
@@ -942,6 +945,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("B");
+            fadeInNight();
             nightChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
@@ -981,28 +986,10 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            //Music
-            fadeOutDay();
-            if (!isFirstTime)
-            {
-                Invoke("playChangeSound", 1.5f);
-            }
-            else
-            {
-                isFirstTime = false;
-            }
-
-            Invoke("fadeInNight", 1f);
-            Invoke("fadeOutNight", 61.5f);
-            Invoke("playChangeSound", 63);
-            Invoke("playIntroDay", 65);
-
-            loopNight.Play();
-
             if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
-                Invoke("changeDayState", 60);//60
+                Invoke("changeDayState", 60);
             }
 
             if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
@@ -1298,7 +1285,11 @@ public class GameManager : MonoBehaviour
 
     public void fadeInDay()
     {
+        loopNight.Pause();
+        backgroundSoundsDay.Play();
+        backgroundSoundsNight.Stop();
         loopDay.GetComponent<Animator>().Play("FadeInDay");
+        loopDay.Play();
     }
 
     public void fadeOutNight()
@@ -1308,14 +1299,21 @@ public class GameManager : MonoBehaviour
 
     public void fadeInNight()
     {
+        loopDay.Pause();
         backgroundSoundsDay.Stop();
         backgroundSoundsNight.Play();
         loopNight.GetComponent<Animator>().Play("FadeInNight");
+        loopNight.Play();
     }
 
     public void playMenuSong()
     {
         mainMenuSound.Play();
+    }
+
+    public void stopMenuSong()
+    {
+        mainMenuSound.Stop();
     }
 
     public void UpdateTurrets()
