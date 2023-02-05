@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: fly
   maxHealth: 110
-  speed: 0.6
+  speed: 0.8
   currentSpeed: 0
   type: fly
   waypoints: []

@@ -122,8 +122,6 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
-
-        changeDayState();
     }
 
     #region getters & setters
@@ -1196,23 +1194,23 @@ public class GameManager : MonoBehaviour
 
             case "RESIN_SPIT":
 
-                return 3;
+                return 400;
 
             case "PINECONE_LAUNCHER":
 
-                return 4;
+                return 450;
 
             case "NUT_ROLL":
 
-                return 5;
+                return 450;
 
             case "PORCUTHROW":
 
-                return 6;
+                return 450;
 
             case "ELECTRIC_POTATO":
 
-                return 7;
+                return 450;
 
             default:
 

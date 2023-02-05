@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: flea
   maxHealth: 125
-  speed: 0.9
+  speed: 1.1
   currentSpeed: 0
   type: walk
   waypoints: []
