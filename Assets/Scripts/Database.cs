@@ -47,11 +47,8 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(30, "ant", 1, 1, 1, "walk"),
-        new EnemyWave(5, "beetle", 1, 2, 1,  "walk"),
-        new EnemyWave(5, "flea", 1, 3, 1,  "walk"),
-        new EnemyWave(5, "fly", 1, 3, 1,  "fly"),
-        new EnemyWave(5, "wasp", 1, 3, 1,  "fly")
+        new EnemyWave(20, "ant", 3, 2, 1, "walk"),
+     
     };
 
     [HideInInspector]
@@ -455,7 +452,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int ELECTRIC_POTATO_DAMAGE_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_DESCRIPTION = "Now the Turret does damage";
     [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_NAME = "Taser!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE_COST = { 10 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE_COST = { 100 };
     [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE = { 20 };
 
     [HideInInspector] public int ELECTRIC_POTATO_SPEED_LVL = 0;
