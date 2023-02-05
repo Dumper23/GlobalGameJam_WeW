@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject tree;
     public GameObject playerAnim;
     public GameObject background;
+    public GameObject gameEnd;
 
     private PlayerController player;
     public InfoUpdater infoUpdater;
@@ -1030,6 +1031,7 @@ public class GameManager : MonoBehaviour
     private void callStartEndGameScene()
     {
         this.initialAnim.startEndGameScene();
+        this.gameEnd.SetActive(true);
         Debug.Log("called end game scene");
     }
 

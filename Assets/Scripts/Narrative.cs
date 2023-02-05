@@ -218,6 +218,7 @@ public class Narrative : MonoBehaviour
 
     public void startEndGameScene()
     {
+        GameManager.Instance.gameEnd.SetActive(true);
         GameManager.Instance.setDayNightAnimationPlaying(true);
         this.gameObject.SetActive(true);
         GameManager.Instance.background.SetActive(true);
