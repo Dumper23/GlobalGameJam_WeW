@@ -535,7 +535,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: -661310407
   m_Mesh: {fileID: 0}
-  m_InstanceId: 459842
+  m_InstanceId: 524012
 --- !u!1 &5316054698290657750
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   - {x: 0.276783, y: -1.4838102, z: 0}
   m_ShapePathHash: 1299405817
   m_Mesh: {fileID: 0}
-  m_InstanceId: 459904
+  m_InstanceId: 524074
 --- !u!1 &6422542913121504648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1061,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ac8980e7553c2c44287bae77d976fdf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
