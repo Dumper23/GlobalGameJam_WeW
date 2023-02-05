@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7462776816920723203}
   - component: {fileID: 1095440429427767718}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -912543528245624891}
   - component: {fileID: 5262542013152642941}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: flea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 646383509430899330}
   - component: {fileID: 8638586622985826278}
   - component: {fileID: 8926760068864699776}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

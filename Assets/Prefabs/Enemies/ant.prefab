@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6877625285858926545}
   - component: {fileID: 5805228610847636576}
   - component: {fileID: 4419968785999153214}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -2200225556889850534}
   - component: {fileID: 1325860136480758836}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2523896180585799812}
   - component: {fileID: 612402529931469139}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

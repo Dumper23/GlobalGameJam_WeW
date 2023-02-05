@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     public NPC npcToAppear = new NPC(0, "", "", "");
     public int floorColorIndex = 0;
 
-    public int currentDay = 0;
+    private int currentDay = 0;
     private int currentFloor = 0;
     private bool playerInMenu = false;
     private bool dayNightAnimationPlaying = false;
