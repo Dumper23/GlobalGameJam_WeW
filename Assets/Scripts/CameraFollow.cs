@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothFactor;
     public float yOffset = 10;
     public float xOffset = 0;
+    public float zoom = 3.5f;
 
     private Vector3 target;
     private bool isRootView = false;
@@ -64,7 +65,7 @@ public class CameraFollow : MonoBehaviour
                     wasGeneralView = false;
                     wasRootView = false;
                 }
-                cam.orthographicSize = 3f;
+                cam.orthographicSize = zoom;
             }
             else
             {
