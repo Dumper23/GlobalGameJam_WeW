@@ -32,80 +32,82 @@ public class Narrative : MonoBehaviour
     private void initializeDialogs()
     {
         #region NPC
-        string[] conejoDialogs = { "conejoDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] conejoDialogs = { "how r u you doing pal?" };
         this.dialogs.Add("conejo", conejoDialogs);
 
-        string[] perritoDialogs = { "perritoDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] perritoDialogs = { "Hey! It looks like I'm the first to arrive", "I've brought you the new turret designs and the necessary ammunition for it" };
         this.dialogs.Add("perrito", perritoDialogs);
 
-        string[] chinchillaDialogs = { "chinchillaDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] chinchillaDialogs = { "Well, I bring heavy artillery to finish with those bugs", "Let's go with everything wimpy!" };
         this.dialogs.Add("chinchilla", chinchillaDialogs);
 
-        string[] castorDialogs = { "castorDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] castorDialogs = { "Hey pal, I bring new turret designs, stick your enemies to the ground...", "Well, to the tree, with my super design, all yours!" };
         this.dialogs.Add("castor", castorDialogs);
 
-        string[] puercoespinDialogs = { "puercoespinDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] puercoespinDialogs = { "Good night newbie, I bring you a little present", "Hehehe destroy those bastards at ease!" };
         this.dialogs.Add("puercoespin", puercoespinDialogs);
 
-        string[] capybaraDialogs = { "capybaraDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] capybaraDialogs = { "Hello...I brought something that might help you...", "I hope it helps you, I'll be here if you need anything"};
         this.dialogs.Add("capybara", capybaraDialogs);
 
-        string[] rataDialogs = { "rataDialogs how r u you doing pal?", "I've got a bunch of sunflower seeds for ya!" };
+        string[] rataDialogs = { "Hey boy come here, I've brought you a nice gadget muahahaha", "All yours, give those bugs a good cramp!" };
         this.dialogs.Add("rata", rataDialogs);
         #endregion
 
         #region UNLOCK FLOORS
-        string[] bunnyDialogs4 = { 
-            "Floor 4", 
-            "New floor unlocked!",
+        string[] bunnyDialogs4 = {
+            "How you doing soldier? The tree has been nourished with the corpses of our enemies",
+            "It has grown bigger and unlocked a new floor! (a little macabre if you think about it...)"
         };
         this.dialogs.Add("bunny4", bunnyDialogs4);
 
         string[] bunnyDialogs5 = {
-            "Floor 5",
-            "New floor unlocked!",
+            "Look at this soldier! The tree has grown again",
+            "Help to protect it, and it will protect you back",
         };
         this.dialogs.Add("bunny5", bunnyDialogs5);
 
         string[] bunnyDialogs6 = {
-            "Floor 6",
-            "New floor unlocked!",
+            "Though day, huh? Why don't you take a few seconds and relax with me",
+            "This empty new room is pretty comfy",
         };
         this.dialogs.Add("bunny6", bunnyDialogs6);
 
         string[] bunnyDialogs7 = {
-            "Floor 7",
-            "New floor unlocked!",
+            "Keep the good job you're doing soldier!",
+            "Some of our allies have arrived, but there are many more on their way",
+            "We have to make this tree grow so we can all fit in!"
         };
         this.dialogs.Add("bunny7", bunnyDialogs7);
 
         string[] bunnyDialogs8 = {
-            "Floor 8",
-            "New floor unlocked!",
+            "Damn, that last day was kinda hard, wasn't it?",
+            "Fortunately the tree has gotten bigger so...another turret it is!",
         };
         this.dialogs.Add("bunny8", bunnyDialogs8);
 
         string[] bunnyDialogs9 = {
-            "Floor 9",
-            "New floor unlocked!",
+            "Holy carrots! I'm starting to have dizziness up here",
+            "It's getting so tall!",
         };
         this.dialogs.Add("bunny9", bunnyDialogs9);
 
         string[] bunnyDialogs10 = {
-            "Floor 10",
-            "New floor unlocked!",
+            "Yey! another floor...yes, those insects won't stop us",
+            "Tell me, what turret will you put here?"
         };
         this.dialogs.Add("bunny10", bunnyDialogs10);
 
         string[] bunnyDialogs11 = {
-            "Floor 11",
-            "New floor unlocked!",
+            "Come on soldier! Just one last effort and we will win this war!",
+            "Something tells me we are close! Hold on a little longer and put right now a turret in here!",
         };
         this.dialogs.Add("bunny11", bunnyDialogs11);
 
         string[] bunnyDialogs12 = {
-            "Floor 12",
-            "New floor unlocked!",
+            "Well..this is it soldier. We made it. I think this tree is at its best",
+            "It's gotten so tall and majestic! Look at its roots! They are strong. Like you",
+            "Let's finish this once and for all! Shall we?"
         };
         this.dialogs.Add("bunny12", bunnyDialogs12);
         #endregion
@@ -280,7 +282,7 @@ public class Narrative : MonoBehaviour
             {
                 this.gameObject.transform.Find("characters").transform.Find(npc.ammoId).transform.Find(npc.npcId).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
                 this.dialogIndex++;
-                Invoke("nextDialog", 3);
+                Invoke("nextDialog", 4);
             }
             else
             {
@@ -305,7 +307,7 @@ public class Narrative : MonoBehaviour
             {
                 this.gameObject.transform.Find("characters").transform.Find("bunny").transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().SetText(dialogs[this.dialogIndex]);
                 this.dialogIndex++;
-                Invoke("nextDialogBunny", 3);
+                Invoke("nextDialogBunny", 4);
             }
             else
             {
