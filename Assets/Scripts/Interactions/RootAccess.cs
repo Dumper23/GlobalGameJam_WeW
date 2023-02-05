@@ -11,7 +11,7 @@ public class RootAccess : IEInteractable
 
     public override void Interaction(string action = "")
     {
-        if (action.Equals("E") && !GameManager.Instance.getPlayerInMenu())
+        if (action.Equals("E") && !GameManager.Instance.getPlayerInMenu() && GameManager.Instance.getCurrentDay() != 0)
         {
             GameManager.Instance.setRootView(true);
             GameManager.Instance.setMenuState(true);

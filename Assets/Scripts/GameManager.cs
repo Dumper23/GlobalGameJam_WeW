@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public GameObject hud;
     public Narrative narrative;
     public Narrative unlockFloorNarrative;
+    public Narrative initialAnim;
 
     public AudioSource introDay;
     public AudioSource loopDay;
@@ -101,7 +102,9 @@ public class GameManager : MonoBehaviour
     {
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
-        changeDayState();
+        this.initialAnim.gameObject.SetActive(true);
+        this.initialAnim.startIntroScene();
+        //changeDayState();
         player.updateTurretInventoryNumberUI();
         player.updateInventorySlots();
 
@@ -893,12 +896,19 @@ public class GameManager : MonoBehaviour
 
             loopNight.Play();
 
-            if (!hasUnlockedNpc && !hasUnlockedFloor)
+            if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
                 Invoke("changeDayState", 15);//60
             }
+
+            if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
         }
+    }
+
+    private void callStartIntroScene3()
+    {
+        this.initialAnim.startIntroScene3();
     }
 
     public void activateEnemySpawns()
