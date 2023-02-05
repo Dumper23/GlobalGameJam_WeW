@@ -29,12 +29,14 @@ public class CameraFollow : MonoBehaviour
         isGeneralView = !isGeneralView;
         wasGeneralView = !isGeneralView;
         GameManager.Instance.setVisibilityInventoryUI(!isGeneralView);
+        SkillTree.Instance.GeneralMapUpdateAll(isGeneralView);
     }
 
     public void setRootView(bool isRootView)
     {
         this.isRootView = isRootView;
         wasRootView = !isRootView;
+        GameManager.Instance.setVisibilityInventoryUI(!isRootView);
     }
 
     public void setGeneralView(bool isGeneralView)

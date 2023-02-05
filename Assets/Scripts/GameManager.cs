@@ -173,6 +173,7 @@ public class GameManager : MonoBehaviour
     public void setVisibilityInventoryUI(bool visible)
     {
         player.inventoryContainer.SetActive(visible);
+        player.UI.SetActive(visible);
     }
 
     public void setRootView(bool isRootView)
