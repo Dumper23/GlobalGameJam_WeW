@@ -522,8 +522,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText0.color = Color.red;
-                turretAmountText0.SetText("x" + 0);
+                turretAmountText0.color = Color.yellow;
+                turretAmountText0.SetText("$" + GameManager.Instance.getTurretPrice("MACHINE_SEED"));
             }
         }
         else
@@ -541,8 +541,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText1.color = Color.red;
-                turretAmountText1.SetText("x" + 0);
+                turretAmountText1.color = Color.yellow;
+                turretAmountText1.SetText("$" + GameManager.Instance.getTurretPrice("S_SEEDNIPER"));
             }
         }
         else
@@ -560,8 +560,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText2.color = Color.red;
-                turretAmountText2.SetText("x" + 0);
+                turretAmountText2.color = Color.yellow;
+                turretAmountText2.SetText("$" + GameManager.Instance.getTurretPrice("RESIN_SPIT"));
             }
         }
         else
@@ -579,8 +579,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText3.color = Color.red;
-                turretAmountText3.SetText("x" + 0);
+                turretAmountText3.color = Color.yellow;
+                turretAmountText3.SetText("$" + GameManager.Instance.getTurretPrice("PORCUTHROW"));
             }
         }
         else
@@ -598,8 +598,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText4.color = Color.red;
-                turretAmountText4.SetText("x" + 0);
+                turretAmountText4.color = Color.yellow;
+                turretAmountText4.SetText("$" + GameManager.Instance.getTurretPrice("PINECONE_LAUNCHER"));
             }
         }
         else
@@ -617,8 +617,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText5.color = Color.red;
-                turretAmountText5.SetText("x" + 0);
+                turretAmountText5.color = Color.yellow;
+                turretAmountText5.SetText("$" + GameManager.Instance.getTurretPrice("NUT_ROLL"));
             }
         }
         else
@@ -636,8 +636,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                turretAmountText6.color = Color.red;
-                turretAmountText6.SetText("x" + 0);
+                turretAmountText6.color = Color.yellow;
+                turretAmountText6.SetText("$" + GameManager.Instance.getTurretPrice("ELECTRIC_POTATO"));
             }
         }
         else
