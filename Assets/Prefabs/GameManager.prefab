@@ -1045,6 +1045,13 @@ MonoBehaviour:
   mainMenuSound: {fileID: 1086162986}
   backgroundSoundsDay: {fileID: 1401526990}
   changeSound: {fileID: 908230877}
+  globalLight: {fileID: 0}
+  intensityDay: 2
+  intensityNight: 0.45
+  dayColor: {r: 1, g: 1, b: 1, a: 0}
+  nightColor: {r: 0.19339621, g: 0.51402664, b: 1, a: 0}
+  dayChangeDuration: 4
+  nightChangeDuration: 4
   turrets:
   - turretId: MACHINE_SEED
     turretPrefab: {fileID: 5668251177517224757, guid: 6e6ddb0efeaf7a04f8acc7bebfcf1b1d, type: 3}

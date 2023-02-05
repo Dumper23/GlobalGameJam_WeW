@@ -91,9 +91,12 @@ public class PorcuthrowTurret : TurretsFather
             {
                 if (d.TryGetValue("chest", out float newChest))
                 {
-                    maxChest = (int)newChest;
-                    chestIndicators[maxChest - 1].SetActive(true);
-                    chestIndicators[maxChest - 1].GetComponent<SpriteRenderer>().color = Color.red;
+                    if (maxChest != (int)newChest)
+                    {
+                        maxChest = (int)newChest;
+                        chestIndicators[maxChest - 1].SetActive(true);
+                        chestIndicators[maxChest - 1].GetComponent<SpriteRenderer>().color = Color.red;
+                    }
                 }
             }
         }

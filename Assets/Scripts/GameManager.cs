@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [System.SerializableAttribute]
 public class TurretEditor
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     public GameObject hud;
     public Narrative narrative;
     public Narrative unlockFloorNarrative;
+    public Narrative initialAnim;
 
     public AudioSource introDay;
     public AudioSource loopDay;
@@ -50,6 +52,17 @@ public class GameManager : MonoBehaviour
 
     public AudioSource backgroundSoundsDay;
     public AudioSource changeSound;
+
+    public Light2D globalLight;
+    public float intensityDay = 2;
+    public float intensityNight = 0.45f;
+    public Color dayColor;
+    public Color nightColor;
+    private float dayChangeStartTime;
+    private float nightChangeStartTime;
+    public float dayChangeDuration = 4f;
+    public float nightChangeDuration = 4f;
+    private bool changeLight;
 
     [SerializeField]
     public List<TurretEditor> turrets;
@@ -101,7 +114,6 @@ public class GameManager : MonoBehaviour
     {
         //Play intro and when finished play loopDay
         player = FindObjectOfType<PlayerController>();
-        changeDayState();
         player.updateTurretInventoryNumberUI();
         player.updateInventorySlots();
 
@@ -232,6 +244,7 @@ public class GameManager : MonoBehaviour
             player.liftDelayCircle.gameObject.SetActive(true);
             player.liftDelayCircle.fillAmount -= Time.deltaTime;
         }
+        DayLight();
     }
 
     public bool pickUpAmmo(string ammoType)
@@ -388,36 +401,69 @@ public class GameManager : MonoBehaviour
         switch (player.currentSlot)
         {
             case 1:
+                if (player.ammoSlot1.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot1.hasAmmo = false;
                 player.ammoSlot1.currentAmmoType = "";
-                player.ammoSlot1.currentAmount = 0;
+                player.ammoSlot1.currentAmount -= 1;
                 player.ammoSlot1.ammoImage = null;
                 break;
 
             case 2:
+                if (player.ammoSlot2.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot2.hasAmmo = false;
                 player.ammoSlot2.currentAmmoType = "";
-                player.ammoSlot2.currentAmount = 0;
+                player.ammoSlot2.currentAmount -= 1;
                 player.ammoSlot2.ammoImage = null;
                 break;
 
             case 3:
+                if (player.ammoSlot3.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot3.hasAmmo = false;
                 player.ammoSlot3.currentAmmoType = "";
-                player.ammoSlot3.currentAmount = 0;
+                player.ammoSlot3.currentAmount -= 1;
                 player.ammoSlot3.ammoImage = null;
                 break;
 
             case 4:
+                if (player.ammoSlot4.hasAmmo)
+                {
+                    interactSound();
+                }
+                else
+                {
+                    cancelSound();
+                }
                 player.ammoSlot4.hasAmmo = false;
                 player.ammoSlot4.currentAmmoType = "";
-                player.ammoSlot4.currentAmount = 0;
+                player.ammoSlot4.currentAmount -= 1;
                 player.ammoSlot4.ammoImage = null;
                 break;
 
             default:
                 break;
         }
+
         player.updateInventorySlots();
     }
 
@@ -815,6 +861,51 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void DayLight()
+    {
+        if (changeLight)
+        {
+            if (isDay)
+            {
+                if (Time.time >= dayChangeStartTime + dayChangeDuration)
+                {
+                    changeLight = false;
+
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityNight, intensityDay, dayChangeStartTime, dayChangeDuration);
+
+                    float r = LerpValues.Lerp(nightColor.r, dayColor.r, dayChangeStartTime, dayChangeDuration);
+                    float g = LerpValues.Lerp(nightColor.g, dayColor.g, dayChangeStartTime, dayChangeDuration);
+                    float b = LerpValues.Lerp(nightColor.b, dayColor.b, dayChangeStartTime, dayChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+                }
+            }
+            else
+            {
+                if (Time.time >= nightChangeStartTime + nightChangeDuration)
+                {
+                    changeLight = false;
+                }
+                else
+                {
+                    globalLight.intensity = LerpValues.Lerp(intensityDay, intensityNight, nightChangeStartTime, nightChangeDuration);
+
+                    float r = LerpValues.Lerp(dayColor.r, nightColor.r, nightChangeStartTime, nightChangeDuration);
+                    float g = LerpValues.Lerp(dayColor.g, nightColor.g, nightChangeStartTime, nightChangeDuration);
+                    float b = LerpValues.Lerp(dayColor.b, nightColor.b, nightChangeStartTime, nightChangeDuration);
+
+                    globalLight.color = new Color(r, g, b);
+
+                }
+            }
+
+        }
+    }
+
     public void changeDayState()
     {
         //pause player movement
@@ -822,8 +913,10 @@ public class GameManager : MonoBehaviour
         infoUpdater.ChangeDay();
         player.updateTurretPlacementMenu();
         isDay = !isDay;
+        changeLight = true;
         if (isDay)
         {
+            dayChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
             this.hud.transform.Find("Background").gameObject.SetActive(true);
@@ -834,9 +927,11 @@ public class GameManager : MonoBehaviour
             currentDay++;
 
             Invoke("activateEnemySpawns", 6);
+
         }
         else
         {
+            nightChangeStartTime = Time.time;
             //show animation
             mainCam.GetComponent<CameraFollow>().blurCamera();
             this.hud.transform.Find("Background").gameObject.SetActive(true);
@@ -893,12 +988,19 @@ public class GameManager : MonoBehaviour
 
             loopNight.Play();
 
-            if (!hasUnlockedNpc && !hasUnlockedFloor)
+            if (!hasUnlockedNpc && !hasUnlockedFloor && this.currentDay != 1)
             {
                 //Start day after 60s
-                Invoke("changeDayState", 15);//60
+                Invoke("changeDayState", 60);//60
             }
+
+            if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
         }
+    }
+
+    private void callStartIntroScene3()
+    {
+        this.initialAnim.startIntroScene3();
     }
 
     public void activateEnemySpawns()
