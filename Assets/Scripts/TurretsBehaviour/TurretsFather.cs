@@ -57,12 +57,21 @@ public abstract class TurretsFather : MonoBehaviour
 
     protected string turretId = "";
 
+    [SerializeField]
+    protected List<GameObject> chestIndicators;
+
     // Start is called before the first frame update
     protected void Start()
     {
         //Set Default settings
+        InintiateStatsAtCurrentUpgrades();
         enemyList = new List<GameObject>(GameManager.Instance.getAllEnemies());
         endWayPoint = GameManager.Instance.topFloor.transform.Find("waypoint").transform;
+        foreach (GameObject g in chestIndicators)
+        {
+            g.GetComponent<SpriteRenderer>().color = Color.red;
+            g.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -135,6 +144,11 @@ public abstract class TurretsFather : MonoBehaviour
             else
             {
                 chest--;
+
+                if (chestIndicators[chest].activeInHierarchy) {
+                    chestIndicators[chest].GetComponent<SpriteRenderer>().color = Color.red;
+                }
+
                 ammunituion = maxAmmo;
             }
         }
@@ -155,14 +169,31 @@ public abstract class TurretsFather : MonoBehaviour
         }*/
         updateAmmoUI((ammunituion).ToString());
 
-        if (chest < maxChest)
+        if (maxChest == 0)
         {
-            chest++;
+            if (ammunituion == maxAmmo)
+            {
+                return false;
+            }
+            ammunituion = maxAmmo;
             return true;
         }
         else
         {
-            return false;
+
+            if (chest < maxChest)
+            {
+                if (chestIndicators[chest].activeInHierarchy)
+                {
+                    chestIndicators[chest].GetComponent<SpriteRenderer>().color = Color.green;
+                }
+                chest++;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /*
