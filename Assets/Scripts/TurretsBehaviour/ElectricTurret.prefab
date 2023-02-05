@@ -367,7 +367,7 @@ MonoBehaviour:
   ammoType: potato
   fireRate: 6
   rangeAttack: 10
-  damage: 7
+  damage: 0
   maxAmmo: 50
   maxChest: 10
   bulletSpawn: {fileID: 2412192368212930798}

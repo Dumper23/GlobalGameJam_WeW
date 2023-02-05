@@ -47,7 +47,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 3, 2, 1, "walk")
+        new EnemyWave(17, "ant", 3, 2, 1, "walk")
 
      
     };
@@ -68,7 +68,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
-        new EnemyWave(55, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(49, "ant", 1, 0, 1, "walk"),
         new EnemyWave(10, "flea", 2, 1, 1, "walk")
 
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
@@ -76,7 +76,7 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
-        new EnemyWave(55, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(50, "ant", 1, 0, 1, "walk"),
         new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(5, "fly", 1, 0, 1, "fly")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
@@ -121,7 +121,7 @@ public class Database : MonoBehaviour
         new EnemyWave(10, "fly", 1, 0, 1, "fly"),
         new EnemyWave(1, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(1, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(5, "wasp", 1, 5, 1, "walk")
+
 
     };
 
@@ -132,7 +132,6 @@ public class Database : MonoBehaviour
         new EnemyWave(25, "fly", 1, 0, 1, "fly"),
         new EnemyWave(3, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(5, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(15, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -142,7 +141,6 @@ public class Database : MonoBehaviour
         new EnemyWave(40, "fly", 1, 0, 1, "fly"),
         new EnemyWave(6, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(8, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(25, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -152,7 +150,6 @@ public class Database : MonoBehaviour
         new EnemyWave(40, "fly", 1, 0, 1, "fly"),
         new EnemyWave(6, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(8, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(25, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -162,7 +159,6 @@ public class Database : MonoBehaviour
         new EnemyWave(55, "fly", 1, 0, 1, "fly"),
         new EnemyWave(8, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(12, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(35, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -172,7 +168,6 @@ public class Database : MonoBehaviour
         new EnemyWave(80, "fly", 1, 0, 1, "fly"),
         new EnemyWave(10, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(14, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(45, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -182,7 +177,6 @@ public class Database : MonoBehaviour
         new EnemyWave(100, "fly", 1, 0, 1, "fly"),
         new EnemyWave(12, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(14, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(60, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -192,7 +186,6 @@ public class Database : MonoBehaviour
         new EnemyWave(120, "fly", 1, 0, 1, "fly"),
         new EnemyWave(12, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(16, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(75, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -202,7 +195,6 @@ public class Database : MonoBehaviour
         new EnemyWave(140, "fly", 1, 0, 1, "fly"),
         new EnemyWave(14, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(16, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(80, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -212,7 +204,6 @@ public class Database : MonoBehaviour
         new EnemyWave(160, "fly", 1, 0, 1, "fly"),
         new EnemyWave(16, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(20, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(95, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -222,7 +213,6 @@ public class Database : MonoBehaviour
         new EnemyWave(175, "fly", 1, 0, 1, "fly"),
         new EnemyWave(18, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(20, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(110, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -232,7 +222,6 @@ public class Database : MonoBehaviour
         new EnemyWave(185, "fly", 1, 0, 1, "fly"),
         new EnemyWave(18, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(22, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(130, "wasp", 1, 5, 1, "walk")
     };
 
     [HideInInspector]
@@ -242,7 +231,6 @@ public class Database : MonoBehaviour
         new EnemyWave(195, "fly", 1, 0, 1, "fly"),
         new EnemyWave(22, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(24, "beetle", 1, 20, 1, "walk"),
-        new EnemyWave(150, "wasp", 1, 5, 1, "walk")
     };
 
     #endregion WAVES FOR EACH DAY
@@ -256,13 +244,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int MACHINE_SEED_DAMAGE_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string MACHINE_SEED_DAMAGE_NAME = "More Seeds!";
-    [HideInInspector] public int[] MACHINE_SEED_DAMAGE_COST = { 100, 1000, 5000 };
+    [HideInInspector] public int[] MACHINE_SEED_DAMAGE_COST = { 100, 1000, 3000 };
     [HideInInspector] public int[] MACHINE_SEED_DAMAGE = { 35, 40, 50 };
 
     [HideInInspector] public int MACHINE_SEED_SPEED_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string MACHINE_SEED_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 100, 1000, 5000 };
+    [HideInInspector] public int[] MACHINE_SEED_SPEED_COST = { 100, 1000, 3000 };
     [HideInInspector] public float[] MACHINE_SEED_SPEED = { 0.7f, 0.5f, 0.3f };
 
     [HideInInspector] public int MACHINE_SEED_CAPACITY_LVL = 0;
@@ -300,7 +288,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int RESIN_SPIT_DURATION_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_DURATION_DESCRIPTION = "Increases the duration of the resin in the tree";
     [HideInInspector] public string RESIN_SPIT_DURATION_NAME = "More Resin!";
-    [HideInInspector] public int[] RESIN_SPIT_DURATION_COST = { 1000, 5000 };
+    [HideInInspector] public int[] RESIN_SPIT_DURATION_COST = { 1000, 3000 };
     [HideInInspector] public float[] RESIN_SPIT_DURATION = { 3, 4 };
 
     [HideInInspector] public int RESIN_SPIT_STICKNESS_LVL = 0;
@@ -312,7 +300,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int RESIN_SPIT_LONG_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_LONG_DESCRIPTION = "Increases the length of the Puddle";
     [HideInInspector] public string RESIN_SPIT_LONG_NAME = "Size does matter";
-    [HideInInspector] public int[] RESIN_SPIT_LONG_COST = { 5000 };
+    [HideInInspector] public int[] RESIN_SPIT_LONG_COST = { 3000 };
     [HideInInspector] public float[] RESIN_SPIT_LONG = { 1.6f };
 
     [HideInInspector] public int RESIN_SPIT_CAPACITY_LVL = 0;
@@ -344,13 +332,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int S_SEEDNIPER_SPEED_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
     [HideInInspector] public string S_SEEDNIPER_SPEED_NAME = "Faster!";
-    [HideInInspector] public int[] S_SEEDNIPER_SPEED_COST = { 100, 1000, 5000 };
-    [HideInInspector] public float[] S_SEEDNIPER_SPEED = { 1.3f, 1, 0.8f };
+    [HideInInspector] public int[] S_SEEDNIPER_SPEED_COST = { 100, 1000, 3000 };
+    [HideInInspector] public float[] S_SEEDNIPER_SPEED = { 3, 2.5f, 2 };
 
     [HideInInspector] public int S_SEEDNIPER_RICOCHET_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_RICOCHET_DESCRIPTION = "Bullets now ricochet off enemies";
     [HideInInspector] public string S_SEEDNIPER_RICOCHET_NAME = "Ricochet";
-    [HideInInspector] public int[] S_SEEDNIPER_RICOCHET_COST = { 5000 };
+    [HideInInspector] public int[] S_SEEDNIPER_RICOCHET_COST = { 3000 };
     [HideInInspector] public int[] S_SEEDNIPER_RICOCHET = { 1 };
 
     [HideInInspector] public int S_SEEDNIPER_CAPACITY_LVL = 0;
@@ -400,13 +388,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PINECONE_LAUNCHER_DAMAGE_STUN_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_DAMAGE_STUN_DESCRIPTION = "Now the Turret does more Damage and it stuns the enemies";
     [HideInInspector] public string PINECONE_LAUNCHER_DAMAGE_STUN_NAME = "More Boom Boom!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE_STUN_COST = { 5000 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE_STUN_COST = { 3000 };
     [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE_STUN = { 1 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_CLUSTER_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_CLUSTER_DESCRIPTION = "Now the explosion releases small parts of the pinecone that explode later.";
     [HideInInspector] public string PINECONE_LAUNCHER_CLUSTER_NAME = "Cluster!";
-    [HideInInspector] public int[] PINECONE_LAUNCHER_CLUSTER_COST = { 5000 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_CLUSTER_COST = { 3000 };
     [HideInInspector] public int[] PINECONE_LAUNCHER_CLUSTER = { 1 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_CAPACITY_LVL = 0;
@@ -444,13 +432,13 @@ public class Database : MonoBehaviour
     [HideInInspector] public int NUT_ROLL_EXTRA_LVL = 0;
     [HideInInspector] public string NUT_ROLL_EXTRA_DESCRIPTION = "For each shot, fires an extra projectile";
     [HideInInspector] public string NUT_ROLL_EXTRA_NAME = "Extra Nut!";
-    [HideInInspector] public int[] NUT_ROLL_EXTRA_COST = { 5000 };
+    [HideInInspector] public int[] NUT_ROLL_EXTRA_COST = { 3000 };
     [HideInInspector] public int[] NUT_ROLL_EXTRA = { 1 };
 
     [HideInInspector] public int NUT_ROLL_HITS_LVL = 0;
     [HideInInspector] public string NUT_ROLL_HITS_DESCRIPTION = "Increases the number of hits delivered by the projectile ";
     [HideInInspector] public string NUT_ROLL_HITS_NAME = "Endurezide Nut!";
-    [HideInInspector] public int[] NUT_ROLL_HITS_COST = { 5000 };
+    [HideInInspector] public int[] NUT_ROLL_HITS_COST = { 3000 };
     [HideInInspector] public int[] NUT_ROLL_HITS = { 30 };
 
     [HideInInspector] public int NUT_ROLL_CAPACITY_LVL = 0;
@@ -476,7 +464,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PORCUTHROW_PROJECTILES_LVL = 0;
     [HideInInspector] public string PORCUTHROW_PROJECTILES_DESCRIPTION = "Increases Turret fired projectiles";
     [HideInInspector] public string PORCUTHROW_PROJECTILES_NAME = "More Projectiles!";
-    [HideInInspector] public int[] PORCUTHROW_PROJECTILES_COST = { 100, 1000, 5000 };
+    [HideInInspector] public int[] PORCUTHROW_PROJECTILES_COST = { 100, 1000, 3000 };
     [HideInInspector] public int[] PORCUTHROW_PROJECTILES = { 5, 8, 12 };
 
     [HideInInspector] public int PORCUTHROW_SPEED_LVL = 0;
@@ -488,7 +476,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int PORCUTHROW_PIERCING_LVL = 0;
     [HideInInspector] public string PORCUTHROW_PIERCING_DESCRIPTION = "Now the shots are piercing";
     [HideInInspector] public string PORCUTHROW_PIERCING_NAME = "Hardened spikes!";
-    [HideInInspector] public int[] PORCUTHROW_PIERCING_COST = { 5000 };
+    [HideInInspector] public int[] PORCUTHROW_PIERCING_COST = { 3000 };
     [HideInInspector] public int[] PORCUTHROW_PIERCING = { 1 };
 
     [HideInInspector] public int PORCUTHROW_CAPACITY_LVL = 0;
@@ -520,7 +508,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int ELECTRIC_POTATO_DAMAGE_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_DESCRIPTION = "Now the Turret does damage";
     [HideInInspector] public string ELECTRIC_POTATO_DAMAGE_NAME = "Taser!";
-    [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE_COST = { 5000 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE_COST = { 3000 };
     [HideInInspector] public int[] ELECTRIC_POTATO_DAMAGE = { 20 };
 
     [HideInInspector] public int ELECTRIC_POTATO_SPEED_LVL = 0;
@@ -532,7 +520,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public int ELECTRIC_POTATO_STUN_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_STUN_DESCRIPTION = "Increases the time that enemies are stunned";
     [HideInInspector] public string ELECTRIC_POTATO_STUN_NAME = "It was not a Lie";
-    [HideInInspector] public int[] ELECTRIC_POTATO_STUN_COST = { 1000, 5000 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_STUN_COST = { 1000, 3000 };
     [HideInInspector] public float[] ELECTRIC_POTATO_STUN = { 2, 2.5f };
 
     [HideInInspector] public int ELECTRIC_POTATO_CAPACITY_LVL = 0;

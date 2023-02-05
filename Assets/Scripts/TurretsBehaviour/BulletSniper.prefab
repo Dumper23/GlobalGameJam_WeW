@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6247cec9782654eacd6575de8b39e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 6
   bulletDuration: 10
   sprite: {fileID: 6549550762056818058}
   rotationModifier: 180

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ant
   maxHealth: 100
-  speed: 0.7
+  speed: 0.9
   currentSpeed: 0
   type: walk
   waypoints: []
