@@ -653,7 +653,7 @@ MonoBehaviour:
   ammoType: sunflower
   fireRate: 4
   rangeAttack: 15
-  damage: 50
+  damage: 65
   maxAmmo: 15
   maxChest: 0
   bulletSpawn: {fileID: 1968199747048122548}

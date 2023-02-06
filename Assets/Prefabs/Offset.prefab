@@ -71,4 +71,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d00107dc2cb941a1913ae3948815c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsettAmmount: 8
+  offsettAmmount: 6

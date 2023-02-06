@@ -1009,7 +1009,7 @@ MonoBehaviour:
   fireRate: 4
   rangeAttack: 5
   damage: 75
-  maxAmmo: 30
+  maxAmmo: 20
   maxChest: 0
   bulletSpawn: {fileID: 896369789814219168}
   mobilePart: {fileID: 4656341952732876695}

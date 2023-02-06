@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6704970395889098291}
   - component: {fileID: 1256901158445816414}
   - component: {fileID: 143990647502029809}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: -2943740694936088147}
   - component: {fileID: 4710959101488898812}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: wasp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: wasp
   maxHealth: 150
-  speed: 1.2
+  speed: 1.3
   currentSpeed: 0
   type: fly
   waypoints: []
-  fertilizerToGive: 16
+  fertilizerToGive: 20
   isSlowed: 0
   isStunned: 0
   bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}

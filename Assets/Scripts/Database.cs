@@ -41,110 +41,106 @@ public class Database : MonoBehaviour
 
     [HideInInspector]
     public List<EnemyWave> DAY1_WAVES = new List<EnemyWave>{
-        new EnemyWave(14, "ant", 3, 2, 1, "walk"),
+        new EnemyWave(12, "ant", 3, 2, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY2_WAVES = new List<EnemyWave>{
-        new EnemyWave(17, "ant", 3, 2, 1, "walk")
+        new EnemyWave(15, "ant", 3, 2, 1, "walk")
 
      
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY3_WAVES = new List<EnemyWave>{
-        new EnemyWave(35, "ant", 3, 2, 1, "walk"),
+        new EnemyWave(20, "ant", 3, 2, 1, "walk"),
         new EnemyWave(5, "flea", 3, 2, 1, "walk"),
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY4_WAVES = new List<EnemyWave>{
-        new EnemyWave(45, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(5, "flea", 3, 2, 1, "walk")
+        new EnemyWave(10, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(15, "flea", 3, 2, 1, "walk")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY5_WAVES = new List<EnemyWave>{
-        new EnemyWave(49, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(10, "flea", 2, 1, 1, "walk")
-
+        new EnemyWave(5, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(13, "flea", 1.5f, 1, 1, "walk")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY6_WAVES = new List<EnemyWave>{
-        new EnemyWave(50, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(5, "fly", 1, 0, 1, "fly")
+        new EnemyWave(18, "ant", 1, 1, 1, "walk"),
+        new EnemyWave(10, "flea", 0.7f, 0, 1, "walk")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY7_WAVES = new List<EnemyWave>{
-        new EnemyWave(65, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(10, "fly", 1, 0, 1, "fly")
+        new EnemyWave(14, "ant", 2, 0, 1, "walk"),
+        new EnemyWave(13, "flea", 1.5f, 0.5f, 1, "walk"),
+        new EnemyWave(5, "fly", 2, 0, 1, "fly")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
-        new EnemyWave(80, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(30, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(15, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(10, "ant", 1.5f, 0, 1, "walk"),
+        new EnemyWave(17, "flea", 1, 4, 1, "walk"),
+        new EnemyWave(8, "fly", 1, 0, 1, "fly")
+        //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
-        new EnemyWave(85, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(20, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(10, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 0, 1, "walk")
+        new EnemyWave(20, "ant", 1.5f, 10, 1, "walk"),
+        //new EnemyWave(20, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(22, "fly", 1, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
-        new EnemyWave(95, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(15, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 0, 1, "walk"),
-        new EnemyWave(1, "beetle", 1, 20, 1, "walk")
+        new EnemyWave(7, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(7, "flea", 0.5f, 12, 1, "walk"),
+        new EnemyWave(25, "fly", 0.5f, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
-        new EnemyWave(95, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(25, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(10, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(10, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(10, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 0, 1, "walk"),
-        new EnemyWave(1, "beetle", 1, 20, 1, "walk"),
-
-
+        new EnemyWave(1, "beetle", 1, 40, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
-        new EnemyWave(110, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(40, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(25, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(3, "beetle", 1, 0, 1, "walk"),
-        new EnemyWave(5, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(12, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(13, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(20, "fly", 1, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
-        new EnemyWave(140, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(40, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(40, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(6, "beetle", 1, 0, 1, "walk"),
-        new EnemyWave(8, "beetle", 1, 20, 1, "walk"),
+        new EnemyWave(20, "ant", 1, 10, 1, "walk"),
+        new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(25, "fly", 1, 20, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 50, 1, "walk"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
+        new EnemyWave(35, "fly", 1.5f, 20, 1, "fly"),
+        new EnemyWave(3, "beetle", 20, 0, 1, "walk"),
+    };
+
+    [HideInInspector]
+    public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
         new EnemyWave(160, "ant", 1, 0, 1, "walk"),
         new EnemyWave(50, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(40, "fly", 1, 0, 1, "fly"),
@@ -153,7 +149,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
         new EnemyWave(165, "ant", 1, 0, 1, "walk"),
         new EnemyWave(65, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(55, "fly", 1, 0, 1, "fly"),
@@ -162,7 +158,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
         new EnemyWave(180, "ant", 1, 0, 1, "walk"),
         new EnemyWave(76, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(80, "fly", 1, 0, 1, "fly"),
@@ -171,7 +167,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
         new EnemyWave(200, "ant", 1, 0, 1, "walk"),
         new EnemyWave(90, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(100, "fly", 1, 0, 1, "fly"),
@@ -180,7 +176,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY18_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
         new EnemyWave(215, "ant", 1, 0, 1, "walk"),
         new EnemyWave(100, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(120, "fly", 1, 0, 1, "fly"),
@@ -189,7 +185,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY19_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
         new EnemyWave(235, "ant", 1, 0, 1, "walk"),
         new EnemyWave(115, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(140, "fly", 1, 0, 1, "fly"),
@@ -198,7 +194,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY20_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
         new EnemyWave(255, "ant", 1, 0, 1, "walk"),
         new EnemyWave(135, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(160, "fly", 1, 0, 1, "fly"),
@@ -207,7 +203,7 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY21_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
         new EnemyWave(275, "ant", 1, 0, 1, "walk"),
         new EnemyWave(145, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(175, "fly", 1, 0, 1, "fly"),
@@ -216,21 +212,12 @@ public class Database : MonoBehaviour
     };
 
     [HideInInspector]
-    public List<EnemyWave> DAY22_WAVES = new List<EnemyWave>{
+    public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
         new EnemyWave(295, "ant", 1, 0, 1, "walk"),
         new EnemyWave(155, "flea", 1, 0.5f, 1, "walk"),
         new EnemyWave(185, "fly", 1, 0, 1, "fly"),
         new EnemyWave(18, "beetle", 1, 0, 1, "walk"),
         new EnemyWave(22, "beetle", 1, 20, 1, "walk"),
-    };
-
-    [HideInInspector]
-    public List<EnemyWave> DAY23_WAVES = new List<EnemyWave>{
-        new EnemyWave(310, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(175, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(195, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(22, "beetle", 1, 0, 1, "walk"),
-        new EnemyWave(24, "beetle", 1, 20, 1, "walk"),
     };
 
     #endregion WAVES FOR EACH DAY
@@ -245,7 +232,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string MACHINE_SEED_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string MACHINE_SEED_DAMAGE_NAME = "More Seeds!";
     [HideInInspector] public int[] MACHINE_SEED_DAMAGE_COST = { 100, 1000, 3000 };
-    [HideInInspector] public int[] MACHINE_SEED_DAMAGE = { 35, 40, 50 };
+    [HideInInspector] public int[] MACHINE_SEED_DAMAGE = { 35, 45, 55 };
 
     [HideInInspector] public int MACHINE_SEED_SPEED_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
@@ -257,7 +244,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string MACHINE_SEED_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string MACHINE_SEED_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] MACHINE_SEED_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] MACHINE_SEED_CAPACITY = { 75, 100, 200 };
+    [HideInInspector] public int[] MACHINE_SEED_CAPACITY = { 30, 40, 60 };
 
     [HideInInspector] public int MACHINE_SEED_CHEST_LVL = 0;
     [HideInInspector] public string MACHINE_SEED_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -307,7 +294,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string RESIN_SPIT_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string RESIN_SPIT_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] RESIN_SPIT_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] RESIN_SPIT_CAPACITY = { 50, 75, 100 };
+    [HideInInspector] public int[] RESIN_SPIT_CAPACITY = { 15, 20, 25 };
 
     [HideInInspector] public int RESIN_SPIT_CHEST_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -327,7 +314,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string S_SEEDNIPER_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string S_SEEDNIPER_DAMAGE_NAME = "More Damage!";
     [HideInInspector] public int[] S_SEEDNIPER_DAMAGE_COST = { 100, 1000 };
-    [HideInInspector] public int[] S_SEEDNIPER_DAMAGE = { 90, 110 };
+    [HideInInspector] public int[] S_SEEDNIPER_DAMAGE = { 100, 135 };
 
     [HideInInspector] public int S_SEEDNIPER_SPEED_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
@@ -345,7 +332,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string S_SEEDNIPER_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string S_SEEDNIPER_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] S_SEEDNIPER_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] S_SEEDNIPER_CAPACITY = { 35, 45, 90 };
+    [HideInInspector] public int[] S_SEEDNIPER_CAPACITY = { 20, 25, 40 };
 
     [HideInInspector] public int S_SEEDNIPER_CHEST_LVL = 0;
     [HideInInspector] public string S_SEEDNIPER_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -383,7 +370,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PINECONE_LAUNCHER_RANGE_DESCRIPTION = "Increases Turret Range";
     [HideInInspector] public string PINECONE_LAUNCHER_RANGE_NAME = "More Range!";
     [HideInInspector] public int[] PINECONE_LAUNCHER_RANGE_COST = { 1000 };
-    [HideInInspector] public float[] PINECONE_LAUNCHER_RANGE = { 10 };
+    [HideInInspector] public float[] PINECONE_LAUNCHER_RANGE = { 2 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_DAMAGE_STUN_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_DAMAGE_STUN_DESCRIPTION = "Now the Turret does more Damage and it stuns the enemies";
@@ -401,7 +388,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PINECONE_LAUNCHER_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string PINECONE_LAUNCHER_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY = { 50, 75, 100 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_CAPACITY = { 15, 20, 35 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_CHEST_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -421,7 +408,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string NUT_ROLL_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string NUT_ROLL_DAMAGE_NAME = "More Nut Damage!";
     [HideInInspector] public int[] NUT_ROLL_DAMAGE_COST = { 100, 1000 };
-    [HideInInspector] public int[] NUT_ROLL_DAMAGE = { 20, 30 };
+    [HideInInspector] public int[] NUT_ROLL_DAMAGE = { 40, 60 };
 
     [HideInInspector] public int NUT_ROLL_SPEED_LVL = 0;
     [HideInInspector] public string NUT_ROLL_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
@@ -445,7 +432,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string NUT_ROLL_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string NUT_ROLL_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] NUT_ROLL_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] NUT_ROLL_CAPACITY = { 30, 50, 70 };
+    [HideInInspector] public int[] NUT_ROLL_CAPACITY = { 10, 12, 14 };
 
     [HideInInspector] public int NUT_ROLL_CHEST_LVL = 0;
     [HideInInspector] public string NUT_ROLL_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -483,7 +470,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PORCUTHROW_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string PORCUTHROW_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] PORCUTHROW_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] PORCUTHROW_CAPACITY = { 75, 100, 200 };
+    [HideInInspector] public int[] PORCUTHROW_CAPACITY = { 35, 40, 55 };
 
     [HideInInspector] public int PORCUTHROW_CHEST_LVL = 0;
     [HideInInspector] public string PORCUTHROW_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";
@@ -527,7 +514,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string ELECTRIC_POTATO_CAPACITY_DESCRIPTION = "Increases turret magazine capacity";
     [HideInInspector] public string ELECTRIC_POTATO_CAPACITY_NAME = "More Magazine!";
     [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY_COST = { 100, 500, 3000 };
-    [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY = { 50, 75, 100 };
+    [HideInInspector] public int[] ELECTRIC_POTATO_CAPACITY = { 20, 25, 35 };
 
     [HideInInspector] public int ELECTRIC_POTATO_CHEST_LVL = 0;
     [HideInInspector] public string ELECTRIC_POTATO_CHEST_DESCRIPTION_UNO = "Creates a chest next to the turret where you can store ammunition";

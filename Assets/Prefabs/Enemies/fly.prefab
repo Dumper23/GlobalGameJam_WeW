@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2860485439496205780}
   - component: {fileID: 2795719443892831720}
   - component: {fileID: 3172339548364606915}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6243143561903858946}
   - component: {fileID: 7133543771876935659}
   - component: {fileID: 7258794094140212838}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: fly
   maxHealth: 110
-  speed: 0.8
+  speed: 0.9
   currentSpeed: 0
   type: fly
   waypoints: []
-  fertilizerToGive: 12
+  fertilizerToGive: 16
   isSlowed: 0
   isStunned: 0
   bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}

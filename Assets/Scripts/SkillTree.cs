@@ -184,28 +184,28 @@ public class SkillTree : MonoBehaviour
         switch (counter)
         {
             case 1:
-                SkillNodes[14].buyed = true;
-                SkillHolder[13].CreateLine();
-                break;
-            case 2:
                 SkillNodes[27].buyed = true;
                 SkillHolder[26].CreateLine();
                 break;
-            case 3:
+            case 2:
                 SkillNodes[40].buyed = true;
                 SkillHolder[39].CreateLine();
                 break;
-            case 4:
-                SkillNodes[53].buyed = true;
-                SkillHolder[52].CreateLine();
-                break;
-            case 5:
+            case 3:
                 SkillNodes[66].buyed = true;
                 SkillHolder[65].CreateLine();
                 break;
+            case 4:
+                SkillNodes[14].buyed = true;
+                SkillHolder[79].CreateLine();
+                break;
+            case 5:
+                SkillNodes[53].buyed = true;
+                SkillHolder[52].CreateLine();
+                break;
             case 6:
-                SkillNodes[78].buyed = true;
-                SkillHolder[77].CreateLine();
+                SkillNodes[79].buyed = true;
+                SkillHolder[90].CreateLine();
                 break;
         }
     }

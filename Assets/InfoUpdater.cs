@@ -16,11 +16,12 @@ public class InfoUpdater : MonoBehaviour
     private float timeValue = 0;
     private bool timeUp = false;
     private int dayStateValue = 0;
+    private bool isFirstTime = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isFirstTime = true;
     }
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class InfoUpdater : MonoBehaviour
         }
         else
         {
-            timeValue = 60;
+            timeValue = GameManager.Instance.nightDuration;
         }
 
         timeUp = !timeUp;
@@ -89,7 +90,15 @@ public class InfoUpdater : MonoBehaviour
         }
         else
         {
-            timeValue = 60;
+            if (isFirstTime)
+            {
+                timeValue = 35;
+                isFirstTime = false;
+            }
+            else
+            {
+                timeValue = GameManager.Instance.nightDuration;
+            }
         }
     }
 

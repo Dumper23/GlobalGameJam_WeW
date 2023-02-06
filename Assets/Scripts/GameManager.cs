@@ -20,6 +20,7 @@ public class AmmoImage
 [DefaultExecutionOrder(0)]
 public class GameManager : MonoBehaviour
 {
+    public float nightDuration = 60;
     public Camera mainCam;
     public int unlockedFloors = 3;
     public int fertilizer = 0;
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
     private bool playerInMenu = false;
     private bool dayNightAnimationPlaying = false;
     private int turretAutoincremental = 0;
-    private bool isFirstTime = true;
+    public bool isFirstTime = true;
 
     private bool gamePaused = false;
 
@@ -90,6 +91,8 @@ public class GameManager : MonoBehaviour
     public float dayChangeDuration = 4f;
     public float nightChangeDuration = 4f;
     private bool changeLight;
+    public bool skipCinematic = false;
+    public GameObject mainMenu;
 
     #region Constants
 
@@ -128,6 +131,12 @@ public class GameManager : MonoBehaviour
         floorList.Add(GameObject.Find("BOTTOM"));
         floorList.Add(GameObject.Find("Blue_Floor"));
         floorList.Add(GameObject.Find("TOP"));
+        isFirstTime = true;
+        if (skipCinematic)
+        {
+            changeDayState();
+            mainMenu.SetActive(false);
+        }
     }
 
     #region getters & setters
@@ -928,7 +937,6 @@ public class GameManager : MonoBehaviour
                 this.gameOver = true;
                 GameManager.Instance.initialAnim.gameObject.SetActive(true);
                 GameManager.Instance.initialAnim.startGameOverScene();
-                Debug.Log("game over :(");
             }
         }
     }
@@ -946,7 +954,6 @@ public class GameManager : MonoBehaviour
             changeLight = true;
             if (isDay)
             {
-                Debug.Log("A");
                 fadeInDay();
                 dayChangeStartTime = Time.time;
                 //show animation
@@ -968,7 +975,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("B");
                 fadeInNight();
                 nightChangeStartTime = Time.time;
                 //show animation
@@ -1013,7 +1019,15 @@ public class GameManager : MonoBehaviour
                 {
                     //Start day after 60s
                     infoUpdater.ResetTimer();
-                    Invoke("changeDayState", 60);
+                    if (isFirstTime)
+                    {
+                        Invoke("changeDayState", 35);
+                        isFirstTime = false;
+                    }
+                    else
+                    {
+                        Invoke("changeDayState", nightDuration);
+                    }
                 }
 
                 if (this.currentDay == 1) Invoke("callStartIntroScene3", 5);
@@ -1030,7 +1044,6 @@ public class GameManager : MonoBehaviour
     {
         this.initialAnim.startEndGameScene();
         this.gameEnd.SetActive(true);
-        Debug.Log("called end game scene");
     }
 
     public void activateEnemySpawns()
@@ -1044,7 +1057,8 @@ public class GameManager : MonoBehaviour
 
     public void handleChangeState()
     {
-        Invoke("changeDayState", 600);
+        Invoke("changeDayState", nightDuration);
+        infoUpdater.ResetTimer();
     }
 
     public void playDayNightAnimation()
