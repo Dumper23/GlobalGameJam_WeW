@@ -211,7 +211,8 @@ public class Narrative : MonoBehaviour
     public void startGameOverScene()
     {
         GameManager.Instance.setDayNightAnimationPlaying(true);
-
+        this.gameObject.transform.Find("FloorBackground").gameObject.SetActive(false);
+        this.gameObject.transform.Find("characters").gameObject.SetActive(false);
         this.dialogIndex = 0;
         this.introKeyIndex = 0;
         this.gameObject.SetActive(true);

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public int fertilizerToGive = 10;
     public bool isSlowed = false;
     public bool isStunned = false;
+    public GameObject hitParticles;
 
     public GameObject bloodParticles;
     public GameObject bloodDecal;
@@ -93,6 +94,7 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        Instantiate(hitParticles, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
         {
             die();

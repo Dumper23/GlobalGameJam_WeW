@@ -313,8 +313,19 @@ public class GameManager : MonoBehaviour
                 //Only first slot avaliable
                 if (player.ammoSlot1.hasAmmo)
                 {
-                    //Cant add more ammo
-                    player.updateInventorySlots();
+                    if (player.ammoSlot1.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot1.currentAmmoType))
+                    {
+                        player.ammoSlot1.hasAmmo = true;
+                        player.ammoSlot1.currentAmmoType = ammoType;
+                        player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                    else {
+                        //Cant add more ammo
+                        player.updateInventorySlots();
+                    }
                     return false;
                 }
                 else
@@ -330,11 +341,32 @@ public class GameManager : MonoBehaviour
             case 1:
                 if (player.ammoSlot1.hasAmmo)
                 {
-                    if (player.ammoSlot2.hasAmmo)
+                    if (player.ammoSlot1.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot1.currentAmmoType))
                     {
-                        //Cant add more ammo
+                        player.ammoSlot1.hasAmmo = true;
+                        player.ammoSlot1.currentAmmoType = ammoType;
+                        player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
                         player.updateInventorySlots();
-                        return false;
+                        return true;
+                    }
+                    else if (player.ammoSlot2.hasAmmo)
+                    {
+                        if (player.ammoSlot2.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot2.currentAmmoType))
+                        {
+                            player.ammoSlot2.hasAmmo = true;
+                            player.ammoSlot2.currentAmmoType = ammoType;
+                            player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
+                            player.updateInventorySlots();
+                            return true;
+                        }
+                        else
+                        {
+                            //Cant add more ammo
+                            player.updateInventorySlots();
+                            return false;
+                        }
                     }
                     else
                     {
@@ -359,13 +391,43 @@ public class GameManager : MonoBehaviour
             case 2:
                 if (player.ammoSlot1.hasAmmo)
                 {
-                    if (player.ammoSlot2.hasAmmo)
+                    if (player.ammoSlot1.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot1.currentAmmoType))
                     {
-                        if (player.ammoSlot3.hasAmmo)
+                        player.ammoSlot1.hasAmmo = true;
+                        player.ammoSlot1.currentAmmoType = ammoType;
+                        player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                    else if (player.ammoSlot2.hasAmmo)
+                    {
+                        if (player.ammoSlot2.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot2.currentAmmoType))
                         {
-                            //Cant add more ammo
+                            player.ammoSlot2.hasAmmo = true;
+                            player.ammoSlot2.currentAmmoType = ammoType;
+                            player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
                             player.updateInventorySlots();
-                            return false;
+                            return true;
+                        }
+                        else if (player.ammoSlot3.hasAmmo)
+                        {
+                            if (player.ammoSlot3.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot3.currentAmmoType))
+                            {
+                                player.ammoSlot3.hasAmmo = true;
+                                player.ammoSlot3.currentAmmoType = ammoType;
+                                player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                                player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
+                                player.updateInventorySlots();
+                                return true;
+                            }
+                            else
+                            {
+                                //Cant add more ammo
+                                player.updateInventorySlots();
+                                return false;
+                            }
                         }
                         else
                         {
@@ -400,15 +462,54 @@ public class GameManager : MonoBehaviour
             case 3:
                 if (player.ammoSlot1.hasAmmo)
                 {
-                    if (player.ammoSlot2.hasAmmo)
+                    if (player.ammoSlot1.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot1.currentAmmoType))
                     {
-                        if (player.ammoSlot3.hasAmmo)
+                        player.ammoSlot1.hasAmmo = true;
+                        player.ammoSlot1.currentAmmoType = ammoType;
+                        player.ammoSlot1.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                        player.ammoSlot1.ammoImage = getAmmoImage(ammoType);
+                        player.updateInventorySlots();
+                        return true;
+                    }
+                    else if (player.ammoSlot2.hasAmmo)
+                    {
+                        if (player.ammoSlot2.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot2.currentAmmoType))
                         {
-                            if (player.ammoSlot4.hasAmmo)
+                            player.ammoSlot2.hasAmmo = true;
+                            player.ammoSlot2.currentAmmoType = ammoType;
+                            player.ammoSlot2.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                            player.ammoSlot2.ammoImage = getAmmoImage(ammoType);
+                            player.updateInventorySlots();
+                            return true;
+                        }
+                        else if (player.ammoSlot3.hasAmmo)
+                        {
+                            if (player.ammoSlot3.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot3.currentAmmoType))
                             {
-                                //Cant add more ammo
+                                player.ammoSlot3.hasAmmo = true;
+                                player.ammoSlot3.currentAmmoType = ammoType;
+                                player.ammoSlot3.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                                player.ammoSlot3.ammoImage = getAmmoImage(ammoType);
                                 player.updateInventorySlots();
-                                return false;
+                                return true;
+                            }
+                            else if (player.ammoSlot4.hasAmmo)
+                            {
+                                if (player.ammoSlot4.currentAmount < Database.Instance.PLAYER_CAPACITY_LVL + 1 && ammoType.Equals(player.ammoSlot4.currentAmmoType))
+                                {
+                                    player.ammoSlot4.hasAmmo = true;
+                                    player.ammoSlot4.currentAmmoType = ammoType;
+                                    player.ammoSlot4.currentAmount = Database.Instance.PLAYER_CAPACITY_LVL + 1;
+                                    player.ammoSlot4.ammoImage = getAmmoImage(ammoType);
+                                    player.updateInventorySlots();
+                                    return true;
+                                }
+                                else
+                                {
+                                    //Cant add more ammo
+                                    player.updateInventorySlots();
+                                    return false;
+                                }
                             }
                             else
                             {

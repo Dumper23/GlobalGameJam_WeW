@@ -161,6 +161,7 @@ MonoBehaviour:
   fertilizerToGive: 20
   isSlowed: 0
   isStunned: 0
+  hitParticles: {fileID: 4940052581796535635, guid: e55a5386800755d47bca0ea2824f2537, type: 3}
   bloodParticles: {fileID: 4844804084204859384, guid: 5040ce1a4fe53b740bba27c89d962dec, type: 3}
   bloodDecal: {fileID: 8115271143686780524, guid: 9b4127452c401004bb1f7b164f946a82, type: 3}
   waypointIndex: 0
