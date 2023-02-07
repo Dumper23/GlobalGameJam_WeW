@@ -319,7 +319,7 @@ MonoBehaviour:
   ammoType: pinecone
   fireRate: 3
   rangeAttack: 7
-  damage: 34
+  damage: 40
   maxAmmo: 10
   maxChest: 0
   bulletSpawn: {fileID: 856318494662998}

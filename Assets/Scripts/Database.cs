@@ -91,74 +91,74 @@ public class Database : MonoBehaviour
     [HideInInspector]
     public List<EnemyWave> DAY8_WAVES = new List<EnemyWave>{
         new EnemyWave(10, "ant", 1.5f, 0, 1, "walk"),
-        new EnemyWave(17, "flea", 1, 4, 1, "walk"),
+        new EnemyWave(13, "flea", 1, 4, 1, "walk"),
         new EnemyWave(8, "fly", 1, 0, 1, "fly")
         //new EnemyWave(5, "ant", 1, 0.5f, 1,  "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY9_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 1.5f, 10, 1, "walk"),
+        new EnemyWave(18, "ant", 1.5f, 10, 1, "walk"),
         //new EnemyWave(20, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(22, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(17, "fly", 1, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY10_WAVES = new List<EnemyWave>{
         new EnemyWave(7, "ant", 1, 0, 1, "walk"),
         new EnemyWave(7, "flea", 0.5f, 12, 1, "walk"),
-        new EnemyWave(25, "fly", 0.5f, 0, 1, "fly"),
+        new EnemyWave(20, "fly", 0.5f, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY11_WAVES = new List<EnemyWave>{
-        new EnemyWave(10, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(10, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(10, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 40, 1, "walk")
+        new EnemyWave(9, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(9, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(9, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 20, 1, "walk")
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY12_WAVES = new List<EnemyWave>{
-        new EnemyWave(12, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(13, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(20, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(14, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(18, "fly", 1, 0, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY13_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 1, 10, 1, "walk"),
-        new EnemyWave(15, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(25, "fly", 1, 20, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 50, 1, "walk"),
+        new EnemyWave(14, "ant", 1, 10, 1, "walk"),
+        new EnemyWave(14, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(15, "fly", 1, 20, 1, "fly"),
+        new EnemyWave(2, "beetle", 10, 30, 1, "walk"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY14_WAVES = new List<EnemyWave>{
-        new EnemyWave(35, "fly", 1.5f, 20, 1, "fly"),
-        new EnemyWave(3, "beetle", 20, 0, 1, "walk"),
+        new EnemyWave(30, "fly", 1.5f, 20, 1, "fly"),
+        new EnemyWave(3, "beetle", 10, 0, 1, "walk"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY15_WAVES = new List<EnemyWave>{
-        new EnemyWave(40, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(10, "flea", 1, 0.5f, 1, "walk"),
-        new EnemyWave(10, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(2, "beetle", 10, 45, 1, "walk"),
+        new EnemyWave(30, "ant", 1, 0, 1, "walk"),
+        new EnemyWave(12, "flea", 1, 0.5f, 1, "walk"),
+        new EnemyWave(12, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(2, "beetle", 10, 25, 1, "walk"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY16_WAVES = new List<EnemyWave>{
-        new EnemyWave(60, "fly", 1, 0, 1, "fly"),
-        new EnemyWave(4, "fly", 25, 10, 1, "fly"),
+        new EnemyWave(40, "fly", 1, 0, 1, "fly"),
+        new EnemyWave(4, "beetle", 5, 10, 1, "fly"),
     };
 
     [HideInInspector]
     public List<EnemyWave> DAY17_WAVES = new List<EnemyWave>{
-        new EnemyWave(20, "ant", 1, 0, 1, "walk"),
-        new EnemyWave(15, "flea", 0.5f, 20, 1, "walk"),
-        new EnemyWave(20, "fly", 0.75f, 40, 1, "fly"),
-        new EnemyWave(1, "beetle", 1, 45, 1, "fly"),
+        new EnemyWave(20, "ant", 0.4f, 0, 1, "walk"),
+        new EnemyWave(15, "flea", 0.5f, 15, 1, "walk"),
+        new EnemyWave(20, "fly", 0.75f, 25, 1, "fly"),
+        new EnemyWave(1, "beetle", 1, 40, 1, "walk"),
     };
 
     [HideInInspector]
@@ -269,7 +269,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string RESIN_SPIT_DURATION_DESCRIPTION = "Increases the duration of the resin in the tree";
     [HideInInspector] public string RESIN_SPIT_DURATION_NAME = "More Resin!";
     [HideInInspector] public int[] RESIN_SPIT_DURATION_COST = { 1000, 3000 };
-    [HideInInspector] public float[] RESIN_SPIT_DURATION = { 3, 4 };
+    [HideInInspector] public float[] RESIN_SPIT_DURATION = { 7, 8 };
 
     [HideInInspector] public int RESIN_SPIT_STICKNESS_LVL = 0;
     [HideInInspector] public string RESIN_SPIT_STICKNESS_DESCRIPTION = "Increases resin slow";
@@ -351,7 +351,7 @@ public class Database : MonoBehaviour
     [HideInInspector] public string PINECONE_LAUNCHER_DAMAGE_DESCRIPTION = "Increases Turret Damage";
     [HideInInspector] public string PINECONE_LAUNCHER_DAMAGE_NAME = "More Pinecones!";
     [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE_COST = { 1000 };
-    [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE = { 60 };
+    [HideInInspector] public int[] PINECONE_LAUNCHER_DAMAGE = { 75 };
 
     [HideInInspector] public int PINECONE_LAUNCHER_SPEED_LVL = 0;
     [HideInInspector] public string PINECONE_LAUNCHER_SPEED_DESCRIPTION = "Increases Turret Attack Speed";
